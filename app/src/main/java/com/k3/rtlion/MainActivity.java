@@ -66,7 +66,7 @@ public class MainActivity extends Activity {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    splashDialog.cancel();
+                    //splashDialog.cancel();
                 }
             }, 3000);
             splashDialog.show();

@@ -43,7 +43,7 @@
         android:layout_height="2dp"
         android:background="@color/colorGray1"
         android:layout_below="@id/viewCenter"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="9dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="5dp"
         android:layout_toStartOf="@+id/txvRtlionDesc"/>
@@ -54,7 +54,7 @@
         android:layout_height="2dp"
         android:background="@color/colorGray1"
         android:layout_below="@id/viewCenter"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="9dp"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="10dp"
         android:layout_toEndOf="@+id/txvRtlionDesc"/>
