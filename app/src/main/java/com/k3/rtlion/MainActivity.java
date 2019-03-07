@@ -83,7 +83,11 @@ public class MainActivity extends Activity {
                             new Handler().postDelayed(new Runnable() {
                                 @Override
                                 public void run() {
-                                    splashDialog.cancel();
+                                    try {
+                                        splashDialog.dismiss();
+                                    }catch (Exception e){
+                                        e.printStackTrace();
+                                    }
                                 }
                             }, delay2);
                         }
