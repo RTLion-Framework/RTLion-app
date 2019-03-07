@@ -22,4 +22,15 @@
         android:visibility="invisible"
         android:layout_centerInParent="true"/>
 
+    <TextView
+        android:id="@+id/txvRtlionDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/app_desc"
+        android:textColor="@color/colorGray1"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_below="@id/viewCenter" />
+
 </RelativeLayout>

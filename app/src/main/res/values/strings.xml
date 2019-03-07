@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RTLion</string>
+    <string name="app_desc">Multipurpose RTL-SDR Framework</string>
 </resources>
