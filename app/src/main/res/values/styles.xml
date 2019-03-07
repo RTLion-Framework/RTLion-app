@@ -2,4 +2,8 @@
     <style name="AppTheme" parent="android:Theme.Black.NoTitleBar">
         <item name="android:windowDisablePreview">true</item>
     </style>
+    <style name="SplashTheme">
+        <item name="android:windowEnterAnimation">@anim/slide_left_anim</item>
+        <item name="android:windowExitAnimation">@anim/slide_right_anim</item>
+    </style>
 </resources>
