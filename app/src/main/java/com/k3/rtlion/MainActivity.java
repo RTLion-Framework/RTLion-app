@@ -22,6 +22,7 @@ public class MainActivity extends Activity {
     private LayoutInflater layoutInflater;
     private Dialog splashDialog;
     private Typeface tfUbuntuMono;
+    private String loadingDots = "...";
 
     private void init(){
         hideActionBar();
@@ -60,19 +61,35 @@ public class MainActivity extends Activity {
                     viewDescEnd = splashDialog.findViewById(R.id.viewDescEnd);
             TextView txvRtlionDesc = (TextView) splashDialog.findViewById(R.id.txvRtlionDesc),
                     txvAuthor = (TextView) splashDialog.findViewById(R.id.txvAuthor);
+            final TextView txvLoading = (TextView) splashDialog.findViewById(R.id.txvLoading);
             txvRtlionDesc.setTypeface(tfUbuntuMono);
             txvAuthor.setTypeface(tfUbuntuMono);
+            txvLoading.setTypeface(tfUbuntuMono);
             imgRtlionLogo.setAnimation(fadeAnimation(1500));
             viewDescStart.setAnimation(fadeAnimation(2000));
             txvRtlionDesc.setAnimation(fadeAnimation(2000));
             viewDescEnd.setAnimation(fadeAnimation(2000));
             txvAuthor.setAnimation(fadeAnimation(1000));
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    splashDialog.cancel();
-                }
-            }, 2500);
+            final int delay1 = 500, delay2 = 1500;
+            for (int s = 0; s < loadingDots.toCharArray().length; s++) {
+                final int i = s;
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        txvLoading.setText("[" + txvLoading.getText().toString()
+                                .replace("[", "").replace("]", "") +
+                                String.valueOf(loadingDots.toCharArray()[i]) + "]");
+                        if (i == loadingDots.toCharArray().length - 1) {
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    splashDialog.cancel();
+                                }
+                            }, delay2);
+                        }
+                    }
+                }, s * delay1);
+            }
             splashDialog.show();
         }catch (Exception e){
             e.printStackTrace();
