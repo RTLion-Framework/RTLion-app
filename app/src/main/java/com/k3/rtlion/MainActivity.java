@@ -18,12 +18,9 @@ public class MainActivity extends Activity {
 
     private LayoutInflater layoutInflater;
     private Dialog splashDialog;
-    private Animation fadeInAnim, fadeOutAnim;
-    private AnimationSet fadeAnims;
 
     private void init(){
         hideActionBar();
-        initAnims(1500);
         showSplash();
     }
     @Override
@@ -39,17 +36,11 @@ public class MainActivity extends Activity {
             e.printStackTrace();
         }
     }
-    private void initAnims(int duration){
-        fadeInAnim = new AlphaAnimation(0, 1);
+    private Animation fadeAnimation(int duration){
+        Animation fadeInAnim = new AlphaAnimation(0, 1);
         fadeInAnim.setInterpolator(new DecelerateInterpolator());
         fadeInAnim.setDuration(duration);
-        fadeOutAnim = new AlphaAnimation(1, 0);
-        fadeOutAnim.setInterpolator(new AccelerateInterpolator());
-        fadeOutAnim.setStartOffset(1000);
-        fadeOutAnim.setDuration(duration);
-        fadeAnims = new AnimationSet(false);
-        fadeAnims.addAnimation(fadeInAnim);
-        fadeAnims.addAnimation(fadeOutAnim);
+        return fadeInAnim;
     }
     private void showSplash(){
         try {
@@ -60,13 +51,13 @@ public class MainActivity extends Activity {
             splashDialog.setContentView(layoutInflater.inflate(R.layout.layout_splash, null));
             splashDialog.setCancelable(false);
             ImageView imgRtlionLogo = (ImageView) splashDialog.findViewById(R.id.imgRtlionLogo);
-            imgRtlionLogo.setAnimation(fadeAnims);
+            imgRtlionLogo.setAnimation(fadeAnimation(1000));
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     splashDialog.cancel();
                 }
-            }, 5000);
+            }, 3000);
             splashDialog.show();
         }catch (Exception e){
             e.printStackTrace();
