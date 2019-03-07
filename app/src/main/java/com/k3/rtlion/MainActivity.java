@@ -3,6 +3,7 @@ package com.k3.rtlion;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -56,16 +57,18 @@ public class MainActivity extends Activity {
             View viewDescStart = splashDialog.findViewById(R.id.viewDescStart),
                     viewDescEnd = splashDialog.findViewById(R.id.viewDescEnd);
             TextView txvRtlionDesc = (TextView) splashDialog.findViewById(R.id.txvRtlionDesc);
-            imgRtlionLogo.setAnimation(fadeAnimation(2000));
-            viewDescStart.setAnimation(fadeAnimation(1500));
-            txvRtlionDesc.setAnimation(fadeAnimation(1500));
-            viewDescEnd.setAnimation(fadeAnimation(1500));
+            Typeface tfUbuntuMono = Typeface.createFromAsset(getAssets(),  "fonts/UbuntuMono_R.ttf");
+            txvRtlionDesc.setTypeface(tfUbuntuMono);
+            imgRtlionLogo.setAnimation(fadeAnimation(1500));
+            viewDescStart.setAnimation(fadeAnimation(2000));
+            txvRtlionDesc.setAnimation(fadeAnimation(2000));
+            viewDescEnd.setAnimation(fadeAnimation(2000));
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     splashDialog.cancel();
                 }
-            }, 3500);
+            }, 3000);
             splashDialog.show();
         }catch (Exception e){
             e.printStackTrace();
