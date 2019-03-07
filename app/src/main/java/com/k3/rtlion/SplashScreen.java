@@ -36,64 +36,67 @@ public class SplashScreen {
         txvRtlionDesc = (TextView) splashDialog.findViewById(R.id.txvRtlionDesc);
         txvAuthor = (TextView) splashDialog.findViewById(R.id.txvAuthor);
         txvLoading = (TextView) splashDialog.findViewById(R.id.txvLoading);
+        tfUbuntuMono = Typeface.createFromAsset(context.getAssets(), ubuntuMonoFont);
+        txvRtlionDesc.setTypeface(tfUbuntuMono);
+        txvAuthor.setTypeface(tfUbuntuMono);
+        txvLoading.setTypeface(tfUbuntuMono);
     }
-
     public SplashScreen(Activity activity){
         this.activity = activity;
         this.context = activity.getApplicationContext();
     }
-
     private Animation fadeAnimation(int duration){
         Animation fadeInAnim = new AlphaAnimation(0, 1);
         fadeInAnim.setInterpolator(new DecelerateInterpolator());
         fadeInAnim.setDuration(duration);
         return fadeInAnim;
     }
-
     public void show(){
         try {
             layoutInflater = (LayoutInflater) context.getSystemService(Context.
                     LAYOUT_INFLATER_SERVICE);
-            tfUbuntuMono = Typeface.createFromAsset(context.getAssets(),  ubuntuMonoFont);
             splashDialog = new Dialog(activity, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
             splashDialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
             splashDialog.setContentView(layoutInflater.inflate(R.layout.layout_splash, null));
             splashDialog.setCancelable(false);
             initDialog(splashDialog);
-            txvRtlionDesc.setTypeface(tfUbuntuMono);
-            txvAuthor.setTypeface(tfUbuntuMono);
-            txvLoading.setTypeface(tfUbuntuMono);
-            imgRtlionLogo.setAnimation(fadeAnimation(1500));
-            viewDescStart.setAnimation(fadeAnimation(2000));
-            txvRtlionDesc.setAnimation(fadeAnimation(2000));
-            viewDescEnd.setAnimation(fadeAnimation(2000));
-            txvAuthor.setAnimation(fadeAnimation(1000));
-            for (int s = 0; s < loadingDots.toCharArray().length; s++) {
-                final int i = s;
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        txvLoading.setText("[" + txvLoading.getText().toString()
-                                .replace("[", "").replace("]", "") +
-                                String.valueOf(loadingDots.toCharArray()[i]) + "]");
-                        if (i == loadingDots.toCharArray().length - 1) {
-                            new Handler().postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    try {
-                                        splashDialog.dismiss();
-                                    }catch (Exception e){
-                                        e.printStackTrace();
-                                    }
-                                }
-                            }, splashDelay2);
-                        }
-                    }
-                }, s * splashDelay1);
-            }
+            setAnimations();
+            animateDotsLoading();
             splashDialog.show();
         }catch (Exception e){
             e.printStackTrace();
+        }
+    }
+    private void setAnimations(){
+        imgRtlionLogo.setAnimation(fadeAnimation(1500));
+        viewDescStart.setAnimation(fadeAnimation(2000));
+        txvRtlionDesc.setAnimation(fadeAnimation(2000));
+        viewDescEnd.setAnimation(fadeAnimation(2000));
+        txvAuthor.setAnimation(fadeAnimation(1000));
+    }
+    private void animateDotsLoading(){
+        for (int s = 0; s < loadingDots.toCharArray().length; s++) {
+            final int i = s;
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    txvLoading.setText("[" + txvLoading.getText().toString()
+                            .replace("[", "").replace("]", "") +
+                            String.valueOf(loadingDots.toCharArray()[i]) + "]");
+                    if (i == loadingDots.toCharArray().length - 1) {
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    splashDialog.dismiss();
+                                }catch (Exception e){
+                                    e.printStackTrace();
+                                }
+                            }
+                        }, splashDelay2);
+                    }
+                }
+            }, s * splashDelay1);
         }
     }
 }
