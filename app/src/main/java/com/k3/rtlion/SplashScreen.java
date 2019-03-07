@@ -51,22 +51,6 @@ public class SplashScreen {
         fadeInAnim.setDuration(duration);
         return fadeInAnim;
     }
-    public void show(){
-        try {
-            layoutInflater = (LayoutInflater) context.getSystemService(Context.
-                    LAYOUT_INFLATER_SERVICE);
-            splashDialog = new Dialog(activity, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
-            splashDialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-            splashDialog.setContentView(layoutInflater.inflate(R.layout.layout_splash, null));
-            splashDialog.setCancelable(false);
-            initDialog(splashDialog);
-            setAnimations();
-            animateDotsLoading();
-            splashDialog.show();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
     private void setAnimations(){
         imgRtlionLogo.setAnimation(fadeAnimation(1500));
         viewDescStart.setAnimation(fadeAnimation(2000));
@@ -97,6 +81,22 @@ public class SplashScreen {
                     }
                 }
             }, s * splashDelay1);
+        }
+    }
+    public void show(){
+        try {
+            layoutInflater = (LayoutInflater) context.getSystemService(Context.
+                    LAYOUT_INFLATER_SERVICE);
+            splashDialog = new Dialog(activity, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
+            splashDialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+            splashDialog.setContentView(layoutInflater.inflate(R.layout.layout_splash, null));
+            splashDialog.setCancelable(false);
+            initDialog(splashDialog);
+            setAnimations();
+            animateDotsLoading();
+            splashDialog.show();
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 }
