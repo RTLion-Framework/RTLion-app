@@ -35,7 +35,6 @@ public class MainActivity extends Activity {
     private void showSplash(){
         try {
             splashDialog = new Dialog(this, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
-            splashDialog.getWindow().getAttributes().windowAnimations = R.style.SplashTheme;
             splashDialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
             splashDialog.setContentView(layoutInflater.inflate(R.layout.layout_splash, null));
             splashDialog.setCancelable(false);
