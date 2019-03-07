@@ -21,6 +21,7 @@ public class MainActivity extends Activity {
 
     private LayoutInflater layoutInflater;
     private Dialog splashDialog;
+    private Typeface tfUbuntuMono;
 
     private void init(){
         hideActionBar();
@@ -49,6 +50,7 @@ public class MainActivity extends Activity {
         try {
             layoutInflater = (LayoutInflater) getApplicationContext()
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            tfUbuntuMono = Typeface.createFromAsset(getAssets(),  "fonts/UbuntuMono_R.ttf");
             splashDialog = new Dialog(this, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
             splashDialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
             splashDialog.setContentView(layoutInflater.inflate(R.layout.layout_splash, null));
@@ -56,19 +58,21 @@ public class MainActivity extends Activity {
             ImageView imgRtlionLogo = (ImageView) splashDialog.findViewById(R.id.imgRtlionLogo);
             View viewDescStart = splashDialog.findViewById(R.id.viewDescStart),
                     viewDescEnd = splashDialog.findViewById(R.id.viewDescEnd);
-            TextView txvRtlionDesc = (TextView) splashDialog.findViewById(R.id.txvRtlionDesc);
-            Typeface tfUbuntuMono = Typeface.createFromAsset(getAssets(),  "fonts/UbuntuMono_R.ttf");
+            TextView txvRtlionDesc = (TextView) splashDialog.findViewById(R.id.txvRtlionDesc),
+                    txvAuthor = (TextView) splashDialog.findViewById(R.id.txvAuthor);
             txvRtlionDesc.setTypeface(tfUbuntuMono);
+            txvAuthor.setTypeface(tfUbuntuMono);
             imgRtlionLogo.setAnimation(fadeAnimation(1500));
             viewDescStart.setAnimation(fadeAnimation(2000));
             txvRtlionDesc.setAnimation(fadeAnimation(2000));
             viewDescEnd.setAnimation(fadeAnimation(2000));
+            txvAuthor.setAnimation(fadeAnimation(1000));
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    //splashDialog.cancel();
+                    splashDialog.cancel();
                 }
-            }, 3000);
+            }, 2500);
             splashDialog.show();
         }catch (Exception e){
             e.printStackTrace();

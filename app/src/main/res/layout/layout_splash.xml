@@ -58,5 +58,18 @@
         android:layout_marginStart="5dp"
         android:layout_marginEnd="10dp"
         android:layout_toEndOf="@+id/txvRtlionDesc"/>
+
+    <TextView
+        android:id="@+id/txvAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/author"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
+        android:gravity="start"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="2dp"/>
     
 </RelativeLayout>
