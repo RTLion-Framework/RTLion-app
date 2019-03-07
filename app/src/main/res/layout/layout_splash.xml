@@ -9,10 +9,11 @@
     <ImageView
         android:id="@+id/imgRtlionLogo"
         android:layout_width="wrap_content"
-        android:layout_height="200dp"
+        android:layout_height="162dp"
         android:src="@drawable/rtlion_crop"
         android:scaleType="fitCenter"
-        android:padding="15dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/viewCenter" />
     <View
