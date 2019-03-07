@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.Window;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
@@ -13,6 +14,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
@@ -51,13 +53,19 @@ public class MainActivity extends Activity {
             splashDialog.setContentView(layoutInflater.inflate(R.layout.layout_splash, null));
             splashDialog.setCancelable(false);
             ImageView imgRtlionLogo = (ImageView) splashDialog.findViewById(R.id.imgRtlionLogo);
-            imgRtlionLogo.setAnimation(fadeAnimation(1000));
+            View viewDescStart = splashDialog.findViewById(R.id.viewDescStart),
+                    viewDescEnd = splashDialog.findViewById(R.id.viewDescEnd);
+            TextView txvRtlionDesc = (TextView) splashDialog.findViewById(R.id.txvRtlionDesc);
+            imgRtlionLogo.setAnimation(fadeAnimation(2000));
+            viewDescStart.setAnimation(fadeAnimation(1500));
+            txvRtlionDesc.setAnimation(fadeAnimation(1500));
+            viewDescEnd.setAnimation(fadeAnimation(1500));
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    //splashDialog.cancel();
+                    splashDialog.cancel();
                 }
-            }, 3000);
+            }, 3500);
             splashDialog.show();
         }catch (Exception e){
             e.printStackTrace();
