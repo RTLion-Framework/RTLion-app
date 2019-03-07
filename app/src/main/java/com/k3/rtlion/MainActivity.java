@@ -10,6 +10,7 @@ import android.view.Window;
 
 public class MainActivity extends Activity {
     private void init(){
+        hideActionBar();
         showSplash();
     }
     @Override
@@ -17,6 +18,13 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
+    }
+    private void hideActionBar(){
+        try{
+            getActionBar().hide();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
     private void showSplash(){
         try {
@@ -30,7 +38,7 @@ public class MainActivity extends Activity {
                 public void run() {
                     splashDialog.cancel();
                 }
-            }, 1000);
+            }, 3000);
             splashDialog.show();
         }catch (Exception e){
             e.printStackTrace();
