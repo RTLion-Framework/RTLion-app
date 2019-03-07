@@ -9,13 +9,15 @@
     <ImageView
         android:id="@+id/imgRtlionLogo"
         android:layout_width="wrap_content"
-        android:layout_height="162dp"
+        android:layout_height="135dp"
         android:src="@drawable/rtlion_crop"
         android:scaleType="fitCenter"
         android:paddingStart="15dp"
         android:paddingEnd="15dp"
         android:layout_centerHorizontal="true"
-        android:layout_above="@+id/viewCenter" />
+        android:layout_above="@+id/viewCenter"
+        android:layout_marginBottom="1dp"/>
+
     <View
         android:id="@+id/viewCenter"
         android:layout_width="0dp"
@@ -25,13 +27,36 @@
 
     <TextView
         android:id="@+id/txvRtlionDesc"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/app_desc"
         android:textColor="@color/colorGray1"
         android:textSize="19sp"
         android:textStyle="bold"
         android:gravity="center"
-        android:layout_below="@id/viewCenter" />
+        android:layout_below="@id/viewCenter"
+        android:layout_centerHorizontal="true"/>
+
+    <View
+        android:id="@+id/viewDescStart"
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:background="@color/colorGray1"
+        android:layout_below="@id/viewCenter"
+        android:layout_marginTop="13dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="5dp"
+        android:layout_toStartOf="@+id/txvRtlionDesc"/>
+
+    <View
+        android:id="@+id/viewDescEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:background="@color/colorGray1"
+        android:layout_below="@id/viewCenter"
+        android:layout_marginTop="13dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_toEndOf="@+id/txvRtlionDesc"/>
 
 </RelativeLayout>
