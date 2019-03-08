@@ -3,6 +3,7 @@ package com.k3.rtlion;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -14,6 +15,7 @@ public class MainActivity extends Activity {
     private ViewPager vpPages;
     private PagesAdapter pagesAdapter;
     private MainPageFrag mainPageFrag;
+    private int currentPageNum;
 
     private void init(){
         hideActionBar();
@@ -43,10 +45,31 @@ public class MainActivity extends Activity {
             public void onPageScrollStateChanged(int state) {}
         });
     }
+    private void setPageNavigators(){
+        txvPrevPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (currentPageNum - 1 >= 0)
+                    vpPages.setCurrentItem(currentPageNum - 1);
+                else
+                    vpPages.setCurrentItem(PagesAdapter.PagesEnum.values().length - 1);
+            }
+        });
+        txvNextPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (currentPageNum + 1 < PagesAdapter.PagesEnum.values().length)
+                    vpPages.setCurrentItem(currentPageNum + 1);
+                else
+                    vpPages.setCurrentItem(0);
+            }
+        });
+    }
     private void vpPages_onPageChange(int position){
         txvRtlionFramework.setText(getString(R.string.app_desc_long) + " > " +
                 getString(PagesAdapter.PagesEnum.values()[position].getTitleResID()));
         txvPageNum.setText(String.valueOf(position+1));
+        currentPageNum = position;
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
