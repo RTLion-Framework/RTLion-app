@@ -22,6 +22,7 @@ public class MainActivity extends Activity {
         txvPageNum = (TextView) findViewById(R.id.txvPageNum);
         txvPrevPage = (TextView) findViewById(R.id.txvPrevPage);
         txvNextPage = (TextView) findViewById(R.id.txvNextPage);
+        initPageNavigators();
         txvRtlionFramework = (TextView) findViewById(R.id.txvRtlionFramework);
         txvRtlionFramework.setTypeface(new SplashScreen(this).getUbuntuMonoFont());
         vpPages_onPageChange(0);
@@ -45,7 +46,7 @@ public class MainActivity extends Activity {
             public void onPageScrollStateChanged(int state) {}
         });
     }
-    private void setPageNavigators(){
+    private void initPageNavigators(){
         txvPrevPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,6 +63,12 @@ public class MainActivity extends Activity {
                     vpPages.setCurrentItem(currentPageNum + 1);
                 else
                     vpPages.setCurrentItem(0);
+            }
+        });
+        txvPageNum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                txvNextPage.performClick();
             }
         });
     }

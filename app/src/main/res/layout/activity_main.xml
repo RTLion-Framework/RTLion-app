@@ -49,14 +49,23 @@
 
         <TextView
             android:id="@+id/txvPrevPage"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/prev_page"
             android:textStyle="bold"
             android:fontFamily="monospace"
             android:layout_margin="5dp"
             android:textColor="@color/colorPrimaryDark"
-            android:layout_alignParentStart="true"/>
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/viewBottomCenter"
+            android:gravity="start"/>
+
+        <View
+            android:id="@+id/viewBottomCenter"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="invisible"
+            android:layout_centerHorizontal="true"/>
 
         <TextView
             android:id="@+id/txvNextPage"
@@ -67,7 +76,9 @@
             android:fontFamily="monospace"
             android:layout_margin="5dp"
             android:textColor="@color/colorPrimaryDark"
-            android:layout_alignParentEnd="true"/>
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@+id/viewBottomCenter"
+            android:gravity="end"/>
 
     </RelativeLayout>
 
