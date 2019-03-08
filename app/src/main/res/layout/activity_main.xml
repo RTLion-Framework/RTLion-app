@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.k3.rtlion.MainActivity"
-    android:background="@color/colorWhite2">
+    android:background="@color/colorWhite">
 
     <TextView
         android:id="@+id/txvRtlionFramework"
@@ -16,9 +16,23 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:fontFamily="monospace"
-        android:layout_margin="5dp"
+        android:padding="5dp"
         android:gravity="start"
-        android:textColor="@color/colorGray1"/>
+        android:textColor="@color/colorGray1"
+        android:background="@color/colorWhite2"/>
+
+    <TextView
+        android:id="@+id/txvPageNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/first_page"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:fontFamily="monospace"
+        android:padding="5dp"
+        android:textColor="@color/colorGray1"
+        android:background="@color/colorWhite2"
+        android:layout_alignParentEnd="true"/>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/vpPages"
@@ -26,6 +40,35 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/txvRtlionFramework"/>
 
+    <RelativeLayout
+        android:id="@+id/rlPageNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/txvPrevPage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/prev_page"
+            android:textStyle="bold"
+            android:fontFamily="monospace"
+            android:layout_margin="5dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_alignParentStart="true"/>
+
+        <TextView
+            android:id="@+id/txvNextPage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/next_page"
+            android:textStyle="bold"
+            android:fontFamily="monospace"
+            android:layout_margin="5dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_alignParentEnd="true"/>
+
+    </RelativeLayout>
 
 </RelativeLayout>
 

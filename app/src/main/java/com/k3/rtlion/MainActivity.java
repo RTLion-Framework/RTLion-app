@@ -10,13 +10,16 @@ import java.util.ArrayList;
 
 public class MainActivity extends Activity {
 
-    private TextView txvRtlionFramework;
+    private TextView txvRtlionFramework, txvPageNum, txvPrevPage, txvNextPage;
     private ViewPager vpPages;
     private PagesAdapter pagesAdapter;
     private MainPageFrag mainPageFrag;
 
     private void init(){
         hideActionBar();
+        txvPageNum = (TextView) findViewById(R.id.txvPageNum);
+        txvPrevPage = (TextView) findViewById(R.id.txvPrevPage);
+        txvNextPage = (TextView) findViewById(R.id.txvNextPage);
         txvRtlionFramework = (TextView) findViewById(R.id.txvRtlionFramework);
         txvRtlionFramework.setTypeface(new SplashScreen(this).getUbuntuMonoFont());
         vpPages_onPageChange(0);
