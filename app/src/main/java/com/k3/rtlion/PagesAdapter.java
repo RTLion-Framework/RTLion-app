@@ -24,6 +24,7 @@ public class PagesAdapter extends PagerAdapter {
 
     private enum PagesEnum {
         Main(R.string.page_main, R.layout.layout_splash);
+        Test(R.string.page_main, R.layout.layout_splash);
         private int titleResID, layoutResID;
         PagesEnum(int titleResID, int layoutResID) {
             this.titleResID = titleResID;

@@ -12,18 +12,21 @@ public class MainActivity extends Activity {
 
     private TextView txvRtlionFramework;
     private ViewPager vpPages;
+    private PagesAdapter pagesAdapter;
+    private MainPageFrag mainPageFrag;
 
     private void init(){
         hideActionBar();
         txvRtlionFramework = (TextView) findViewById(R.id.txvRtlionFramework);
         txvRtlionFramework.setTypeface(new SplashScreen(this).getUbuntuMonoFont());
         vpPages = (ViewPager) findViewById(R.id.vpPages);
-        vpPages.setAdapter(new PagesAdapter(this, new PagesAdapter.IViewPager() {
+        pagesAdapter = new PagesAdapter(this, new PagesAdapter.IViewPager() {
             @Override
             public void onViewsAdded(ArrayList<ViewGroup> layouts) {
-
+                mainPageFrag = new MainPageFrag(MainActivity.this, layouts.get(0)).init();
             }
-        }));
+        });
+        vpPages.setAdapter(pagesAdapter);
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
