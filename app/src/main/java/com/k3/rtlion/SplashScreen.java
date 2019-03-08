@@ -35,7 +35,7 @@ public class SplashScreen {
         txvRtlionDesc = (TextView) splashDialog.findViewById(R.id.txvRtlionDesc);
         txvAuthor = (TextView) splashDialog.findViewById(R.id.txvAuthor);
         txvLoading = (TextView) splashDialog.findViewById(R.id.txvLoading);
-        tfUbuntuMono = Typeface.createFromAsset(context.getAssets(), ubuntuMonoFont);
+        tfUbuntuMono = getUbuntuMonoFont();
         txvRtlionDesc.setTypeface(tfUbuntuMono);
         txvAuthor.setTypeface(tfUbuntuMono);
         txvLoading.setTypeface(tfUbuntuMono);
@@ -59,6 +59,9 @@ public class SplashScreen {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+    public Typeface getUbuntuMonoFont(){
+        return Typeface.createFromAsset(context.getAssets(), ubuntuMonoFont);
     }
     private Animation fadeAnimation(int duration){
         Animation fadeInAnim = new AlphaAnimation(0, 1);

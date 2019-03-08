@@ -2,11 +2,16 @@ package com.k3.rtlion;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
+    private TextView txvRtlionFramework;
+
     private void init(){
         hideActionBar();
+        txvRtlionFramework = (TextView) findViewById(R.id.txvRtlionFramework);
+        txvRtlionFramework.setTypeface(new SplashScreen(this).getUbuntuMonoFont());
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
