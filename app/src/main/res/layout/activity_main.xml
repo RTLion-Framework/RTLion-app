@@ -8,6 +8,18 @@
     tools:context="com.k3.rtlion.MainActivity"
     android:background="@color/colorWhite">
 
+    <TextView
+        android:id="@+id/txvRtlionFramework"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/app_desc_long"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:fontFamily="monospace"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:textColor="@color/colorGray1"/>
+
 </RelativeLayout>
 
 
