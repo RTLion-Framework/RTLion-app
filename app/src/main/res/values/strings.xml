@@ -3,4 +3,5 @@
     <string name="app_desc">Multipurpose RTL-SDR Framework</string>
     <string name="author">.k3</string>
     <string name="app_desc_long">RTLion Framework</string>
+    <string name="page_main">Main</string>
 </resources>
