@@ -19,6 +19,7 @@ public class MainActivity extends Activity {
         hideActionBar();
         txvRtlionFramework = (TextView) findViewById(R.id.txvRtlionFramework);
         txvRtlionFramework.setTypeface(new SplashScreen(this).getUbuntuMonoFont());
+        vpPages_onPageChange(0);
         vpPages = (ViewPager) findViewById(R.id.vpPages);
         pagesAdapter = new PagesAdapter(this, new PagesAdapter.IViewPager() {
             @Override
@@ -33,12 +34,15 @@ public class MainActivity extends Activity {
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
             @Override
             public void onPageSelected(int position) {
-                String pageTitle = getString(PagesAdapter.PagesEnum.values()[position].getTitleResID());
-                txvRtlionFramework.setText(pageTitle);
+                vpPages_onPageChange(position);
             }
             @Override
             public void onPageScrollStateChanged(int state) {}
         });
+    }
+    private void vpPages_onPageChange(int position){
+        txvRtlionFramework.setText(getString(R.string.app_desc_long) + " > " +
+                getString(PagesAdapter.PagesEnum.values()[position].getTitleResID()));
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
