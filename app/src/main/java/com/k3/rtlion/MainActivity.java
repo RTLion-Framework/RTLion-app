@@ -23,10 +23,22 @@ public class MainActivity extends Activity {
         pagesAdapter = new PagesAdapter(this, new PagesAdapter.IViewPager() {
             @Override
             public void onViewsAdded(ArrayList<ViewGroup> layouts) {
-                mainPageFrag = new MainPageFrag(MainActivity.this, layouts.get(0)).init();
+                mainPageFrag = new MainPageFrag(MainActivity.this, layouts.get(0));
+                mainPageFrag.init();
             }
         });
         vpPages.setAdapter(pagesAdapter);
+        vpPages.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
+            @Override
+            public void onPageSelected(int position) {
+                String pageTitle = getString(PagesAdapter.PagesEnum.values()[position].getTitleResID());
+                txvRtlionFramework.setText(pageTitle);
+            }
+            @Override
+            public void onPageScrollStateChanged(int state) {}
+        });
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {

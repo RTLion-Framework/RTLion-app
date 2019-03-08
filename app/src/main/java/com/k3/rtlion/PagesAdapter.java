@@ -22,8 +22,8 @@ public class PagesAdapter extends PagerAdapter {
         this.iViewPager = iViewPager;
     }
 
-    private enum PagesEnum {
-        Main(R.string.page_main, R.layout.layout_splash);
+    public enum PagesEnum {
+        Main(R.string.page_main, R.layout.layout_splash),
         Test(R.string.page_main, R.layout.layout_splash);
         private int titleResID, layoutResID;
         PagesEnum(int titleResID, int layoutResID) {
