@@ -38,7 +38,8 @@
         android:id="@+id/vpPages"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txvRtlionFramework"/>
+        android:layout_below="@+id/txvRtlionFramework"
+        android:layout_above="@id/rlPageNav"/>
 
     <RelativeLayout
         android:id="@+id/rlPageNav"
