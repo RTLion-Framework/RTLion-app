@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.k3.rtlion.MainActivity"
-    android:background="@color/colorWhite">
+    android:background="@color/colorWhite2">
 
     <TextView
         android:id="@+id/txvRtlionFramework"
@@ -17,7 +17,7 @@
         android:textStyle="bold"
         android:fontFamily="monospace"
         android:layout_margin="5dp"
-        android:gravity="center"
+        android:gravity="start"
         android:textColor="@color/colorGray1"/>
 
     <android.support.v4.view.ViewPager
