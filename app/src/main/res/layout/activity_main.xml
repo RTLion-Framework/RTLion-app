@@ -6,6 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.k3.rtlion.MainActivity"
-    android:background="@color/colorGray1">
+    android:background="@color/colorWhite">
 
 </RelativeLayout>
+
+
