@@ -1,16 +1,20 @@
 package com.k3.rtlion;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class MainActivity extends Activity {
 
+    private ImageView imgRtlionSmall;
     private TextView txvRtlionFramework, txvPageNum, txvPrevPage, txvNextPage;
     private ViewPager vpPages;
     private PagesAdapter pagesAdapter;
@@ -19,6 +23,8 @@ public class MainActivity extends Activity {
 
     private void init(){
         hideActionBar();
+        imgRtlionSmall = (ImageView) findViewById(R.id.imgRtlionSmall);
+        imgRtlionSmall.setOnClickListener(new imgRtlionSmall_onClick());
         txvPageNum = (TextView) findViewById(R.id.txvPageNum);
         txvPrevPage = (TextView) findViewById(R.id.txvPrevPage);
         txvNextPage = (TextView) findViewById(R.id.txvNextPage);
@@ -87,6 +93,19 @@ public class MainActivity extends Activity {
                 txvNextPage.performClick();
             }
         });
+    }
+    private class imgRtlionSmall_onClick implements View.OnClickListener{
+        @Override
+        public void onClick(View v) {
+            try {
+                String projectPage = "https://github.com/RTLion-Framework";
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(projectPage));
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
     }
     private void hideActionBar(){
         try{
