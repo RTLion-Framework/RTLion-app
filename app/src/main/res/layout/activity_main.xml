@@ -8,37 +8,53 @@
     tools:context="com.k3.rtlion.MainActivity"
     android:background="@color/colorWhite">
 
-    <TextView
-        android:id="@+id/txvRtlionFramework"
+    <RelativeLayout
+        android:id="@+id/rlHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/app_desc_long"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:fontFamily="monospace"
-        android:padding="5dp"
-        android:gravity="start"
-        android:textColor="@color/colorGray1"
-        android:background="@color/colorWhite2"/>
-
-    <TextView
-        android:id="@+id/txvPageNum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/first_page"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        android:fontFamily="monospace"
-        android:padding="5dp"
-        android:textColor="@color/colorGray1"
         android:background="@color/colorWhite2"
-        android:layout_alignParentEnd="true"/>
+        android:layout_alignParentTop="true"
+        android:paddingTop="4dp">
+        <ImageView
+            android:id="@+id/imgRtlionSmall"
+            android:layout_width="35dp"
+            android:layout_height="24dp"
+            android:src="@mipmap/rtlion_logo"
+            android:scaleType="centerInside" />
+        <TextView
+            android:id="@+id/txvRtlionFramework"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_desc_long"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:fontFamily="monospace"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingEnd="5dp"
+            android:gravity="start"
+            android:textColor="@color/colorGray1"
+            android:layout_toEndOf="@+id/imgRtlionSmall" />
+        <TextView
+            android:id="@+id/txvPageNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/first_page"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:fontFamily="monospace"
+            android:padding="5dp"
+            android:textColor="@color/colorGray1"
+            android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
+
+
 
     <android.support.v4.view.ViewPager
         android:id="@+id/vpPages"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txvRtlionFramework"
+        android:layout_below="@+id/rlHeader"
         android:layout_above="@+id/rlPageNav"/>
 
     <RelativeLayout
