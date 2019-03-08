@@ -22,9 +22,19 @@ public class MainActivity extends Activity {
         txvPageNum = (TextView) findViewById(R.id.txvPageNum);
         txvPrevPage = (TextView) findViewById(R.id.txvPrevPage);
         txvNextPage = (TextView) findViewById(R.id.txvNextPage);
-        initPageNavigators();
         txvRtlionFramework = (TextView) findViewById(R.id.txvRtlionFramework);
         txvRtlionFramework.setTypeface(new SplashScreen(this).getUbuntuMonoFont());
+        initPageNavigators();
+        setupViewPager();
+    }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        init();
+        new SplashScreen(this).show();
+    }
+    private void setupViewPager(){
         vpPages_onPageChange(0);
         vpPages = (ViewPager) findViewById(R.id.vpPages);
         pagesAdapter = new PagesAdapter(this, new PagesAdapter.IViewPager() {
@@ -45,6 +55,12 @@ public class MainActivity extends Activity {
             @Override
             public void onPageScrollStateChanged(int state) {}
         });
+    }
+    private void vpPages_onPageChange(int position){
+        txvRtlionFramework.setText(getString(R.string.app_desc_long) + " > " +
+                getString(PagesAdapter.PagesEnum.values()[position].getTitleResID()));
+        txvPageNum.setText(String.valueOf(position+1));
+        currentPageNum = position;
     }
     private void initPageNavigators(){
         txvPrevPage.setOnClickListener(new View.OnClickListener() {
@@ -71,19 +87,6 @@ public class MainActivity extends Activity {
                 txvNextPage.performClick();
             }
         });
-    }
-    private void vpPages_onPageChange(int position){
-        txvRtlionFramework.setText(getString(R.string.app_desc_long) + " > " +
-                getString(PagesAdapter.PagesEnum.values()[position].getTitleResID()));
-        txvPageNum.setText(String.valueOf(position+1));
-        currentPageNum = position;
-    }
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        init();
-        new SplashScreen(this).show();
     }
     private void hideActionBar(){
         try{
