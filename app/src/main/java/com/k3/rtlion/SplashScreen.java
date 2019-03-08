@@ -7,7 +7,6 @@ import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Handler;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.Window;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -68,10 +67,10 @@ public class SplashScreen {
         return fadeInAnim;
     }
     private void setAnimations(){
-        imgRtlionLogo.setAnimation(fadeAnimation(1500));
-        txvRtlionDesc.setAnimation(fadeAnimation(2000));
-        rlProjectDesc.setAnimation(fadeAnimation(2000));
-        txvAuthor.setAnimation(fadeAnimation(1000));
+        imgRtlionLogo.setAnimation(fadeAnimation(1000));
+        txvRtlionDesc.setAnimation(fadeAnimation(1500));
+        rlProjectDesc.setAnimation(fadeAnimation(1500));
+        txvAuthor.setAnimation(fadeAnimation(500));
     }
     private void animateDotsLoading(){
         for (int s = 0; s < loadingDots.toCharArray().length; s++) {
