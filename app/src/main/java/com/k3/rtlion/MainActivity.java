@@ -46,6 +46,7 @@ public class MainActivity extends Activity {
     private void vpPages_onPageChange(int position){
         txvRtlionFramework.setText(getString(R.string.app_desc_long) + " > " +
                 getString(PagesAdapter.PagesEnum.values()[position].getTitleResID()));
+        txvPageNum.setText(String.valueOf(position+1));
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
