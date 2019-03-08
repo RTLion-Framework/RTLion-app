@@ -25,39 +25,41 @@
         android:visibility="invisible"
         android:layout_centerInParent="true"/>
 
-    <TextView
-        android:id="@+id/txvRtlionDesc"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/rlProjectDesc"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/app_desc"
-        android:textColor="@color/colorGray1"
-        android:textSize="19sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_below="@id/viewCenter"
-        android:layout_centerHorizontal="true"/>
+        android:layout_below="@id/viewCenter">
+        <TextView
+            android:id="@+id/txvRtlionDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_desc"
+            android:textColor="@color/colorGray1"
+            android:textSize="19sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"/>
 
-    <View
-        android:id="@+id/viewDescStart"
-        android:layout_width="wrap_content"
-        android:layout_height="2dp"
-        android:background="@color/colorGray1"
-        android:layout_below="@id/viewCenter"
-        android:layout_marginTop="9dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="5dp"
-        android:layout_toStartOf="@+id/txvRtlionDesc"/>
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:background="@color/colorGray1"
+            android:layout_marginTop="9dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_toStartOf="@+id/txvRtlionDesc"/>
 
-    <View
-        android:id="@+id/viewDescEnd"
-        android:layout_width="wrap_content"
-        android:layout_height="2dp"
-        android:background="@color/colorGray1"
-        android:layout_below="@id/viewCenter"
-        android:layout_marginTop="9dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="10dp"
-        android:layout_toEndOf="@+id/txvRtlionDesc"/>
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:background="@color/colorGray1"
+            android:layout_marginTop="9dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toEndOf="@+id/txvRtlionDesc"/>
+
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/txvAuthor"

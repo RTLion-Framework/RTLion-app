@@ -13,6 +13,7 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class SplashScreen {
@@ -26,13 +27,12 @@ public class SplashScreen {
     final int splashDelay1 = 500, splashDelay2 = 1500;
 
     private ImageView imgRtlionLogo;
-    private View viewDescStart, viewDescEnd;
+    private RelativeLayout rlProjectDesc;
     private TextView txvRtlionDesc, txvAuthor, txvLoading;
 
     private void initDialog(Dialog splashDialog){
         imgRtlionLogo = (ImageView) splashDialog.findViewById(R.id.imgRtlionLogo);
-        viewDescStart = splashDialog.findViewById(R.id.viewDescStart);
-        viewDescEnd = splashDialog.findViewById(R.id.viewDescEnd);
+        rlProjectDesc = (RelativeLayout) splashDialog.findViewById(R.id.rlProjectDesc);
         txvRtlionDesc = (TextView) splashDialog.findViewById(R.id.txvRtlionDesc);
         txvAuthor = (TextView) splashDialog.findViewById(R.id.txvAuthor);
         txvLoading = (TextView) splashDialog.findViewById(R.id.txvLoading);
@@ -69,9 +69,8 @@ public class SplashScreen {
     }
     private void setAnimations(){
         imgRtlionLogo.setAnimation(fadeAnimation(1500));
-        viewDescStart.setAnimation(fadeAnimation(2000));
         txvRtlionDesc.setAnimation(fadeAnimation(2000));
-        viewDescEnd.setAnimation(fadeAnimation(2000));
+        rlProjectDesc.setAnimation(fadeAnimation(2000));
         txvAuthor.setAnimation(fadeAnimation(1000));
     }
     private void animateDotsLoading(){
