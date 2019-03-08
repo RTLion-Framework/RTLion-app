@@ -3,7 +3,10 @@ package com.k3.rtlion;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.view.ViewGroup;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends Activity {
 
@@ -15,7 +18,12 @@ public class MainActivity extends Activity {
         txvRtlionFramework = (TextView) findViewById(R.id.txvRtlionFramework);
         txvRtlionFramework.setTypeface(new SplashScreen(this).getUbuntuMonoFont());
         vpPages = (ViewPager) findViewById(R.id.vpPages);
-        vpPages.setAdapter(new PagesAdapter(this));
+        vpPages.setAdapter(new PagesAdapter(this, new PagesAdapter.IViewPager() {
+            @Override
+            public void onViewsAdded(ArrayList<ViewGroup> layouts) {
+
+            }
+        }));
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
