@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import com.github.nkzawa.socketio.client.Socket;
 import com.github.nkzawa.socketio.client.IO;
 
+import java.net.URISyntaxException;
+
 
 public class MainPageFrag {
 
@@ -23,13 +25,16 @@ public class MainPageFrag {
     }
 
     public void init(){
-
+        tryConnect();
     }
-    private void tryConnect(){
+    private boolean connectSocket(){
         try {
-            socket = new IO.socket("http://192.168.1.36:8081");
+            socket = IO.socket("http://192.168.1.36:8081").connect();
+        }catch (URISyntaxException e) {
+            e.printStackTrace();
         }catch (Exception e){
             e.printStackTrace();
         }
+        return socket.connected();
     }
 }
