@@ -4,6 +4,7 @@ package com.k3.rtlion;
 import android.app.Activity;
 import android.content.Context;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.github.nkzawa.socketio.client.Socket;
 import com.github.nkzawa.socketio.client.IO;
@@ -25,11 +26,13 @@ public class MainPageFrag {
     }
 
     public void init(){
-        connectSocket();
+        String uri = "http://192.168.1.36:8081";
+        String isConnected = String.valueOf(connectSocket(uri));
+        Toast.makeText(activity, isConnected, Toast.LENGTH_SHORT).show();
     }
-    private boolean connectSocket(){
+    private boolean connectSocket(String uri){
         try {
-            socket = IO.socket("http://192.168.1.36:8081").connect();
+            socket = IO.socket(uri).connect();
         }catch (URISyntaxException e) {
             e.printStackTrace();
         }catch (Exception e){
