@@ -23,7 +23,7 @@ public class SplashScreen {
     private Dialog splashDialog;
     private Typeface tfUbuntuMono;
     private String ubuntuMonoFont = "fonts/UbuntuMono_R.ttf", loadingDots = "...";
-    final int splashDelay1 = 500, splashDelay2 = 1500;
+    final int splashDelay1 = 600, splashDelay2 = 1300;
 
     private ImageView imgRtlionLogo;
     private RelativeLayout rlProjectDesc;
