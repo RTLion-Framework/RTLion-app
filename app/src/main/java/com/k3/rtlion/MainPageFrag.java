@@ -25,7 +25,7 @@ public class MainPageFrag {
     }
 
     public void init(){
-        tryConnect();
+        connectSocket();
     }
     private boolean connectSocket(){
         try {
