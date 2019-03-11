@@ -9,7 +9,9 @@
 
     <TextView
         android:id="@+id/txvServerStatus"
-        android:layout_margin="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/server_status"
@@ -23,7 +25,7 @@
         android:layout_below="@+id/txvServerStatus"
         android:layout_marginTop="4dp"
         android:layout_marginStart="2dp"
-        android:layout_marginEnd="2dp"
+        android:layout_marginEnd="8dp"
         android:theme="@style/TLabel">
         <EditText
             android:id="@+id/edtxHostAddr"
@@ -34,5 +36,14 @@
             android:backgroundTint="@color/colorAccent"
             android:textColor="@color/colorPrimaryDark" />
     </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnConnect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tilHostAddr"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10dp"
+        android:text="@string/try_connect"/>
 
 </RelativeLayout>
