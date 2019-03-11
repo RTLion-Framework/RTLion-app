@@ -9,4 +9,5 @@
     <string name="next_page">&gt;</string>
     <string name="first_page">1</string>
     <string name="server_status">[-] Status: Not connected.</string>
+    <string name="host_addr">Host:Port</string>
 </resources>
