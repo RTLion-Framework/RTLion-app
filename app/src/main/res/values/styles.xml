@@ -2,4 +2,10 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:windowDisablePreview">true</item>
     </style>
+    <style name="TLabel" parent="TextAppearance.AppCompat">
+        <item name="android:textColorHint">@color/colorGray2</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlNormal">@color/colorAccent</item>
+        <item name="colorControlActivated">@color/colorPrimaryDark</item>
+    </style>
 </resources>
