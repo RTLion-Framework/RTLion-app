@@ -6,6 +6,13 @@
     android:layout_height="match_parent"
     android:background="@color/colorWhite">
 
-
+    <TextView
+        android:id="@+id/txvServerStatus"
+        android:layout_margin="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/server_status"
+        android:textColor="@color/colorGray1"
+        android:textStyle="bold" />
 
 </RelativeLayout>
