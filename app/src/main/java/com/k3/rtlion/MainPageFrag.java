@@ -40,7 +40,7 @@ public class MainPageFrag {
             public void onFetch(String source) {
                 Toast.makeText(activity, source, Toast.LENGTH_SHORT).show();
             }
-        }).execute("http://www.k3pwn.me");
+        }).execute("https://www.k3pwn.me");
     }
 
 
