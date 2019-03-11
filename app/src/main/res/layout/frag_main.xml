@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/txvServerStatus"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="7dp"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
         android:layout_width="wrap_content"
@@ -45,7 +45,7 @@
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/txvServerStatus"
         android:layout_marginEnd="10dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="7dp"
         android:text="@string/try_connect"
         android:theme="@style/FlatButton"/>
 
