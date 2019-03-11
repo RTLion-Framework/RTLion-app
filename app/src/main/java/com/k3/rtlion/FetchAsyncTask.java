@@ -21,6 +21,10 @@ public class FetchAsyncTask extends AsyncTask<Void, Void, String> {
     private InputStream in;
     private BufferedReader reader;
     private StringBuilder source;
+    private static String userAgent = "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; " +
+            "rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13", acceptLang = "en-US,en;q=0.9",
+            acceptEnc = "UTF-8";
+
     public FetchAsyncTask(String url, AsyncResponse asyncResponse){
         this.asyncResponse = asyncResponse;
         try {
@@ -36,6 +40,13 @@ public class FetchAsyncTask extends AsyncTask<Void, Void, String> {
         }
         try {
             httpURLConnection = (HttpURLConnection) url.openConnection();
+            httpURLConnection.setRequestMethod("GET");
+            httpURLConnection.setRequestProperty("User-Agent", userAgent);
+            httpURLConnection.setRequestProperty("Accept",
+                    "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8");
+            httpURLConnection.setRequestProperty("Accept-Language", acceptLang);
+            httpURLConnection.setRequestProperty("Accept-Encoding", acceptEnc);
+            httpURLConnection.setRequestProperty("Connection", "keep-alive");
             in = httpURLConnection.getInputStream();
             reader = new BufferedReader(new InputStreamReader(in));
             source = new StringBuilder();
