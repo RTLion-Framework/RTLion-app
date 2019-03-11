@@ -8,6 +8,7 @@ import android.support.design.widget.TextInputLayout;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class MainPageFrag {
@@ -34,7 +35,12 @@ public class MainPageFrag {
 
     public void initialize(){
         initViews();
-
+        new FetchAsyncTask(context, "http://www.k3pwn.me", new FetchAsyncTask.AsyncResponse() {
+            @Override
+            public void onProcessFinish(String output) {
+                Toast.makeText(activity, output, Toast.LENGTH_SHORT).show();
+            }
+        }).execute();
     }
 
 
