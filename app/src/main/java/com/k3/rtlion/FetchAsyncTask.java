@@ -10,11 +10,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class FetchAsyncTask extends AsyncTask<Void, Void, String> {
-    public interface AsyncResponse {
-        void onFetch(String source);
-    }
-    private AsyncResponse asyncResponse;
+public class FetchAsyncTask extends AsyncTask<String, Void, String> {
     private URL url;
     private Boolean isValidURL = true;
     private HttpURLConnection httpURLConnection;
@@ -24,23 +20,21 @@ public class FetchAsyncTask extends AsyncTask<Void, Void, String> {
     private static String userAgent = "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; " +
             "rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13", acceptLang = "en-US,en;q=0.9",
             acceptEnc = "UTF-8";
-
-    public FetchAsyncTask(String url, AsyncResponse asyncResponse){
+    public interface AsyncResponse {
+        void onFetch(String source);
+    }
+    private AsyncResponse asyncResponse;
+    public FetchAsyncTask(AsyncResponse asyncResponse){
         this.asyncResponse = asyncResponse;
-        try {
-            this.url = new URL(url);
-        }catch (MalformedURLException ex){
-            isValidURL = false;
-        }
     }
     @Override
-    protected String doInBackground(Void... params) {
-        if(!isValidURL){
-            return null;
-        }
+    protected String doInBackground(String... url) {
         try {
-            return fetchPage(url);
-        }catch (IOException e){
+            return fetchPage(new URL(url[0]));
+        }catch (MalformedURLException e){
+            e.printStackTrace();
+            return null;
+        }catch (IOException e) {
             e.printStackTrace();
             return null;
         }
