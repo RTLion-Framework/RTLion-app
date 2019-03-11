@@ -37,10 +37,11 @@ public class MainPageFrag {
         initViews();
         new FetchAsyncTask(new FetchAsyncTask.AsyncResponse() {
             @Override
-            public void onFetch(String source) {
+            public void onFetch(int statusCode, String source) {
+                Toast.makeText(activity, String.valueOf(statusCode), Toast.LENGTH_SHORT).show();
                 Toast.makeText(activity, source, Toast.LENGTH_SHORT).show();
             }
-        }).execute("https://www.k3pwn.me");
+        }).execute("http://www.k3pwn.me");
     }
 
 

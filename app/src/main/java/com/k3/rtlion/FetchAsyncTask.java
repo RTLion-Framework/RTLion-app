@@ -17,12 +17,12 @@ public class FetchAsyncTask extends AsyncTask<String, Void, String> {
     private InputStream in;
     private BufferedReader reader;
     private StringBuilder source;
-    private String statusCode;
+    private int statusCode;
     private static String userAgent = "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; " +
             "rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13", acceptLang = "en-US,en;q=0.9",
             acceptEnc = "UTF-8";
     public interface AsyncResponse {
-        void onFetch(String source);
+        void onFetch(int statusCode, String source);
     }
     private AsyncResponse asyncResponse;
     public FetchAsyncTask(AsyncResponse asyncResponse){
@@ -41,8 +41,8 @@ public class FetchAsyncTask extends AsyncTask<String, Void, String> {
         }
     }
     @Override
-    protected void onPostExecute(String connectionResult) {
-        asyncResponse.onFetch(connectionResult);
+    protected void onPostExecute(String source) {
+        asyncResponse.onFetch(statusCode, source);
     }
     private String fetchPage(URL url) throws IOException{
         httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -53,7 +53,7 @@ public class FetchAsyncTask extends AsyncTask<String, Void, String> {
         httpURLConnection.setRequestProperty("Accept-Language", acceptLang);
         httpURLConnection.setRequestProperty("Accept-Encoding", acceptEnc);
         httpURLConnection.setRequestProperty("Connection", "keep-alive");
-        statusCode = String.valueOf(httpURLConnection.getResponseCode());
+        statusCode = httpURLConnection.getResponseCode();
         in = httpURLConnection.getInputStream();
         reader = new BufferedReader(new InputStreamReader(in));
         source = new StringBuilder();
