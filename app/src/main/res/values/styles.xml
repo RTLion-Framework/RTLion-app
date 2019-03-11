@@ -11,6 +11,7 @@
     <style name="FlatButton" parent="Theme.AppCompat.Light">
         <item name="android:buttonStyle">@style/Widget.AppCompat.Button.Borderless.Colored</item>
         <item name="android:textAllCaps">false</item>
+        <item name="android:textStyle">bold</item>
         <item name="colorAccent">@color/colorPrimaryDark</item>
         <item name="colorControlHighlight">@color/colorPrimary</item>
     </style>
