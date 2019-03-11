@@ -25,16 +25,14 @@
         android:layout_below="@+id/txvServerStatus"
         android:layout_marginTop="4dp"
         android:layout_marginStart="4dp"
-        android:theme="@style/TLabel"
-        android:layout_toStartOf="@+id/btnConnect">
+        android:layout_toStartOf="@+id/btnConnect"
+        android:theme="@style/TLabel">
         <EditText
             android:id="@+id/edtxHostAddr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:singleLine="true"
             android:hint="@string/host_addr"
-            android:backgroundTint="@color/colorAccent"
-            android:textColor="@color/colorPrimaryDark" />
+            android:theme="@style/FlatEditText"/>
     </android.support.design.widget.TextInputLayout>
 
     <Button
