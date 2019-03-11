@@ -47,7 +47,7 @@ public class MainActivity extends Activity {
             @Override
             public void onViewsAdded(ArrayList<ViewGroup> layouts) {
                 mainPageFrag = new MainPageFrag(MainActivity.this, layouts.get(0));
-                mainPageFrag.init();
+                mainPageFrag.initialize();
             }
         });
         vpPages.setAdapter(pagesAdapter);
