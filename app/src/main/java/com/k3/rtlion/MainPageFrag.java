@@ -35,10 +35,10 @@ public class MainPageFrag {
 
     public void initialize(){
         initViews();
-        new FetchAsyncTask(context, "http://www.k3pwn.me", new FetchAsyncTask.AsyncResponse() {
+        new FetchAsyncTask("http://www.k3pwn.me", new FetchAsyncTask.AsyncResponse() {
             @Override
-            public void onProcessFinish(String output) {
-                Toast.makeText(activity, output, Toast.LENGTH_SHORT).show();
+            public void onFetch(String source) {
+                Toast.makeText(activity, source, Toast.LENGTH_SHORT).show();
             }
         }).execute();
     }

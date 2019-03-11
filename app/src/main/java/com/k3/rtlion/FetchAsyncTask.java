@@ -12,29 +12,27 @@ import java.net.URL;
 
 public class FetchAsyncTask extends AsyncTask<Void, Void, String> {
     public interface AsyncResponse {
-        void onProcessFinish(String output);
+        void onFetch(String source);
     }
-    private AsyncResponse delegate = null;
+    private AsyncResponse asyncResponse;
     private URL url;
-    private Context context;
-    private Boolean isValid = true;
+    private Boolean isValidURL = true;
     private HttpURLConnection httpURLConnection;
     private InputStream in;
     private BufferedReader reader;
     private StringBuilder source;
-    public FetchAsyncTask(Context _context, String _url, AsyncResponse delegate){
-        this.delegate = delegate;
-        this.context = _context;
+    public FetchAsyncTask(String url, AsyncResponse asyncResponse){
+        this.asyncResponse = asyncResponse;
         try {
-            this.url = new URL(_url);
+            this.url = new URL(url);
         }catch (MalformedURLException ex){
-            isValid = false;
+            isValidURL = false;
         }
     }
     @Override
     protected String doInBackground(Void... params) {
-        if(!isValid){
-            return "";
+        if(!isValidURL){
+            return null;
         }
         try {
             httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -47,7 +45,7 @@ public class FetchAsyncTask extends AsyncTask<Void, Void, String> {
             }
         }catch (IOException e){
             e.printStackTrace();
-            return "";
+            return null;
         }finally {
             if (httpURLConnection != null)
                 httpURLConnection.disconnect();
@@ -55,7 +53,7 @@ public class FetchAsyncTask extends AsyncTask<Void, Void, String> {
         }
     }
     @Override
-    protected void onPostExecute(String result) {
-        delegate.onProcessFinish(result);
+    protected void onPostExecute(String source) {
+        asyncResponse.onFetch(source);
     }
 }
