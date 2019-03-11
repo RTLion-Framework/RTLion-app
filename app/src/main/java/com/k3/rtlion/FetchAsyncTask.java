@@ -39,32 +39,34 @@ public class FetchAsyncTask extends AsyncTask<Void, Void, String> {
             return null;
         }
         try {
-            httpURLConnection = (HttpURLConnection) url.openConnection();
-            httpURLConnection.setRequestMethod("GET");
-            httpURLConnection.setRequestProperty("User-Agent", userAgent);
-            httpURLConnection.setRequestProperty("Accept",
-                    "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8");
-            httpURLConnection.setRequestProperty("Accept-Language", acceptLang);
-            httpURLConnection.setRequestProperty("Accept-Encoding", acceptEnc);
-            httpURLConnection.setRequestProperty("Connection", "keep-alive");
-            in = httpURLConnection.getInputStream();
-            reader = new BufferedReader(new InputStreamReader(in));
-            source = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                source.append(line);
-            }
+            return fetchPage(url);
         }catch (IOException e){
             e.printStackTrace();
             return null;
-        }finally {
-            if (httpURLConnection != null)
-                httpURLConnection.disconnect();
-            return source.toString();
         }
     }
     @Override
     protected void onPostExecute(String source) {
         asyncResponse.onFetch(source);
+    }
+    private String fetchPage(URL url) throws IOException{
+        httpURLConnection = (HttpURLConnection) url.openConnection();
+        httpURLConnection.setRequestMethod("GET");
+        httpURLConnection.setRequestProperty("User-Agent", userAgent);
+        httpURLConnection.setRequestProperty("Accept",
+                "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8");
+        httpURLConnection.setRequestProperty("Accept-Language", acceptLang);
+        httpURLConnection.setRequestProperty("Accept-Encoding", acceptEnc);
+        httpURLConnection.setRequestProperty("Connection", "keep-alive");
+        in = httpURLConnection.getInputStream();
+        reader = new BufferedReader(new InputStreamReader(in));
+        source = new StringBuilder();
+        String line;
+        while ((line = reader.readLine()) != null) {
+            source.append(line);
+        }
+        if (httpURLConnection != null)
+            httpURLConnection.disconnect();
+        return source.toString();
     }
 }
