@@ -27,7 +27,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:singleLine="true"
-            android:hint="@string/host_addr" />
+            android:hint="@string/host_addr"
+            android:backgroundTint="@color/colorAccent"
+            android:textColor="@color/colorPrimaryDark" />
     </android.support.design.widget.TextInputLayout>
 
 </RelativeLayout>
