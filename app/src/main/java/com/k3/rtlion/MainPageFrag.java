@@ -78,7 +78,8 @@ public class MainPageFrag {
             if (!hostAddr.isEmpty() && hostAddr.contains(":")) {
                 serverHost = hostAddr.split(":")[0];
                 portNum = Integer.parseInt(hostAddr.split(":")[1]);
-                validAddr = true;
+                if (serverHost.length() > 4 && portNum > 0)
+                    validAddr = true;
             }
         }catch (Exception e){
             e.printStackTrace();
