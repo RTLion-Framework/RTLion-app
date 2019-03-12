@@ -97,8 +97,7 @@ public class MainPageFrag {
         if(checkHostAddr(edtxHostAddr.getText().toString())){
             hideKeyboard();
             enableViews(false);
-            txvServerStatus.setText(txvServerStatus.getText().toString().split(":")[0]
-                    + ": Connecting...");
+            txvServerStatus.setText(context.getString(R.string.server_connecting));
             txvServerStatus.setTextColor(ResourcesCompat.getColor(context.getResources(),
                     R.color.colorGray2, null));
             new FetchAsyncTask(new ServerResponse()).execute(edtxHostAddr.getText().toString());
@@ -110,13 +109,10 @@ public class MainPageFrag {
     private class ServerResponse implements FetchAsyncTask.AsyncResponse{
         @Override
         public void onFetch(int statusCode, String source) {
-            Toast.makeText(activity, String.valueOf(statusCode), Toast.LENGTH_SHORT).show();
             if(statusCode == 200){
-                txvServerStatus.setText(txvServerStatus.getText().toString().split(":")[0]
-                        + ": Connected.");
+                txvServerStatus.setText(context.getString(R.string.server_connected));
             }else{
-                txvServerStatus.setText(txvServerStatus.getText().toString().split(":")[0]
-                        + ": Not connected.");
+                txvServerStatus.setText(context.getString(R.string.server_disconnected));
             }
             txvServerStatus.setTextColor(ResourcesCompat.getColor(context.getResources(),
                     R.color.colorGray1, null));

@@ -15,7 +15,7 @@
         android:layout_marginTop="7dp"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
-        android:text="@string/server_status"
+        android:text="@string/server_disconnected"
         android:textColor="@color/colorGray1"
         android:textStyle="bold" />
 
