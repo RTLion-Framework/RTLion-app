@@ -35,6 +35,7 @@ public class MainPageFrag {
 
     public void initialize(){
         initViews();
+
     }
 
 

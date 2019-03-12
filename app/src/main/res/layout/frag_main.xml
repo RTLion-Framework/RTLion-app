@@ -32,7 +32,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/host_addr"
-            android:theme="@style/FlatEditText"/>
+            android:theme="@style/FlatEditText"
+            android:imeOptions="actionSend"/>
     </android.support.design.widget.TextInputLayout>
 
     <Button
