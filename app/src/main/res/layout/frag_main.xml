@@ -33,8 +33,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/host_addr"
-            android:theme="@style/FlatEditText"
-            android:imeOptions="actionSend"/>
+            android:imeOptions="actionSend"
+            android:singleLine="true"
+            android:backgroundTint="@color/colorAccent"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="monospace"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:paddingStart="5dp"/>
     </android.support.design.widget.TextInputLayout>
 
     <Button
