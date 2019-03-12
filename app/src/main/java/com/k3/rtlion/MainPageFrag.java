@@ -29,7 +29,8 @@ public class MainPageFrag {
     private TextInputLayout tilHostAddr;
     private EditText edtxHostAddr;
     private Button btnConnect;
-    private String serverHost;
+    private String serverHost,
+            statusNamespace = "/status";
     private int portNum;
 
     public MainPageFrag(Activity activity, ViewGroup viewGroup){
@@ -100,7 +101,8 @@ public class MainPageFrag {
             txvServerStatus.setText(context.getString(R.string.server_connecting));
             txvServerStatus.setTextColor(ResourcesCompat.getColor(context.getResources(),
                     R.color.colorGray2, null));
-            new FetchAsyncTask(new ServerResponse()).execute(edtxHostAddr.getText().toString());
+            new FetchAsyncTask(new ServerResponse()).execute(edtxHostAddr.getText().toString()
+                    + statusNamespace);
         }else{
             Toast.makeText(activity, context.getString(R.string.invalid_host),
                     Toast.LENGTH_SHORT).show();
@@ -110,6 +112,7 @@ public class MainPageFrag {
         @Override
         public void onFetch(int statusCode, String source) {
             if(statusCode == 200){
+                Toast.makeText(activity, source, Toast.LENGTH_SHORT).show();
                 txvServerStatus.setText(context.getString(R.string.server_connected));
             }else{
                 txvServerStatus.setText(context.getString(R.string.server_disconnected));
