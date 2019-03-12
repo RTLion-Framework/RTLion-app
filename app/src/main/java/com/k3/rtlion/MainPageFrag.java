@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Typeface;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.content.res.ResourcesCompat;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -78,8 +79,8 @@ public class MainPageFrag {
         Boolean validAddr = false;
         try{
             if (!hostAddr.isEmpty() && hostAddr.contains(":")) {
-                serverHost = hostAddr.split(":")[0];
-                portNum = Integer.parseInt(hostAddr.split(":")[1]);
+                portNum = Integer.parseInt(hostAddr.split(":")[hostAddr.split(":").length-1]);
+                serverHost = hostAddr.replace(":"+String.valueOf(portNum), "");
                 if (serverHost.length() > 4 && portNum > 0)
                     validAddr = true;
             }
@@ -88,13 +89,38 @@ public class MainPageFrag {
         }
         return validAddr;
     }
+    private void enableViews(Boolean state){
+        btnConnect.setEnabled(state);
+        edtxHostAddr.setEnabled(state);
+    }
     private void tryConnect(){
         if(checkHostAddr(edtxHostAddr.getText().toString())){
             hideKeyboard();
-
+            enableViews(false);
+            txvServerStatus.setText(txvServerStatus.getText().toString().split(":")[0]
+                    + ": Connecting...");
+            txvServerStatus.setTextColor(ResourcesCompat.getColor(context.getResources(),
+                    R.color.colorGray2, null));
+            new FetchAsyncTask(new ServerResponse()).execute(edtxHostAddr.getText().toString());
         }else{
-            Toast.makeText(activity, context.getString(R.string.invalid_host), Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, context.getString(R.string.invalid_host),
+                    Toast.LENGTH_SHORT).show();
         }
     }
-
+    private class ServerResponse implements FetchAsyncTask.AsyncResponse{
+        @Override
+        public void onFetch(int statusCode, String source) {
+            Toast.makeText(activity, String.valueOf(statusCode), Toast.LENGTH_SHORT).show();
+            if(statusCode == 200){
+                txvServerStatus.setText(txvServerStatus.getText().toString().split(":")[0]
+                        + ": Connected.");
+            }else{
+                txvServerStatus.setText(txvServerStatus.getText().toString().split(":")[0]
+                        + ": Not connected.");
+            }
+            txvServerStatus.setTextColor(ResourcesCompat.getColor(context.getResources(),
+                    R.color.colorGray1, null));
+            enableViews(true);
+        }
+    }
 }
