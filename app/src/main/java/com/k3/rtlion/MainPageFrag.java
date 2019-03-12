@@ -10,8 +10,10 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +23,7 @@ public class MainPageFrag {
     private Activity activity;
     private Context context;
     private ViewGroup viewGroup;
+    private RelativeLayout rlMainFrag;
     private TextInputLayout tilHostAddr;
     private EditText edtxHostAddr;
     private Button btnConnect;
@@ -34,11 +37,11 @@ public class MainPageFrag {
     }
 
     private void initViews(){
+        rlMainFrag = (RelativeLayout) viewGroup.findViewById(R.id.rlMainFrag);
         tilHostAddr = (TextInputLayout) viewGroup.findViewById(R.id.tilHostAddr);
         edtxHostAddr = (EditText) viewGroup.findViewById(R.id.edtxHostAddr);
         btnConnect = (Button) viewGroup.findViewById(R.id.btnConnect);
     }
-
     public void initialize(){
         initViews();
         edtxHostAddr.setOnEditorActionListener(new edtxHostAddr_onEditorAction());
@@ -60,6 +63,15 @@ public class MainPageFrag {
             tryConnect();
         }
     }
+    private void hideKeyboard(){
+        try {
+            InputMethodManager inputMethodManager = (InputMethodManager)
+                    context.getSystemService(context.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(rlMainFrag.getWindowToken(), 0);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
     private Boolean checkHostAddr(String hostAddr){
         Boolean validAddr = false;
         try{
@@ -74,8 +86,11 @@ public class MainPageFrag {
         return validAddr;
     }
     private void tryConnect(){
-        if(checkHostAddr(edtxHostAddr.getText().toString()))
-            //
+        if(checkHostAddr(edtxHostAddr.getText().toString())){
+            hideKeyboard();
+        }else{
+            Toast.makeText(activity, context.getString(R.string.invalid_host), Toast.LENGTH_SHORT).show();
+        }
     }
 
 }
