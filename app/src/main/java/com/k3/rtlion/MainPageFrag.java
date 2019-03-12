@@ -24,6 +24,7 @@ public class MainPageFrag {
     private Context context;
     private ViewGroup viewGroup;
     private RelativeLayout rlMainFrag;
+    private TextView txvServerStatus;
     private TextInputLayout tilHostAddr;
     private EditText edtxHostAddr;
     private Button btnConnect;
@@ -38,6 +39,7 @@ public class MainPageFrag {
 
     private void initViews(){
         rlMainFrag = (RelativeLayout) viewGroup.findViewById(R.id.rlMainFrag);
+        txvServerStatus = (TextView) viewGroup.findViewById(R.id.txvServerStatus);
         tilHostAddr = (TextInputLayout) viewGroup.findViewById(R.id.tilHostAddr);
         edtxHostAddr = (EditText) viewGroup.findViewById(R.id.edtxHostAddr);
         btnConnect = (Button) viewGroup.findViewById(R.id.btnConnect);
@@ -89,6 +91,7 @@ public class MainPageFrag {
     private void tryConnect(){
         if(checkHostAddr(edtxHostAddr.getText().toString())){
             hideKeyboard();
+
         }else{
             Toast.makeText(activity, context.getString(R.string.invalid_host), Toast.LENGTH_SHORT).show();
         }
