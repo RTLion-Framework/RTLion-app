@@ -24,7 +24,8 @@ public class MainPageFrag {
     private TextInputLayout tilHostAddr;
     private EditText edtxHostAddr;
     private Button btnConnect;
-    private String hostAddr, portNum;
+    private String serverHost;
+    private int portNum;
 
     public MainPageFrag(Activity activity, ViewGroup viewGroup){
         this.activity = activity;
@@ -59,9 +60,22 @@ public class MainPageFrag {
             tryConnect();
         }
     }
-
+    private Boolean checkHostAddr(String hostAddr){
+        Boolean validAddr = false;
+        try{
+            if (!hostAddr.isEmpty() && hostAddr.contains(":")) {
+                serverHost = hostAddr.split(":")[0];
+                portNum = Integer.parseInt(hostAddr.split(":")[1]);
+                validAddr = true;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return validAddr;
+    }
     private void tryConnect(){
-
+        if(checkHostAddr(edtxHostAddr.getText().toString()))
+            //
     }
 
 }
