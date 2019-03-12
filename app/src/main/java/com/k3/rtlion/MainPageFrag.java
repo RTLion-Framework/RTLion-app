@@ -36,7 +36,6 @@ public class MainPageFrag {
         tilHostAddr = (TextInputLayout) viewGroup.findViewById(R.id.tilHostAddr);
         edtxHostAddr = (EditText) viewGroup.findViewById(R.id.edtxHostAddr);
         btnConnect = (Button) viewGroup.findViewById(R.id.btnConnect);
-        edtxHostAddr.setTypeface(new SplashScreen(activity).getUbuntuMonoFont());
     }
 
     public void initialize(){
