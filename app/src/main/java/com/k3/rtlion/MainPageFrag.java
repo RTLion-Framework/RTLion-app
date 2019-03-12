@@ -89,10 +89,14 @@ public class MainPageFrag {
         }
         return validAddr;
     }
+    private void enableViews(Boolean state){
+        btnConnect.setEnabled(state);
+        edtxHostAddr.setEnabled(state);
+    }
     private void tryConnect(){
         if(checkHostAddr(edtxHostAddr.getText().toString())){
             hideKeyboard();
-            edtxHostAddr.setEnabled(false);
+            enableViews(false);
             txvServerStatus.setText(txvServerStatus.getText().toString().split(":")[0]
                     + ": Connecting...");
             txvServerStatus.setTextColor(ResourcesCompat.getColor(context.getResources(),
@@ -116,7 +120,7 @@ public class MainPageFrag {
             }
             txvServerStatus.setTextColor(ResourcesCompat.getColor(context.getResources(),
                     R.color.colorGray1, null));
-            edtxHostAddr.setEnabled(true);
+            enableViews(true);
         }
     }
 }
