@@ -15,6 +15,7 @@
         <item name="android:fontFamily">monospace</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">15sp</item>
+        <item name="android:paddingStart">5dp</item>
     </style>
     <style name="FlatButton" parent="Theme.AppCompat.Light">
         <item name="android:buttonStyle">@style/Widget.AppCompat.Button.Borderless.Colored</item>
