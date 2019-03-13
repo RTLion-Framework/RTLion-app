@@ -90,36 +90,13 @@ public class MainPageFrag {
         }
         return validAddr;
     }
-    private void enableViews(Boolean state){
-        btnConnect.setEnabled(state);
-        edtxHostAddr.setEnabled(state);
-    }
     private void tryConnect(){
         if(checkHostAddr(edtxHostAddr.getText().toString())){
             hideKeyboard();
-            enableViews(false);
-            txvServerStatus.setText(context.getString(R.string.server_connecting));
-            txvServerStatus.setTextColor(ResourcesCompat.getColor(context.getResources(),
-                    R.color.colorGray2, null));
-            new FetchAsyncTask(new ServerResponse()).execute(edtxHostAddr.getText().toString()
-                    + statusNamespace);
+
         }else{
             Toast.makeText(activity, context.getString(R.string.invalid_host),
                     Toast.LENGTH_SHORT).show();
-        }
-    }
-    private class ServerResponse implements FetchAsyncTask.AsyncResponse{
-        @Override
-        public void onFetch(int statusCode, String source) {
-            if(statusCode == 200){
-                Toast.makeText(activity, source, Toast.LENGTH_SHORT).show();
-                txvServerStatus.setText(context.getString(R.string.server_connected));
-            }else{
-                txvServerStatus.setText(context.getString(R.string.server_disconnected));
-            }
-            txvServerStatus.setTextColor(ResourcesCompat.getColor(context.getResources(),
-                    R.color.colorGray1, null));
-            enableViews(true);
         }
     }
 }
