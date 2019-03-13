@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +18,7 @@ public class MainActivity extends Activity {
     private ImageView imgRtlionSmall;
     private TextView txvRtlionFramework, txvPageNum, txvPrevPage, txvNextPage;
     private ViewPager vpPages;
+    private WebView wvBase;
     private PagesAdapter pagesAdapter;
     private MainPageFrag mainPageFrag;
     private int currentPageNum;
@@ -29,6 +31,7 @@ public class MainActivity extends Activity {
         txvPrevPage = (TextView) findViewById(R.id.txvPrevPage);
         txvNextPage = (TextView) findViewById(R.id.txvNextPage);
         txvRtlionFramework = (TextView) findViewById(R.id.txvRtlionFramework);
+        wvBase = (WebView) findViewById(R.id.wvBase);
         txvRtlionFramework.setTypeface(new SplashScreen(this).getUbuntuMonoFont());
         initPageNavigators();
         setupViewPager();
