@@ -33,8 +33,7 @@ public class MainActivity extends Activity {
         txvNextPage = (TextView) findViewById(R.id.txvNextPage);
         txvRtlionFramework = (TextView) findViewById(R.id.txvRtlionFramework);
         wvBase = (WebView) findViewById(R.id.wvBase);
-        webInterface = new WebInterface(this);
-        webInterface.initWebView(wvBase);
+        webInterface = new WebInterface(this, wvBase);
         txvRtlionFramework.setTypeface(new SplashScreen(this).getUbuntuMonoFont());
         initPageNavigators();
         setupViewPager();

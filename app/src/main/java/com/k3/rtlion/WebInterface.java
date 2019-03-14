@@ -10,11 +10,12 @@ public class WebInterface {
     private Context context;
     private WebView webView;
 
-    public WebInterface(Activity activity){
+    public WebInterface(Activity activity, WebView webView){
         this.activity = activity;
         this.context = activity.getApplicationContext();
-    }
-    public void initWebView(WebView webView){
         this.webView = webView;
+    }
+    private WebView getWebView(){
+        return webView;
     }
 }
