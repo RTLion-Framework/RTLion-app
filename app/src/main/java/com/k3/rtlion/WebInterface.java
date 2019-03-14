@@ -2,7 +2,10 @@ package com.k3.rtlion;
 
 import android.app.Activity;
 import android.content.Context;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 public class WebInterface {
 
@@ -17,5 +20,20 @@ public class WebInterface {
     }
     private WebView getWebView(){
         return webView;
+    }
+    public void fetchPage(String url){
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.loadUrl(url);
+        webView.setWebViewClient(new WebViewClient(){
+            @Override
+            public void onPageFinished(WebView view, String url) {
+
+            }
+
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                return super.shouldOverrideUrlLoading(view, request);
+            }
+        });
     }
 }

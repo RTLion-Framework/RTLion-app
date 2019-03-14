@@ -92,7 +92,7 @@ public class MainPageFrag {
     private void tryConnect(){
         if(checkHostAddr(edtxHostAddr.getText().toString())){
             hideKeyboard();
-
+            webInterface.fetchPage(edtxHostAddr.getText().toString() + statusNamespace);
         }else{
             Toast.makeText(activity, context.getString(R.string.invalid_host),
                     Toast.LENGTH_SHORT).show();
