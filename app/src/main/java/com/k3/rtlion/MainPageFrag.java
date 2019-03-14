@@ -3,10 +3,7 @@ package com.k3.rtlion;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.graphics.Typeface;
 import android.support.design.widget.TextInputLayout;
-import android.support.v4.content.res.ResourcesCompat;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +21,7 @@ public class MainPageFrag {
     private Activity activity;
     private Context context;
     private ViewGroup viewGroup;
-    private JSInterface jsInterface;
+    private WebInterface webInterface;
     private RelativeLayout rlMainFrag;
     private TextView txvServerStatus;
     private TextInputLayout tilHostAddr;
@@ -34,11 +31,11 @@ public class MainPageFrag {
             statusNamespace = "/status";
     private int portNum;
 
-    public MainPageFrag(Activity activity, ViewGroup viewGroup, JSInterface jsInterface){
+    public MainPageFrag(Activity activity, ViewGroup viewGroup, WebInterface webInterface){
         this.activity = activity;
         this.context = activity.getApplicationContext();
         this.viewGroup = viewGroup;
-        this.jsInterface = jsInterface;
+        this.webInterface = webInterface;
     }
 
     private void initViews(){

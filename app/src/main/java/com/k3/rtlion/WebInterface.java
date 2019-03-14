@@ -4,13 +4,13 @@ import android.app.Activity;
 import android.content.Context;
 import android.webkit.WebView;
 
-public class JSInterface {
+public class WebInterface {
 
     private Activity activity;
     private Context context;
     private WebView webView;
 
-    public JSInterface(Activity activity){
+    public WebInterface(Activity activity){
         this.activity = activity;
         this.context = activity.getApplicationContext();
     }
