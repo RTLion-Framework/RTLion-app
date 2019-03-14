@@ -24,6 +24,7 @@ public class MainPageFrag {
     private Activity activity;
     private Context context;
     private ViewGroup viewGroup;
+    private JSInterface jsInterface;
     private RelativeLayout rlMainFrag;
     private TextView txvServerStatus;
     private TextInputLayout tilHostAddr;
@@ -33,10 +34,11 @@ public class MainPageFrag {
             statusNamespace = "/status";
     private int portNum;
 
-    public MainPageFrag(Activity activity, ViewGroup viewGroup){
+    public MainPageFrag(Activity activity, ViewGroup viewGroup, JSInterface jsInterface){
         this.activity = activity;
         this.context = activity.getApplicationContext();
         this.viewGroup = viewGroup;
+        this.jsInterface = jsInterface;
     }
 
     private void initViews(){

@@ -52,7 +52,7 @@ public class MainActivity extends Activity {
         pagesAdapter = new PagesAdapter(this, new PagesAdapter.IViewPager() {
             @Override
             public void onViewsAdded(ArrayList<ViewGroup> layouts) {
-                mainPageFrag = new MainPageFrag(MainActivity.this, layouts.get(0));
+                mainPageFrag = new MainPageFrag(MainActivity.this, layouts.get(0), jsInterface);
                 mainPageFrag.initialize();
             }
         });
