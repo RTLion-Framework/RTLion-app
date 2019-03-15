@@ -7,14 +7,14 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
-public class WebInterface {
+public class JSInterface {
 
     private Activity activity;
     private Context context;
     private WebView webView;
     private String jsInterfaceName = "JSInterface";
 
-    public WebInterface(Activity activity, WebView webView){
+    public JSInterface(Activity activity, WebView webView){
         this.activity = activity;
         this.context = activity.getApplicationContext();
         this.webView = webView;

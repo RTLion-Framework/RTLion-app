@@ -22,7 +22,7 @@ public class MainActivity extends Activity {
     private PagesAdapter pagesAdapter;
     private MainPageFrag mainPageFrag;
     private int currentPageNum;
-    private WebInterface webInterface;
+    private JSInterface JSInterface;
 
     private void init(){
         hideActionBar();
@@ -33,7 +33,7 @@ public class MainActivity extends Activity {
         txvNextPage = (TextView) findViewById(R.id.txvNextPage);
         txvRtlionFramework = (TextView) findViewById(R.id.txvRtlionFramework);
         wvBase = (WebView) findViewById(R.id.wvBase);
-        webInterface = new WebInterface(this, wvBase);
+        JSInterface = new JSInterface(this, wvBase);
         txvRtlionFramework.setTypeface(new SplashScreen(this).getUbuntuMonoFont());
         initPageNavigators();
         setupViewPager();
@@ -51,7 +51,7 @@ public class MainActivity extends Activity {
         pagesAdapter = new PagesAdapter(this, new PagesAdapter.IViewPager() {
             @Override
             public void onViewsAdded(ArrayList<ViewGroup> layouts) {
-                mainPageFrag = new MainPageFrag(MainActivity.this, layouts.get(0), webInterface);
+                mainPageFrag = new MainPageFrag(MainActivity.this, layouts.get(0), JSInterface);
                 mainPageFrag.initialize();
             }
         });
