@@ -90,10 +90,15 @@ public class MainPageFrag {
         return validAddr;
     }
     private void tryConnect(){
-
-        if(checkHostAddr(edtxHostAddr.getText().toString())){
+        String url = edtxHostAddr.getText().toString();
+        if(checkHostAddr(url)){
             hideKeyboard();
-            jsInterface.getServerInfo(edtxHostAddr.getText().toString() + appNamespace);
+            jsInterface.getServerInfo(url + appNamespace, new JSInterface.JSOutputInterface() {
+                @Override
+                public void onInfo(String[] infoValues) {
+
+                }
+            });
         }else{
             Toast.makeText(activity, context.getString(R.string.invalid_host),
                     Toast.LENGTH_SHORT).show();
