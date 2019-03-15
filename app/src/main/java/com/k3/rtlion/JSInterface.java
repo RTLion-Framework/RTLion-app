@@ -12,16 +12,20 @@ public class JSInterface {
     private Activity activity;
     private Context context;
     private WebView webView;
-    private String jsInterfaceName = "JSInterface";
+    private String jsInterfaceName;
 
-    public JSInterface(Activity activity, WebView webView){
+    public JSInterface(Activity activity){
         this.activity = activity;
         this.context = activity.getApplicationContext();
+    }
+    public void initialize(WebView webView){
         this.webView = webView;
+        webView.getSettings().setJavaScriptEnabled(true);
+        jsInterfaceName = this.getClass().getSimpleName();
+        Toast.makeText(activity, jsInterfaceName, Toast.LENGTH_SHORT).show();
+        webView.addJavascriptInterface(this, jsInterfaceName);
     }
     public void fetchPage(String url){
-        webView.getSettings().setJavaScriptEnabled(true);
-        webView.addJavascriptInterface(this, jsInterfaceName);
         webView.loadUrl(url);
         webView.setWebViewClient(new WebViewClient(){
             @Override
