@@ -32,6 +32,10 @@ public class JSInterface {
         public String getServerCmd() { return serverCmd; }
         public String getClientCmd() { return clientCmd; }
     }
+    public interface ClientInfoInterface{
+        public void onInfo(String[] infoValues);
+    }
+    private ClientInfoInterface clientInfoInterface;
     public JSInterface(Activity activity){
         this.activity = activity;
         this.context = activity.getApplicationContext();
@@ -73,7 +77,8 @@ public class JSInterface {
         jsCommand.append("));");
         return jsCommand.toString();
     }
-    public void getServerInfo(String url){
+    public void getServerInfo(String url, ClientInfoInterface clientInfoInterface){
+        this.clientInfoInterface = clientInfoInterface;
         webView.loadUrl(url + "#" + JSCommands.ServerInfo.name());
         globalParams = null;
     }
@@ -88,8 +93,10 @@ public class JSInterface {
                         clientInfo.getString(clientInfo.names().getString(i)),
                         Toast.LENGTH_SHORT).show();
             }
+            clientInfoInterface.onInfo(infoValues);
         }catch (JSONException e){
             e.printStackTrace();
+            clientInfoInterface.onInfo(infoValues);
         }
     }
 }
