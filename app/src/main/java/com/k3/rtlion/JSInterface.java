@@ -22,7 +22,6 @@ public class JSInterface {
         this.webView = webView;
         webView.getSettings().setJavaScriptEnabled(true);
         jsInterfaceName = this.getClass().getSimpleName();
-        Toast.makeText(activity, jsInterfaceName, Toast.LENGTH_SHORT).show();
         webView.addJavascriptInterface(this, jsInterfaceName);
     }
     public void fetchPage(String url){
