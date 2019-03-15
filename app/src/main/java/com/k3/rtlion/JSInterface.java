@@ -24,18 +24,18 @@ public class JSInterface {
         jsInterfaceName = this.getClass().getSimpleName();
         webView.addJavascriptInterface(this, jsInterfaceName);
     }
-    public void fetchPage(String url){
+    public void getServerInfo(String url){
         webView.loadUrl(url);
         webView.setWebViewClient(new WebViewClient(){
             @Override
             public void onPageFinished(WebView view, String url) {
-                String js_getServerInfo = "javascript:JSInterface.getServerInfo(getClientInfo());";
+                String js_getServerInfo = "javascript:JSInterface.fetchServerInfo(getClientInfo());";
                 webView.loadUrl(js_getServerInfo);
             }
         });
     }
     @android.webkit.JavascriptInterface
-    public void getServerInfo(String info){
+    public void fetchServerInfo(String info){
         Toast.makeText(activity, info, Toast.LENGTH_SHORT).show();
     }
 }
