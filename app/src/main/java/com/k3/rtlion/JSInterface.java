@@ -9,6 +9,9 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class JSInterface {
 
     private Activity activity;
@@ -16,6 +19,7 @@ public class JSInterface {
     private WebView webView;
     private String jsInterfaceName;
     private Object[] globalParams;
+    private JSONObject clientInfo;
 
     private enum JSCommands {
         ServerInfo("fetchServerInfo", "getClientInfo");
@@ -74,6 +78,15 @@ public class JSInterface {
     }
     @JavascriptInterface
     public void fetchServerInfo(String info){
-        Toast.makeText(activity, info, Toast.LENGTH_SHORT).show();
+        try {
+            clientInfo = new JSONObject(info);
+            for (int i = 0; i < clientInfo.names().length(); i++) {
+                Toast.makeText(activity, clientInfo.names().getString(i) + " : " +
+                        clientInfo.getString(clientInfo.names().getString(i)),
+                        Toast.LENGTH_SHORT).show();
+            }
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
     }
 }
