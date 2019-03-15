@@ -2,6 +2,7 @@ package com.k3.rtlion;
 
 import android.app.Activity;
 import android.content.Context;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -35,7 +36,7 @@ public class JSInterface {
     public void getServerInfo(String url){
         webView.loadUrl(url);
     }
-    @android.webkit.JavascriptInterface
+    @JavascriptInterface
     public void fetchServerInfo(String info){
         Toast.makeText(activity, info, Toast.LENGTH_SHORT).show();
     }
