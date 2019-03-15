@@ -21,7 +21,7 @@ public class MainPageFrag {
     private Activity activity;
     private Context context;
     private ViewGroup viewGroup;
-    private JSInterface JSInterface;
+    private JSInterface jsInterface;
     private RelativeLayout rlMainFrag;
     private TextView txvServerStatus;
     private TextInputLayout tilHostAddr;
@@ -31,11 +31,11 @@ public class MainPageFrag {
             appNamespace = "/app";
     private int portNum;
 
-    public MainPageFrag(Activity activity, ViewGroup viewGroup, JSInterface JSInterface){
+    public MainPageFrag(Activity activity, ViewGroup viewGroup, JSInterface jsInterface){
         this.activity = activity;
         this.context = activity.getApplicationContext();
         this.viewGroup = viewGroup;
-        this.JSInterface = JSInterface;
+        this.jsInterface = jsInterface;
     }
 
     private void initViews(){
@@ -92,7 +92,7 @@ public class MainPageFrag {
     private void tryConnect(){
         if(checkHostAddr(edtxHostAddr.getText().toString())){
             hideKeyboard();
-            JSInterface.fetchPage(edtxHostAddr.getText().toString() + appNamespace);
+            jsInterface.fetchPage(edtxHostAddr.getText().toString() + appNamespace);
         }else{
             Toast.makeText(activity, context.getString(R.string.invalid_host),
                     Toast.LENGTH_SHORT).show();
