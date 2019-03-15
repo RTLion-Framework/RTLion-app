@@ -14,6 +14,8 @@ public class JSInterface {
     private Context context;
     private WebView webView;
     private String jsInterfaceName;
+    private Object[] globalParams;
+
     private enum JSCommands {
         ServerInfo("serverInfo", "fetchServerInfo", "getClientInfo");
         private String urlFrag, serverCmd, clientCmd;
@@ -32,7 +34,6 @@ public class JSInterface {
             return clientCmd;
         }
     }
-
     public JSInterface(Activity activity){
         this.activity = activity;
         this.context = activity.getApplicationContext();
@@ -47,12 +48,14 @@ public class JSInterface {
     private class webView_client extends WebViewClient {
         @Override
         public void onPageFinished(WebView view, String url) {
-            String js_getServerInfo = "javascript:JSInterface.fetchServerInfo(getClientInfo());";
-            webView.loadUrl(js_getServerInfo);
+            String jsCommand = createJSCommand(JSCommands.valueOf(url.split("#")[1]).ordinal(),
+                    globalParams);
+            Toast.makeText(activity, jsCommand, Toast.LENGTH_SHORT).show();
+            webView.loadUrl(jsCommand);
         }
     }
     public void getServerInfo(String url){
-        webView.loadUrl(url + "#serverInfo");
+        webView.loadUrl(url + "#" + JSCommands.ServerInfo.getUrlFrag());
     }
     private String createJSCommand(int index, Object[] params){
         StringBuilder jsCommand = new StringBuilder();
