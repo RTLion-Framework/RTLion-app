@@ -24,7 +24,7 @@ public class WebInterface {
     }
     public void fetchPage(String url){
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.addJavascriptInterface(new JSInterface(), jsInterfaceName);
+        webView.addJavascriptInterface(this, jsInterfaceName);
         webView.loadUrl(url);
         webView.setWebViewClient(new WebViewClient(){
             @Override
@@ -34,10 +34,8 @@ public class WebInterface {
             }
         });
     }
-    private class JSInterface {
-        @android.webkit.JavascriptInterface
-        public void getHTML(String source) {
-            Toast.makeText(activity, source, Toast.LENGTH_SHORT).show();
-        }
+    @android.webkit.JavascriptInterface
+    public void getHTML(String source) {
+        Toast.makeText(activity, source, Toast.LENGTH_SHORT).show();
     }
 }
