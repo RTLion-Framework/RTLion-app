@@ -14,6 +14,24 @@ public class JSInterface {
     private Context context;
     private WebView webView;
     private String jsInterfaceName;
+    private enum JSCommands {
+        ServerInfo("serverInfo", "fetchServerInfo", "getClientInfo");
+        private String urlFrag, serverCmd, clientCmd;
+        JSCommands(String urlFrag, String serverCmd, String clientCmd) {
+            this.urlFrag = urlFrag;
+            this.serverCmd = serverCmd;
+            this.clientCmd = clientCmd;
+        }
+        public String getUrlFrag() {
+            return urlFrag;
+        }
+        public String getServerCmd() {
+            return serverCmd;
+        }
+        public String getClientCmd() {
+            return clientCmd;
+        }
+    }
 
     public JSInterface(Activity activity){
         this.activity = activity;
@@ -34,8 +52,9 @@ public class JSInterface {
         }
     }
     public void getServerInfo(String url){
-        webView.loadUrl(url);
+        webView.loadUrl(url + "#serverInfo");
     }
+
     @JavascriptInterface
     public void fetchServerInfo(String info){
         Toast.makeText(activity, info, Toast.LENGTH_SHORT).show();
