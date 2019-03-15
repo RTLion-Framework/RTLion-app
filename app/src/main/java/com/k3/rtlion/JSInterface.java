@@ -43,7 +43,6 @@ public class JSInterface {
         public void onPageFinished(WebView view, String url) {
             String jsCommand = createJSCommand(JSCommands.valueOf(url.split("#")[1]).ordinal(),
                     globalParams);
-            Log.d("d>>", jsCommand)
             webView.loadUrl(jsCommand);
         }
     }
