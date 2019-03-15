@@ -15,6 +15,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 
 public class MainPageFrag {
 
@@ -95,8 +98,15 @@ public class MainPageFrag {
             hideKeyboard();
             jsInterface.getServerInfo(url + appNamespace, new JSInterface.JSOutputInterface() {
                 @Override
-                public void onInfo(String[] infoValues) {
-
+                public void onInfo(JSONObject clientInfo) {
+                    try {
+                        for (int i = 0; i < clientInfo.length(); i++) {
+                            Toast.makeText(activity, clientInfo.getString(clientInfo.names().
+                                    getString(i)), Toast.LENGTH_SHORT).show();
+                        }
+                    }catch (JSONException e){
+                        e.printStackTrace();
+                    }
                 }
             });
         }else{

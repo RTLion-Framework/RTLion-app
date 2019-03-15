@@ -18,7 +18,6 @@ public class JSInterface {
     private String jsInterfaceName;
     private Object[] globalParams;
     private JSONObject clientInfo;
-    private String[] infoValues;
 
     private enum JSCommands {
         ServerInfo("fetchServerInfo", "getClientInfo");
@@ -31,7 +30,7 @@ public class JSInterface {
         public String getClientCmd() { return clientCmd; }
     }
     public interface JSOutputInterface {
-        public void onInfo(String[] infoValues);
+        public void onInfo(JSONObject clientInfo);
     }
     private JSOutputInterface JSOutputInterface;
     public JSInterface(Activity activity){
@@ -84,17 +83,10 @@ public class JSInterface {
     public void fetchServerInfo(String info){
         try {
             clientInfo = new JSONObject(info);
-            infoValues = new String[clientInfo.length()];
-            for (int i = 0; i < clientInfo.length(); i++) {
-                infoValues[i] = clientInfo.getString(clientInfo.names().getString(i));
-                Toast.makeText(activity, clientInfo.names().getString(i) + " : " +
-                        clientInfo.getString(clientInfo.names().getString(i)),
-                        Toast.LENGTH_SHORT).show();
-            }
-            JSOutputInterface.onInfo(infoValues);
+            JSOutputInterface.onInfo(clientInfo);
         }catch (JSONException e){
             e.printStackTrace();
-            JSOutputInterface.onInfo(infoValues);
+            JSOutputInterface.onInfo(clientInfo);
         }
     }
 }
