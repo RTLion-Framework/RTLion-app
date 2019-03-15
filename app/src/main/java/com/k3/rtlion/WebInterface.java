@@ -13,6 +13,7 @@ public class WebInterface {
     private Context context;
     private WebView webView;
 
+
     public WebInterface(Activity activity, WebView webView){
         this.activity = activity;
         this.context = activity.getApplicationContext();
@@ -27,13 +28,10 @@ public class WebInterface {
         webView.setWebViewClient(new WebViewClient(){
             @Override
             public void onPageFinished(WebView view, String url) {
-
-            }
-
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-                return super.shouldOverrideUrlLoading(view, request);
+                webView
             }
         });
+    }
+    private class JSInterface {
     }
 }
