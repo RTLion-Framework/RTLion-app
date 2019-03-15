@@ -28,7 +28,7 @@ public class MainPageFrag {
     private EditText edtxHostAddr;
     private Button btnConnect;
     private String serverHost,
-            statusNamespace = "/status";
+            appNamespace = "/app";
     private int portNum;
 
     public MainPageFrag(Activity activity, ViewGroup viewGroup, WebInterface webInterface){
@@ -92,7 +92,7 @@ public class MainPageFrag {
     private void tryConnect(){
         if(checkHostAddr(edtxHostAddr.getText().toString())){
             hideKeyboard();
-            webInterface.fetchPage(edtxHostAddr.getText().toString() + statusNamespace);
+            webInterface.fetchPage(edtxHostAddr.getText().toString() + appNamespace);
         }else{
             Toast.makeText(activity, context.getString(R.string.invalid_host),
                     Toast.LENGTH_SHORT).show();
