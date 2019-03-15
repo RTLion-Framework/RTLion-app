@@ -35,7 +35,7 @@ public class WebInterface {
     }
     private class JSInterface {
         @android.webkit.JavascriptInterface
-        public void onFetch(String source) {
+        public void getHTML(String source) {
             Toast.makeText(activity, source, Toast.LENGTH_SHORT).show();
         }
     }
