@@ -23,16 +23,17 @@ public class JSInterface {
         webView.getSettings().setJavaScriptEnabled(true);
         jsInterfaceName = this.getClass().getSimpleName();
         webView.addJavascriptInterface(this, jsInterfaceName);
+        webView.setWebViewClient(new webView_client());
+    }
+    private class webView_client extends WebViewClient {
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            String js_getServerInfo = "javascript:JSInterface.fetchServerInfo(getClientInfo());";
+            webView.loadUrl(js_getServerInfo);
+        }
     }
     public void getServerInfo(String url){
         webView.loadUrl(url);
-        webView.setWebViewClient(new WebViewClient(){
-            @Override
-            public void onPageFinished(WebView view, String url) {
-                String js_getServerInfo = "javascript:JSInterface.fetchServerInfo(getClientInfo());";
-                webView.loadUrl(js_getServerInfo);
-            }
-        });
     }
     @android.webkit.JavascriptInterface
     public void fetchServerInfo(String info){
