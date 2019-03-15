@@ -2,6 +2,7 @@ package com.k3.rtlion;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
@@ -17,22 +18,14 @@ public class JSInterface {
     private Object[] globalParams;
 
     private enum JSCommands {
-        ServerInfo("serverInfo", "fetchServerInfo", "getClientInfo");
-        private String urlFrag, serverCmd, clientCmd;
-        JSCommands(String urlFrag, String serverCmd, String clientCmd) {
-            this.urlFrag = urlFrag;
+        ServerInfo("fetchServerInfo", "getClientInfo");
+        private String serverCmd, clientCmd;
+        JSCommands(String serverCmd, String clientCmd) {
             this.serverCmd = serverCmd;
             this.clientCmd = clientCmd;
         }
-        public String getUrlFrag() {
-            return urlFrag;
-        }
-        public String getServerCmd() {
-            return serverCmd;
-        }
-        public String getClientCmd() {
-            return clientCmd;
-        }
+        public String getServerCmd() { return serverCmd; }
+        public String getClientCmd() { return clientCmd; }
     }
     public JSInterface(Activity activity){
         this.activity = activity;
@@ -50,12 +43,12 @@ public class JSInterface {
         public void onPageFinished(WebView view, String url) {
             String jsCommand = createJSCommand(JSCommands.valueOf(url.split("#")[1]).ordinal(),
                     globalParams);
-            Toast.makeText(activity, jsCommand, Toast.LENGTH_SHORT).show();
+            Log.d("d>>", jsCommand)
             webView.loadUrl(jsCommand);
         }
     }
     public void getServerInfo(String url){
-        webView.loadUrl(url + "#" + JSCommands.ServerInfo.getUrlFrag());
+        webView.loadUrl(url + "#" + JSCommands.ServerInfo.name());
     }
     private String createJSCommand(int index, Object[] params){
         StringBuilder jsCommand = new StringBuilder();
