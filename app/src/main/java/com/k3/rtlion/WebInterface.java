@@ -24,6 +24,7 @@ public class WebInterface {
     }
     public void fetchPage(String url){
         webView.getSettings().setJavaScriptEnabled(true);
+        webView.addJavascriptInterface(new JSInterface(), jsInterfaceName);
         webView.loadUrl(url);
         webView.setWebViewClient(new WebViewClient(){
             @Override
