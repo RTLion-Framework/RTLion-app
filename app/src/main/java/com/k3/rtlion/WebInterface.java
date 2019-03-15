@@ -29,13 +29,13 @@ public class WebInterface {
         webView.setWebViewClient(new WebViewClient(){
             @Override
             public void onPageFinished(WebView view, String url) {
-                String js_pageSource = "javascript:JSInterface.getHTML(document.documentElement.innerHTML);";
-                webView.loadUrl(js_pageSource);
+                String js_getClientInfo = "javascript:JSInterface.onClientInfo(getClientInfo());";
+                webView.loadUrl(js_getClientInfo);
             }
         });
     }
     @android.webkit.JavascriptInterface
-    public void getHTML(String source) {
-        Toast.makeText(activity, source, Toast.LENGTH_SHORT).show();
+    public void onClientInfo(String info){
+        Toast.makeText(activity, info, Toast.LENGTH_SHORT).show();
     }
 }
