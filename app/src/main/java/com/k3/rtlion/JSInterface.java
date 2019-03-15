@@ -20,6 +20,7 @@ public class JSInterface {
     private String jsInterfaceName;
     private Object[] globalParams;
     private JSONObject clientInfo;
+    private String[] infoValues;
 
     private enum JSCommands {
         ServerInfo("fetchServerInfo", "getClientInfo");
@@ -80,7 +81,9 @@ public class JSInterface {
     public void fetchServerInfo(String info){
         try {
             clientInfo = new JSONObject(info);
-            for (int i = 0; i < clientInfo.names().length(); i++) {
+            infoValues = new String[clientInfo.length()];
+            for (int i = 0; i < clientInfo.length(); i++) {
+                infoValues[i] = clientInfo.getString(clientInfo.names().getString(i));
                 Toast.makeText(activity, clientInfo.names().getString(i) + " : " +
                         clientInfo.getString(clientInfo.names().getString(i)),
                         Toast.LENGTH_SHORT).show();
