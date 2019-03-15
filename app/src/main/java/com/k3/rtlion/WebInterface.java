@@ -12,7 +12,7 @@ public class WebInterface {
     private Activity activity;
     private Context context;
     private WebView webView;
-
+    private String jsInterfaceName = "JSInterface";
 
     public WebInterface(Activity activity, WebView webView){
         this.activity = activity;
@@ -28,7 +28,7 @@ public class WebInterface {
         webView.setWebViewClient(new WebViewClient(){
             @Override
             public void onPageFinished(WebView view, String url) {
-                webView
+
             }
         });
     }
