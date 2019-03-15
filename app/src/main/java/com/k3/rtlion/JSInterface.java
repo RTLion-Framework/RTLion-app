@@ -46,9 +46,6 @@ public class JSInterface {
             webView.loadUrl(jsCommand);
         }
     }
-    public void getServerInfo(String url){
-        webView.loadUrl(url + "#" + JSCommands.ServerInfo.name());
-    }
     private String createJSCommand(int index, Object[] params){
         StringBuilder jsCommand = new StringBuilder();
         String jsHead = "javascript:",
@@ -70,6 +67,10 @@ public class JSInterface {
         }
         jsCommand.append("));");
         return jsCommand.toString();
+    }
+    public void getServerInfo(String url){
+        webView.loadUrl(url + "#" + JSCommands.ServerInfo.name());
+        globalParams = null;
     }
     @JavascriptInterface
     public void fetchServerInfo(String info){
