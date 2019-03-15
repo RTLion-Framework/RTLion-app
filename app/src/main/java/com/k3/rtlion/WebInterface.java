@@ -29,7 +29,8 @@ public class WebInterface {
         webView.setWebViewClient(new WebViewClient(){
             @Override
             public void onPageFinished(WebView view, String url) {
-
+                String js_pageSource = "javascript:JSInterface.getHTML(document.documentElement.innerHTML);";
+                webView.loadUrl(js_pageSource);
             }
         });
     }
