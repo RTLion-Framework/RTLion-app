@@ -90,6 +90,7 @@ public class MainPageFrag {
         return validAddr;
     }
     private void tryConnect(){
+
         if(checkHostAddr(edtxHostAddr.getText().toString())){
             hideKeyboard();
             jsInterface.getServerInfo(edtxHostAddr.getText().toString() + appNamespace);

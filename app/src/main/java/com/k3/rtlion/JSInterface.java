@@ -2,9 +2,7 @@ package com.k3.rtlion;
 
 import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
 import android.webkit.JavascriptInterface;
-import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
@@ -32,10 +30,10 @@ public class JSInterface {
         public String getServerCmd() { return serverCmd; }
         public String getClientCmd() { return clientCmd; }
     }
-    public interface ClientInfoInterface{
+    public interface JSOutputInterface {
         public void onInfo(String[] infoValues);
     }
-    private ClientInfoInterface clientInfoInterface;
+    private JSOutputInterface JSOutputInterface;
     public JSInterface(Activity activity){
         this.activity = activity;
         this.context = activity.getApplicationContext();
@@ -77,8 +75,8 @@ public class JSInterface {
         jsCommand.append("));");
         return jsCommand.toString();
     }
-    public void getServerInfo(String url, ClientInfoInterface clientInfoInterface){
-        this.clientInfoInterface = clientInfoInterface;
+    public void getServerInfo(String url, JSOutputInterface JSOutputInterface){
+        this.JSOutputInterface = JSOutputInterface;
         webView.loadUrl(url + "#" + JSCommands.ServerInfo.name());
         globalParams = null;
     }
@@ -93,10 +91,10 @@ public class JSInterface {
                         clientInfo.getString(clientInfo.names().getString(i)),
                         Toast.LENGTH_SHORT).show();
             }
-            clientInfoInterface.onInfo(infoValues);
+            JSOutputInterface.onInfo(infoValues);
         }catch (JSONException e){
             e.printStackTrace();
-            clientInfoInterface.onInfo(infoValues);
+            JSOutputInterface.onInfo(infoValues);
         }
     }
 }
