@@ -19,9 +19,6 @@ public class JSInterface {
         this.context = activity.getApplicationContext();
         this.webView = webView;
     }
-    private WebView getWebView(){
-        return webView;
-    }
     public void fetchPage(String url){
         webView.getSettings().setJavaScriptEnabled(true);
         webView.addJavascriptInterface(this, jsInterfaceName);
