@@ -31,11 +31,11 @@ public class MainPageFrag {
     private TextInputLayout tilHostAddr;
     private EditText edtxHostAddr;
     private Button btnConnect;
-    private String serverUrl,
-            serverHost,
+    private String serverHost,
             appNamespace = "/app";
     private int portNum;
     public boolean isConnected = false;
+    public String serverUrl;
 
     public MainPageFrag(Activity activity, ViewGroup viewGroup, JSInterface jsInterface){
         this.activity = activity;
