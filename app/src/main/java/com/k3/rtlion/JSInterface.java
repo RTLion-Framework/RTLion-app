@@ -23,7 +23,7 @@ public class JSInterface {
     private Object[] globalParams;
     private JSONObject clientInfo;
 
-    private enum JSCommands {
+    public enum JSCommands {
         ServerInfo("fetchServerInfo", "getClientInfo");
         private String serverCmd, clientCmd;
         JSCommands(String serverCmd, String clientCmd) {

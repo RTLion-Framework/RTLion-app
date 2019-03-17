@@ -131,10 +131,16 @@ public class MainPageFrag {
                     }
                     enableViews(true);
                 }
-
                 @Override
                 public void onConsoleMsg(ConsoleMessage msg) {
-                    Toast.makeText(activity, msg.message(), Toast.LENGTH_SHORT).show();
+                    String notDefinedError = "Uncaught ReferenceError: " + 
+                            JSInterface.JSCommands.ServerInfo.getClientCmd() + " is not defined";
+                    if (msg.message().trim().equals(notDefinedError)){
+                        Toast.makeText(activity, context.getString(R.string.server_unreachable),
+                                Toast.LENGTH_SHORT).show();
+                    }
+                    setTxvServerStatus(context.getString(R.string.server_disconnected));
+                    enableViews(true);
                 }
             });
         }else{
