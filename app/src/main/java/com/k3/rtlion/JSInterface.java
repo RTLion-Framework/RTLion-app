@@ -90,7 +90,7 @@ public class JSInterface {
         return jsCommand.toString();
     }
     public void getServerInfo(String url, JSOutputInterface jsOutputInterface){
-        this.jsOutputInterface = JSOutputInterface;
+        this.jsOutputInterface = jsOutputInterface;
         webView.loadUrl(url + "#" + JSCommands.ServerInfo.name());
         globalParams = null;
     }

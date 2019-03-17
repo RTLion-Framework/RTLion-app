@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.webkit.ConsoleMessage;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -129,6 +130,11 @@ public class MainPageFrag {
                         setTxvServerStatus(context.getString(R.string.server_disconnected));
                     }
                     enableViews(true);
+                }
+
+                @Override
+                public void onConsoleMsg(ConsoleMessage msg) {
+                    Toast.makeText(activity, msg.message(), Toast.LENGTH_SHORT).show();
                 }
             });
         }else{
