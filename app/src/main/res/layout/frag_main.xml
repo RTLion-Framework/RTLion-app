@@ -54,4 +54,16 @@
         android:text="@string/try_connect"
         android:theme="@style/FlatButton"/>
 
+    <TextView
+        android:id="@id/txvServerInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnConnect"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
+        android:fontFamily="monospace"/>
+
 </RelativeLayout>
