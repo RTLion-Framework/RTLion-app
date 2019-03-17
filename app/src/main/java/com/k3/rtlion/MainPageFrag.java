@@ -31,11 +31,10 @@ public class MainPageFrag {
     private TextInputLayout tilHostAddr;
     private EditText edtxHostAddr;
     private Button btnConnect;
-    private String serverHost,
+    private String serverUrl,
+            serverHost,
             appNamespace = "/app";
     private int portNum;
-    public boolean isConnected = false;
-    public String serverUrl;
 
     public MainPageFrag(Activity activity, ViewGroup viewGroup, JSInterface jsInterface){
         this.activity = activity;
@@ -127,11 +126,9 @@ public class MainPageFrag {
                                     getString(i)), Toast.LENGTH_SHORT).show();
                         }
                         setTxvServerStatus(context.getString(R.string.server_connected));
-                        isConnected = true;
                     }catch (JSONException e){
                         e.printStackTrace();
                         setTxvServerStatus(context.getString(R.string.server_disconnected));
-                        isConnected = false;
                     }
                     enableViews(true);
                 }
@@ -144,7 +141,6 @@ public class MainPageFrag {
                                 " [" + serverUrl + appNamespace + "]", Toast.LENGTH_SHORT).show();
                     }
                     setTxvServerStatus(context.getString(R.string.server_disconnected));
-                    isConnected = false;
                     enableViews(true);
                 }
             });
