@@ -2,7 +2,12 @@ package com.k3.rtlion;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
+import android.webkit.ConsoleMessage;
 import android.webkit.JavascriptInterface;
+import android.webkit.WebChromeClient;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
@@ -32,7 +37,7 @@ public class JSInterface {
     public interface JSOutputInterface {
         public void onInfo(JSONObject clientInfo);
     }
-    private JSOutputInterface JSOutputInterface;
+    private JSOutputInterface jsOutputInterface;
     public JSInterface(Activity activity){
         this.activity = activity;
         this.context = activity.getApplicationContext();
@@ -43,6 +48,7 @@ public class JSInterface {
         jsInterfaceName = this.getClass().getSimpleName();
         webView.addJavascriptInterface(this, jsInterfaceName);
         webView.setWebViewClient(new webView_client());
+        webView.setWebChromeClient(new webView_chromeClient());
     }
     private class webView_client extends WebViewClient {
         @Override
@@ -50,6 +56,16 @@ public class JSInterface {
             String jsCommand = createJSCommand(JSCommands.valueOf(url.split("#")[1]).ordinal(),
                     globalParams);
             webView.loadUrl(jsCommand);
+        }
+    }
+    private class webView_chromeClient extends WebChromeClient{
+        @Override
+        public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
+            if(JSOutputInterface.)
+            Log.d("MyApplication", consoleMessage.message() + " -- From line "
+                    + consoleMessage.lineNumber() + " of "
+                    + consoleMessage.sourceId());
+            return super.onConsoleMessage(consoleMessage);
         }
     }
     private String createJSCommand(int index, Object[] params){
@@ -74,19 +90,20 @@ public class JSInterface {
         jsCommand.append("));");
         return jsCommand.toString();
     }
-    public void getServerInfo(String url, JSOutputInterface JSOutputInterface){
-        this.JSOutputInterface = JSOutputInterface;
+    public void getServerInfo(String url, JSOutputInterface jsOutputInterface){
+        this.jsOutputInterface = JSOutputInterface;
         webView.loadUrl(url + "#" + JSCommands.ServerInfo.name());
         globalParams = null;
     }
     @JavascriptInterface
     public void fetchServerInfo(String info){
+        clientInfo = null;
         try {
             clientInfo = new JSONObject(info);
-            JSOutputInterface.onInfo(clientInfo);
+            jsOutputInterface.onInfo(clientInfo);
         }catch (JSONException e){
             e.printStackTrace();
-            JSOutputInterface.onInfo(clientInfo);
+            jsOutputInterface.onInfo(clientInfo);
         }
     }
 }
