@@ -2,7 +2,6 @@ package com.k3.rtlion;
 
 import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
 import android.webkit.ConsoleMessage;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
@@ -61,10 +60,6 @@ public class JSInterface {
     private class webView_chromeClient extends WebChromeClient{
         @Override
         public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
-            if(JSOutputInterface.)
-            Log.d("MyApplication", consoleMessage.message() + " -- From line "
-                    + consoleMessage.lineNumber() + " of "
-                    + consoleMessage.sourceId());
             return super.onConsoleMessage(consoleMessage);
         }
     }
