@@ -136,8 +136,8 @@ public class MainPageFrag {
                     String notDefinedError = "Uncaught ReferenceError: " + 
                             JSInterface.JSCommands.ServerInfo.getClientCmd() + " is not defined";
                     if (msg.message().trim().equals(notDefinedError)){
-                        Toast.makeText(activity, context.getString(R.string.server_unreachable),
-                                Toast.LENGTH_SHORT).show();
+                        Toast.makeText(activity, context.getString(R.string.server_unreachable) +
+                                " [" + url + appNamespace + "]", Toast.LENGTH_SHORT).show();
                     }
                     setTxvServerStatus(context.getString(R.string.server_disconnected));
                     enableViews(true);
