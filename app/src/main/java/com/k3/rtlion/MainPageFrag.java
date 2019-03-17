@@ -31,9 +31,11 @@ public class MainPageFrag {
     private TextInputLayout tilHostAddr;
     private EditText edtxHostAddr;
     private Button btnConnect;
-    private String serverHost,
+    private String serverUrl,
+            serverHost,
             appNamespace = "/app";
     private int portNum;
+    public boolean isConnected = false;
 
     public MainPageFrag(Activity activity, ViewGroup viewGroup, JSInterface jsInterface){
         this.activity = activity;
@@ -103,12 +105,12 @@ public class MainPageFrag {
         });
     }
     private void tryConnect(){
-        String url = edtxHostAddr.getText().toString();
-        if(checkHostAddr(url)){
+        serverUrl = edtxHostAddr.getText().toString();
+        if(checkHostAddr(serverUrl)){
             hideKeyboard();
             enableViews(false);
             txvServerStatus.setText(context.getString(R.string.server_connecting));
-            jsInterface.getServerInfo(url + appNamespace, new JSInterface.JSOutputInterface() {
+            jsInterface.getServerInfo(serverUrl + appNamespace, new JSInterface.JSOutputInterface() {
                 private void setTxvServerStatus(final String text){
                     activity.runOnUiThread(new Runnable() {
                         @Override
@@ -125,9 +127,11 @@ public class MainPageFrag {
                                     getString(i)), Toast.LENGTH_SHORT).show();
                         }
                         setTxvServerStatus(context.getString(R.string.server_connected));
+                        isConnected = true;
                     }catch (JSONException e){
                         e.printStackTrace();
                         setTxvServerStatus(context.getString(R.string.server_disconnected));
+                        isConnected = false;
                     }
                     enableViews(true);
                 }
@@ -137,9 +141,10 @@ public class MainPageFrag {
                             JSInterface.JSCommands.ServerInfo.getClientCmd() + " is not defined";
                     if (msg.message().trim().equals(notDefinedError)){
                         Toast.makeText(activity, context.getString(R.string.server_unreachable) +
-                                " [" + url + appNamespace + "]", Toast.LENGTH_SHORT).show();
+                                " [" + serverUrl + appNamespace + "]", Toast.LENGTH_SHORT).show();
                     }
                     setTxvServerStatus(context.getString(R.string.server_disconnected));
+                    isConnected = false;
                     enableViews(true);
                 }
             });
