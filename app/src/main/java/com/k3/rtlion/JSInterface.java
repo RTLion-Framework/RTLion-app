@@ -35,6 +35,7 @@ public class JSInterface {
     }
     public interface JSOutputInterface {
         public void onInfo(JSONObject clientInfo);
+        public void onConsoleMsg(ConsoleMessage msg);
     }
     private JSOutputInterface jsOutputInterface;
     public JSInterface(Activity activity){
@@ -60,6 +61,9 @@ public class JSInterface {
     private class webView_chromeClient extends WebChromeClient{
         @Override
         public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
+            if(jsOutputInterface != null){
+                jsOutputInterface.onConsoleMsg(consoleMessage);
+            }
             return super.onConsoleMessage(consoleMessage);
         }
     }
