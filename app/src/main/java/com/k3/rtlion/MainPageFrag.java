@@ -92,10 +92,16 @@ public class MainPageFrag {
         }
         return validAddr;
     }
+    private void enableViews(Boolean state){
+        edtxHostAddr.setEnabled(state);
+        btnConnect.setEnabled(state);
+    }
     private void tryConnect(){
         String url = edtxHostAddr.getText().toString();
         if(checkHostAddr(url)){
             hideKeyboard();
+            enableViews(false);
+            txvServerStatus.setText(context.getString(R.string.server_connecting));
             jsInterface.getServerInfo(url + appNamespace, new JSInterface.JSOutputInterface() {
                 @Override
                 public void onInfo(JSONObject clientInfo) {
@@ -104,9 +110,12 @@ public class MainPageFrag {
                             Toast.makeText(activity, clientInfo.getString(clientInfo.names().
                                     getString(i)), Toast.LENGTH_SHORT).show();
                         }
+                        txvServerStatus.setText(context.getString(R.string.server_connected));
                     }catch (JSONException e){
                         e.printStackTrace();
+                        txvServerStatus.setText(context.getString(R.string.server_disconnected));
                     }
+                    enableViews(true);
                 }
             });
         }else{
