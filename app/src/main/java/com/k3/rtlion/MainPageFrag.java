@@ -92,9 +92,14 @@ public class MainPageFrag {
         }
         return validAddr;
     }
-    private void enableViews(Boolean state){
-        edtxHostAddr.setEnabled(state);
-        btnConnect.setEnabled(state);
+    private void enableViews(final Boolean state){
+        activity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                edtxHostAddr.setEnabled(state);
+                btnConnect.setEnabled(state);
+            }
+        });
     }
     private void tryConnect(){
         String url = edtxHostAddr.getText().toString();
@@ -103,6 +108,14 @@ public class MainPageFrag {
             enableViews(false);
             txvServerStatus.setText(context.getString(R.string.server_connecting));
             jsInterface.getServerInfo(url + appNamespace, new JSInterface.JSOutputInterface() {
+                private void setTxvServerStatus(final String text){
+                    activity.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            txvServerStatus.setText(text);
+                        }
+                    });
+                }
                 @Override
                 public void onInfo(JSONObject clientInfo) {
                     try {
@@ -110,10 +123,10 @@ public class MainPageFrag {
                             Toast.makeText(activity, clientInfo.getString(clientInfo.names().
                                     getString(i)), Toast.LENGTH_SHORT).show();
                         }
-                        txvServerStatus.setText(context.getString(R.string.server_connected));
+                        setTxvServerStatus(context.getString(R.string.server_connected));
                     }catch (JSONException e){
                         e.printStackTrace();
-                        txvServerStatus.setText(context.getString(R.string.server_disconnected));
+                        setTxvServerStatus(context.getString(R.string.server_disconnected));
                     }
                     enableViews(true);
                 }
