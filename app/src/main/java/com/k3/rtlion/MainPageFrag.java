@@ -145,7 +145,7 @@ public class MainPageFrag {
                                     getString(i)), Toast.LENGTH_SHORT).show();
                         }
                         setTxvServerStatus(context.getString(R.string.server_connected));
-                        setTxvServerInfo("test");
+                        //setTxvServerInfo();
                         hostDB.updateHostAddr(serverUrl);
                     }catch (JSONException e){
                         e.printStackTrace();
