@@ -140,12 +140,13 @@ public class MainPageFrag {
                     try {
                         if(clientInfo.length() != 6)
                             throw new JSONException("Invalid client information.");
+                        String clientInfos = "";
                         for (int i = 0; i < clientInfo.length(); i++) {
-                            Toast.makeText(activity, clientInfo.getString(clientInfo.names().
-                                    getString(i)), Toast.LENGTH_SHORT).show();
+                            clientInfos += clientInfo.names().getString(i) + ": " +
+                                    clientInfo.getString(clientInfo.names().getString(i)) + "\n";
                         }
                         setTxvServerStatus(context.getString(R.string.server_connected));
-                        //setTxvServerInfo();
+                        setTxvServerInfo(clientInfos);
                         hostDB.updateHostAddr(serverUrl);
                     }catch (JSONException e){
                         e.printStackTrace();
