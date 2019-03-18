@@ -127,6 +127,14 @@ public class MainPageFrag {
                         }
                     });
                 }
+                private void setTxvServerInfo(final String text){
+                    activity.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            txvServerInfo.setText(text);
+                        }
+                    });
+                }
                 @Override
                 public void onInfo(JSONObject clientInfo) {
                     try {
@@ -135,6 +143,7 @@ public class MainPageFrag {
                                     getString(i)), Toast.LENGTH_SHORT).show();
                         }
                         setTxvServerStatus(context.getString(R.string.server_connected));
+                        setTxvServerInfo("test");
                         hostDB.updateHostAddr(serverUrl);
                     }catch (JSONException e){
                         e.printStackTrace();
