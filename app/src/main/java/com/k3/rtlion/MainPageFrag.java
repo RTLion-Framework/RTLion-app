@@ -154,8 +154,8 @@ public class MainPageFrag {
                     }catch (JSONException e){
                         e.printStackTrace();
                         setTxvServerStatus(context.getString(R.string.server_disconnected));
+                        enableViews(true);
                     }
-                    enableViews(true);
                 }
                 @Override
                 public void onConsoleMsg(ConsoleMessage msg) {
