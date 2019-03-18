@@ -30,7 +30,7 @@ public class HostDB extends SQLiteOpenHelper {
             e.printStackTrace();
         }
     }
-    public String getHostAddr(Context context){
+    public String getHostAddr(){
         String hostAddr = null;
         try {
             hostDB = getWritableDatabase();
@@ -45,7 +45,7 @@ public class HostDB extends SQLiteOpenHelper {
         }
         return hostAddr;
     }
-    public void updateHostAddr(Context context, String newData){
+    public void updateHostAddr(String newData){
         try {
             hostDB = getWritableDatabase();
             hostDB.execSQL("DELETE FROM " + tableName);
