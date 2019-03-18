@@ -26,15 +26,16 @@ public class MainPageFrag {
     private Context context;
     private ViewGroup viewGroup;
     private JSInterface jsInterface;
+    private String serverUrl,
+            serverHost,
+            appNamespace = "/app";
+    private int portNum;
+
     private RelativeLayout rlMainFrag;
     private TextView txvServerStatus;
     private TextInputLayout tilHostAddr;
     private EditText edtxHostAddr;
     private Button btnConnect;
-    private String serverUrl,
-            serverHost,
-            appNamespace = "/app";
-    private int portNum;
 
     public MainPageFrag(Activity activity, ViewGroup viewGroup, JSInterface jsInterface){
         this.activity = activity;

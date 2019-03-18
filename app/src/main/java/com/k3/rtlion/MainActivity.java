@@ -15,14 +15,15 @@ import java.util.ArrayList;
 
 public class MainActivity extends Activity {
 
-    private ImageView imgRtlionSmall;
-    private TextView txvRtlionFramework, txvPageNum, txvPrevPage, txvNextPage;
-    private ViewPager vpPages;
-    private WebView wvBase;
     private PagesAdapter pagesAdapter;
     private MainPageFrag mainPageFrag;
     private int currentPageNum;
     private JSInterface jsInterface;
+
+    private ImageView imgRtlionSmall;
+    private TextView txvRtlionFramework, txvPageNum, txvPrevPage, txvNextPage;
+    private ViewPager vpPages;
+    private WebView wvBase;
 
     private void init(){
         hideActionBar();
