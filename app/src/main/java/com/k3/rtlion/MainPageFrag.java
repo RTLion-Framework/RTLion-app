@@ -147,6 +147,7 @@ public class MainPageFrag {
                             clientInfos += infoNames[i] + ": " + clientInfo.getString(
                                     clientInfo.names().getString(i)) + "\n\n";
                         }
+                        clientInfos += context.getString(R.string.swipe_text)+ "\n\n";
                         setTxvServerStatus(context.getString(R.string.server_connected));
                         setTxvServerInfo(clientInfos);
                         hostDB.updateHostAddr(serverUrl);

@@ -23,4 +23,5 @@
         <item>Timezone</item>
         <item>Language</item>
     </string-array>
+    <string name="swipe_text">&lt;Swipe to see other features.&gt;</string>
 </resources>
