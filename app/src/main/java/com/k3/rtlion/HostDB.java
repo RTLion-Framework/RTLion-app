@@ -10,7 +10,7 @@ public class HostDB extends SQLiteOpenHelper {
     private static final String databaseName = "RTLion_db";
     public String tableName = "hosts_table", dataName = "hosts";
     private static final int ver = 1;
-    private SQLiteDatabase hostsDB;
+    private SQLiteDatabase hostDB;
     private Cursor dbCursor;
     private ContentValues contentValues;
 
@@ -33,13 +33,13 @@ public class HostDB extends SQLiteOpenHelper {
     private String getHostAddr(Context context){
         String hostAddr = null;
         try {
-            hostsDB = getWritableDatabase();
+            hostDB = getWritableDatabase();
             String[] hostColumn = {dataName};
-            dbCursor = hostsDB.query(tableName, hostColumn, null, null, null, null, null);
+            dbCursor = hostDB.query(tableName, hostColumn, null, null, null, null, null);
             while (dbCursor.moveToNext()) {
                 hostAddr = dbCursor.getString(dbCursor.getColumnIndex(dataName));
             }
-            hostsDB.close();
+            hostDB.close();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -47,12 +47,12 @@ public class HostDB extends SQLiteOpenHelper {
     }
     public void updateHostAddr(Context context, String newData){
         try {
-            hostsDB = getWritableDatabase();
-            hostsDB.execSQL("DELETE FROM " + tableName);
+            hostDB = getWritableDatabase();
+            hostDB.execSQL("DELETE FROM " + tableName);
             contentValues = new ContentValues();
             contentValues.put(dataName, newData);
-            hostsDB.insertOrThrow(tableName, null, contentValues);
-            hostsDB.close();
+            hostDB.insertOrThrow(tableName, null, contentValues);
+            hostDB.close();
         }catch(Exception e){
             e.printStackTrace();
         }
