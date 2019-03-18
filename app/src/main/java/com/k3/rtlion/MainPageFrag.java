@@ -138,6 +138,8 @@ public class MainPageFrag {
                 @Override
                 public void onInfo(JSONObject clientInfo) {
                     try {
+                        if(clientInfo.length() != 6)
+                            throw new JSONException("Invalid client information.");
                         for (int i = 0; i < clientInfo.length(); i++) {
                             Toast.makeText(activity, clientInfo.getString(clientInfo.names().
                                     getString(i)), Toast.LENGTH_SHORT).show();
