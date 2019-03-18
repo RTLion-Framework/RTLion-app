@@ -54,9 +54,14 @@ public class MainPageFrag {
     }
     public void initialize(){
         initViews();
-        hostDB = new HostDB(context);
+        initDatabase();
         edtxHostAddr.setOnEditorActionListener(new edtxHostAddr_onEditorAction());
         btnConnect.setOnClickListener(new btnConnect_onClick());
+    }
+    private void initDatabase(){
+        hostDB = new HostDB(context);
+        if (hostDB.getHostAddr() != null)
+            edtxHostAddr.setText(hostDB.getHostAddr());
     }
     private class edtxHostAddr_onEditorAction implements TextView.OnEditorActionListener{
         @Override
@@ -129,6 +134,7 @@ public class MainPageFrag {
                                     getString(i)), Toast.LENGTH_SHORT).show();
                         }
                         setTxvServerStatus(context.getString(R.string.server_connected));
+                        hostDB.updateHostAddr(serverUrl);
                     }catch (JSONException e){
                         e.printStackTrace();
                         setTxvServerStatus(context.getString(R.string.server_disconnected));
