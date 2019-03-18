@@ -33,7 +33,7 @@ public class MainPageFrag {
     private int portNum;
 
     private RelativeLayout rlMainFrag;
-    private TextView txvServerStatus;
+    private TextView txvServerStatus, txvServerInfo;
     private TextInputLayout tilHostAddr;
     private EditText edtxHostAddr;
     private Button btnConnect;
@@ -51,6 +51,7 @@ public class MainPageFrag {
         tilHostAddr = (TextInputLayout) viewGroup.findViewById(R.id.tilHostAddr);
         edtxHostAddr = (EditText) viewGroup.findViewById(R.id.edtxHostAddr);
         btnConnect = (Button) viewGroup.findViewById(R.id.btnConnect);
+        txvServerInfo = (TextView) viewGroup.findViewById(R.id.txvServerInfo);
     }
     public void initialize(){
         initViews();
