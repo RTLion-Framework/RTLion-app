@@ -143,7 +143,7 @@ public class MainPageFrag {
                         String clientInfos = "";
                         for (int i = 0; i < clientInfo.length(); i++) {
                             clientInfos += clientInfo.names().getString(i) + ": " +
-                                    clientInfo.getString(clientInfo.names().getString(i)) + "\n";
+                                    clientInfo.getString(clientInfo.names().getString(i)) + "\n\n";
                         }
                         setTxvServerStatus(context.getString(R.string.server_connected));
                         setTxvServerInfo(clientInfos);
