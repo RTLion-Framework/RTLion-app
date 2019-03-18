@@ -26,6 +26,7 @@ public class MainPageFrag {
     private Context context;
     private ViewGroup viewGroup;
     private JSInterface jsInterface;
+    private HostDB hostDB;
     private String serverUrl,
             serverHost,
             appNamespace = "/app";
@@ -53,6 +54,7 @@ public class MainPageFrag {
     }
     public void initialize(){
         initViews();
+        hostDB = new HostDB(context);
         edtxHostAddr.setOnEditorActionListener(new edtxHostAddr_onEditorAction());
         btnConnect.setOnClickListener(new btnConnect_onClick());
     }

@@ -30,7 +30,7 @@ public class HostDB extends SQLiteOpenHelper {
             e.printStackTrace();
         }
     }
-    private String getHostAddr(Context context){
+    public String getHostAddr(Context context){
         String hostAddr = null;
         try {
             hostDB = getWritableDatabase();
