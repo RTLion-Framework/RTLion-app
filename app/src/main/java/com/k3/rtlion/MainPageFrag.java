@@ -30,6 +30,9 @@ public class MainPageFrag {
     private String serverUrl,
             serverHost,
             appNamespace = "/app";
+    private static String[] infoNames = new String[]{
+            "Browser Fingerprint", "Browser", "OS",
+            "Screen", "Timezone", "Language"};
     private int portNum;
 
     private RelativeLayout rlMainFrag;
@@ -142,8 +145,8 @@ public class MainPageFrag {
                             throw new JSONException("Invalid client information.");
                         String clientInfos = "";
                         for (int i = 0; i < clientInfo.length(); i++) {
-                            clientInfos += clientInfo.names().getString(i) + ": " +
-                                    clientInfo.getString(clientInfo.names().getString(i)) + "\n\n";
+                            clientInfos += infoNames[i] + ": " + clientInfo.getString(
+                                    clientInfo.names().getString(i)) + "\n\n";
                         }
                         setTxvServerStatus(context.getString(R.string.server_connected));
                         setTxvServerInfo(clientInfos);
