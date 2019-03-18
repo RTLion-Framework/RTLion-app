@@ -30,9 +30,7 @@ public class MainPageFrag {
     private String serverUrl,
             serverHost,
             appNamespace = "/app";
-    private static String[] infoNames = new String[]{
-            "Browser Fingerprint", "Browser", "OS",
-            "Screen", "Timezone", "Language"};
+    private String[] infoNames;
     private int portNum;
 
     private RelativeLayout rlMainFrag;
@@ -59,6 +57,7 @@ public class MainPageFrag {
     public void initialize(){
         initViews();
         initDatabase();
+        infoNames = context.getResources().getStringArray(R.array.info_names);
         edtxHostAddr.setOnEditorActionListener(new edtxHostAddr_onEditorAction());
         btnConnect.setOnClickListener(new btnConnect_onClick());
     }
