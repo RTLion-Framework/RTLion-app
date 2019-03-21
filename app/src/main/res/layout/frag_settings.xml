@@ -9,6 +9,6 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_centerInParent="true"
-    android:text="You must connect to RTLion server first."
+    android:text="@string/settings_warn"
     android:textStyle="bold"/>
 </RelativeLayout>
