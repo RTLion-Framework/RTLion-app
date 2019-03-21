@@ -85,6 +85,8 @@ public class MainActivity extends Activity {
                     vpPages.setCurrentItem(0);
                 }
             }, 500);
+        }else if (mainPageFrag != null && mainPageFrag.getConnectionStatus()){
+            settingsPageFrag.removeConWarning();
         }
     }
     private void initPageNavigators(){
