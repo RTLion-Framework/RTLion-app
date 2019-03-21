@@ -18,6 +18,7 @@ public class MainActivity extends Activity {
 
     private PagesAdapter pagesAdapter;
     private MainPageFrag mainPageFrag;
+    private SettingsPageFrag settingsPageFrag;
     private int currentPageNum;
     private JSInterface jsInterface;
 
@@ -56,6 +57,8 @@ public class MainActivity extends Activity {
             public void onViewsAdded(ArrayList<ViewGroup> layouts) {
                 mainPageFrag = new MainPageFrag(MainActivity.this, layouts.get(0), jsInterface);
                 mainPageFrag.initialize();
+                settingsPageFrag = new SettingsPageFrag(MainActivity.this, layouts.get(1), jsInterface);
+                settingsPageFrag.initialize();
             }
         });
         vpPages.setAdapter(pagesAdapter);
