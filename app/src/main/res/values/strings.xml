@@ -4,6 +4,7 @@
     <string name="author">.k3</string>
     <string name="app_desc_long">RTLion Framework</string>
     <string name="page_main">Main</string>
+    <string name="page_settings">Settings</string>
     <string name="page_graph">Graph</string>
     <string name="prev_page">&lt;</string>
     <string name="next_page">&gt;</string>

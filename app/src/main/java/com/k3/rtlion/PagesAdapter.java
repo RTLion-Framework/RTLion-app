@@ -23,7 +23,8 @@ public class PagesAdapter extends PagerAdapter {
     }
 
     public enum PagesEnum {
-        Main(R.string.page_main, R.layout.frag_main);
+        Main(R.string.page_main, R.layout.frag_main),
+        Settings(R.string.page_settings, R.layout.frag_settings);
         private int titleResID, layoutResID;
         PagesEnum(int titleResID, int layoutResID) {
             this.titleResID = titleResID;
