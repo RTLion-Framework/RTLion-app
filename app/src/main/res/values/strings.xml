@@ -16,6 +16,7 @@
     <string name="try_connect">Connect</string>
     <string name="invalid_host">Invalid host or port.</string>
     <string name="server_unreachable">Could not reach RTLion server.</string>
+    <string name="server_warning">You must connect to RTLion server first.</string>
     <string-array name="info_names">
         <item>Browser Fingerprint</item>
         <item>Browser</item>
