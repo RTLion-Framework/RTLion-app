@@ -32,6 +32,7 @@ public class MainPageFrag {
             appNamespace = "/app";
     private String[] infoNames;
     private int portNum;
+    public boolean connectionStatus = false;
 
     private RelativeLayout rlMainFrag;
     private TextView txvServerStatus, txvServerInfo;
@@ -60,6 +61,9 @@ public class MainPageFrag {
         infoNames = context.getResources().getStringArray(R.array.info_names);
         edtxHostAddr.setOnEditorActionListener(new edtxHostAddr_onEditorAction());
         btnConnect.setOnClickListener(new btnConnect_onClick());
+    }
+    public boolean getConnectionStatus(){
+        return connectionStatus;
     }
     private void initDatabase(){
         hostDB = new HostDB(context);
@@ -151,6 +155,7 @@ public class MainPageFrag {
                         setTxvServerStatus(context.getString(R.string.server_connected));
                         setTxvServerInfo(clientInfos);
                         hostDB.updateHostAddr(serverUrl);
+                        connectionStatus = true;
                     }catch (JSONException e){
                         e.printStackTrace();
                         setTxvServerStatus(context.getString(R.string.server_disconnected));

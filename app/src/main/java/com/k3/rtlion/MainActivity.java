@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,6 +75,14 @@ public class MainActivity extends Activity {
                 getString(PagesAdapter.PagesEnum.values()[position].getTitleResID()));
         txvPageNum.setText(String.valueOf(position+1));
         currentPageNum = position;
+        if (mainPageFrag != null && !mainPageFrag.getConnectionStatus()) {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    vpPages.setCurrentItem(0);
+                }
+            }, 500);
+        }
     }
     private void initPageNavigators(){
         txvPrevPage.setOnClickListener(new View.OnClickListener() {
