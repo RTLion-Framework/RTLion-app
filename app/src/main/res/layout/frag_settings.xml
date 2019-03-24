@@ -17,7 +17,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-        
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilDevIndex"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="10dp"
+            android:theme="@style/TLabel">
+            <EditText
+                android:id="@+id/edtxDevIndex"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/dev_index"
+                android:singleLine="true"
+                android:backgroundTint="@color/colorAccent"
+                android:textColor="@color/colorPrimaryDark"
+                android:fontFamily="monospace"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:paddingStart="5dp"/>
+        </android.support.design.widget.TextInputLayout>
 
     </LinearLayout>
 </RelativeLayout>

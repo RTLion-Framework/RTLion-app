@@ -26,4 +26,5 @@
         <item>Language</item>
     </string-array>
     <string name="swipe_text">&lt; Swipe to see RTLion features. &gt;</string>
+    <string name="dev_index">Device Index</string>
 </resources>
