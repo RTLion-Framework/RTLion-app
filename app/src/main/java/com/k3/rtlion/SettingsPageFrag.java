@@ -54,7 +54,7 @@ public class SettingsPageFrag {
     }
     public void setHostAddr(String hostAddr){
         this.hostAddr = hostAddr;
-        getArgsFromServer();
+        //getArgsFromServer();
     }
     private void getArgsFromServer(){
         jsInterface.getServerArgs(hostAddr, new JSInterface.JSOutputInterface() {
