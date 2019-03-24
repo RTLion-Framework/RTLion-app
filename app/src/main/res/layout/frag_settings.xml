@@ -107,8 +107,10 @@
             android:layout_marginTop="5dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/colorPrimary"
             android:textStyle="bold"
-            android:fontFamily="monospace"/>
+            android:fontFamily="monospace"
+            android:text="@string/settings_info"
+            android:gravity="end"/>
     </LinearLayout>
 </RelativeLayout>
