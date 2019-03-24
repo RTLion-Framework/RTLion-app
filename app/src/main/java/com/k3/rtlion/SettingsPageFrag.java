@@ -21,6 +21,7 @@ public class SettingsPageFrag {
     private ViewGroup viewGroup;
     private JSInterface jsInterface;
     private String hostAddr;
+    private JSONObject cliArgs;
 
     private TextView txvSettingsWarning, txvSettingsInfo;
     private LinearLayout llSettings;
@@ -70,6 +71,7 @@ public class SettingsPageFrag {
             @Override
             public void onArgs(JSONObject cliArgs) {
                 try {
+                    SettingsPageFrag.this.cliArgs = cliArgs
                     if(cliArgs == null)
                         throw new JSONException("Invalid command-line arguments.");
                     for (int i = 0; i < cliArgs.length(); i++) {
