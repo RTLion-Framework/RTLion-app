@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -14,8 +16,10 @@ public class SettingsPageFrag {
     private ViewGroup viewGroup;
     private JSInterface jsInterface;
 
-    private TextView txvSettingsWarning;
+    private TextView txvSettingsWarning, txvSettingsInfo;
     private LinearLayout llSettings;
+    private EditText edtxDevIndex, edtxSampRate, edtxDevGain;
+    private Button btnSaveSettings;
 
     public SettingsPageFrag(Activity activity, ViewGroup viewGroup, JSInterface jsInterface){
         this.activity = activity;
@@ -26,7 +30,12 @@ public class SettingsPageFrag {
 
     private void initViews(){
         txvSettingsWarning = viewGroup.findViewById(R.id.txvSettingsWarning);
+        txvSettingsInfo = viewGroup.findViewById(R.id.txvSettingsInfo);
         llSettings = viewGroup.findViewById(R.id.llSettings);
+        edtxDevIndex = viewGroup.findViewById(R.id.edtxDevIndex);
+        edtxSampRate = viewGroup.findViewById(R.id.edtxSampRate);
+        edtxDevGain = viewGroup.findViewById(R.id.edtxDevGain);
+        btnSaveSettings = viewGroup.findViewById(R.id.btnSaveSettings);
     }
     public void initialize(){
         initViews();
