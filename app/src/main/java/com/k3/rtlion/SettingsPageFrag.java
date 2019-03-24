@@ -15,6 +15,7 @@ public class SettingsPageFrag {
     private Context context;
     private ViewGroup viewGroup;
     private JSInterface jsInterface;
+    private String hostAddr;
 
     private TextView txvSettingsWarning, txvSettingsInfo;
     private LinearLayout llSettings;
@@ -45,5 +46,8 @@ public class SettingsPageFrag {
     public void removeConWarning(){
         txvSettingsWarning.setVisibility(View.GONE);
         llSettings.setVisibility(View.VISIBLE);
+    }
+    public void setHostAddr(String hostAddr){
+        this.hostAddr = hostAddr;
     }
 }

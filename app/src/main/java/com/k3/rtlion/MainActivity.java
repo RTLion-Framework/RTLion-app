@@ -87,6 +87,7 @@ public class MainActivity extends Activity {
             }, 500);
         }else if (mainPageFrag != null && mainPageFrag.getConnectionStatus()){
             settingsPageFrag.removeConWarning();
+            settingsPageFrag.setHostAddr(mainPageFrag.getHostAddr());
         }
     }
     private void initPageNavigators(){

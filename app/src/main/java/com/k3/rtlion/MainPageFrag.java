@@ -65,6 +65,9 @@ public class MainPageFrag {
     public boolean getConnectionStatus(){
         return connectionStatus;
     }
+    public String getHostAddr(){
+        return serverUrl + appNamespace;
+    }
     private void initDatabase(){
         hostDB = new HostDB(context);
         if (hostDB.getHostAddr() != null)
