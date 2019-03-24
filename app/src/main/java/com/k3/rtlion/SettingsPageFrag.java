@@ -4,10 +4,13 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.ConsoleMessage;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import org.json.JSONObject;
 
 public class SettingsPageFrag {
 
@@ -49,5 +52,19 @@ public class SettingsPageFrag {
     }
     public void setHostAddr(String hostAddr){
         this.hostAddr = hostAddr;
+        getArgsFromServer();
+    }
+    private void getArgsFromServer(){
+        jsInterface.getServerArgs(hostAddr, new JSInterface.JSOutputInterface() {
+            @Override
+            public void onInfo(JSONObject clientInfo) {
+
+            }
+
+            @Override
+            public void onConsoleMsg(ConsoleMessage msg) {
+
+            }
+        });
     }
 }

@@ -24,7 +24,8 @@ public class JSInterface {
     private JSONObject clientInfo;
 
     public enum JSCommands {
-        ServerInfo("fetchServerInfo", "getClientInfo");
+        ServerInfo("fetchServerInfo", "getClientInfo"),
+        CliArgs("fetchCliArgs", "getCliArgs");
         private String serverCmd, clientCmd;
         JSCommands(String serverCmd, String clientCmd) {
             this.serverCmd = serverCmd;
@@ -94,6 +95,11 @@ public class JSInterface {
         webView.loadUrl(url + "#" + JSCommands.ServerInfo.name());
         globalParams = null;
     }
+    public void getServerArgs(String url, JSOutputInterface jsOutputInterface){
+        this.jsOutputInterface = jsOutputInterface;
+        webView.loadUrl(url + "#" + JSCommands.CliArgs.name());
+        globalParams = null;
+    }
     @JavascriptInterface
     public void fetchServerInfo(String info){
         clientInfo = null;
@@ -104,5 +110,9 @@ public class JSInterface {
             e.printStackTrace();
             jsOutputInterface.onInfo(clientInfo);
         }
+    }
+    @JavascriptInterface
+    public void fetchCliArgs(String args){
+        Toast.makeText(activity, args, Toast.LENGTH_SHORT).show();
     }
 }
