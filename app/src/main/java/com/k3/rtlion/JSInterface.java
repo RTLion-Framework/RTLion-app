@@ -21,7 +21,7 @@ public class JSInterface {
     private WebView webView;
     private String jsInterfaceName;
     private Object[] globalParams;
-    private JSONObject clientInfo;
+    private JSONObject clientInfo, cliArgs;
 
     public enum JSCommands {
         ServerInfo("fetchServerInfo", "getClientInfo"),
@@ -113,6 +113,13 @@ public class JSInterface {
     }
     @JavascriptInterface
     public void fetchCliArgs(String args){
-        Toast.makeText(activity, args, Toast.LENGTH_SHORT).show();
+        cliArgs = null;
+        try {
+            cliArgs = new JSONObject(args);
+            jsOutputInterface.onInfo(cliArgs);
+        }catch (JSONException e){
+            e.printStackTrace();
+            jsOutputInterface.onInfo(cliArgs);
+        }
     }
 }
