@@ -47,6 +47,7 @@ public class SettingsPageFrag {
         initViews();
         txvSettingsWarning.setVisibility(View.VISIBLE);
         llSettings.setVisibility(View.GONE);
+        btnSaveSettings.setOnClickListener(new btnSaveSettings_onClick());
     }
     public void removeConWarning(){
         txvSettingsWarning.setVisibility(View.GONE);
@@ -102,5 +103,11 @@ public class SettingsPageFrag {
 
             }
         });
+    }
+    private class btnSaveSettings_onClick implements Button.OnClickListener{
+        @Override
+        public void onClick(View v) {
+
+        }
     }
 }
