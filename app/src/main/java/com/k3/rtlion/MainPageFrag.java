@@ -176,6 +176,9 @@ public class MainPageFrag {
                     setTxvServerStatus(context.getString(R.string.server_disconnected));
                     enableViews(true);
                 }
+
+                @Override
+                public void onArgs(JSONObject cliArgs) { }
             });
         }else{
             Toast.makeText(activity, context.getString(R.string.invalid_host),

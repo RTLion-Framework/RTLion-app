@@ -9,7 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class SettingsPageFrag {
@@ -56,11 +58,27 @@ public class SettingsPageFrag {
     }
     private void getArgsFromServer(){
         jsInterface.getServerArgs(hostAddr, new JSInterface.JSOutputInterface() {
-            @Override
-            public void onInfo(JSONObject clientInfo) {
-
+            private void edtx_setText(final EditText editText, final String text){
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        editText.setText(text);
+                    }
+                });
             }
-
+            @Override
+            public void onArgs(JSONObject cliArgs) {
+                try {
+                    for (int i = 0; i < cliArgs.length(); i++) {
+                        Toast.makeText(activity, cliArgs.names().getString(i) + " xx " + cliArgs.getString(
+                                cliArgs.names().getString(i)), Toast.LENGTH_SHORT).show();
+                    }
+                }catch (JSONException e){
+                    e.printStackTrace();
+                }
+            }
+            @Override
+            public void onInfo(JSONObject clientInfo) { }
             @Override
             public void onConsoleMsg(ConsoleMessage msg) {
 

@@ -36,6 +36,7 @@ public class JSInterface {
     }
     public interface JSOutputInterface {
         public void onInfo(JSONObject clientInfo);
+        public abstract void onArgs(JSONObject cliArgs);
         public void onConsoleMsg(ConsoleMessage msg);
     }
     private JSOutputInterface jsOutputInterface;
@@ -105,10 +106,10 @@ public class JSInterface {
         clientInfo = null;
         try {
             clientInfo = new JSONObject(info);
-            jsOutputInterface.onInfo(clientInfo);
+            jsOutputInterface.onArgs(clientInfo);
         }catch (JSONException e){
             e.printStackTrace();
-            jsOutputInterface.onInfo(clientInfo);
+            jsOutputInterface.onArgs(clientInfo);
         }
     }
     @JavascriptInterface
