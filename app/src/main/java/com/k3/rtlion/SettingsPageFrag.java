@@ -27,6 +27,7 @@ public class SettingsPageFrag {
     }
     public void initialize(){
         initViews();
+        txvSettingsWarning.setVisibility(View.VISIBLE);
     }
     public void removeConWarning(){
         txvSettingsWarning.setVisibility(View.GONE);

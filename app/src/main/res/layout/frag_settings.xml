@@ -10,5 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="@string/settings_warn"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:visibility="gone"/>
+
 </RelativeLayout>
