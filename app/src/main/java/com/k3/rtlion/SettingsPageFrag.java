@@ -69,12 +69,15 @@ public class SettingsPageFrag {
             @Override
             public void onArgs(JSONObject cliArgs) {
                 try {
+                    if(cliArgs == null)
+                        throw new JSONException("Invalid command-line arguments.");
                     for (int i = 0; i < cliArgs.length(); i++) {
                         Toast.makeText(activity, cliArgs.names().getString(i) + " xx " + cliArgs.getString(
                                 cliArgs.names().getString(i)), Toast.LENGTH_SHORT).show();
                     }
                 }catch (JSONException e){
                     e.printStackTrace();
+                    Toast.makeText(activity, context.getString(R.string.invalid_args), Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
