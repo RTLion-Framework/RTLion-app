@@ -29,4 +29,5 @@
     <string name="dev_index">Device Index</string>
     <string name="samp_rate">Sample Rate</string>
     <string name="dev_gain">Device Gain</string>
+    <string name="save_settings">Save Settings</string>
 </resources>

@@ -84,12 +84,27 @@
                 android:paddingStart="5dp"/>
         </android.support.design.widget.TextInputLayout>
 
+        <RelativeLayout
+            android:id="@+id/rlSaveSettings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="8dp">
+            <Button
+                android:id="@+id/btnSaveSettings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="@string/save_settings"
+                android:theme="@style/FlatButton"/>
+        </RelativeLayout>
+
         <TextView
             android:id="@+id/txvSettingsInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/btnConnect"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="5dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:textColor="@color/colorPrimaryDark"
