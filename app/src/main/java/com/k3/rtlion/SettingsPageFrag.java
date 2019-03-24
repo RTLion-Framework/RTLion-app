@@ -54,7 +54,7 @@ public class SettingsPageFrag {
     }
     public void setHostAddr(String hostAddr){
         this.hostAddr = hostAddr;
-        //getArgsFromServer();
+        getArgsFromServer();
     }
     private void getArgsFromServer(){
         jsInterface.getServerArgs(hostAddr, new JSInterface.JSOutputInterface() {
@@ -72,12 +72,27 @@ public class SettingsPageFrag {
                     if(cliArgs == null)
                         throw new JSONException("Invalid command-line arguments.");
                     for (int i = 0; i < cliArgs.length(); i++) {
-                        Toast.makeText(activity, cliArgs.names().getString(i) + " xx " + cliArgs.getString(
-                                cliArgs.names().getString(i)), Toast.LENGTH_SHORT).show();
+                        switch (cliArgs.names().getString(i)){
+                            case "dev":
+                                edtx_setText(edtxDevIndex, cliArgs.getString(
+                                        cliArgs.names().getString(i)));
+                                break;
+                            case "samprate":
+                                edtx_setText(edtxSampRate, cliArgs.getString(
+                                        cliArgs.names().getString(i)));
+                                break;
+                            case "gain":
+                                edtx_setText(edtxDevGain, cliArgs.getString(
+                                        cliArgs.names().getString(i)));
+                                break;
+                            default:
+                                break;
+                        }
                     }
                 }catch (JSONException e){
                     e.printStackTrace();
-                    Toast.makeText(activity, context.getString(R.string.invalid_args), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity, context.getString(R.string.invalid_args),
+                            Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
