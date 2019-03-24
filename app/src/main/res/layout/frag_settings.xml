@@ -89,7 +89,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
-            android:layout_marginTop="8dp">
+            android:layout_marginTop="3dp">
             <Button
                 android:id="@+id/btnSaveSettings"
                 android:layout_width="wrap_content"
