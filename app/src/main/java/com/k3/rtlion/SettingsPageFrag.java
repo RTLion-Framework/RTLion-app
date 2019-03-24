@@ -48,6 +48,7 @@ public class SettingsPageFrag {
         initViews();
         txvSettingsWarning.setVisibility(View.VISIBLE);
         llSettings.setVisibility(View.GONE);
+        btnSaveSettings.setEnabled(false);
         btnSaveSettings.setOnClickListener(new btnSaveSettings_onClick());
     }
     public void removeConWarning(){
@@ -68,10 +69,18 @@ public class SettingsPageFrag {
                     }
                 });
             }
+            private void enable_btnSaveSettings(){
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        btnSaveSettings.setEnabled(true);
+                    }
+                });
+            }
             @Override
             public void onArgs(JSONObject cliArgs) {
                 try {
-                    SettingsPageFrag.this.cliArgs = cliArgs
+                    SettingsPageFrag.this.cliArgs = cliArgs;
                     if(cliArgs == null)
                         throw new JSONException("Invalid command-line arguments.");
                     for (int i = 0; i < cliArgs.length(); i++) {
@@ -92,6 +101,7 @@ public class SettingsPageFrag {
                                 break;
                         }
                     }
+                enable_btnSaveSettings();
                 }catch (JSONException e){
                     e.printStackTrace();
                     Toast.makeText(activity, context.getString(R.string.invalid_args),
@@ -109,7 +119,18 @@ public class SettingsPageFrag {
     private class btnSaveSettings_onClick implements Button.OnClickListener{
         @Override
         public void onClick(View v) {
+            try {
+                if (cliArgs == null)
+                    throw new JSONException("Invalid settings.");
+                cliArgs.put("dev", edtxDevIndex.getText().toString());
+                cliArgs.put("samprate", edtxSampRate.getText().toString());
+                cliArgs.put("gain", edtxDevGain.getText().toString());
 
+            }catch (JSONException e){
+                e.printStackTrace();
+                Toast.makeText(activity, context.getString(R.string.settings_save_error),
+                        Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }
