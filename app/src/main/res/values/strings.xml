@@ -27,4 +27,6 @@
     </string-array>
     <string name="swipe_text">&lt; Swipe to see RTLion features. &gt;</string>
     <string name="dev_index">Device Index</string>
+    <string name="samp_rate">Sample Rate</string>
+    <string name="dev_gain">Device Gain</string>
 </resources>

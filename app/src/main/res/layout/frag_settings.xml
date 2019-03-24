@@ -38,7 +38,53 @@
                 android:textStyle="bold"
                 android:textSize="15sp"
                 android:paddingStart="5dp"/>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilSampRate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="10dp"
+            android:theme="@style/TLabel">
+            <EditText
+                android:id="@+id/edtxSampRate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/samp_rate"
+                android:singleLine="true"
+                android:backgroundTint="@color/colorAccent"
+                android:textColor="@color/colorPrimaryDark"
+                android:fontFamily="monospace"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:paddingStart="5dp"/>
         </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilDevGain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="10dp"
+            android:theme="@style/TLabel">
+            <EditText
+                android:id="@+id/edtxDevGain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/dev_gain"
+                android:singleLine="true"
+                android:backgroundTint="@color/colorAccent"
+                android:textColor="@color/colorPrimaryDark"
+                android:fontFamily="monospace"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:paddingStart="5dp"/>
+        </android.support.design.widget.TextInputLayout>
+
+
+
 
     </LinearLayout>
 </RelativeLayout>
