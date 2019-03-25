@@ -85,7 +85,8 @@ public class SettingsPageFrag {
                         throw new JSONException("Invalid command-line arguments.");
                     if (updatedSettings != null)
                         if(updatedSettings.equals(cliArgs.toString()))
-                            Toast.makeText(activity, "Updated", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(activity, context.getString(R.string.settings_updated),
+                                    Toast.LENGTH_SHORT).show();
                     SettingsPageFrag.this.cliArgs = cliArgs;
                     for (int i = 0; i < cliArgs.length(); i++) {
                         switch (cliArgs.names().getString(i)){
