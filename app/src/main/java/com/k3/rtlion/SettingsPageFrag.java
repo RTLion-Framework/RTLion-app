@@ -21,7 +21,7 @@ public class SettingsPageFrag {
     private Context context;
     private ViewGroup viewGroup;
     private JSInterface jsInterface;
-    private String hostAddr;
+    private String hostAddr, updatedSettings;
     private JSONObject cliArgs;
 
     private TextView txvSettingsWarning, txvSettingsInfo;
@@ -81,9 +81,12 @@ public class SettingsPageFrag {
             @Override
             public void onArgs(JSONObject cliArgs) {
                 try {
-                    SettingsPageFrag.this.cliArgs = cliArgs;
                     if(cliArgs == null)
                         throw new JSONException("Invalid command-line arguments.");
+                    if (updatedSettings != null)
+                        if(updatedSettings.equals(cliArgs.toString()))
+                            Toast.makeText(activity, "Updated", Toast.LENGTH_SHORT).show();
+                    SettingsPageFrag.this.cliArgs = cliArgs;
                     for (int i = 0; i < cliArgs.length(); i++) {
                         switch (cliArgs.names().getString(i)){
                             case "dev":
@@ -126,7 +129,8 @@ public class SettingsPageFrag {
                 cliArgs.put("dev", edtxDevIndex.getText().toString());
                 cliArgs.put("samprate", edtxSampRate.getText().toString());
                 cliArgs.put("gain", edtxDevGain.getText().toString());
-                jsInterface.setServerArgs(hostAddr, cliArgs.toString(), null);
+                updatedSettings = cliArgs.toString();
+                jsInterface.setServerArgs(hostAddr, updatedSettings, null);
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
