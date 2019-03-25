@@ -25,7 +25,8 @@ public class JSInterface {
 
     public enum JSCommands {
         ServerInfo("fetchServerInfo", "getClientInfo"),
-        CliArgs("fetchCliArgs", "getCliArgs");
+        CliArgs("fetchCliArgs", "getCliArgs"),
+        SetArgs("setServerArgs", "setCliArgs");
         private String serverCmd, clientCmd;
         JSCommands(String serverCmd, String clientCmd) {
             this.serverCmd = serverCmd;
@@ -100,6 +101,11 @@ public class JSInterface {
         this.jsOutputInterface = jsOutputInterface;
         webView.loadUrl(url + "#" + JSCommands.CliArgs.name());
         globalParams = null;
+    }
+    public void setServerArgs(String url, String params, JSOutputInterface jsOutputInterface){
+        this.jsOutputInterface = jsOutputInterface;
+        webView.loadUrl(url + "#" + JSCommands.SetArgs.name());
+        globalParams = params;
     }
     @JavascriptInterface
     public void fetchServerInfo(String info){
