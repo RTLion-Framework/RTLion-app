@@ -132,6 +132,7 @@ public class SettingsPageFrag {
                     @Override
                     public void onArgs(JSONObject cliArgs) { }
                     @Override
+
                     public void onConsoleMsg(ConsoleMessage msg) { }
                 });
             }catch (JSONException e){

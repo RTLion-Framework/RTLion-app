@@ -134,7 +134,7 @@ public class JSInterface {
         }
     }
     @JavascriptInterface
-    public void updateServerArgs(Boolean updatedSettings){
-        Toast.makeText(activity, String.valueOf(updatedSettings), Toast.LENGTH_SHORT).show();
+    public void updateServerArgs(String updated){
+        Toast.makeText(activity, updated, Toast.LENGTH_SHORT).show();
     }
 }
