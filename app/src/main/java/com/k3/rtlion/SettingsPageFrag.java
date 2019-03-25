@@ -125,7 +125,8 @@ public class SettingsPageFrag {
                 cliArgs.put("dev", edtxDevIndex.getText().toString());
                 cliArgs.put("samprate", edtxSampRate.getText().toString());
                 cliArgs.put("gain", edtxDevGain.getText().toString());
-                jsInterface.setServerArgs(hostAddr, cliArgs.toString(), new JSInterface.JSOutputInterface() {
+                jsInterface.setServerArgs(hostAddr, cliArgs.toString().replace("\"", "'"),
+                        new JSInterface.JSOutputInterface() {
                     @Override
                     public void onInfo(JSONObject clientInfo) { }
                     @Override

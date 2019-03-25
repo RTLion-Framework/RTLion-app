@@ -2,6 +2,7 @@ package com.k3.rtlion;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.webkit.ConsoleMessage;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
@@ -84,12 +85,15 @@ public class JSInterface {
         jsCommand.append("(");
         if (params != null){
             for (int i = 0; i < params.length; i++){
+                jsCommand.append("\"");
                 jsCommand.append(String.valueOf(params[i]));
+                jsCommand.append("\"");
                 if (i != params.length - 1)
                     jsCommand.append(",");
             }
         }
         jsCommand.append("));");
+        Log.d("cmd", jsCommand.toString());
         return jsCommand.toString();
     }
     public void getServerInfo(String url, JSOutputInterface jsOutputInterface){
