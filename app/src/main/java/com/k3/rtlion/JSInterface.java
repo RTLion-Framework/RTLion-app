@@ -84,7 +84,6 @@ public class JSInterface {
         jsCommand.append("(");
         if (params != null){
             for (int i = 0; i < params.length; i++){
-                Toast.makeText(activity, String.valueOf(params[i]), Toast.LENGTH_SHORT).show();
                 jsCommand.append(String.valueOf(params[i]));
                 if (i != params.length - 1)
                     jsCommand.append(",");
@@ -117,6 +116,17 @@ public class JSInterface {
         }catch (JSONException e){
             e.printStackTrace();
             jsOutputInterface.onInfo(clientInfo);
+        }
+    }
+    @JavascriptInterface
+    public void fetchCliArgs(String args){
+        cliArgs = null;
+        try {
+            cliArgs = new JSONObject(args);
+            jsOutputInterface.onArgs(cliArgs);
+        }catch (JSONException e){
+            e.printStackTrace();
+            jsOutputInterface.onArgs(cliArgs);
         }
     }
     @JavascriptInterface
