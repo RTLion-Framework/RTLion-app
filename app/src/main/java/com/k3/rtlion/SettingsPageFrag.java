@@ -126,7 +126,7 @@ public class SettingsPageFrag {
                 cliArgs.put("dev", edtxDevIndex.getText().toString());
                 cliArgs.put("samprate", edtxSampRate.getText().toString());
                 cliArgs.put("gain", edtxDevGain.getText().toString());
-                jsInterface.setServerArgs(hostAddr, cliArgs.toString().replace("\"", "\\\""), null);
+                jsInterface.setServerArgs(hostAddr, cliArgs.toString(), null);
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {

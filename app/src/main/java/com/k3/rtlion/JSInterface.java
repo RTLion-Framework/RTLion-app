@@ -85,9 +85,9 @@ public class JSInterface {
         jsCommand.append("(");
         if (params != null){
             for (int i = 0; i < params.length; i++){
-                jsCommand.append("\"");
+                jsCommand.append("\'");
                 jsCommand.append(String.valueOf(params[i]));
-                jsCommand.append("\"");
+                jsCommand.append("\'");
                 if (i != params.length - 1)
                     jsCommand.append(",");
             }
@@ -133,7 +133,5 @@ public class JSInterface {
         }
     }
     @JavascriptInterface
-    public void updateServerArgs(){
-
-    }
+    public void updateServerArgs(String upd){ }
 }
