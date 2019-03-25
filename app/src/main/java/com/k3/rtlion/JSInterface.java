@@ -93,7 +93,6 @@ public class JSInterface {
             }
         }
         jsCommand.append("));");
-        Log.d("cmd", jsCommand.toString());
         return jsCommand.toString();
     }
     public void getServerInfo(String url, JSOutputInterface jsOutputInterface){
@@ -134,7 +133,7 @@ public class JSInterface {
         }
     }
     @JavascriptInterface
-    public void updateServerArgs(String updated){
-        Toast.makeText(activity, updated, Toast.LENGTH_SHORT).show();
+    public void updateServerArgs(){
+
     }
 }
