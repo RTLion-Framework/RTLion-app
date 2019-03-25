@@ -105,7 +105,7 @@ public class JSInterface {
     public void setServerArgs(String url, String params, JSOutputInterface jsOutputInterface){
         this.jsOutputInterface = jsOutputInterface;
         webView.loadUrl(url + "#" + JSCommands.SetArgs.name());
-        globalParams = params;
+        globalParams = new Object[]{params};
     }
     @JavascriptInterface
     public void fetchServerInfo(String info){
