@@ -125,7 +125,14 @@ public class SettingsPageFrag {
                 cliArgs.put("dev", edtxDevIndex.getText().toString());
                 cliArgs.put("samprate", edtxSampRate.getText().toString());
                 cliArgs.put("gain", edtxDevGain.getText().toString());
-
+                jsInterface.setServerArgs(hostAddr, cliArgs.toString(), new JSInterface.JSOutputInterface() {
+                    @Override
+                    public void onInfo(JSONObject clientInfo) { }
+                    @Override
+                    public void onArgs(JSONObject cliArgs) { }
+                    @Override
+                    public void onConsoleMsg(ConsoleMessage msg) { }
+                });
             }catch (JSONException e){
                 e.printStackTrace();
                 Toast.makeText(activity, context.getString(R.string.settings_save_error),
