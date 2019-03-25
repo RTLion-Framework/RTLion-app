@@ -26,7 +26,7 @@ public class JSInterface {
     public enum JSCommands {
         ServerInfo("fetchServerInfo", "getClientInfo"),
         CliArgs("fetchCliArgs", "getCliArgs"),
-        SetArgs("setServerArgs", "setCliArgs");
+        SetArgs("updateServerArgs", "setCliArgs");
         private String serverCmd, clientCmd;
         JSCommands(String serverCmd, String clientCmd) {
             this.serverCmd = serverCmd;
@@ -84,6 +84,7 @@ public class JSInterface {
         jsCommand.append("(");
         if (params != null){
             for (int i = 0; i < params.length; i++){
+                Toast.makeText(activity, String.valueOf(params[i]), Toast.LENGTH_SHORT).show();
                 jsCommand.append(String.valueOf(params[i]));
                 if (i != params.length - 1)
                     jsCommand.append(",");
@@ -119,14 +120,7 @@ public class JSInterface {
         }
     }
     @JavascriptInterface
-    public void fetchCliArgs(String args){
-        cliArgs = null;
-        try {
-            cliArgs = new JSONObject(args);
-            jsOutputInterface.onArgs(cliArgs);
-        }catch (JSONException e){
-            e.printStackTrace();
-            jsOutputInterface.onArgs(cliArgs);
-        }
+    public void updateServerArgs(Boolean updatedSettings){
+        Toast.makeText(activity, String.valueOf(updatedSettings), Toast.LENGTH_SHORT).show();
     }
 }
