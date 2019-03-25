@@ -2,6 +2,7 @@ package com.k3.rtlion;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Handler;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.ConsoleMessage;
@@ -125,16 +126,13 @@ public class SettingsPageFrag {
                 cliArgs.put("dev", edtxDevIndex.getText().toString());
                 cliArgs.put("samprate", edtxSampRate.getText().toString());
                 cliArgs.put("gain", edtxDevGain.getText().toString());
-                jsInterface.setServerArgs(hostAddr, cliArgs.toString().replace("\"", "\\\""),
-                        new JSInterface.JSOutputInterface() {
+                jsInterface.setServerArgs(hostAddr, cliArgs.toString().replace("\"", "\\\""), null);
+                new Handler().postDelayed(new Runnable() {
                     @Override
-                    public void onInfo(JSONObject clientInfo) { }
-                    @Override
-                    public void onArgs(JSONObject cliArgs) { }
-                    @Override
-
-                    public void onConsoleMsg(ConsoleMessage msg) { }
-                });
+                    public void run() {
+                        getArgsFromServer();
+                    }
+                }, 500);
             }catch (JSONException e){
                 e.printStackTrace();
                 Toast.makeText(activity, context.getString(R.string.settings_save_error),
