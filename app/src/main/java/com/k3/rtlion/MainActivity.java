@@ -93,6 +93,7 @@ public class MainActivity extends Activity {
             settingsPageFrag.removeConWarning();
             graphPageFrag.removeConWarning();
             settingsPageFrag.setHostAddr(mainPageFrag.getHostAddr());
+            graphPageFrag.setHostAddr(mainPageFrag.getHostAddr());
         }
     }
     private void initPageNavigators(){
