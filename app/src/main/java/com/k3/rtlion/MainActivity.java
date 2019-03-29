@@ -53,6 +53,7 @@ public class MainActivity extends Activity {
     private void setupViewPager(){
         vpPages_onPageChange(0);
         vpPages = (ViewPager) findViewById(R.id.vpPages);
+        vpPages.setOffscreenPageLimit(5);
         pagesAdapter = new PagesAdapter(this, new PagesAdapter.IViewPager() {
             @Override
             public void onViewsAdded(ArrayList<ViewGroup> layouts) {
