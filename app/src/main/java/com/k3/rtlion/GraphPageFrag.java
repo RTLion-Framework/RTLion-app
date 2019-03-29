@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -13,9 +14,11 @@ public class GraphPageFrag {
     private Context context;
     private ViewGroup viewGroup;
     private JSInterface jsInterface;
+    private String hostAddr;
 
     private TextView txvGraphWarning;
     private LinearLayout llGraph;
+    private ImageView imgFFTGraph;
 
     public GraphPageFrag(Activity activity, ViewGroup viewGroup, JSInterface jsInterface){
         this.activity = activity;
@@ -26,6 +29,7 @@ public class GraphPageFrag {
     private void initViews(){
         txvGraphWarning = viewGroup.findViewById(R.id.txvGraphWarning);
         llGraph = viewGroup.findViewById(R.id.llGraph);
+        imgFFTGraph = viewGroup.findViewById(R.id.imgFFTGraph);
     }
     public void initialize(){
         initViews();
@@ -35,5 +39,8 @@ public class GraphPageFrag {
     public void removeConWarning(){
         txvGraphWarning.setVisibility(View.GONE);
         llGraph.setVisibility(View.VISIBLE);
+    }
+    public void setHostAddr(String hostAddr){
+        this.hostAddr = hostAddr;
     }
 }
