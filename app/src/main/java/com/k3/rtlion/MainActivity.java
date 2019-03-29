@@ -19,6 +19,7 @@ public class MainActivity extends Activity {
     private PagesAdapter pagesAdapter;
     private MainPageFrag mainPageFrag;
     private SettingsPageFrag settingsPageFrag;
+    private GraphPageFrag graphPageFrag;
     private int currentPageNum;
     private JSInterface jsInterface;
 
@@ -59,6 +60,8 @@ public class MainActivity extends Activity {
                 mainPageFrag.initialize();
                 settingsPageFrag = new SettingsPageFrag(MainActivity.this, layouts.get(1), jsInterface);
                 settingsPageFrag.initialize();
+                graphPageFrag = new GraphPageFrag(MainActivity.this, layouts.get(2), jsInterface);
+                graphPageFrag.initialize();
             }
         });
         vpPages.setAdapter(pagesAdapter);
@@ -87,6 +90,7 @@ public class MainActivity extends Activity {
             }, 500);
         }else if (mainPageFrag != null && mainPageFrag.getConnectionStatus()){
             settingsPageFrag.removeConWarning();
+            graphPageFrag.removeConWarning();
             settingsPageFrag.setHostAddr(mainPageFrag.getHostAddr());
         }
     }
