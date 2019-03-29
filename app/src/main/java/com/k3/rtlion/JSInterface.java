@@ -27,7 +27,8 @@ public class JSInterface {
     public enum JSCommands {
         ServerInfo("fetchServerInfo", "getClientInfo"),
         CliArgs("fetchCliArgs", "getCliArgs"),
-        SetArgs("updateServerArgs", "setCliArgs");
+        SetArgs("updateServerArgs", "setCliArgs"),
+        GraphFFT("getGraphFromServer", "getGraph");
         private String serverCmd, clientCmd;
         JSCommands(String serverCmd, String clientCmd) {
             this.serverCmd = serverCmd;
@@ -41,6 +42,8 @@ public class JSInterface {
         public void onArgs(JSONObject cliArgs);
         public void onConsoleMsg(ConsoleMessage msg);
     }
+    private String graphEventCommand,
+            globalSocketName = "socket";
     private JSOutputInterface jsOutputInterface;
     public JSInterface(Activity activity){
         this.activity = activity;
@@ -60,6 +63,8 @@ public class JSInterface {
             String jsCommand = createJSCommand(JSCommands.valueOf(url.split("#")[1]).ordinal(),
                     globalParams);
             webView.loadUrl(jsCommand);
+            if(url.split("#")[1].equals(JSCommands.GraphFFT.name()))
+                webView.loadUrl(graphEventCommand);
         }
     }
     private class webView_chromeClient extends WebChromeClient{
@@ -110,6 +115,13 @@ public class JSInterface {
         webView.loadUrl(url + "#" + JSCommands.SetArgs.name());
         globalParams = new Object[]{params};
     }
+    public void getGraphFFT(String url, JSOutputInterface jsOutputInterface){
+        this.jsOutputInterface = jsOutputInterface;
+        webView.loadUrl(url + "#" + JSCommands.GraphFFT.name());
+        graphEventCommand = "javascript:"+globalSocketName+".on('fft_data', function(msg) {"
+                + jsInterfaceName + ".onServerGraph(msg.data);});";
+        globalParams = null;
+    }
     @JavascriptInterface
     public void fetchServerInfo(String info){
         clientInfo = null;
@@ -134,4 +146,12 @@ public class JSInterface {
     }
     @JavascriptInterface
     public void updateServerArgs(String upd){ }
+
+    @JavascriptInterface
+    public void getGraphFromServer() {}
+
+    @JavascriptInterface
+    public void onServerGraph(String data){
+        Toast.makeText(activity, data, Toast.LENGTH_SHORT).show();
+    }
 }

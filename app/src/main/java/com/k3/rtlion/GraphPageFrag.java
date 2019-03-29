@@ -4,9 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.ConsoleMessage;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import org.json.JSONObject;
 
 public class GraphPageFrag {
 
@@ -42,5 +45,23 @@ public class GraphPageFrag {
     }
     public void setHostAddr(String hostAddr){
         this.hostAddr = hostAddr;
+    }
+    private void createGraph(){
+        jsInterface.getGraphFFT(hostAddr, new JSInterface.JSOutputInterface() {
+            @Override
+            public void onInfo(JSONObject clientInfo) {
+
+            }
+
+            @Override
+            public void onArgs(JSONObject cliArgs) {
+
+            }
+
+            @Override
+            public void onConsoleMsg(ConsoleMessage msg) {
+
+            }
+        });
     }
 }
