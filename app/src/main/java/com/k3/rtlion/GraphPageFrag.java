@@ -45,6 +45,7 @@ public class GraphPageFrag {
     }
     public void setHostAddr(String hostAddr){
         this.hostAddr = hostAddr;
+        createGraph(); // Testing
     }
     private void createGraph(){
         jsInterface.getGraphFFT(hostAddr, new JSInterface.JSOutputInterface() {
