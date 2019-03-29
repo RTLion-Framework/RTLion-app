@@ -20,7 +20,7 @@ public class MainActivity extends Activity {
     private MainPageFrag mainPageFrag;
     private SettingsPageFrag settingsPageFrag;
     private GraphPageFrag graphPageFrag;
-    private int currentPageNum;
+    private int currentPageNum, offScreenLimit = 5;
     private JSInterface jsInterface;
 
     private ImageView imgRtlionSmall;
@@ -53,7 +53,7 @@ public class MainActivity extends Activity {
     private void setupViewPager(){
         vpPages_onPageChange(0);
         vpPages = (ViewPager) findViewById(R.id.vpPages);
-        vpPages.setOffscreenPageLimit(5);
+        vpPages.setOffscreenPageLimit(offScreenLimit);
         pagesAdapter = new PagesAdapter(this, new PagesAdapter.IViewPager() {
             @Override
             public void onViewsAdded(ArrayList<ViewGroup> layouts) {
