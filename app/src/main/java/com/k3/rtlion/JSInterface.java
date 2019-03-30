@@ -44,6 +44,7 @@ public class JSInterface {
         public void onInfo(JSONObject clientInfo);
         public void onArgs(JSONObject cliArgs);
         public void onConsoleMsg(ConsoleMessage msg);
+        public void onData(String data);
     }
     private JSOutputInterface jsOutputInterface;
     public JSInterface(Activity activity){
@@ -156,6 +157,6 @@ public class JSInterface {
 
     @JavascriptInterface
     public void onServerGraph(String data){
-        Toast.makeText(activity, data, Toast.LENGTH_SHORT).show();
+
     }
 }
