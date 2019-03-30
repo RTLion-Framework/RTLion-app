@@ -4,6 +4,7 @@ package com.k3.rtlion;
 import android.app.Activity;
 import android.content.Context;
 import android.support.design.widget.TextInputLayout;
+import android.text.method.ScrollingMovementMethod;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,16 +56,13 @@ public class MainPageFrag {
         btnConnect = (Button) viewGroup.findViewById(R.id.btnConnect);
         txvServerInfo = (TextView) viewGroup.findViewById(R.id.txvServerInfo);
     }
-    public void initialize(){
-        try {
-            initViews();
-            initDatabase();
-            infoNames = context.getResources().getStringArray(R.array.info_names);
-            edtxHostAddr.setOnEditorActionListener(new edtxHostAddr_onEditorAction());
-            btnConnect.setOnClickListener(new btnConnect_onClick());
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+    public void initialize() {
+        initViews();
+        initDatabase();
+        infoNames = context.getResources().getStringArray(R.array.info_names);
+        edtxHostAddr.setOnEditorActionListener(new edtxHostAddr_onEditorAction());
+        btnConnect.setOnClickListener(new btnConnect_onClick());
+        txvServerInfo.setMovementMethod(new ScrollingMovementMethod());
     }
     public boolean getConnectionStatus(){
         return connectionStatus;

@@ -64,6 +64,7 @@
         android:layout_marginEnd="8dp"
         android:textColor="@color/colorPrimaryDark"
         android:textStyle="bold"
-        android:fontFamily="monospace"/>
+        android:fontFamily="monospace"
+        android:scrollbars = "vertical"/>
 
 </RelativeLayout>
