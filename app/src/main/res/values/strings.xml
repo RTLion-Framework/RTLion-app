@@ -35,4 +35,5 @@
     <string name="settings_save_error">Error occured while saving settings.</string>
     <string name="settings_updated">Device settings updated.</string>
     <string name="create_graph">Create FFT Graph</string>
+    <string name="graph_error">Unable to get FFT graph data.</string>
 </resources>

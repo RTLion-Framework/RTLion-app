@@ -2,6 +2,7 @@ package com.k3.rtlion;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.ConsoleMessage;
@@ -63,7 +64,12 @@ public class GraphPageFrag {
                 activity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        imgFFTGraph.setImageBitmap(new ImageBase64().getImage(data));
+                        Bitmap fftBitmap = new ImageBase64().getImage(data);
+
+                        if(fftBitmap == null){
+                            Toast.makeText(activity, context.getString(R.string.graph_error),
+                                    Toast.LENGTH_SHORT).show();
+                        }
                     }
                 });
             }
