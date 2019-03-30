@@ -20,7 +20,9 @@ public class MainActivity extends Activity {
     private MainPageFrag mainPageFrag;
     private SettingsPageFrag settingsPageFrag;
     private GraphPageFrag graphPageFrag;
-    private int currentPageNum, offScreenLimit = 5;
+    private int currentPageNum,
+            hostAddrPassed = 0,
+            offScreenLimit = 5;
     private JSInterface jsInterface;
 
     private ImageView imgRtlionSmall;
@@ -89,11 +91,14 @@ public class MainActivity extends Activity {
                     vpPages.setCurrentItem(0);
                 }
             }, 500);
-        }else if (mainPageFrag != null && mainPageFrag.getConnectionStatus()){
+        }else if (mainPageFrag != null &&
+                mainPageFrag.getConnectionStatus() &&
+                hostAddrPassed == 0){
             settingsPageFrag.removeConWarning();
             graphPageFrag.removeConWarning();
             settingsPageFrag.setHostAddr(mainPageFrag.getHostAddr());
             graphPageFrag.setHostAddr(mainPageFrag.getHostAddr());
+            hostAddrPassed = 1;
         }
     }
     private void initPageNavigators(){
