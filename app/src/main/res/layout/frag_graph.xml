@@ -23,9 +23,9 @@
             android:id="@+id/imgFFTGraph"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="2dp"
-            android:paddingEnd="1dp"
-            android:scaleType="fitCenter" />
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:scaleType="centerInside" />
 
         <RelativeLayout
             android:id="@+id/rlFFTGraph"

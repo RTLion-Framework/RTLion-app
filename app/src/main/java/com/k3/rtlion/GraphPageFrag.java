@@ -65,13 +65,14 @@ public class GraphPageFrag {
                     @Override
                     public void run() {
                         Bitmap fftBitmap = new ImageBase64().getImage(data);
-                        imgFFTGraph.setImageBitmap(Bitmap.createScaledBitmap(
-                                fftBitmap,
-                                fftBitmap.getWidth()*2,
-                                fftBitmap.getHeight()*2, false));
                         if(fftBitmap == null){
                             Toast.makeText(activity, context.getString(R.string.graph_error),
                                     Toast.LENGTH_SHORT).show();
+                        }else{
+                            imgFFTGraph.setImageBitmap(Bitmap.createScaledBitmap(
+                                    fftBitmap,
+                                    fftBitmap.getWidth()*2,
+                                    fftBitmap.getHeight()*2, false));
                         }
                     }
                 });
