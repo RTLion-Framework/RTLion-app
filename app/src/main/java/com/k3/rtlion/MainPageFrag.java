@@ -69,9 +69,13 @@ public class MainPageFrag {
         return serverUrl + appNamespace;
     }
     private void initDatabase(){
-        hostDB = new HostDB(context);
-        if (hostDB.getHostAddr() != null)
-            edtxHostAddr.setText(hostDB.getHostAddr());
+        try {
+            hostDB = new HostDB(context);
+            if (hostDB.getHostAddr() != null)
+                edtxHostAddr.setText(hostDB.getHostAddr());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
     private class edtxHostAddr_onEditorAction implements TextView.OnEditorActionListener{
         @Override
