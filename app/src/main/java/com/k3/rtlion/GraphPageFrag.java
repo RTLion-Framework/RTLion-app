@@ -59,6 +59,14 @@ public class GraphPageFrag {
     }
     private void createGraph(){
         jsInterface.getGraphFFT(hostAddr, new JSInterface.JSOutputInterface() {
+            private void setGraphImage(final String data){
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        imgFFTGraph.setImageBitmap(new ImageBase64().getImage(data));
+                    }
+                });
+            }
             @Override
             public void onInfo(JSONObject clientInfo) { }
 
@@ -70,7 +78,7 @@ public class GraphPageFrag {
 
             @Override
             public void onData(String data) {
-                Toast.makeText(activity, data, Toast.LENGTH_SHORT).show();
+                setGraphImage(data);
             }
         });
     }
