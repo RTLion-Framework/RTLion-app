@@ -23,6 +23,9 @@ public class JSInterface {
     private String jsInterfaceName;
     private Object[] globalParams;
     private JSONObject clientInfo, cliArgs;
+    private String graphEventCommand,
+            globalSocketName = "socket";
+    private Boolean graphEventSet = false;
 
     public enum JSCommands {
         ServerInfo("fetchServerInfo", "getClientInfo"),
@@ -42,8 +45,6 @@ public class JSInterface {
         public void onArgs(JSONObject cliArgs);
         public void onConsoleMsg(ConsoleMessage msg);
     }
-    private String graphEventCommand,
-            globalSocketName = "socket";
     private JSOutputInterface jsOutputInterface;
     public JSInterface(Activity activity){
         this.activity = activity;
@@ -63,8 +64,10 @@ public class JSInterface {
             String jsCommand = createJSCommand(JSCommands.valueOf(url.split("#")[1]).ordinal(),
                     globalParams);
             webView.loadUrl(jsCommand);
-            if(url.split("#")[1].equals(JSCommands.GraphFFT.name()))
+            if(url.split("#")[1].equals(JSCommands.GraphFFT.name()) && !graphEventSet) {
                 webView.loadUrl(graphEventCommand);
+                graphEventSet = true;
+            }
         }
     }
     private class webView_chromeClient extends WebChromeClient{
