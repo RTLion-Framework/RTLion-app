@@ -72,6 +72,11 @@ public class GraphPageFrag {
             public void onConsoleMsg(ConsoleMessage msg) {
 
             }
+
+            @Override
+            public void onData(String data) {
+
+            }
         });
     }
 }

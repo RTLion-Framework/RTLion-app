@@ -78,6 +78,7 @@ public class SettingsPageFrag {
                     }
                 });
             }
+
             @Override
             public void onArgs(JSONObject cliArgs) {
                 try {
@@ -113,12 +114,15 @@ public class SettingsPageFrag {
                             Toast.LENGTH_SHORT).show();
                 }
             }
+
             @Override
             public void onInfo(JSONObject clientInfo) { }
-            @Override
-            public void onConsoleMsg(ConsoleMessage msg) {
 
-            }
+            @Override
+            public void onConsoleMsg(ConsoleMessage msg) { }
+
+            @Override
+            public void onData(String data) { }
         });
     }
     private class btnSaveSettings_onClick implements Button.OnClickListener{

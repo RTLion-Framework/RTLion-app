@@ -185,6 +185,9 @@ public class MainPageFrag {
 
                 @Override
                 public void onArgs(JSONObject cliArgs) { }
+
+                @Override
+                public void onData(String data) { }
             });
         }else{
             Toast.makeText(activity, context.getString(R.string.invalid_host),
