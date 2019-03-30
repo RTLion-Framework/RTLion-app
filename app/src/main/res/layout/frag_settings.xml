@@ -1,114 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/rlSettings"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/txvSettingsWarning"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="@string/connection_warning"
-        android:textStyle="bold"
-        android:visibility="gone"/>
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="none" >
     <LinearLayout
-        android:id="@+id/llSettings"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/tilDevIndex"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginTop="5dp"
-            android:theme="@style/TLabel">
-            <EditText
-                android:id="@+id/edtxDevIndex"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/dev_index"
-                android:singleLine="true"
-                android:backgroundTint="@color/colorAccent"
-                android:textColor="@color/colorPrimaryDark"
-                android:fontFamily="monospace"
-                android:textStyle="bold"
-                android:textSize="15sp"
-                android:paddingStart="5dp"/>
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/tilSampRate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginTop="5dp"
-            android:theme="@style/TLabel">
-            <EditText
-                android:id="@+id/edtxSampRate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/samp_rate"
-                android:singleLine="true"
-                android:backgroundTint="@color/colorAccent"
-                android:textColor="@color/colorPrimaryDark"
-                android:fontFamily="monospace"
-                android:textStyle="bold"
-                android:textSize="15sp"
-                android:paddingStart="5dp"/>
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/tilDevGain"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginTop="5dp"
-            android:theme="@style/TLabel">
-            <EditText
-                android:id="@+id/edtxDevGain"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/dev_gain"
-                android:singleLine="true"
-                android:backgroundTint="@color/colorAccent"
-                android:textColor="@color/colorPrimaryDark"
-                android:fontFamily="monospace"
-                android:textStyle="bold"
-                android:textSize="15sp"
-                android:paddingStart="5dp"/>
-        </android.support.design.widget.TextInputLayout>
-
+        android:layout_height="match_parent">
         <RelativeLayout
-            android:id="@+id/rlSaveSettings"
+            android:id="@+id/rlSettings"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="5dp"
-            android:layout_marginTop="3dp">
-            <Button
-                android:id="@+id/btnSaveSettings"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/txvSettingsWarning"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:text="@string/save_settings"
-                android:theme="@style/FlatButton"/>
-        </RelativeLayout>
+                android:layout_centerInParent="true"
+                android:text="@string/connection_warning"
+                android:textStyle="bold"
+                android:visibility="gone"/>
+            <LinearLayout
+                android:id="@+id/llSettings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/txvSettingsInfo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/btnConnect"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:textColor="@color/colorPrimary"
-            android:fontFamily="monospace"
-            android:text="@string/settings_info"
-            android:gravity="end"/>
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilDevIndex"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginTop="5dp"
+                    android:theme="@style/TLabel">
+                    <EditText
+                        android:id="@+id/edtxDevIndex"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/dev_index"
+                        android:singleLine="true"
+                        android:backgroundTint="@color/colorAccent"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:fontFamily="monospace"
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:paddingStart="5dp"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilSampRate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginTop="5dp"
+                    android:theme="@style/TLabel">
+                    <EditText
+                        android:id="@+id/edtxSampRate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/samp_rate"
+                        android:singleLine="true"
+                        android:backgroundTint="@color/colorAccent"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:fontFamily="monospace"
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:paddingStart="5dp"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilDevGain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginTop="5dp"
+                    android:theme="@style/TLabel">
+                    <EditText
+                        android:id="@+id/edtxDevGain"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/dev_gain"
+                        android:singleLine="true"
+                        android:backgroundTint="@color/colorAccent"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:fontFamily="monospace"
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:paddingStart="5dp"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlSaveSettings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginTop="3dp">
+                    <Button
+                        android:id="@+id/btnSaveSettings"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="@string/save_settings"
+                        android:theme="@style/FlatButton"/>
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/txvSettingsInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/btnConnect"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:textColor="@color/colorPrimary"
+                    android:fontFamily="monospace"
+                    android:text="@string/settings_info"
+                    android:gravity="end"/>
+            </LinearLayout>
+        </RelativeLayout>
     </LinearLayout>
-</RelativeLayout>
+</ScrollView>
