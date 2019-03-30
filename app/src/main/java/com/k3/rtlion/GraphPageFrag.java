@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONObject;
 
@@ -59,23 +60,17 @@ public class GraphPageFrag {
     private void createGraph(){
         jsInterface.getGraphFFT(hostAddr, new JSInterface.JSOutputInterface() {
             @Override
-            public void onInfo(JSONObject clientInfo) {
-
-            }
+            public void onInfo(JSONObject clientInfo) { }
 
             @Override
-            public void onArgs(JSONObject cliArgs) {
-
-            }
+            public void onArgs(JSONObject cliArgs) { }
 
             @Override
-            public void onConsoleMsg(ConsoleMessage msg) {
-
-            }
+            public void onConsoleMsg(ConsoleMessage msg) { }
 
             @Override
             public void onData(String data) {
-
+                Toast.makeText(activity, data, Toast.LENGTH_SHORT).show();
             }
         });
     }

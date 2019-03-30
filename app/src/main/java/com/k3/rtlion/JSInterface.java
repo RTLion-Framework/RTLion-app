@@ -2,7 +2,6 @@ package com.k3.rtlion;
 
 import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
 import android.webkit.ConsoleMessage;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
@@ -10,7 +9,6 @@ import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -157,6 +155,6 @@ public class JSInterface {
 
     @JavascriptInterface
     public void onServerGraph(String data){
-
+        jsOutputInterface.onData(data);
     }
 }
