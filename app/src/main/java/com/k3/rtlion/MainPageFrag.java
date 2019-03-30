@@ -56,11 +56,15 @@ public class MainPageFrag {
         txvServerInfo = (TextView) viewGroup.findViewById(R.id.txvServerInfo);
     }
     public void initialize(){
-        initViews();
-        initDatabase();
-        infoNames = context.getResources().getStringArray(R.array.info_names);
-        edtxHostAddr.setOnEditorActionListener(new edtxHostAddr_onEditorAction());
-        btnConnect.setOnClickListener(new btnConnect_onClick());
+        try {
+            initViews();
+            initDatabase();
+            infoNames = context.getResources().getStringArray(R.array.info_names);
+            edtxHostAddr.setOnEditorActionListener(new edtxHostAddr_onEditorAction());
+            btnConnect.setOnClickListener(new btnConnect_onClick());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
     public boolean getConnectionStatus(){
         return connectionStatus;
