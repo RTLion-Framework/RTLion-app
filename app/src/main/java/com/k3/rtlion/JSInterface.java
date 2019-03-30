@@ -148,7 +148,8 @@ public class JSInterface {
     public void updateServerArgs(String upd){ }
 
     @JavascriptInterface
-    public void getGraphFromServer() {}
+
+    public void getGraphFromServer(String retval) {}
 
     @JavascriptInterface
     public void onServerGraph(String data){
