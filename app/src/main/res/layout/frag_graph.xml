@@ -24,6 +24,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
+        <RelativeLayout
+            android:id="@+id/rlFFTGraph"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="5dp">
+            <Button
+                android:id="@+id/btnFFTGraph"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="@string/create_graph"
+                android:theme="@style/FlatButton"/>
+        </RelativeLayout>
+
     </LinearLayout>
 
 </RelativeLayout>
