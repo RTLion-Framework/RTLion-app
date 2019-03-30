@@ -33,6 +33,7 @@
                     android:layout_height="wrap_content"
                     android:paddingStart="5dp"
                     android:paddingEnd="5dp"
+                    android:paddingTop="3dp"
                     android:scaleType="centerInside" />
 
                 <RelativeLayout
