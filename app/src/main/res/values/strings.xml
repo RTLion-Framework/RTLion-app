@@ -36,4 +36,7 @@
     <string name="settings_updated">Device settings updated.</string>
     <string name="create_graph">Create FFT Graph</string>
     <string name="graph_error">Unable to get FFT graph data.</string>
+    <string name="center_freq">Center Frequency</string>
+    <string name="num_read">Number of the reads</string>
+    <string name="interval">Interval between reads</string>
 </resources>

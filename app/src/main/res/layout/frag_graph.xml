@@ -36,6 +36,72 @@
                     android:paddingTop="3dp"
                     android:scaleType="centerInside" />
 
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilFreq"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginTop="5dp"
+                    android:theme="@style/TLabel">
+                    <EditText
+                        android:id="@+id/edtxFreq"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/center_freq"
+                        android:singleLine="true"
+                        android:backgroundTint="@color/colorAccent"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:fontFamily="monospace"
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:paddingStart="5dp"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilNumRead"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginTop="5dp"
+                    android:theme="@style/TLabel">
+                    <EditText
+                        android:id="@+id/edtxNumRead"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/num_read"
+                        android:singleLine="true"
+                        android:backgroundTint="@color/colorAccent"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:fontFamily="monospace"
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:paddingStart="5dp"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilInterval"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginTop="5dp"
+                    android:theme="@style/TLabel">
+                    <EditText
+                        android:id="@+id/edtxInterval"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/interval"
+                        android:singleLine="true"
+                        android:backgroundTint="@color/colorAccent"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:fontFamily="monospace"
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:paddingStart="5dp"/>
+                </android.support.design.widget.TextInputLayout>
+
                 <RelativeLayout
                     android:id="@+id/rlFFTGraph"
                     android:layout_width="match_parent"
