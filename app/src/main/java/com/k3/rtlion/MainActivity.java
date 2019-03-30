@@ -27,7 +27,7 @@ public class MainActivity extends Activity {
 
     private ImageView imgRtlionSmall;
     private TextView txvRtlionFramework, txvPageNum, txvPrevPage, txvNextPage;
-    private ViewPager vpPages;
+    private XViewPager vpPages;
     private WebView wvBase;
 
     private void init(){
@@ -54,7 +54,7 @@ public class MainActivity extends Activity {
     }
     private void setupViewPager(){
         vpPages_onPageChange(0);
-        vpPages = (ViewPager) findViewById(R.id.vpPages);
+        vpPages = (XViewPager) findViewById(R.id.vpPages);
         vpPages.setOffscreenPageLimit(offScreenLimit);
         pagesAdapter = new PagesAdapter(this, new PagesAdapter.IViewPager() {
             @Override
