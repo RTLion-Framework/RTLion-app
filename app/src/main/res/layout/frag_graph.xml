@@ -24,8 +24,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingStart="2dp"
-            android:paddingEnd="2dp"
-            android:scaleType="centerInside" />
+            android:paddingEnd="1dp"
+            android:scaleType="fitCenter" />
 
         <RelativeLayout
             android:id="@+id/rlFFTGraph"
