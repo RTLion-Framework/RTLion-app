@@ -108,9 +108,7 @@ public class GraphPageFrag {
             }
 
             @Override
-            public void onConsoleMsg(ConsoleMessage msg) {
-
-            }
+            public void onConsoleMsg(ConsoleMessage msg) { }
             @Override
             public void onInfo(JSONObject clientInfo) { }
             @Override
