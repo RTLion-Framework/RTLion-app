@@ -58,7 +58,6 @@ public class GraphPageFrag {
     }
     public void setHostAddr(String hostAddr){
         this.hostAddr = hostAddr;
-        getGraphParamsFromServer();
     }
     public void setGraphParams(JSONObject cliArgs){
         try {
