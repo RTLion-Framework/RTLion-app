@@ -60,62 +60,40 @@ public class GraphPageFrag {
         this.hostAddr = hostAddr;
         getGraphParamsFromServer();
     }
+    public void setGraphParams(JSONObject cliArgs){
+        try {
+            if(cliArgs == null)
+                throw new JSONException(context.getString(R.string.invalid_args));
+            GraphPageFrag.this.cliArgs = cliArgs;
+            for (int i = 0; i < cliArgs.length(); i++) {
+                switch (cliArgs.names().getString(i)){
+                    case "freq":
+                        edtx_setText(edtxFreq, cliArgs.getString(
+                                cliArgs.names().getString(i)));
+                        break;
+                    case "n":
+                        edtx_setText(edtxNumRead, cliArgs.getString(
+                                cliArgs.names().getString(i)));
+                        break;
+                    case "i":
+                        edtx_setText(edtxInterval, cliArgs.getString(
+                                cliArgs.names().getString(i)));
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }catch (JSONException e){
+            e.printStackTrace();
+            Toast.makeText(activity, context.getString(R.string.invalid_server_settings),
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
     private class btnFFTGraph_onClick implements Button.OnClickListener{
         @Override
         public void onClick(View v) {
             createGraph();
         }
-    }
-    private void getGraphParamsFromServer(){
-        jsInterface.getServerArgs(hostAddr, new JSInterface.JSOutputInterface() {
-            private void edtx_setText(final EditText editText, final String text){
-                activity.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        editText.setText(text);
-                    }
-                });
-            }
-            @Override
-            public void onArgs(JSONObject cliArgs) {
-                try {
-                    if(cliArgs == null)
-                        throw new JSONException(context.getString(R.string.invalid_args));
-                    GraphPageFrag.this.cliArgs = cliArgs;
-                    for (int i = 0; i < cliArgs.length(); i++) {
-                        switch (cliArgs.names().getString(i)){
-                            case "freq":
-                                edtx_setText(edtxFreq, cliArgs.getString(
-                                        cliArgs.names().getString(i)));
-                                break;
-                            case "n":
-                                edtx_setText(edtxNumRead, cliArgs.getString(
-                                        cliArgs.names().getString(i)));
-                                break;
-                            case "i":
-                                edtx_setText(edtxInterval, cliArgs.getString(
-                                        cliArgs.names().getString(i)));
-                                break;
-                            default:
-                                break;
-                        }
-                    }
-                }catch (JSONException e){
-                    e.printStackTrace();
-                    Toast.makeText(activity, context.getString(R.string.invalid_server_settings),
-                            Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onConsoleMsg(ConsoleMessage msg) { }
-
-            @Override
-            public void onInfo(JSONObject clientInfo) { }
-
-            @Override
-            public void onData(String data) { }
-        });
     }
     private void createGraph(){
         jsInterface.getGraphFFT(hostAddr, new JSInterface.JSOutputInterface() {
