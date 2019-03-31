@@ -83,7 +83,7 @@ public class SettingsPageFrag {
             public void onArgs(JSONObject cliArgs) {
                 try {
                     if(cliArgs == null)
-                        throw new JSONException("Invalid command-line arguments.");
+                        throw new JSONException(context.getString(R.string.invalid_args));
                     if (updatedSettings != null)
                         if(updatedSettings.equals(cliArgs.toString()))
                             Toast.makeText(activity, context.getString(R.string.settings_updated),
@@ -110,7 +110,7 @@ public class SettingsPageFrag {
                 enable_btnSaveSettings();
                 }catch (JSONException e){
                     e.printStackTrace();
-                    Toast.makeText(activity, context.getString(R.string.invalid_args),
+                    Toast.makeText(activity, context.getString(R.string.invalid_server_settings),
                             Toast.LENGTH_SHORT).show();
                 }
             }

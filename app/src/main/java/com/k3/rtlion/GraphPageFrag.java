@@ -72,12 +72,12 @@ public class GraphPageFrag {
             public void onArgs(JSONObject cliArgs) {
                 try {
                     if(cliArgs == null)
-                        throw new JSONException("Invalid command-line arguments.");
+                        throw new JSONException(context.getString(R.string.invalid_args));
                     GraphPageFrag.this.cliArgs = cliArgs;
 
                 }catch (JSONException e){
                     e.printStackTrace();
-                    Toast.makeText(activity, context.getString(R.string.invalid_args),
+                    Toast.makeText(activity, context.getString(R.string.invalid_server_settings),
                             Toast.LENGTH_SHORT).show();
                 }
             }

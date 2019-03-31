@@ -31,7 +31,7 @@
     <string name="dev_gain">Device Gain</string>
     <string name="save_settings">Save Settings</string>
     <string name="settings_info">General device settings listed.</string>
-    <string name="invalid_args">Invalid server settings detected.</string>
+    <string name="invalid_server_settings">Invalid server settings detected.</string>
     <string name="settings_save_error">Error occured while saving settings.</string>
     <string name="settings_updated">Device settings updated.</string>
     <string name="create_graph">Create FFT Graph</string>
@@ -39,4 +39,5 @@
     <string name="center_freq">Center Frequency</string>
     <string name="num_read">Number of the reads</string>
     <string name="interval">Interval between reads</string>
+    <string name="invalid_args">Invalid command-line arguments.</string>
 </resources>
