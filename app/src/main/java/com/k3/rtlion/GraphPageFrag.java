@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -113,6 +112,7 @@ public class GraphPageFrag {
                     cliArgs.put("n", edtxNumRead.getText().toString());
                     cliArgs.put("i", edtxInterval.getText().toString());
                     jsInterface.setServerArgs(hostAddr, cliArgs.toString(), null);
+
                     jsInterface.getServerArgs(hostAddr, new JSInterface.JSOutputInterface() {
                         private void edtx_setText(final EditText editText, final String text){
                             activity.runOnUiThread(new Runnable() {
@@ -128,7 +128,7 @@ public class GraphPageFrag {
                                 if(cliArgs == null)
                                     throw new JSONException(context.getString(R.string.invalid_args));
                                 GraphPageFrag.this.cliArgs = cliArgs;
-                                if(cliArgs.getString("freq") == String.valueOf(centerFreq)){
+                                if(cliArgs.getString("freq").equals(String.valueOf(centerFreq))){
                                     createGraph();
                                 }else{
                                     edtx_setText(edtxFreq, "");
