@@ -106,7 +106,20 @@ public class GraphPageFrag {
         @Override
         public void onClick(View v) {
             if(checkFreq()) {
-                createGraph();
+                try {
+                    if (cliArgs == null)
+                        throw new JSONException(context.getString(R.string.invalid_settings));
+                    cliArgs.put("freq", edtxFreq.getText().toString());
+                    cliArgs.put("n", edtxNumRead.getText().toString());
+                    cliArgs.put("i", edtxInterval.getText().toString());
+                    jsInterface.setServerArgs(hostAddr, cliArgs.toString(), null);
+
+                }catch (JSONException e){
+                    e.printStackTrace();
+                    Toast.makeText(activity, context.getString(R.string.settings_save_error),
+                            Toast.LENGTH_SHORT).show();
+                }
+
             }else{
                 Toast.makeText(activity, context.getString(R.string.invalid_freq),
                         Toast.LENGTH_SHORT).show();
