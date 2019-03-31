@@ -120,7 +120,11 @@ public class GraphPageFrag {
                                 if(cliArgs == null)
                                     throw new JSONException(context.getString(R.string.invalid_args));
                                 GraphPageFrag.this.cliArgs = cliArgs;
+                                if(cliArgs.names().getString("freq") == centerFreq){
 
+                                }else{
+
+                                }
                             }catch (JSONException e){
                                 e.printStackTrace();
                                 Toast.makeText(activity, context.getString(R.string.invalid_server_settings),
