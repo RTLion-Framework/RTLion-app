@@ -128,7 +128,7 @@ public class GraphPageFrag {
                                 if(cliArgs == null)
                                     throw new JSONException(context.getString(R.string.invalid_args));
                                 GraphPageFrag.this.cliArgs = cliArgs;
-                                if(cliArgs.names().getString("freq") == centerFreq){
+                                if(cliArgs.getString("freq") == String.valueOf(centerFreq)){
                                     createGraph();
                                 }else{
                                     edtx_setText(edtxFreq, "");
