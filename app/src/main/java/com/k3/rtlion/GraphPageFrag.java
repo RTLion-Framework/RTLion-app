@@ -91,7 +91,7 @@ public class GraphPageFrag {
                     Toast.LENGTH_SHORT).show();
         }
     }
-    private boolean checkArgs(){
+    private boolean checkFreq(){
         boolean valid = false;
         try {
             centerFreq = Integer.parseInt(edtxFreq.getText().toString());
@@ -107,7 +107,7 @@ public class GraphPageFrag {
     private class btnFFTGraph_onClick implements Button.OnClickListener{
         @Override
         public void onClick(View v) {
-            if(checkArgs())
+            if(checkFreq())
                 createGraph();
         }
     }
