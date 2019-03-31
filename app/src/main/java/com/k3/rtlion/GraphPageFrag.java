@@ -196,7 +196,6 @@ public class GraphPageFrag {
                             @Override
                             public void run() {
                                 createGraph();
-                                hideViews(true);
                             }
                         });
                     }else{
@@ -232,12 +231,12 @@ public class GraphPageFrag {
                             Toast.makeText(activity, context.getString(R.string.graph_error),
                                     Toast.LENGTH_SHORT).show();
                             enableViews(true);
-                            hideViews(false);
                         }else{
                             imgFFTGraph.setImageBitmap(Bitmap.createScaledBitmap(
                                     fftBitmap,
                                     fftBitmap.getWidth()*2,
                                     fftBitmap.getHeight()*2, false));
+                            hideViews(true);
                         }
                     }
                 });
