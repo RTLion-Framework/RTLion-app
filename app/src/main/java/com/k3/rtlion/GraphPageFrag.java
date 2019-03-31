@@ -129,9 +129,10 @@ public class GraphPageFrag {
                                     throw new JSONException(context.getString(R.string.invalid_args));
                                 GraphPageFrag.this.cliArgs = cliArgs;
                                 if(cliArgs.names().getString("freq") == centerFreq){
-
+                                    createGraph();
                                 }else{
-
+                                    edtx_setText(edtxFreq, "");
+                                    Toast.makeText(activity, "Unable to save settings.", Toast.LENGTH_SHORT).show();
                                 }
                             }catch (JSONException e){
                                 e.printStackTrace();
