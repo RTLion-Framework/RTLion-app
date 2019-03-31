@@ -60,6 +60,22 @@ public class GraphPageFrag {
     public void setHostAddr(String hostAddr){
         this.hostAddr = hostAddr;
     }
+    private void hideViews(boolean state){
+        if (state){
+            edtxFreq.setVisibility(View.GONE);
+            edtxNumRead.setVisibility(View.GONE);
+            edtxInterval.setVisibility(View.GONE);
+        }else{
+            edtxFreq.setVisibility(View.VISIBLE);
+            edtxNumRead.setVisibility(View.VISIBLE);
+            edtxInterval.setVisibility(View.VISIBLE);
+        }
+    }
+    private void enableViews(boolean state) {
+        edtxFreq.setEnabled(state);
+        edtxNumRead.setEnabled(state);
+        edtxInterval.setEnabled(state);
+    }
     public void setGraphParams(JSONObject cliArgs){
         try {
             if(cliArgs == null)
