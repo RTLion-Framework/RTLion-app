@@ -169,7 +169,8 @@ public class GraphPageFrag {
                         });
                     }else{
                         edtx_setText(edtxFreq, "");
-                        Toast.makeText(activity, "Unable to save settings.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(activity, context.getString(R.string.save_error),
+                                Toast.LENGTH_SHORT).show();
                     }
                 }catch (JSONException e){
                     e.printStackTrace();

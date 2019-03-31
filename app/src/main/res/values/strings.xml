@@ -41,5 +41,7 @@
     <string name="interval">Interval between reads</string>
     <string name="invalid_args">Invalid command-line arguments.</string>
     <string name="invalid_freq">Invalid center frequency value.</string>
-    <string name="invalid_settings">Invalid settings.</string>
+    <string name="invalid_settings">Invalid settings detected.</string>
+    <string name="save_error">Unable to save settings.</string>
+
 </resources>
