@@ -3,6 +3,7 @@ package com.k3.rtlion;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.support.design.widget.TextInputLayout;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.ConsoleMessage;
@@ -31,6 +32,7 @@ public class GraphPageFrag {
     private ImageView imgFFTGraph;
     private Button btnFFTGraph;
     private EditText edtxFreq, edtxNumRead, edtxInterval;
+    private TextInputLayout tilFreq, tilNumRead, tilInterval;
 
     public GraphPageFrag(Activity activity, ViewGroup viewGroup, JSInterface jsInterface){
         this.activity = activity;
@@ -46,6 +48,9 @@ public class GraphPageFrag {
         edtxFreq = viewGroup.findViewById(R.id.edtxFreq);
         edtxNumRead = viewGroup.findViewById(R.id.edtxNumRead);
         edtxInterval = viewGroup.findViewById(R.id.edtxInterval);
+        tilFreq = viewGroup.findViewById(R.id.tilFreq);
+        tilNumRead = viewGroup.findViewById(R.id.tilNumRead);
+        tilInterval = viewGroup.findViewById(R.id.tilInterval);
     }
     public void initialize(){
         initViews();
