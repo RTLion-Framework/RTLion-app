@@ -34,6 +34,8 @@
                     android:paddingStart="5dp"
                     android:paddingEnd="5dp"
                     android:paddingTop="3dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
                     android:scaleType="centerInside" />
 
                 <android.support.design.widget.TextInputLayout
