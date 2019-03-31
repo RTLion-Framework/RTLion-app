@@ -101,10 +101,16 @@ public class GraphPageFrag {
             edtxFreq.setVisibility(View.GONE);
             edtxNumRead.setVisibility(View.GONE);
             edtxInterval.setVisibility(View.GONE);
+            tilFreq.setVisibility(View.GONE);
+            tilNumRead.setVisibility(View.GONE);
+            tilInterval.setVisibility(View.GONE);
         }else{
             edtxFreq.setVisibility(View.VISIBLE);
             edtxNumRead.setVisibility(View.VISIBLE);
             edtxInterval.setVisibility(View.VISIBLE);
+            tilFreq.setVisibility(View.VISIBLE);
+            tilNumRead.setVisibility(View.VISIBLE);
+            tilInterval.setVisibility(View.VISIBLE);
         }
     }
     private void enableViews(boolean state) {
