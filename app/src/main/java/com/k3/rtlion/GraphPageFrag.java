@@ -54,6 +54,7 @@ public class GraphPageFrag {
     public void removeConWarning(){
         txvGraphWarning.setVisibility(View.GONE);
         llGraph.setVisibility(View.VISIBLE);
+        getGraphParamsFromServer();
     }
     public void setHostAddr(String hostAddr){
         this.hostAddr = hostAddr;
@@ -63,6 +64,29 @@ public class GraphPageFrag {
         public void onClick(View v) {
             createGraph();
         }
+    }
+    private void getGraphParamsFromServer(){
+        jsInterface.getServerArgs(hostAddr, new JSInterface.JSOutputInterface() {
+            @Override
+            public void onInfo(JSONObject clientInfo) {
+
+            }
+
+            @Override
+            public void onArgs(JSONObject cliArgs) {
+
+            }
+
+            @Override
+            public void onConsoleMsg(ConsoleMessage msg) {
+
+            }
+
+            @Override
+            public void onData(String data) {
+
+            }
+        });
     }
     private void createGraph(){
         jsInterface.getGraphFFT(hostAddr, new JSInterface.JSOutputInterface() {
