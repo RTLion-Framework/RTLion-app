@@ -94,10 +94,11 @@ public class MainActivity extends Activity {
         }else if (mainPageFrag != null &&
                 mainPageFrag.getConnectionStatus() &&
                 hostAddrPassed == 0){
-            settingsPageFrag.removeConWarning();
             graphPageFrag.removeConWarning();
-            settingsPageFrag.setHostAddr(mainPageFrag.getHostAddr());
             graphPageFrag.setHostAddr(mainPageFrag.getHostAddr());
+            settingsPageFrag.removeConWarning();
+            settingsPageFrag.setGraphPageFrag(graphPageFrag);
+            settingsPageFrag.setHostAddr(mainPageFrag.getHostAddr());
             hostAddrPassed = 1;
         }
     }
