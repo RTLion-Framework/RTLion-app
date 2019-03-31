@@ -22,6 +22,7 @@ public class GraphPageFrag {
     private ViewGroup viewGroup;
     private JSInterface jsInterface;
     private String hostAddr;
+    private JSONObject cliArgs;
 
     private TextView txvGraphWarning;
     private LinearLayout llGraph;
