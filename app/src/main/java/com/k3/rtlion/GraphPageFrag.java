@@ -98,17 +98,20 @@ public class GraphPageFrag {
             if (centerFreq > 0)
                 valid = true;
         }catch (Exception e){
-            Toast.makeText(activity, context.getString(R.string.invalid_freq),
-                    Toast.LENGTH_SHORT).show();
-            edtxFreq.setText("");
+            e.printStackTrace();
         }
         return valid;
     }
     private class btnFFTGraph_onClick implements Button.OnClickListener{
         @Override
         public void onClick(View v) {
-            if(checkFreq())
+            if(checkFreq()) {
                 createGraph();
+            }else{
+                Toast.makeText(activity, context.getString(R.string.invalid_freq),
+                        Toast.LENGTH_SHORT).show();
+                edtxFreq.setText("");
+            }
         }
     }
     private void createGraph(){
