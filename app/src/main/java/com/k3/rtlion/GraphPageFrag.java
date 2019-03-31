@@ -68,11 +68,6 @@ public class GraphPageFrag {
     private void getGraphParamsFromServer(){
         jsInterface.getServerArgs(hostAddr, new JSInterface.JSOutputInterface() {
             @Override
-            public void onInfo(JSONObject clientInfo) {
-
-            }
-
-            @Override
             public void onArgs(JSONObject cliArgs) {
 
             }
@@ -81,11 +76,10 @@ public class GraphPageFrag {
             public void onConsoleMsg(ConsoleMessage msg) {
 
             }
-
             @Override
-            public void onData(String data) {
-
-            }
+            public void onInfo(JSONObject clientInfo) { }
+            @Override
+            public void onData(String data) { }
         });
     }
     private void createGraph(){
