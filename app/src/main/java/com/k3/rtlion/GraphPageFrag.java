@@ -104,6 +104,7 @@ public class GraphPageFrag {
             tilFreq.setVisibility(View.GONE);
             tilNumRead.setVisibility(View.GONE);
             tilInterval.setVisibility(View.GONE);
+            btnFFTGraph.setText(context.getString(R.string.stop_graph));
         }else{
             edtxFreq.setVisibility(View.VISIBLE);
             edtxNumRead.setVisibility(View.VISIBLE);
@@ -111,6 +112,7 @@ public class GraphPageFrag {
             tilFreq.setVisibility(View.VISIBLE);
             tilNumRead.setVisibility(View.VISIBLE);
             tilInterval.setVisibility(View.VISIBLE);
+            btnFFTGraph.setText(context.getString(R.string.create_graph));
         }
     }
     private void enableViews(boolean state) {

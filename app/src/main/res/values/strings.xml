@@ -43,5 +43,5 @@
     <string name="invalid_freq">Invalid center frequency value.</string>
     <string name="invalid_settings">Invalid settings detected.</string>
     <string name="save_error">Unable to save settings.</string>
-
+    <string name="stop_graph">Stop</string>
 </resources>
