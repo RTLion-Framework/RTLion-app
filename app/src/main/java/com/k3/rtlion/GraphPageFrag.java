@@ -64,7 +64,7 @@ public class GraphPageFrag {
         try {
             if(cliArgs == null)
                 throw new JSONException(context.getString(R.string.invalid_args));
-            GraphPageFrag.this.cliArgs = cliArgs;
+            this.cliArgs = cliArgs;
             for (int i = 0; i < cliArgs.length(); i++) {
                 switch (cliArgs.names().getString(i)){
                     case "freq":
@@ -113,7 +113,29 @@ public class GraphPageFrag {
                     cliArgs.put("n", edtxNumRead.getText().toString());
                     cliArgs.put("i", edtxInterval.getText().toString());
                     jsInterface.setServerArgs(hostAddr, cliArgs.toString(), null);
+                    jsInterface.getServerArgs(hostAddr, new JSInterface.JSOutputInterface() {
+                        @Override
+                        public void onArgs(JSONObject cliArgs) {
+                            try {
+                                if(cliArgs == null)
+                                    throw new JSONException(context.getString(R.string.invalid_args));
+                                GraphPageFrag.this.cliArgs = cliArgs;
 
+                            }catch (JSONException e){
+                                e.printStackTrace();
+                                Toast.makeText(activity, context.getString(R.string.invalid_server_settings),
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        @Override
+                        public void onInfo(JSONObject clientInfo) { }
+
+                        @Override
+                        public void onConsoleMsg(ConsoleMessage msg) { }
+
+                        @Override
+                        public void onData(String data) { }
+                    });
                 }catch (JSONException e){
                     e.printStackTrace();
                     Toast.makeText(activity, context.getString(R.string.settings_save_error),
