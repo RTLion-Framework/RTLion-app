@@ -140,13 +140,25 @@ public class SettingsPageFrag {
                 cliArgs.put("samprate", edtxSampRate.getText().toString());
                 cliArgs.put("gain", edtxDevGain.getText().toString());
                 updatedSettings = cliArgs.toString();
-                jsInterface.setServerArgs(hostAddr, updatedSettings, null);
-                new Handler().postDelayed(new Runnable() {
+                jsInterface.setServerArgs(hostAddr, updatedSettings, new JSInterface.JSOutputInterface() {
                     @Override
-                    public void run() {
-                        getArgsFromServer();
+                    public void onInfo(JSONObject clientInfo) {
+                        activity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                getArgsFromServer();
+                            }
+                        });
                     }
-                }, 500);
+                    @Override
+                    public void onArgs(JSONObject cliArgs) { }
+
+                    @Override
+                    public void onConsoleMsg(ConsoleMessage msg) { }
+
+                    @Override
+                    public void onData(String data) { }
+                });
             }catch (JSONException e){
                 e.printStackTrace();
                 Toast.makeText(activity, context.getString(R.string.settings_save_error),
