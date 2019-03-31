@@ -147,7 +147,9 @@ public class JSInterface {
         }
     }
     @JavascriptInterface
-    public void updateServerArgs(String upd){ }
+    public void updateServerArgs(String upd){
+        jsOutputInterface.onInfo(null);
+    }
 
     @JavascriptInterface
 

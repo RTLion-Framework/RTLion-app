@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -111,37 +112,18 @@ public class GraphPageFrag {
                     cliArgs.put("freq", edtxFreq.getText().toString());
                     cliArgs.put("n", edtxNumRead.getText().toString());
                     cliArgs.put("i", edtxInterval.getText().toString());
-                    jsInterface.setServerArgs(hostAddr, cliArgs.toString(), null);
-
-                    jsInterface.getServerArgs(hostAddr, new JSInterface.JSOutputInterface() {
-                        private void edtx_setText(final EditText editText, final String text){
+                    jsInterface.setServerArgs(hostAddr, cliArgs.toString(), new JSInterface.JSOutputInterface() {
+                        @Override
+                        public void onInfo(JSONObject clientInfo) {
                             activity.runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    editText.setText(text);
+                                    checkGraphSettings();
                                 }
                             });
                         }
                         @Override
-                        public void onArgs(JSONObject cliArgs) {
-                            try {
-                                if(cliArgs == null)
-                                    throw new JSONException(context.getString(R.string.invalid_args));
-                                GraphPageFrag.this.cliArgs = cliArgs;
-                                if(cliArgs.getString("freq").equals(String.valueOf(centerFreq))){
-                                    createGraph();
-                                }else{
-                                    edtx_setText(edtxFreq, "");
-                                    Toast.makeText(activity, "Unable to save settings.", Toast.LENGTH_SHORT).show();
-                                }
-                            }catch (JSONException e){
-                                e.printStackTrace();
-                                Toast.makeText(activity, context.getString(R.string.invalid_server_settings),
-                                        Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                        @Override
-                        public void onInfo(JSONObject clientInfo) { }
+                        public void onArgs(JSONObject cliArgs) { }
 
                         @Override
                         public void onConsoleMsg(ConsoleMessage msg) { }
@@ -161,6 +143,49 @@ public class GraphPageFrag {
                 edtxFreq.setText("");
             }
         }
+    }
+    private void checkGraphSettings(){
+        jsInterface.getServerArgs(hostAddr, new JSInterface.JSOutputInterface() {
+            private void edtx_setText(final EditText editText, final String text){
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        editText.setText(text);
+                    }
+                });
+            }
+            @Override
+            public void onArgs(JSONObject cliArgs) {
+                try {
+                    if(cliArgs == null)
+                        throw new JSONException(context.getString(R.string.invalid_args));
+                    GraphPageFrag.this.cliArgs = cliArgs;
+                    if(cliArgs.getString("freq").equals(String.valueOf(centerFreq))){
+                        activity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                createGraph();
+                            }
+                        });
+                    }else{
+                        edtx_setText(edtxFreq, "");
+                        Toast.makeText(activity, "Unable to save settings.", Toast.LENGTH_SHORT).show();
+                    }
+                }catch (JSONException e){
+                    e.printStackTrace();
+                    Toast.makeText(activity, context.getString(R.string.invalid_server_settings),
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+            @Override
+            public void onInfo(JSONObject clientInfo) { }
+
+            @Override
+            public void onConsoleMsg(ConsoleMessage msg) { }
+
+            @Override
+            public void onData(String data) { }
+        });
     }
     private void createGraph(){
         jsInterface.getGraphFFT(hostAddr, new JSInterface.JSOutputInterface() {
