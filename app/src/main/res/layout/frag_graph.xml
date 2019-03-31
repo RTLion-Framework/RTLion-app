@@ -55,7 +55,8 @@
                         android:fontFamily="monospace"
                         android:textStyle="bold"
                         android:textSize="15sp"
-                        android:paddingStart="5dp"/>
+                        android:paddingStart="5dp"
+                        android:inputType="number"/>
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
@@ -77,7 +78,8 @@
                         android:fontFamily="monospace"
                         android:textStyle="bold"
                         android:textSize="15sp"
-                        android:paddingStart="5dp"/>
+                        android:paddingStart="5dp"
+                        android:inputType="number"/>
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
@@ -99,7 +101,8 @@
                         android:fontFamily="monospace"
                         android:textStyle="bold"
                         android:textSize="15sp"
-                        android:paddingStart="5dp"/>
+                        android:paddingStart="5dp"
+                        android:inputType="number"/>
                 </android.support.design.widget.TextInputLayout>
 
                 <RelativeLayout
