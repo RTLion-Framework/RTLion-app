@@ -229,6 +229,8 @@ public class GraphPageFrag {
                         if(fftBitmap == null){
                             Toast.makeText(activity, context.getString(R.string.graph_error),
                                     Toast.LENGTH_SHORT).show();
+                            enableViews(true);
+                            hideViews(false);
                         }else{
                             imgFFTGraph.setImageBitmap(Bitmap.createScaledBitmap(
                                     fftBitmap,
