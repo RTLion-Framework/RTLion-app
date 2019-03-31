@@ -21,6 +21,7 @@ public class SettingsPageFrag {
     private Context context;
     private ViewGroup viewGroup;
     private JSInterface jsInterface;
+    private GraphPageFrag graphPageFrag;
     private String hostAddr, updatedSettings;
     private JSONObject cliArgs;
 
@@ -59,6 +60,9 @@ public class SettingsPageFrag {
     public void setHostAddr(String hostAddr){
         this.hostAddr = hostAddr;
         getArgsFromServer();
+    }
+    public void setGraphPageFrag(GraphPageFrag graphPageFrag){
+        this.graphPageFrag = graphPageFrag;
     }
     private void getArgsFromServer(){
         jsInterface.getServerArgs(hostAddr, new JSInterface.JSOutputInterface() {
@@ -107,7 +111,8 @@ public class SettingsPageFrag {
                                 break;
                         }
                     }
-                enable_btnSaveSettings();
+                    graphPageFrag.setGraphParams(cliArgs);
+                    enable_btnSaveSettings();
                 }catch (JSONException e){
                     e.printStackTrace();
                     Toast.makeText(activity, context.getString(R.string.invalid_server_settings),
