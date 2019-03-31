@@ -60,22 +60,6 @@ public class GraphPageFrag {
     public void setHostAddr(String hostAddr){
         this.hostAddr = hostAddr;
     }
-    private void hideViews(boolean state){
-        if (state){
-            edtxFreq.setVisibility(View.GONE);
-            edtxNumRead.setVisibility(View.GONE);
-            edtxInterval.setVisibility(View.GONE);
-        }else{
-            edtxFreq.setVisibility(View.VISIBLE);
-            edtxNumRead.setVisibility(View.VISIBLE);
-            edtxInterval.setVisibility(View.VISIBLE);
-        }
-    }
-    private void enableViews(boolean state) {
-        edtxFreq.setEnabled(state);
-        edtxNumRead.setEnabled(state);
-        edtxInterval.setEnabled(state);
-    }
     public void setGraphParams(JSONObject cliArgs){
         try {
             if(cliArgs == null)
@@ -107,20 +91,26 @@ public class GraphPageFrag {
                     Toast.LENGTH_SHORT).show();
         }
     }
-    private boolean checkFreq(){
-        boolean valid = false;
-        try {
-            centerFreq = Integer.parseInt(edtxFreq.getText().toString());
-            if (centerFreq > 0)
-                valid = true;
-        }catch (Exception e){
-            e.printStackTrace();
+    private void hideViews(boolean state){
+        if (state){
+            edtxFreq.setVisibility(View.GONE);
+            edtxNumRead.setVisibility(View.GONE);
+            edtxInterval.setVisibility(View.GONE);
+        }else{
+            edtxFreq.setVisibility(View.VISIBLE);
+            edtxNumRead.setVisibility(View.VISIBLE);
+            edtxInterval.setVisibility(View.VISIBLE);
         }
-        return valid;
+    }
+    private void enableViews(boolean state) {
+        edtxFreq.setEnabled(state);
+        edtxNumRead.setEnabled(state);
+        edtxInterval.setEnabled(state);
     }
     private class btnFFTGraph_onClick implements Button.OnClickListener{
         @Override
         public void onClick(View v) {
+            enableViews(false);
             if(checkFreq()) {
                 try {
                     if (cliArgs == null)
@@ -151,14 +141,26 @@ public class GraphPageFrag {
                     e.printStackTrace();
                     Toast.makeText(activity, context.getString(R.string.settings_save_error),
                             Toast.LENGTH_SHORT).show();
+                    enableViews(true);
                 }
-
             }else{
                 Toast.makeText(activity, context.getString(R.string.invalid_freq),
                         Toast.LENGTH_SHORT).show();
                 edtxFreq.setText("");
+                enableViews(true);
             }
         }
+    }
+    private boolean checkFreq(){
+        boolean valid = false;
+        try {
+            centerFreq = Integer.parseInt(edtxFreq.getText().toString());
+            if (centerFreq > 0)
+                valid = true;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return valid;
     }
     private void checkGraphSettings(){
         jsInterface.getServerArgs(hostAddr, new JSInterface.JSOutputInterface() {
@@ -181,6 +183,7 @@ public class GraphPageFrag {
                             @Override
                             public void run() {
                                 createGraph();
+                                hideViews(true);
                             }
                         });
                     }else{
@@ -192,6 +195,7 @@ public class GraphPageFrag {
                     e.printStackTrace();
                     Toast.makeText(activity, context.getString(R.string.invalid_server_settings),
                             Toast.LENGTH_SHORT).show();
+                    enableViews(true);
                 }
             }
             @Override
