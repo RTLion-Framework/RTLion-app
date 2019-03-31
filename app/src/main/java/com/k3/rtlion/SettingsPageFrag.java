@@ -135,7 +135,7 @@ public class SettingsPageFrag {
         public void onClick(View v) {
             try {
                 if (cliArgs == null)
-                    throw new JSONException("Invalid settings.");
+                    throw new JSONException(context.getString(R.string.invalid_settings));
                 cliArgs.put("dev", edtxDevIndex.getText().toString());
                 cliArgs.put("samprate", edtxSampRate.getText().toString());
                 cliArgs.put("gain", edtxDevGain.getText().toString());
