@@ -55,10 +55,10 @@ public class GraphPageFrag {
     public void removeConWarning(){
         txvGraphWarning.setVisibility(View.GONE);
         llGraph.setVisibility(View.VISIBLE);
-        getGraphParamsFromServer();
     }
     public void setHostAddr(String hostAddr){
         this.hostAddr = hostAddr;
+        getGraphParamsFromServer();
     }
     private class btnFFTGraph_onClick implements Button.OnClickListener{
         @Override
