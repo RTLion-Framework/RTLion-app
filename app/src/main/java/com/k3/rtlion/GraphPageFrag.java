@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class GraphPageFrag {
@@ -69,7 +70,16 @@ public class GraphPageFrag {
         jsInterface.getServerArgs(hostAddr, new JSInterface.JSOutputInterface() {
             @Override
             public void onArgs(JSONObject cliArgs) {
+                try {
+                    if(cliArgs == null)
+                        throw new JSONException("Invalid command-line arguments.");
+                    GraphPageFrag.this.cliArgs = cliArgs;
 
+                }catch (JSONException e){
+                    e.printStackTrace();
+                    Toast.makeText(activity, context.getString(R.string.invalid_args),
+                            Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
