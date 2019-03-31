@@ -68,6 +68,14 @@ public class GraphPageFrag {
     }
     private void getGraphParamsFromServer(){
         jsInterface.getServerArgs(hostAddr, new JSInterface.JSOutputInterface() {
+            private void edtx_setText(final EditText editText, final String text){
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        editText.setText(text);
+                    }
+                });
+            }
             @Override
             public void onArgs(JSONObject cliArgs) {
                 try {
