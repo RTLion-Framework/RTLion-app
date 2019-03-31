@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.ConsoleMessage;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -26,6 +27,7 @@ public class GraphPageFrag {
     private LinearLayout llGraph;
     private ImageView imgFFTGraph;
     private Button btnFFTGraph;
+    private EditText edtxFreq, edtxNumRead, edtxInterval;
 
     public GraphPageFrag(Activity activity, ViewGroup viewGroup, JSInterface jsInterface){
         this.activity = activity;
@@ -38,6 +40,9 @@ public class GraphPageFrag {
         llGraph = viewGroup.findViewById(R.id.llGraph);
         imgFFTGraph = viewGroup.findViewById(R.id.imgFFTGraph);
         btnFFTGraph = viewGroup.findViewById(R.id.btnFFTGraph);
+        edtxFreq = viewGroup.findViewById(R.id.edtxFreq);
+        edtxNumRead = viewGroup.findViewById(R.id.edtxNumRead);
+        edtxInterval = viewGroup.findViewById(R.id.edtxInterval);
     }
     public void initialize(){
         initViews();
