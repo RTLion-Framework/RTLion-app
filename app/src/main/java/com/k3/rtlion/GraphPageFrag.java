@@ -67,16 +67,13 @@ public class GraphPageFrag {
             for (int i = 0; i < cliArgs.length(); i++) {
                 switch (cliArgs.names().getString(i)){
                     case "freq":
-                        edtx_setText(edtxFreq, cliArgs.getString(
-                                cliArgs.names().getString(i)));
+                        edtxFreq.setText(cliArgs.getString(cliArgs.names().getString(i)));
                         break;
                     case "n":
-                        edtx_setText(edtxNumRead, cliArgs.getString(
-                                cliArgs.names().getString(i)));
+                        edtxNumRead.setText(cliArgs.getString(cliArgs.names().getString(i)));
                         break;
                     case "i":
-                        edtx_setText(edtxInterval, cliArgs.getString(
-                                cliArgs.names().getString(i)));
+                        edtxInterval.setText(cliArgs.getString(cliArgs.names().getString(i)));
                         break;
                     default:
                         break;
