@@ -24,6 +24,7 @@ public class GraphPageFrag {
     private JSInterface jsInterface;
     private String hostAddr;
     private JSONObject cliArgs;
+    private int centerFreq;
 
     private TextView txvGraphWarning;
     private LinearLayout llGraph;
@@ -67,7 +68,12 @@ public class GraphPageFrag {
             for (int i = 0; i < cliArgs.length(); i++) {
                 switch (cliArgs.names().getString(i)){
                     case "freq":
-                        edtxFreq.setText(cliArgs.getString(cliArgs.names().getString(i)));
+                        try{
+                            centerFreq = Integer.valueOf(cliArgs.getString(cliArgs.names().getString(i))))
+                            edtxFreq.setText(String.valueOf(centerFreq));
+                        }catch (Exception e){
+                            edtxFreq.setText("");
+                        }
                         break;
                     case "n":
                         edtxNumRead.setText(cliArgs.getString(cliArgs.names().getString(i)));
