@@ -69,7 +69,7 @@ public class GraphPageFrag {
                 switch (cliArgs.names().getString(i)){
                     case "freq":
                         try{
-                            centerFreq = Integer.valueOf(cliArgs.getString(cliArgs.names().getString(i))))
+                            centerFreq = Integer.valueOf(cliArgs.getString(cliArgs.names().getString(i)));
                             edtxFreq.setText(String.valueOf(centerFreq));
                         }catch (Exception e){
                             edtxFreq.setText("");
@@ -91,10 +91,24 @@ public class GraphPageFrag {
                     Toast.LENGTH_SHORT).show();
         }
     }
+    private boolean checkArgs(){
+        boolean valid = false;
+        try {
+            centerFreq = Integer.parseInt(edtxFreq.getText().toString());
+            if (freq > 0)
+                valid = true;
+        }catch (Exception e){
+            Toast.makeText(activity, context.getString(R.string.invalid_freq),
+                    Toast.LENGTH_SHORT).show();
+            edtxFreq.setText("");
+        }
+        return valid;
+    }
     private class btnFFTGraph_onClick implements Button.OnClickListener{
         @Override
         public void onClick(View v) {
-            createGraph();
+            if(checkArgs())
+                createGraph();
         }
     }
     private void createGraph(){

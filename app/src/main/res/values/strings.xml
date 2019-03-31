@@ -40,4 +40,5 @@
     <string name="num_read">Number of the reads</string>
     <string name="interval">Interval between reads</string>
     <string name="invalid_args">Invalid command-line arguments.</string>
+    <string name="invalid_freq">Invalid center frequency value.</string>
 </resources>
