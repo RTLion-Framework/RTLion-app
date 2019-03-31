@@ -95,7 +95,7 @@ public class GraphPageFrag {
         boolean valid = false;
         try {
             centerFreq = Integer.parseInt(edtxFreq.getText().toString());
-            if (freq > 0)
+            if (centerFreq > 0)
                 valid = true;
         }catch (Exception e){
             Toast.makeText(activity, context.getString(R.string.invalid_freq),
