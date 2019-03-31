@@ -82,7 +82,24 @@ public class GraphPageFrag {
                     if(cliArgs == null)
                         throw new JSONException(context.getString(R.string.invalid_args));
                     GraphPageFrag.this.cliArgs = cliArgs;
-
+                    for (int i = 0; i < cliArgs.length(); i++) {
+                        switch (cliArgs.names().getString(i)){
+                            case "freq":
+                                edtx_setText(edtxFreq, cliArgs.getString(
+                                        cliArgs.names().getString(i)));
+                                break;
+                            case "n":
+                                edtx_setText(edtxNumRead, cliArgs.getString(
+                                        cliArgs.names().getString(i)));
+                                break;
+                            case "i":
+                                edtx_setText(edtxInterval, cliArgs.getString(
+                                        cliArgs.names().getString(i)));
+                                break;
+                            default:
+                                break;
+                        }
+                    }
                 }catch (JSONException e){
                     e.printStackTrace();
                     Toast.makeText(activity, context.getString(R.string.invalid_server_settings),
