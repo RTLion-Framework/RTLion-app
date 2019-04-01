@@ -137,44 +137,54 @@ public class GraphPageFrag {
     private class btnFFTGraph_onClick implements Button.OnClickListener{
         @Override
         public void onClick(View v) {
-            enableViews(false);
-            if(checkFreq()) {
-                try {
-                    if (cliArgs == null)
-                        throw new JSONException(context.getString(R.string.invalid_settings));
-                    cliArgs.put("freq", edtxFreq.getText().toString());
-                    cliArgs.put("n", edtxNumRead.getText().toString());
-                    cliArgs.put("i", edtxInterval.getText().toString());
-                    jsInterface.setServerArgs(hostAddr, cliArgs.toString(), new JSInterface.JSOutputInterface() {
-                        @Override
-                        public void onInfo(JSONObject clientInfo) {
-                            activity.runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    checkGraphSettings();
-                                }
-                            });
-                        }
-                        @Override
-                        public void onArgs(JSONObject cliArgs) { }
+            if(viewsHidden){
+                numRead = 0;
+                enableViews(true);
+                hideViews(false);
+            }else {
+                enableViews(false);
+                if (checkFreq()) {
+                    try {
+                        if (cliArgs == null)
+                            throw new JSONException(context.getString(R.string.invalid_settings));
+                        cliArgs.put("freq", edtxFreq.getText().toString());
+                        cliArgs.put("n", edtxNumRead.getText().toString());
+                        cliArgs.put("i", edtxInterval.getText().toString());
+                        jsInterface.setServerArgs(hostAddr, cliArgs.toString(), new JSInterface.JSOutputInterface() {
+                            @Override
+                            public void onInfo(JSONObject clientInfo) {
+                                activity.runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        checkGraphSettings();
+                                    }
+                                });
+                            }
 
-                        @Override
-                        public void onConsoleMsg(ConsoleMessage msg) { }
+                            @Override
+                            public void onArgs(JSONObject cliArgs) {
+                            }
 
-                        @Override
-                        public void onData(String data) { }
-                    });
-                }catch (JSONException e){
-                    e.printStackTrace();
-                    Toast.makeText(activity, context.getString(R.string.settings_save_error),
+                            @Override
+                            public void onConsoleMsg(ConsoleMessage msg) {
+                            }
+
+                            @Override
+                            public void onData(String data) {
+                            }
+                        });
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        Toast.makeText(activity, context.getString(R.string.settings_save_error),
+                                Toast.LENGTH_SHORT).show();
+                        enableViews(true);
+                    }
+                } else {
+                    Toast.makeText(activity, context.getString(R.string.invalid_freq),
                             Toast.LENGTH_SHORT).show();
+                    edtxFreq.setText("");
                     enableViews(true);
                 }
-            }else{
-                Toast.makeText(activity, context.getString(R.string.invalid_freq),
-                        Toast.LENGTH_SHORT).show();
-                edtxFreq.setText("");
-                enableViews(true);
             }
         }
     }
@@ -214,6 +224,7 @@ public class GraphPageFrag {
                         });
                     }else{
                         edtx_setText(edtxFreq, "");
+                        enableViews(true);
                         Toast.makeText(activity, context.getString(R.string.save_error),
                                 Toast.LENGTH_SHORT).show();
                     }
