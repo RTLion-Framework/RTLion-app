@@ -133,6 +133,7 @@ public class GraphPageFrag {
         edtxFreq.setEnabled(state);
         edtxNumRead.setEnabled(state);
         edtxInterval.setEnabled(state);
+        btnFFTGraph.setEnabled(state);
     }
     private class btnFFTGraph_onClick implements Button.OnClickListener{
         @Override
@@ -208,6 +209,7 @@ public class GraphPageFrag {
         });
     }
     private void checkGraphSettings(){
+        btnFFTGraph.setText(context.getString(R.string.graph_wait));
         jsInterface.getServerArgs(hostAddr, new JSInterface.JSOutputInterface() {
             @Override
             public void onArgs(JSONObject cliArgs) {
