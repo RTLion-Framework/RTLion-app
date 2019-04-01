@@ -189,16 +189,16 @@ public class GraphPageFrag {
         }
         return valid;
     }
+    private void edtx_setText(final EditText editText, final String text){
+        activity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                editText.setText(text);
+            }
+        });
+    }
     private void checkGraphSettings(){
         jsInterface.getServerArgs(hostAddr, new JSInterface.JSOutputInterface() {
-            private void edtx_setText(final EditText editText, final String text){
-                activity.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        editText.setText(text);
-                    }
-                });
-            }
             @Override
             public void onArgs(JSONObject cliArgs) {
                 try {
