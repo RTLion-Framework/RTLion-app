@@ -133,7 +133,7 @@ public class GraphPageFrag {
         edtxFreq.setEnabled(state);
         edtxNumRead.setEnabled(state);
         edtxInterval.setEnabled(state);
-        btnFFTGraph.setEnabled(state);
+        btnFFTGraph.setEnabled(true);
     }
     private class btnFFTGraph_onClick implements Button.OnClickListener{
         @Override
@@ -210,6 +210,7 @@ public class GraphPageFrag {
     }
     private void checkGraphSettings(){
         btnFFTGraph.setText(context.getString(R.string.graph_wait));
+        btnFFTGraph.setEnabled(false);
         jsInterface.getServerArgs(hostAddr, new JSInterface.JSOutputInterface() {
             @Override
             public void onArgs(JSONObject cliArgs) {
@@ -264,8 +265,10 @@ public class GraphPageFrag {
                                     fftBitmap,
                                     fftBitmap.getWidth()*2,
                                     fftBitmap.getHeight()*2, false));
-                            if(!viewsHidden)
+                            if(!viewsHidden) {
                                 hideViews(true);
+                                btnFFTGraph.setEnabled(true);
+                            }
                             numRead -= 1;
                             if(numRead != 0 && viewsHidden){
                                 new Handler().postDelayed(new Runnable() {
