@@ -267,7 +267,7 @@ public class GraphPageFrag {
                             if(!viewsHidden)
                                 hideViews(true);
                             numRead -= 1;
-                            if(numRead != 0){
+                            if(numRead != 0 && viewsHidden){
                                 new Handler().postDelayed(new Runnable() {
                                     @Override
                                     public void run() {
