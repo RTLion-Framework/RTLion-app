@@ -92,7 +92,6 @@ public class GraphPageFrag {
                         break;
                     case "i":
                         try {
-
                             readInterval = Integer.valueOf(cliArgs.getString(cliArgs.names().getString(i)));
                             edtx_setText(edtxInterval, String.valueOf(readInterval));
                         }catch (Exception e){
@@ -255,7 +254,7 @@ public class GraphPageFrag {
                             if(!viewsHidden)
                                 hideViews(true);
                             numRead -= 1;
-                            if(numRead > 0){
+                            if(numRead != 0){
                                 new Handler().postDelayed(new Runnable() {
                                     @Override
                                     public void run() {
