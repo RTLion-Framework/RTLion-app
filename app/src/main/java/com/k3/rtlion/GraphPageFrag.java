@@ -255,7 +255,12 @@ public class GraphPageFrag {
                                 hideViews(true);
                             numRead -= 1;
                             if(numRead > 0){
-                                createGraph();
+                                new Handler().postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        createGraph();
+                                    }
+                                }, readInterval);
                             }else{
                                 hideViews(false);
                             }
