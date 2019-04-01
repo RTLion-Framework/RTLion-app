@@ -31,7 +31,6 @@ public class MainActivity extends Activity {
     private WebView wvBase;
 
     private void init(){
-        hideActionBar();
         imgRtlionSmall = (ImageView) findViewById(R.id.imgRtlionSmall);
         imgRtlionSmall.setOnClickListener(new imgRtlionSmall_onClick());
         txvPageNum = (TextView) findViewById(R.id.txvPageNum);
@@ -141,12 +140,4 @@ public class MainActivity extends Activity {
             }
         }
     }
-    private void hideActionBar(){
-        try{
-            getActionBar().hide();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-
 }

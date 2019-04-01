@@ -92,6 +92,7 @@ public class GraphPageFrag {
                         break;
                     case "i":
                         try {
+
                             readInterval = Integer.valueOf(cliArgs.getString(cliArgs.names().getString(i)));
                             edtx_setText(edtxInterval, String.valueOf(readInterval));
                         }catch (Exception e){
