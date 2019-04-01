@@ -26,6 +26,7 @@ public class GraphPageFrag {
     private String hostAddr;
     private JSONObject cliArgs;
     private int centerFreq, numRead, readCount;
+    private boolean viewsHidden = false;
 
     private TextView txvGraphWarning;
     private LinearLayout llGraph;
@@ -110,6 +111,7 @@ public class GraphPageFrag {
             tilNumRead.setVisibility(View.GONE);
             tilInterval.setVisibility(View.GONE);
             btnFFTGraph.setText(context.getString(R.string.stop_graph));
+            viewsHidden = true;
         }else{
             edtxFreq.setVisibility(View.VISIBLE);
             edtxNumRead.setVisibility(View.VISIBLE);
@@ -118,6 +120,7 @@ public class GraphPageFrag {
             tilNumRead.setVisibility(View.VISIBLE);
             tilInterval.setVisibility(View.VISIBLE);
             btnFFTGraph.setText(context.getString(R.string.create_graph));
+            viewsHidden = false;
         }
     }
     private void enableViews(boolean state) {
@@ -242,7 +245,9 @@ public class GraphPageFrag {
                                     fftBitmap,
                                     fftBitmap.getWidth()*2,
                                     fftBitmap.getHeight()*2, false));
-                            hideViews(true);
+                            if(!viewsHidden)
+                                hideViews(true);
+
                         }
                     }
                 });
