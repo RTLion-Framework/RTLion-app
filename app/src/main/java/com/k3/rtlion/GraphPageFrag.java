@@ -3,6 +3,7 @@ package com.k3.rtlion;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.os.Handler;
 import android.support.design.widget.TextInputLayout;
 import android.view.View;
 import android.view.ViewGroup;
@@ -239,6 +240,7 @@ public class GraphPageFrag {
                             Toast.makeText(activity, context.getString(R.string.graph_error),
                                     Toast.LENGTH_SHORT).show();
                             enableViews(true);
+                            hideViews(false);
                         }else{
                             imgFFTGraph.setImageBitmap(Bitmap.createScaledBitmap(
                                     fftBitmap,
@@ -246,8 +248,12 @@ public class GraphPageFrag {
                                     fftBitmap.getHeight()*2, false));
                             if(!viewsHidden)
                                 hideViews(true);
-
-
+                            numRead -= 1;
+                            if(numRead > 0){
+                                createGraph();
+                            }else{
+                                hideViews(false);
+                            }
                         }
                     }
                 });
