@@ -128,6 +128,7 @@ public class GraphPageFrag {
     private class btnFFTGraph_onClick implements Button.OnClickListener{
         @Override
         public void onClick(View v) {
+            readCount = 0;
             enableViews(false);
             if(checkFreq()) {
                 try {
