@@ -25,7 +25,7 @@ public class GraphPageFrag {
     private JSInterface jsInterface;
     private String hostAddr;
     private JSONObject cliArgs;
-    private int centerFreq;
+    private int centerFreq, numRead;
 
     private TextView txvGraphWarning;
     private LinearLayout llGraph;
@@ -81,7 +81,12 @@ public class GraphPageFrag {
                         }
                         break;
                     case "n":
-                        edtxNumRead.setText(cliArgs.getString(cliArgs.names().getString(i)));
+                        try {
+                            numRead = Integer.valueOf(cliArgs.getString(cliArgs.names().getString(i)));
+                            edtxNumRead.setText(String.valueOf(numRead));
+                        }catch (Exception e){
+                            edtxNumRead.setText("");
+                        }
                         break;
                     case "i":
                         edtxInterval.setText(cliArgs.getString(cliArgs.names().getString(i)));
