@@ -77,25 +77,25 @@ public class GraphPageFrag {
                     case "freq":
                         try{
                             centerFreq = Integer.valueOf(cliArgs.getString(cliArgs.names().getString(i)));
-                            edtxFreq.setText(String.valueOf(centerFreq));
+                            edtx_setText(edtxFreq, String.valueOf(centerFreq));
                         }catch (Exception e){
-                            edtxFreq.setText("");
+                            edtx_setText(edtxFreq, "");
                         }
                         break;
                     case "n":
                         try {
                             numRead = Integer.valueOf(cliArgs.getString(cliArgs.names().getString(i)));
-                            edtxNumRead.setText(String.valueOf(numRead));
+                            edtx_setText(edtxNumRead, String.valueOf(numRead));
                         }catch (Exception e){
-                            edtxNumRead.setText("");
+                            edtx_setText(edtxNumRead, "");
                         }
                         break;
                     case "i":
                         try {
                             readInterval = Integer.valueOf(cliArgs.getString(cliArgs.names().getString(i)));
-                            edtxInterval.setText(String.valueOf(readInterval));
+                            edtx_setText(edtxInterval, String.valueOf(readInterval));
                         }catch (Exception e){
-                            edtxInterval.setText("");
+                            edtx_setText(edtxInterval, "");
                         }
                         break;
                     default:
