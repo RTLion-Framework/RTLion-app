@@ -204,7 +204,7 @@ public class GraphPageFrag {
                 try {
                     if(cliArgs == null)
                         throw new JSONException(context.getString(R.string.invalid_args));
-                    GraphPageFrag.this.cliArgs = cliArgs;
+                    GraphPageFrag.this.setGraphParams(cliArgs);
                     if(cliArgs.getString("freq").equals(String.valueOf(centerFreq))){
                         activity.runOnUiThread(new Runnable() {
                             @Override
