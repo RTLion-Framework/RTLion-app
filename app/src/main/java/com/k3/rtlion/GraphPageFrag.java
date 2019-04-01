@@ -25,7 +25,7 @@ public class GraphPageFrag {
     private JSInterface jsInterface;
     private String hostAddr;
     private JSONObject cliArgs;
-    private int centerFreq, numRead, readCount;
+    private int centerFreq, numRead;
     private boolean viewsHidden = false;
 
     private TextView txvGraphWarning;
@@ -131,7 +131,6 @@ public class GraphPageFrag {
     private class btnFFTGraph_onClick implements Button.OnClickListener{
         @Override
         public void onClick(View v) {
-            readCount = 0;
             enableViews(false);
             if(checkFreq()) {
                 try {
@@ -247,6 +246,7 @@ public class GraphPageFrag {
                                     fftBitmap.getHeight()*2, false));
                             if(!viewsHidden)
                                 hideViews(true);
+
 
                         }
                     }
