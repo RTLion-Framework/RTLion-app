@@ -27,7 +27,7 @@ public class GraphPageFrag {
     private String hostAddr;
     private JSONObject cliArgs;
     private int centerFreq, numRead, readInterval;
-    private boolean viewsHidden = false;
+    private boolean viewsHidden = false, contRead = true;
 
     private TextView txvGraphWarning;
     private LinearLayout llGraph;
@@ -140,9 +140,9 @@ public class GraphPageFrag {
         public void onClick(View v) {
             if(viewsHidden){
                 numRead = 0;
-                enableViews(true);
-                hideViews(false);
+                contRead = false;
             }else {
+                contRead = true;
                 enableViews(false);
                 if (checkFreq()) {
                     try {
@@ -270,7 +270,7 @@ public class GraphPageFrag {
                                 btnFFTGraph.setEnabled(true);
                             }
                             numRead -= 1;
-                            if(numRead != 0 && viewsHidden){
+                            if(numRead != 0 && contRead){
                                 new Handler().postDelayed(new Runnable() {
                                     @Override
                                     public void run() {
@@ -279,6 +279,7 @@ public class GraphPageFrag {
                                 }, readInterval);
                             }else{
                                 hideViews(false);
+                                enableViews(true);
                             }
                         }
                     }
