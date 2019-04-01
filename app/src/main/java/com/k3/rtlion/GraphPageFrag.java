@@ -25,7 +25,7 @@ public class GraphPageFrag {
     private JSInterface jsInterface;
     private String hostAddr;
     private JSONObject cliArgs;
-    private int centerFreq, numRead;
+    private int centerFreq, numRead, readCount;
 
     private TextView txvGraphWarning;
     private LinearLayout llGraph;
