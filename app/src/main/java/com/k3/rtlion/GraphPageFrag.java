@@ -26,7 +26,7 @@ public class GraphPageFrag {
     private JSInterface jsInterface;
     private String hostAddr;
     private JSONObject cliArgs;
-    private int centerFreq, numRead;
+    private int centerFreq, numRead, readInterval;
     private boolean viewsHidden = false;
 
     private TextView txvGraphWarning;
@@ -91,7 +91,12 @@ public class GraphPageFrag {
                         }
                         break;
                     case "i":
-                        edtxInterval.setText(cliArgs.getString(cliArgs.names().getString(i)));
+                        try {
+                            readInterval = Integer.valueOf(cliArgs.getString(cliArgs.names().getString(i)));
+                            edtxInterval.setText(String.valueOf(readInterval));
+                        }catch (Exception e){
+                            edtxInterval.setText("");
+                        }
                         break;
                     default:
                         break;
