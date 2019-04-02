@@ -119,6 +119,7 @@ public class GraphPageFrag {
             tilFreq.setVisibility(View.GONE);
             tilNumRead.setVisibility(View.GONE);
             tilInterval.setVisibility(View.GONE);
+            sbCenterFreq.setVisibility(View.VISIBLE);
             btnFFTGraph.setText(context.getString(R.string.stop_graph));
             viewsHidden = true;
         }else{
@@ -128,6 +129,7 @@ public class GraphPageFrag {
             tilFreq.setVisibility(View.VISIBLE);
             tilNumRead.setVisibility(View.VISIBLE);
             tilInterval.setVisibility(View.VISIBLE);
+            sbCenterFreq.setVisibility(View.GONE);
             btnFFTGraph.setText(context.getString(R.string.create_graph));
             viewsHidden = false;
         }
