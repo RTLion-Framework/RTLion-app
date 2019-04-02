@@ -38,13 +38,27 @@
                     android:layout_marginBottom="3dp"
                     android:scaleType="centerInside" />
 
-                <SeekBar
-                    android:id="@+id/sbCenterFreq"
+                <RelativeLayout
+                    android:id="@+id/rlFreqChange"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginStart="10dp"
-                    android:visibility="gone"/>
+                    android:visibility="gone">
+                    <SeekBar
+                        android:id="@+id/sbCenterFreq"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_toStartOf="@+id/txvFreqVal" />
+                    <TextView
+                        android:id="@+id/txvFreqVal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="10dp"
+                        android:textStyle="bold"/>
+                </RelativeLayout>
 
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/tilFreq"
