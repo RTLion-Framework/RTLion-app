@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +36,7 @@ public class GraphPageFrag {
     private Button btnFFTGraph;
     private EditText edtxFreq, edtxNumRead, edtxInterval;
     private TextInputLayout tilFreq, tilNumRead, tilInterval;
+    private SeekBar sbCenterFreq;
 
     public GraphPageFrag(Activity activity, ViewGroup viewGroup, JSInterface jsInterface){
         this.activity = activity;
@@ -53,6 +55,7 @@ public class GraphPageFrag {
         tilFreq = viewGroup.findViewById(R.id.tilFreq);
         tilNumRead = viewGroup.findViewById(R.id.tilNumRead);
         tilInterval = viewGroup.findViewById(R.id.tilInterval);
+        sbCenterFreq = viewGroup.findViewById(R.id.sbCenterFreq);
     }
     public void initialize(){
         initViews();
