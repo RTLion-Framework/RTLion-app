@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,8 +31,9 @@ public class GraphPageFrag {
     private int centerFreq, numRead, readInterval;
     private boolean viewsHidden = false, contRead = true;
 
-    private TextView txvGraphWarning;
+    private TextView txvGraphWarning, txvFreqVal;
     private LinearLayout llGraph;
+    private RelativeLayout rlFreqChange;
     private ImageView imgFFTGraph;
     private Button btnFFTGraph;
     private EditText edtxFreq, edtxNumRead, edtxInterval;
@@ -56,6 +58,8 @@ public class GraphPageFrag {
         tilNumRead = viewGroup.findViewById(R.id.tilNumRead);
         tilInterval = viewGroup.findViewById(R.id.tilInterval);
         sbCenterFreq = viewGroup.findViewById(R.id.sbCenterFreq);
+        rlFreqChange = viewGroup.findViewById(R.id.rlFreqChange);
+        txvFreqVal = viewGroup.findViewById(R.id.txvFreqVal);
     }
     public void initialize(){
         initViews();
@@ -119,7 +123,7 @@ public class GraphPageFrag {
             tilFreq.setVisibility(View.GONE);
             tilNumRead.setVisibility(View.GONE);
             tilInterval.setVisibility(View.GONE);
-            sbCenterFreq.setVisibility(View.VISIBLE);
+            rlFreqChange.setVisibility(View.VISIBLE);
             btnFFTGraph.setText(context.getString(R.string.stop_graph));
             viewsHidden = true;
         }else{
@@ -129,7 +133,7 @@ public class GraphPageFrag {
             tilFreq.setVisibility(View.VISIBLE);
             tilNumRead.setVisibility(View.VISIBLE);
             tilInterval.setVisibility(View.VISIBLE);
-            sbCenterFreq.setVisibility(View.GONE);
+            rlFreqChange.setVisibility(View.GONE);
             btnFFTGraph.setText(context.getString(R.string.create_graph));
             viewsHidden = false;
         }
