@@ -232,6 +232,8 @@ public class GraphPageFrag {
                         activity.runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
+                                txvFreqVal.setText(String.valueOf(centerFreq));
+
                                 createGraph();
                             }
                         });
