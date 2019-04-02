@@ -216,6 +216,7 @@ public class GraphPageFrag {
     private void checkGraphSettings(){
         btnFFTGraph.setText(context.getString(R.string.graph_wait));
         btnFFTGraph.setEnabled(false);
+        sbCenterFreq.setEnabled(false);
         jsInterface.getServerArgs(hostAddr, new JSInterface.JSOutputInterface() {
             @Override
             public void onArgs(JSONObject cliArgs) {
@@ -273,6 +274,7 @@ public class GraphPageFrag {
                             if(!viewsHidden) {
                                 hideViews(true);
                                 btnFFTGraph.setEnabled(true);
+                                sbCenterFreq.setEnabled(true);
                             }
                             numRead -= 1;
                             if(numRead != 0 && contRead){
