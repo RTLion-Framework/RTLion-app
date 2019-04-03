@@ -28,7 +28,7 @@ public class GraphPageFrag {
     private JSInterface jsInterface;
     private String hostAddr;
     private JSONObject cliArgs;
-    private int centerFreq, numRead, readInterval;
+    private int centerFreq, numRead, readInterval, stepSize = 10;
     private double freqShift = 20*(Math.pow(10, 6));
     private boolean viewsHidden = false, contRead = true;
 
@@ -207,6 +207,8 @@ public class GraphPageFrag {
         public void onStopTrackingTouch(SeekBar seekBar) { }
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            progress /= stepSize;
+            progress *= stepSize;
             txvFreqVal.setText(String.valueOf(progress));
         }
     }
