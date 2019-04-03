@@ -241,7 +241,7 @@ public class GraphPageFrag {
                             public void run() {
                                 txvFreqVal.setText(String.valueOf(centerFreq));
                                 sbCenterFreq.setMax(centerFreq+(20*(Math.pow(10, 6))));
-                                sbCenterFreq.setMax(centerFreq-(20*(Math.pow(10, 6)))));
+                                sbCenterFreq.setMax(centerFreq-(20*(Math.pow(10, 6))));
                                 createGraph();
                             }
                         });
