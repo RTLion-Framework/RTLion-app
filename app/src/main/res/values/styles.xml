@@ -15,4 +15,9 @@
         <item name="colorAccent">@color/colorPrimaryDark</item>
         <item name="colorControlHighlight">@color/colorPrimary</item>
     </style>
+    <style name="RangeSeekBar" parent="Widget.AppCompat.SeekBar">
+        <item name="android:progressBackgroundTint">@color/colorPrimary</item>
+        <item name="android:progressTint">@color/colorPrimary</item>
+        <item name="android:thumbTint">@color/colorPrimaryDark</item>
+    </style>
 </resources>
