@@ -201,6 +201,10 @@ public class GraphPageFrag {
     }
     private class sbCenterFreq_onChange implements SeekBar.OnSeekBarChangeListener{
         @Override
+        public void onStartTrackingTouch(SeekBar seekBar) { }
+        @Override
+        public void onStopTrackingTouch(SeekBar seekBar) { }
+        @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
             txvFreqVal.setText(String.valueOf(progress));
         }
