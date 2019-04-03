@@ -248,8 +248,8 @@ public class GraphPageFrag {
         if(!freqChanged) {
             btnFFTGraph.setText(context.getString(R.string.graph_wait));
             btnFFTGraph.setEnabled(false);
+            sbCenterFreq.setEnabled(false);
         }
-        sbCenterFreq.setEnabled(false);
         jsInterface.getServerArgs(hostAddr, new JSInterface.JSOutputInterface() {
             @Override
             public void onArgs(JSONObject cliArgs) {
@@ -261,11 +261,13 @@ public class GraphPageFrag {
                         activity.runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                maxFreq = centerFreq+(int)freqShift;
-                                minFreq = centerFreq-(int)freqShift;
-                                txvFreqVal.setText(String.valueOf(centerFreq));
-                                sbCenterFreq.setMax((maxFreq - minFreq) / (int) stepSize);
-                                sbCenterFreq.setProgress(sbCenterFreq.getMax()/2);
+                                if(!freqChanged) {
+                                    maxFreq = centerFreq + (int) freqShift;
+                                    minFreq = centerFreq - (int) freqShift;
+                                    txvFreqVal.setText(String.valueOf(centerFreq));
+                                    sbCenterFreq.setMax((maxFreq - minFreq) / (int) stepSize);
+                                    sbCenterFreq.setProgress(sbCenterFreq.getMax() / 2);
+                                }
                                 createGraph();
                             }
                         });
