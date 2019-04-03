@@ -66,6 +66,7 @@ public class GraphPageFrag {
         txvGraphWarning.setVisibility(View.VISIBLE);
         llGraph.setVisibility(View.GONE);
         btnFFTGraph.setOnClickListener(new btnFFTGraph_onClick());
+        sbCenterFreq.setOnSeekBarChangeListener(new sbCenterFreq_onChange());
     }
     public void removeConWarning(){
         txvGraphWarning.setVisibility(View.GONE);
@@ -196,6 +197,12 @@ public class GraphPageFrag {
                     enableViews(true);
                 }
             }
+        }
+    }
+    private class sbCenterFreq implements SeekBar.OnSeekBarChangeListener{
+        @Override
+        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
         }
     }
     private boolean checkFreq(){
