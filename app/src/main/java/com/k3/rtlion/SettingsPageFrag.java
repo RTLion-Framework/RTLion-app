@@ -140,7 +140,8 @@ public class SettingsPageFrag {
                 cliArgs.put("samprate", edtxSampRate.getText().toString());
                 cliArgs.put("gain", edtxDevGain.getText().toString());
                 updatedSettings = cliArgs.toString();
-                jsInterface.setServerArgs(hostAddr, updatedSettings, new JSInterface.JSOutputInterface() {
+                jsInterface.setServerArgs(hostAddr, updatedSettings,
+                        new JSInterface.JSOutputInterface() {
                     @Override
                     public void onInfo(JSONObject clientInfo) {
                         activity.runOnUiThread(new Runnable() {

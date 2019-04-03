@@ -86,7 +86,8 @@ public class GraphPageFrag {
                 switch (cliArgs.names().getString(i)){
                     case "freq":
                         try{
-                            centerFreq = Integer.valueOf(cliArgs.getString(cliArgs.names().getString(i)));
+                            centerFreq = Integer.valueOf(cliArgs.getString(cliArgs.names()
+                                    .getString(i)));
                             edtx_setText(edtxFreq, String.valueOf(centerFreq));
                         }catch (Exception e){
                             edtx_setText(edtxFreq, "");
@@ -94,7 +95,8 @@ public class GraphPageFrag {
                         break;
                     case "n":
                         try {
-                            numRead = Integer.valueOf(cliArgs.getString(cliArgs.names().getString(i)));
+                            numRead = Integer.valueOf(cliArgs.getString(cliArgs.names()
+                                    .getString(i)));
                             edtx_setText(edtxNumRead, String.valueOf(numRead));
                         }catch (Exception e){
                             edtx_setText(edtxNumRead, "");
@@ -102,7 +104,8 @@ public class GraphPageFrag {
                         break;
                     case "i":
                         try {
-                            readInterval = Integer.valueOf(cliArgs.getString(cliArgs.names().getString(i)));
+                            readInterval = Integer.valueOf(cliArgs.getString(cliArgs.names()
+                                    .getString(i)));
                             edtx_setText(edtxInterval, String.valueOf(readInterval));
                         }catch (Exception e){
                             edtx_setText(edtxInterval, "");
@@ -163,7 +166,8 @@ public class GraphPageFrag {
                         cliArgs.put("freq", edtxFreq.getText().toString());
                         cliArgs.put("n", edtxNumRead.getText().toString());
                         cliArgs.put("i", edtxInterval.getText().toString());
-                        jsInterface.setServerArgs(hostAddr, cliArgs.toString(), new JSInterface.JSOutputInterface() {
+                        jsInterface.setServerArgs(hostAddr, cliArgs.toString(),
+                                new JSInterface.JSOutputInterface() {
                             @Override
                             public void onInfo(JSONObject clientInfo) {
                                 activity.runOnUiThread(new Runnable() {
