@@ -52,7 +52,7 @@
                         android:layout_toStartOf="@+id/txvFreqVal"
                         android:indeterminate="false"
                         android:theme="@style/RangeSeekBar"
-                        android:progressDrawable="@drawable/rangeseekbar_bg"/>
+                        android:progressTint="@android:color/transparent"/>
                     <TextView
                         android:id="@+id/txvFreqVal"
                         android:layout_width="wrap_content"
