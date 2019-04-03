@@ -251,6 +251,10 @@ public class GraphPageFrag {
                         activity.runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
+                                txvFreqVal.setText(String.valueOf(centerFreq));
+                                sbCenterFreq.setMax(centerFreq+(int)freqShift);
+                                sbCenterFreq.setMin(centerFreq-(int)freqShift);
+                                sbCenterFreq.setProgress(centerFreq);
                                 createGraph();
                             }
                         });
