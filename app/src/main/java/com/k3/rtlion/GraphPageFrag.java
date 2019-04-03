@@ -158,6 +158,7 @@ public class GraphPageFrag {
             if(viewsHidden){
                 numRead = 0;
                 contRead = false;
+                freqChanged = false;
             }else {
                 contRead = true;
                 enableViews(false);
@@ -214,11 +215,14 @@ public class GraphPageFrag {
         public void onStopTrackingTouch(SeekBar seekBar) { }
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-            freqChanged = true;
-            viewsHidden = false;
-            centerFreq = minFreq + (progress * (int) stepSize);
-            txvFreqVal.setText(String.valueOf(centerFreq));
-            edtxFreq.setText(String.valueOf(centerFreq));
+            if(fromUser) {
+                numRead = 0;
+                contRead = false;
+                freqChanged = true;
+                centerFreq = minFreq + (progress * (int) stepSize);
+                txvFreqVal.setText(String.valueOf(centerFreq));
+                edtxFreq.setText(String.valueOf(centerFreq));
+            }
         }
     }
     private boolean checkFreq(){
@@ -241,8 +245,10 @@ public class GraphPageFrag {
         });
     }
     private void checkGraphSettings(){
-        btnFFTGraph.setText(context.getString(R.string.graph_wait));
-        btnFFTGraph.setEnabled(false);
+        if(!freqChanged) {
+            btnFFTGraph.setText(context.getString(R.string.graph_wait));
+            btnFFTGraph.setEnabled(false);
+        }
         sbCenterFreq.setEnabled(false);
         jsInterface.getServerArgs(hostAddr, new JSInterface.JSOutputInterface() {
             @Override
@@ -323,6 +329,9 @@ public class GraphPageFrag {
                                 if(!freqChanged) {
                                     hideViews(false);
                                     enableViews(true);
+                                }else{
+                                    viewsHidden = false;
+                                    btnFFTGraph.performClick();
                                 }
                             }
                         }
