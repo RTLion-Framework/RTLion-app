@@ -28,9 +28,9 @@ public class GraphPageFrag {
     private JSInterface jsInterface;
     private String hostAddr;
     private JSONObject cliArgs;
-    private int centerFreq, numRead, readInterval,
+    private int centerFreq, numRead, readInterval;
+    private double freqShift = 20*(Math.pow(10, 6)),
             stepSize = Math.pow(10, 6)/5;
-    private double freqShift = 20*(Math.pow(10, 6));
     private boolean viewsHidden = false, contRead = true;
 
     private TextView txvGraphWarning, txvFreqVal;
@@ -212,8 +212,8 @@ public class GraphPageFrag {
         public void onStopTrackingTouch(SeekBar seekBar) { }
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-            progress /= stepSize;
-            progress *= stepSize;
+            progress /= (int) stepSize;
+            progress *= (int) stepSize;
             txvFreqVal.setText(String.valueOf(progress));
         }
     }
@@ -251,9 +251,6 @@ public class GraphPageFrag {
                         activity.runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                txvFreqVal.setText(String.valueOf(centerFreq));
-                                sbCenterFreq.setMax(centerFreq+(int)freqShift);
-                                sbCenterFreq.setMin(centerFreq-(int)freqShift);
                                 createGraph();
                             }
                         });
