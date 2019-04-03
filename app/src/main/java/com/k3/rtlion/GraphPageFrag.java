@@ -29,6 +29,7 @@ public class GraphPageFrag {
     private String hostAddr;
     private JSONObject cliArgs;
     private int centerFreq, numRead, readInterval;
+    private double freqShift = 20*(Math.pow(10, 6));
     private boolean viewsHidden = false, contRead = true;
 
     private TextView txvGraphWarning, txvFreqVal;
@@ -244,8 +245,8 @@ public class GraphPageFrag {
                             @Override
                             public void run() {
                                 txvFreqVal.setText(String.valueOf(centerFreq));
-                                sbCenterFreq.setMax(centerFreq+(20*(Math.pow(10, 6))));
-                                sbCenterFreq.setMax(centerFreq-(20*(Math.pow(10, 6))));
+                                sbCenterFreq.setMax(centerFreq+(int)freqShift);
+                                sbCenterFreq.setMin(centerFreq-(int)freqShift);
                                 createGraph();
                             }
                         });
