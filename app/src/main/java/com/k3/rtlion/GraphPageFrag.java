@@ -202,7 +202,7 @@ public class GraphPageFrag {
     private class sbCenterFreq implements SeekBar.OnSeekBarChangeListener{
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-
+            txvFreqVal.setText(String.valueOf(progress));
         }
     }
     private boolean checkFreq(){
