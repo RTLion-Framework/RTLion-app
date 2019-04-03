@@ -215,7 +215,7 @@ public class GraphPageFrag {
         public void onStopTrackingTouch(SeekBar seekBar) { }
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-            if(fromUser) {
+            if(fromUser && viewsHidden) {
                 numRead = 0;
                 contRead = false;
                 freqChanged = true;
