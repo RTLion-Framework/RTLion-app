@@ -50,9 +50,8 @@
                         android:layout_marginEnd="5dp"
                         android:layout_marginStart="5dp"
                         android:layout_toStartOf="@+id/txvFreqVal"
-                        android:indeterminate="false"
-                        android:theme="@style/RangeSeekBar"
-                        android:progressTint="@android:color/transparent"/>
+                        android:progressTint="@android:color/transparent"
+                        android:theme="@style/RangeSeekBar" />
                     <TextView
                         android:id="@+id/txvFreqVal"
                         android:layout_width="wrap_content"
