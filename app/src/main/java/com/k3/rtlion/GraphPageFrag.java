@@ -31,7 +31,9 @@ public class GraphPageFrag {
     private int centerFreq, numRead, readInterval, minFreq, maxFreq;
     private double freqShift = 20*(Math.pow(10, 6)),
             stepSize = Math.pow(10, 6)/5;
-    private boolean viewsHidden = false, contRead = true;
+    private boolean viewsHidden = false,
+            contRead = true,
+            freqChanged = false;
 
     private TextView txvGraphWarning, txvFreqVal;
     private LinearLayout llGraph;
@@ -212,8 +214,11 @@ public class GraphPageFrag {
         public void onStopTrackingTouch(SeekBar seekBar) { }
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-
-            txvFreqVal.setText(String.valueOf(minFreq + (progress * stepSize)));
+            freqChanged = true;
+            viewsHidden = false;
+            centerFreq = minFreq + (progress * (int) stepSize);
+            txvFreqVal.setText(String.valueOf(centerFreq));
+            edtxFreq.setText(String.valueOf(centerFreq));
         }
     }
     private boolean checkFreq(){
@@ -285,6 +290,14 @@ public class GraphPageFrag {
         jsInterface.getGraphFFT(hostAddr, new JSInterface.JSOutputInterface() {
             private void setGraphImage(final String data){
                 activity.runOnUiThread(new Runnable() {
+                    private void readWithInterval(){
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                createGraph();
+                            }
+                        }, readInterval);
+                    }
                     @Override
                     public void run() {
                         Bitmap fftBitmap = new ImageBase64().getImage(data);
@@ -305,15 +318,12 @@ public class GraphPageFrag {
                             }
                             numRead -= 1;
                             if(numRead != 0 && contRead){
-                                new Handler().postDelayed(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        createGraph();
-                                    }
-                                }, readInterval);
+                                readWithInterval();
                             }else{
-                                hideViews(false);
-                                enableViews(true);
+                                if(!freqChanged) {
+                                    hideViews(false);
+                                    enableViews(true);
+                                }
                             }
                         }
                     }
