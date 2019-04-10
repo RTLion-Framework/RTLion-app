@@ -98,6 +98,8 @@ public class MainActivity extends Activity {
                 hostAddrPassed == 0){
             graphPageFrag.removeConWarning();
             graphPageFrag.setHostAddr(mainPageFrag.getHostAddr());
+            scannerPageFrag.removeConWarning();
+            scannerPageFrags.setHostAddr(mainPageFrag.getHostAddr());
             settingsPageFrag.removeConWarning();
             settingsPageFrag.setGraphPageFrag(graphPageFrag);
             settingsPageFrag.setHostAddr(mainPageFrag.getHostAddr());
