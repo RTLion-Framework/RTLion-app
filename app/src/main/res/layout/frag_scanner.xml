@@ -19,7 +19,6 @@
                 android:text="@string/connection_warning"
                 android:textStyle="bold"
                 android:visibility="gone"/>
-
             <LinearLayout
                 android:id="@+id/llScanner"
                 android:layout_width="match_parent"
@@ -49,7 +48,7 @@
                         android:id="@+id/edtxFreqMin"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/interval"
+                        android:hint="@string/freq_min"
                         android:singleLine="true"
                         android:backgroundTint="@color/colorAccent"
                         android:textColor="@color/colorPrimaryDark"
@@ -72,7 +71,7 @@
                         android:id="@+id/edtxFreqMax"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/interval"
+                        android:hint="@string/freq_max"
                         android:singleLine="true"
                         android:backgroundTint="@color/colorAccent"
                         android:textColor="@color/colorPrimaryDark"
@@ -117,7 +116,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
-                        android:text="@string/create_graph"
+                        android:text="@string/start_scan"
                         android:theme="@style/FlatButton"/>
                 </RelativeLayout>
 

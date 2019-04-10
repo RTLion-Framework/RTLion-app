@@ -46,4 +46,7 @@
     <string name="save_error">Unable to save settings.</string>
     <string name="stop_graph">Stop</string>
     <string name="graph_wait">Waiting...</string>
+    <string name="freq_min">Min. Frequency</string>
+    <string name="freq_max">Max. Frequency</string>
+    <string name="start_scan">Start Scan</string>
 </resources>
