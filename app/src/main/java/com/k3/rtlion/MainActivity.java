@@ -20,6 +20,7 @@ public class MainActivity extends Activity {
     private MainPageFrag mainPageFrag;
     private SettingsPageFrag settingsPageFrag;
     private GraphPageFrag graphPageFrag;
+    private ScannerPageFrag scannerPageFrag;
     private int currentPageNum,
             hostAddrPassed = 0,
             offScreenLimit = 5;
@@ -64,6 +65,8 @@ public class MainActivity extends Activity {
                 settingsPageFrag.initialize();
                 graphPageFrag = new GraphPageFrag(MainActivity.this, layouts.get(2), jsInterface);
                 graphPageFrag.initialize();
+                scannerPageFrag = new ScannerPageFrag(MainActivity.this, layouts.get(2), jsInterface);
+                scannerPageFrag.initialize();
             }
         });
         vpPages.setAdapter(pagesAdapter);
