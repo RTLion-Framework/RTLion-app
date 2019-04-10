@@ -38,10 +38,9 @@ public class ScannerPageFrag {
     }
     public void initialize(){
         initViews();
+        initSeekBar();
         txvScannerWarning.setVisibility(View.VISIBLE);
         llScanner.setVisibility(View.GONE);
-        sbScanSensivity.setOnSeekBarChangeListener(new sbScanSensivity_onChange());
-        setSensivitySeekBar();
     }
     public void removeConWarning(){
         txvScannerWarning.setVisibility(View.GONE);
@@ -50,7 +49,8 @@ public class ScannerPageFrag {
     public void setHostAddr(String hostAddr){
         this.hostAddr = hostAddr;
     }
-    private void setSensivitySeekBar(){
+    private void initSeekBar(){
+        sbScanSensivity.setOnSeekBarChangeListener(new sbScanSensivity_onChange());
         sbScanSensivity.setMax((maxSens - minSens) / sensStep);
         sbCenterFreq.setProgress(defaultSensivity);
     }
