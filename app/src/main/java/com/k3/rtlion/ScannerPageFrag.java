@@ -5,6 +5,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 public class ScannerPageFrag {
@@ -13,10 +14,11 @@ public class ScannerPageFrag {
     private Context context;
     private ViewGroup viewGroup;
     private JSInterface jsInterface;
+    private String hostAddr;
 
     private TextView txvScannerWarning;
     private LinearLayout llScanner;
-    private String hostAddr;
+    private SeekBar sbScanSensivity;
 
     public ScannerPageFrag(Activity activity, ViewGroup viewGroup, JSInterface jsInterface){
         this.activity = activity;
@@ -28,6 +30,7 @@ public class ScannerPageFrag {
     private void initViews(){
         txvScannerWarning = viewGroup.findViewById(R.id.txvScannerWarning);
         llScanner = viewGroup.findViewById(R.id.llScanner);
+        sbScanSensivity = viewGroup.findViewById(R.id.sbScanSensivity);
     }
     public void initialize(){
         initViews();
