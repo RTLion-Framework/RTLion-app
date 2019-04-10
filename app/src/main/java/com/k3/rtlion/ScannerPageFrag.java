@@ -40,8 +40,19 @@ public class ScannerPageFrag {
     public void removeConWarning(){
         txvScannerWarning.setVisibility(View.GONE);
         llScanner.setVisibility(View.VISIBLE);
+        sbScanSensivity.setOnSeekBarChangeListener(new sbScanSensivity_onChange());
     }
     public void setHostAddr(String hostAddr){
         this.hostAddr = hostAddr;
+    }
+    private class sbScanSensivity_onChange implements SeekBar.OnSeekBarChangeListener{
+        @Override
+        public void onStartTrackingTouch(SeekBar seekBar) { }
+        @Override
+        public void onStopTrackingTouch(SeekBar seekBar) { }
+        @Override
+        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+        }
     }
 }
