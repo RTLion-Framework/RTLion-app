@@ -65,7 +65,7 @@ public class MainActivity extends Activity {
                 settingsPageFrag.initialize();
                 graphPageFrag = new GraphPageFrag(MainActivity.this, layouts.get(2), jsInterface);
                 graphPageFrag.initialize();
-                scannerPageFrag = new ScannerPageFrag(MainActivity.this, layouts.get(2), jsInterface);
+                scannerPageFrag = new ScannerPageFrag(MainActivity.this, layouts.get(3), jsInterface);
                 scannerPageFrag.initialize();
             }
         });
