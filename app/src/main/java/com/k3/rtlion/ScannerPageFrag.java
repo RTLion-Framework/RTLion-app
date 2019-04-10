@@ -18,7 +18,8 @@ public class ScannerPageFrag {
     private int minSens = 1,
                 maxSens = 10,
                 sensStep = 1,
-                defaultSensivity = 3;
+                defaultSensivity = 3,
+                currentSensivity = 3;
 
     private TextView txvScannerWarning;
     private LinearLayout llScanner;
@@ -61,6 +62,7 @@ public class ScannerPageFrag {
         public void onStopTrackingTouch(SeekBar seekBar) { }
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            currentSensivity = minSens + (progress * sensStep);
 
         }
     }
