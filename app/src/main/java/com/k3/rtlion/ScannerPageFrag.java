@@ -21,7 +21,7 @@ public class ScannerPageFrag {
                 defaultSensivity = 3,
                 currentSensivity = 3;
 
-    private TextView txvScannerWarning;
+    private TextView txvScannerWarning, txvScanSensivity;
     private LinearLayout llScanner;
     private SeekBar sbScanSensivity;
 
@@ -36,6 +36,7 @@ public class ScannerPageFrag {
         txvScannerWarning = viewGroup.findViewById(R.id.txvScannerWarning);
         llScanner = viewGroup.findViewById(R.id.llScanner);
         sbScanSensivity = viewGroup.findViewById(R.id.sbScanSensivity);
+        txvScanSensivity = viewGroup.findViewById(R.id.txvScanSensivity);
     }
     public void initialize(){
         initViews();
