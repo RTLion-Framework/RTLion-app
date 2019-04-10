@@ -19,7 +19,7 @@ public class ScannerPageFrag {
                 maxSens = 10,
                 sensStep = 1,
                 defaultSensivity = 3,
-                currentSensivity = 3;
+                currentSensivity = 2;
 
     private TextView txvScannerWarning, txvScanSensivity;
     private LinearLayout llScanner;
