@@ -15,6 +15,10 @@ public class ScannerPageFrag {
     private ViewGroup viewGroup;
     private JSInterface jsInterface;
     private String hostAddr;
+    private int minSens = 1,
+                maxSens = 10,
+                sensStep = 1,
+                defaultSensivity = 3;
 
     private TextView txvScannerWarning;
     private LinearLayout llScanner;
@@ -37,6 +41,7 @@ public class ScannerPageFrag {
         txvScannerWarning.setVisibility(View.VISIBLE);
         llScanner.setVisibility(View.GONE);
         sbScanSensivity.setOnSeekBarChangeListener(new sbScanSensivity_onChange());
+        setSensivitySeekBar();
     }
     public void removeConWarning(){
         txvScannerWarning.setVisibility(View.GONE);
@@ -44,6 +49,10 @@ public class ScannerPageFrag {
     }
     public void setHostAddr(String hostAddr){
         this.hostAddr = hostAddr;
+    }
+    private void setSensivitySeekBar(){
+        sbScanSensivity.setMax((maxSens - minSens) / sensStep);
+        sbCenterFreq.setProgress(defaultSensivity);
     }
     private class sbScanSensivity_onChange implements SeekBar.OnSeekBarChangeListener{
         @Override
