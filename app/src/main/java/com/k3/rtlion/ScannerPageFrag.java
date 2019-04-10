@@ -26,8 +26,10 @@ public class ScannerPageFrag {
         txvScannerWarning = viewGroup.findViewById(R.id.txvScannerWarning);
         txvGraphWarning.setVisibility(View.VISIBLE);
     }
-
     public void initialize(){
         initViews();
+    }
+    public void removeConWarning(){
+        txvScannerWarning.setVisibility(View.GONE);
     }
 }
