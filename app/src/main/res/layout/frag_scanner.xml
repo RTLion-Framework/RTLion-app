@@ -99,13 +99,13 @@
                     android:id="@+id/rlScanSensivity"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp">
+                    android:layout_marginTop="3dp">
                     <SeekBar
                         android:id="@+id/sbScanSensivity"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="5dp"
-                        android:layout_marginStart="5dp"
+                        android:layout_marginStart="2dp"
                         android:layout_toStartOf="@+id/txvFreqVal"
                         android:progressTint="@android:color/transparent"
                         android:theme="@style/RangeSeekBar" />
