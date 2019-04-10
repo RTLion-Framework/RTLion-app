@@ -64,7 +64,7 @@ public class ScannerPageFrag {
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
             currentSensivity = minSens + (progress * sensStep);
-
+            txvScanSensivity.setText(String.valueOf(currentSensivity));
         }
     }
 }
