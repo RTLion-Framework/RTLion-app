@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class ScannerPageFrag {
@@ -14,6 +15,7 @@ public class ScannerPageFrag {
     private JSInterface jsInterface;
 
     private TextView txvScannerWarning;
+    private LinearLayout llScanner;
     private String hostAddr;
 
     public ScannerPageFrag(Activity activity, ViewGroup viewGroup, JSInterface jsInterface){
@@ -25,13 +27,16 @@ public class ScannerPageFrag {
 
     private void initViews(){
         txvScannerWarning = viewGroup.findViewById(R.id.txvScannerWarning);
+        llScanner = viewGroup.findViewById(R.id.llScanner);
     }
     public void initialize(){
         initViews();
         txvScannerWarning.setVisibility(View.VISIBLE);
+        llScanner.setVisibility(View.GONE);
     }
     public void removeConWarning(){
         txvScannerWarning.setVisibility(View.GONE);
+        llScanner.setVisibility(View.VISIBLE);
     }
     public void setHostAddr(String hostAddr){
         this.hostAddr = hostAddr;
