@@ -16,7 +16,7 @@ public class ScannerPageFrag {
     private TextView txvScannerWarning;
     private String hostAddr;
 
-    public MainPageFrag(Activity activity, ViewGroup viewGroup, JSInterface jsInterface){
+    public ScannerPageFrag(Activity activity, ViewGroup viewGroup, JSInterface jsInterface){
         this.activity = activity;
         this.context = activity.getApplicationContext();
         this.viewGroup = viewGroup;
