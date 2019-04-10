@@ -93,7 +93,7 @@
                     android:fontFamily="monospace"
                     android:textStyle="bold"
                     android:textSize="15sp"
-                    android:text="Sensivity"/>
+                    android:text="@string/sensivity"/>
 
                 <RelativeLayout
                     android:id="@+id/rlScanSensivity"

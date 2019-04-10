@@ -49,4 +49,5 @@
     <string name="freq_min">Min. Frequency</string>
     <string name="freq_max">Max. Frequency</string>
     <string name="start_scan">Start Scan</string>
+    <string name="sensivity">Sensivity</string>
 </resources>
