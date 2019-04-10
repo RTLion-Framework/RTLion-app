@@ -11,7 +11,6 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
             <TextView
                 android:id="@+id/txvScannerWarning"
                 android:layout_width="wrap_content"
@@ -20,6 +19,109 @@
                 android:text="@string/connection_warning"
                 android:textStyle="bold"
                 android:visibility="gone"/>
+
+            <LinearLayout
+                android:id="@+id/llScanner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.github.chrisbanes.photoview.PhotoView
+                    android:id="@+id/imgFreqScan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:paddingTop="3dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:scaleType="centerInside" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilFreqMin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginTop="5dp"
+                    android:theme="@style/TLabel">
+                    <EditText
+                        android:id="@+id/edtxFreqMin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/interval"
+                        android:singleLine="true"
+                        android:backgroundTint="@color/colorAccent"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:fontFamily="monospace"
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:paddingStart="5dp"
+                        android:inputType="number"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilFreqMax"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginTop="5dp"
+                    android:theme="@style/TLabel">
+                    <EditText
+                        android:id="@+id/edtxFreqMax"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/interval"
+                        android:singleLine="true"
+                        android:backgroundTint="@color/colorAccent"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:fontFamily="monospace"
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:paddingStart="5dp"
+                        android:inputType="number"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlScanSensivity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp">
+                    <SeekBar
+                        android:id="@+id/sbScanSensivity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_toStartOf="@+id/txvFreqVal"
+                        android:progressTint="@android:color/transparent"
+                        android:theme="@style/RangeSeekBar" />
+                    <TextView
+                        android:id="@+id/txvScanSensivity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginTop="4dp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlStartScan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginTop="5dp">
+                    <Button
+                        android:id="@+id/btnStartScan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="@string/create_graph"
+                        android:theme="@style/FlatButton"/>
+                </RelativeLayout>
+
+            </LinearLayout>
 
         </RelativeLayout>
     </LinearLayout>
