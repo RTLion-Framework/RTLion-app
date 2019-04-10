@@ -14,6 +14,7 @@ public class ScannerPageFrag {
     private JSInterface jsInterface;
 
     private TextView txvScannerWarning;
+    private String hostAddr;
 
     public MainPageFrag(Activity activity, ViewGroup viewGroup, JSInterface jsInterface){
         this.activity = activity;
@@ -31,5 +32,8 @@ public class ScannerPageFrag {
     }
     public void removeConWarning(){
         txvScannerWarning.setVisibility(View.GONE);
+    }
+    public void setHostAddr(String hostAddr){
+        this.hostAddr = hostAddr;
     }
 }
