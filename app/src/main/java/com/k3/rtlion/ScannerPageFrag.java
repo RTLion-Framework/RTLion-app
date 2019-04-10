@@ -36,11 +36,11 @@ public class ScannerPageFrag {
         initViews();
         txvScannerWarning.setVisibility(View.VISIBLE);
         llScanner.setVisibility(View.GONE);
+        sbScanSensivity.setOnSeekBarChangeListener(new sbScanSensivity_onChange());
     }
     public void removeConWarning(){
         txvScannerWarning.setVisibility(View.GONE);
         llScanner.setVisibility(View.VISIBLE);
-        sbScanSensivity.setOnSeekBarChangeListener(new sbScanSensivity_onChange());
     }
     public void setHostAddr(String hostAddr){
         this.hostAddr = hostAddr;
