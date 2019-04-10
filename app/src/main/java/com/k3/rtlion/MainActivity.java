@@ -99,7 +99,7 @@ public class MainActivity extends Activity {
             graphPageFrag.removeConWarning();
             graphPageFrag.setHostAddr(mainPageFrag.getHostAddr());
             scannerPageFrag.removeConWarning();
-            scannerPageFrags.setHostAddr(mainPageFrag.getHostAddr());
+            scannerPageFrag.setHostAddr(mainPageFrag.getHostAddr());
             settingsPageFrag.removeConWarning();
             settingsPageFrag.setGraphPageFrag(graphPageFrag);
             settingsPageFrag.setHostAddr(mainPageFrag.getHostAddr());
