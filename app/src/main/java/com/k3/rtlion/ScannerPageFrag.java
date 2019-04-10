@@ -54,7 +54,7 @@ public class ScannerPageFrag {
     private void initSeekBar(){
         sbScanSensivity.setOnSeekBarChangeListener(new sbScanSensivity_onChange());
         sbScanSensivity.setMax((maxSens - minSens) / sensStep);
-        sbCenterFreq.setProgress(defaultSensivity);
+        sbScanSensivity.setProgress(defaultSensivity);
     }
     private class sbScanSensivity_onChange implements SeekBar.OnSeekBarChangeListener{
         @Override
