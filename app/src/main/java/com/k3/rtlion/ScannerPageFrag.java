@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Handler;
+import android.support.design.widget.TextInputLayout;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.ConsoleMessage;
@@ -37,6 +38,7 @@ public class ScannerPageFrag {
     private TextView txvScannerWarning, txvScanSensivity;
     private LinearLayout llScanner;
     private SeekBar sbScanSensivity;
+    private TextInputLayout tilFreqMin, tilFreqMax;
     private EditText edtxFreqMin, edtxFreqMax;
     private Button btnStartScan;
     private PhotoView imgFreqScan;
@@ -53,6 +55,8 @@ public class ScannerPageFrag {
         llScanner = viewGroup.findViewById(R.id.llScanner);
         sbScanSensivity = viewGroup.findViewById(R.id.sbScanSensivity);
         txvScanSensivity = viewGroup.findViewById(R.id.txvScanSensivity);
+        tilFreqMin = viewGroup.findViewById(R.id.tilFreqMin);
+        tilFreqMax = viewGroup.findViewById(R.id.tilFreqMax);
         edtxFreqMin = viewGroup.findViewById(R.id.edtxFreqMin);
         edtxFreqMax = viewGroup.findViewById(R.id.edtxFreqMax);
         btnStartScan = viewGroup.findViewById(R.id.btnStartScan);
@@ -114,7 +118,24 @@ public class ScannerPageFrag {
         }
     }
     private void hideViews(boolean state){
-
+        if (state){
+            edtxFreqMin.setVisibility(View.GONE);
+            edtxFreqMax.setVisibility(View.GONE);
+            tilFreq.setVisibility(View.GONE);
+            tilNumRead.setVisibility(View.GONE);
+            tilInterval.setVisibility(View.GONE);
+            rlFreqChange.setVisibility(View.VISIBLE);
+            btnFFTGraph.setText(context.getString(R.string.stop_graph));
+        }else{
+            edtxFreq.setVisibility(View.VISIBLE);
+            edtxNumRead.setVisibility(View.VISIBLE);
+            edtxInterval.setVisibility(View.VISIBLE);
+            tilFreq.setVisibility(View.VISIBLE);
+            tilNumRead.setVisibility(View.VISIBLE);
+            tilInterval.setVisibility(View.VISIBLE);
+            rlFreqChange.setVisibility(View.GONE);
+            btnFFTGraph.setText(context.getString(R.string.create_graph));
+        }
     }
     private void enableViews(boolean state) {
         edtxFreqMin.setEnabled(state);
