@@ -84,7 +84,13 @@ public class ScannerPageFrag {
                     Toast.LENGTH_SHORT).show();
         }
     }
-
+    private void checkRange(){
+        minFreq = Integer.parseInt(edtxFreqMin.getText().toString());
+        maxFreq = Integer.parseInt(edtxFreqMax.getText().toString());
+        if(maxFreq > minFreq)
+            return true;
+        return false;
+    }
     private class sbScanSensivity_onChange implements SeekBar.OnSeekBarChangeListener{
         @Override
         public void onStartTrackingTouch(SeekBar seekBar) { }
@@ -99,7 +105,9 @@ public class ScannerPageFrag {
     private class btnStartScan_onClick implements Button.OnClickListener{
         @Override
         public void onClick(View v) {
+            if(!checkRange()){
 
+            }
         }
     }
 }
