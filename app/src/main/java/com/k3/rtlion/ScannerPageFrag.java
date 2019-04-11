@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
@@ -32,6 +33,7 @@ public class ScannerPageFrag {
     private LinearLayout llScanner;
     private SeekBar sbScanSensivity;
     private EditText edtxFreqMin, edtxFreqMax;
+    private Button btnStartScan;
 
     public ScannerPageFrag(Activity activity, ViewGroup viewGroup, JSInterface jsInterface){
         this.activity = activity;
@@ -47,6 +49,7 @@ public class ScannerPageFrag {
         txvScanSensivity = viewGroup.findViewById(R.id.txvScanSensivity);
         edtxFreqMin = viewGroup.findViewById(R.id.edtxFreqMin);
         edtxFreqMax = viewGroup.findViewById(R.id.edtxFreqMax);
+        btnStartScan = viewGroup.findViewById(R.id.btnStartScan);
     }
     private void initSeekBar(){
         sbScanSensivity.setOnSeekBarChangeListener(new sbScanSensivity_onChange());
