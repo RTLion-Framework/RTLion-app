@@ -102,6 +102,7 @@ public class MainActivity extends Activity {
             scannerPageFrag.setHostAddr(mainPageFrag.getHostAddr());
             settingsPageFrag.removeConWarning();
             settingsPageFrag.setGraphPageFrag(graphPageFrag);
+            settingsPageFrag.setScannerPageFrag(scannerPageFrag);
             settingsPageFrag.setHostAddr(mainPageFrag.getHostAddr());
             hostAddrPassed = 1;
         }
