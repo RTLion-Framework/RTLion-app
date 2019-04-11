@@ -116,6 +116,7 @@ public class SettingsPageFrag {
                         }
                     }
                     graphPageFrag.setGraphParams(cliArgs);
+                    scannerPageFrag.setCliArgs(cliArgs);
                     enable_btnSaveSettings();
                 }catch (JSONException e){
                     e.printStackTrace();
