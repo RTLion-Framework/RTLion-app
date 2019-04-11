@@ -11,6 +11,7 @@ import android.webkit.ConsoleMessage;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,6 +38,7 @@ public class ScannerPageFrag {
 
     private TextView txvScannerWarning, txvScanSensivity;
     private LinearLayout llScanner;
+    private RelativeLayout rlScanSensivity;
     private SeekBar sbScanSensivity;
     private TextInputLayout tilFreqMin, tilFreqMax;
     private EditText edtxFreqMin, edtxFreqMax;
@@ -53,6 +55,7 @@ public class ScannerPageFrag {
     private void initViews(){
         txvScannerWarning = viewGroup.findViewById(R.id.txvScannerWarning);
         llScanner = viewGroup.findViewById(R.id.llScanner);
+        rlScanSensivity = viewGroup.findViewById(R.id.rlScanSensivity);
         sbScanSensivity = viewGroup.findViewById(R.id.sbScanSensivity);
         txvScanSensivity = viewGroup.findViewById(R.id.txvScanSensivity);
         tilFreqMin = viewGroup.findViewById(R.id.tilFreqMin);
@@ -121,20 +124,17 @@ public class ScannerPageFrag {
         if (state){
             edtxFreqMin.setVisibility(View.GONE);
             edtxFreqMax.setVisibility(View.GONE);
-            tilFreq.setVisibility(View.GONE);
-            tilNumRead.setVisibility(View.GONE);
-            tilInterval.setVisibility(View.GONE);
-            rlFreqChange.setVisibility(View.VISIBLE);
-            btnFFTGraph.setText(context.getString(R.string.stop_graph));
+            tilFreqMin.setVisibility(View.GONE);
+            tilFreqMax.setVisibility(View.GONE);
+            rlScanSensivity.setVisibility(View.GONE);
+            btnStartScan.setText(context.getString(R.string.stop_graph));
         }else{
-            edtxFreq.setVisibility(View.VISIBLE);
-            edtxNumRead.setVisibility(View.VISIBLE);
-            edtxInterval.setVisibility(View.VISIBLE);
-            tilFreq.setVisibility(View.VISIBLE);
-            tilNumRead.setVisibility(View.VISIBLE);
-            tilInterval.setVisibility(View.VISIBLE);
-            rlFreqChange.setVisibility(View.GONE);
-            btnFFTGraph.setText(context.getString(R.string.create_graph));
+            edtxFreqMin.setVisibility(View.VISIBLE);
+            edtxFreqMax.setVisibility(View.VISIBLE);
+            tilFreqMin.setVisibility(View.VISIBLE);
+            tilFreqMax.setVisibility(View.VISIBLE);
+            rlScanSensivity.setVisibility(View.VISIBLE);
+            btnStartScan.setText(context.getString(R.string.stop_graph));
         }
     }
     private void enableViews(boolean state) {
