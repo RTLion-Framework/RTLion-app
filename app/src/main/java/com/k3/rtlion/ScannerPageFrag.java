@@ -110,7 +110,40 @@ public class ScannerPageFrag {
         @Override
         public void onClick(View v) {
             if(checkRange()){
+                try {
+                    if (cliArgs == null)
+                        throw new JSONException(context.getString(R.string.invalid_settings));
+                    cliArgs.put("freq", minFreq);
+                    jsInterface.setServerArgs(hostAddr, cliArgs.toString(),
+                            new JSInterface.JSOutputInterface() {
+                                @Override
+                                public void onInfo(JSONObject clientInfo) {
+                                    activity.runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
 
+                                        }
+                                    });
+                                }
+
+                                @Override
+                                public void onArgs(JSONObject cliArgs) {
+                                }
+
+                                @Override
+                                public void onConsoleMsg(ConsoleMessage msg) {
+                                }
+
+                                @Override
+                                public void onData(String data) {
+                                }
+                            });
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(activity, context.getString(R.string.settings_save_error),
+                            Toast.LENGTH_SHORT).show();
+                    enableViews(true);
+                }
             }else{
                 Toast.makeText(activity, context.getString(R.string.invalid_settings),
                         Toast.LENGTH_SHORT).show();
