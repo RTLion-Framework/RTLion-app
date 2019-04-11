@@ -134,7 +134,7 @@ public class ScannerPageFrag {
             tilFreqMin.setVisibility(View.VISIBLE);
             tilFreqMax.setVisibility(View.VISIBLE);
             rlScanSensivity.setVisibility(View.VISIBLE);
-            btnStartScan.setText(context.getString(R.string.stop_graph));
+            btnStartScan.setText(context.getString(R.string.start_scan));
         }
     }
     private void enableViews(boolean state) {
