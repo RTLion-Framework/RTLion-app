@@ -27,7 +27,7 @@ public class ScannerPageFrag {
                 sensStep = 1,
                 defaultSensivity = 2,
                 currentSensivity = 2,
-                centerFreq;
+                centerFreq, minFreq, maxFreq;
 
     private TextView txvScannerWarning, txvScanSensivity;
     private LinearLayout llScanner;
@@ -84,6 +84,7 @@ public class ScannerPageFrag {
                     Toast.LENGTH_SHORT).show();
         }
     }
+
     private class sbScanSensivity_onChange implements SeekBar.OnSeekBarChangeListener{
         @Override
         public void onStartTrackingTouch(SeekBar seekBar) { }
