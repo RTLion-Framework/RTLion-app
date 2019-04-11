@@ -106,6 +106,9 @@ public class ScannerPageFrag {
         @Override
         public void onClick(View v) {
             if(!checkRange()){
+                Toast.makeText(activity, context.getString(R.string.invalid_range),
+                        Toast.LENGTH_SHORT).show();
+            }else{
 
             }
         }
