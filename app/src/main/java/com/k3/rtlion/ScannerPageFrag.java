@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -30,6 +31,7 @@ public class ScannerPageFrag {
     private TextView txvScannerWarning, txvScanSensivity;
     private LinearLayout llScanner;
     private SeekBar sbScanSensivity;
+    private EditText edtxFreqMin, edtxFreqMax;
 
     public ScannerPageFrag(Activity activity, ViewGroup viewGroup, JSInterface jsInterface){
         this.activity = activity;
@@ -43,6 +45,8 @@ public class ScannerPageFrag {
         llScanner = viewGroup.findViewById(R.id.llScanner);
         sbScanSensivity = viewGroup.findViewById(R.id.sbScanSensivity);
         txvScanSensivity = viewGroup.findViewById(R.id.txvScanSensivity);
+        edtxFreqMin = viewGroup.findViewById(R.id.edtxFreqMin);
+        edtxFreqMax = viewGroup.findViewById(R.id.edtxFreqMax);
     }
     private void initSeekBar(){
         sbScanSensivity.setOnSeekBarChangeListener(new sbScanSensivity_onChange());
@@ -79,7 +83,8 @@ public class ScannerPageFrag {
                 throw new JSONException(context.getString(R.string.invalid_args));
             this.cliArgs = cliArgs;
             centerFreq = Integer.valueOf(cliArgs.getString("freq"));
-            Toast.makeText(activity, String.valueOf(centerFreq), Toast.LENGTH_SHORT).show();
+            edtxFreqMin.setText(String.valueOf(centerFreq - (centerFreq/5)));
+            edtxFreqMax.setText(String.valueOf(centerFreq + (centerFreq/5)));
         }catch (JSONException e){
             e.printStackTrace();
             Toast.makeText(activity, context.getString(R.string.invalid_server_settings),
