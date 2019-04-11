@@ -78,8 +78,7 @@ public class ScannerPageFrag {
             if(cliArgs == null)
                 throw new JSONException(context.getString(R.string.invalid_args));
             this.cliArgs = cliArgs;
-            centerFreq = Integer.valueOf(cliArgs.getString(cliArgs.names()
-                    .getString("freq")));
+            centerFreq = Integer.valueOf(cliArgs.getString("freq"));
             Toast.makeText(activity, String.valueOf(centerFreq), Toast.LENGTH_SHORT).show();
         }catch (JSONException e){
             e.printStackTrace();
