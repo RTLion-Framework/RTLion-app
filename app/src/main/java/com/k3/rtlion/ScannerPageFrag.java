@@ -85,10 +85,14 @@ public class ScannerPageFrag {
         }
     }
     private boolean checkRange(){
-        minFreq = Integer.parseInt(edtxFreqMin.getText().toString());
-        maxFreq = Integer.parseInt(edtxFreqMax.getText().toString());
-        if(maxFreq > minFreq)
-            return true;
+        try {
+            minFreq = Integer.parseInt(edtxFreqMin.getText().toString());
+            maxFreq = Integer.parseInt(edtxFreqMax.getText().toString());
+            if (maxFreq > minFreq)
+                return true;
+        }catch (Exception e){
+            return false;
+        }
         return false;
     }
     private class sbScanSensivity_onChange implements SeekBar.OnSeekBarChangeListener{
