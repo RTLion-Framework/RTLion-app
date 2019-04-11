@@ -113,6 +113,14 @@ public class ScannerPageFrag {
             txvScanSensivity.setText(String.valueOf(currentSensivity));
         }
     }
+    private void hideViews(boolean state){
+
+    }
+    private void enableViews(boolean state) {
+        edtxFreqMin.setEnabled(state);
+        edtxFreqMax.setEnabled(state);
+        btnStartScan.setEnabled(true);
+    }
     private class btnStartScan_onClick implements Button.OnClickListener{
         @Override
         public void onClick(View v) {
