@@ -7,6 +7,10 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class ScannerPageFrag {
 
@@ -15,6 +19,7 @@ public class ScannerPageFrag {
     private ViewGroup viewGroup;
     private JSInterface jsInterface;
     private String hostAddr;
+    private JSONObject cliArgs;
     private int minSens = 1,
                 maxSens = 10,
                 sensStep = 1,
@@ -65,6 +70,15 @@ public class ScannerPageFrag {
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
             currentSensivity = minSens + (progress * sensStep);
             txvScanSensivity.setText(String.valueOf(currentSensivity));
+        }
+    }
+    public void setCliArgs(JSONObject cliArgs){
+        try {
+
+        }catch (JSONException e){
+            e.printStackTrace();
+            Toast.makeText(activity, context.getString(R.string.invalid_server_settings),
+                    Toast.LENGTH_SHORT).show();
         }
     }
 }
