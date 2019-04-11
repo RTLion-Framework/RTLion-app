@@ -151,7 +151,6 @@ public class ScannerPageFrag {
             e.printStackTrace();
             Toast.makeText(activity, context.getString(R.string.settings_save_error),
                     Toast.LENGTH_SHORT).show();
-            enableViews(true);
         }
     }
     private void createGraph(){
