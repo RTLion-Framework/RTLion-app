@@ -2,6 +2,8 @@ package com.k3.rtlion;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.os.Handler;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.ConsoleMessage;
@@ -154,6 +156,37 @@ public class ScannerPageFrag {
         }
     }
     private void createGraph(){
+        jsInterface.getGraphFFT(hostAddr, new JSInterface.JSOutputInterface() {
+            private void setGraphImage(final String data){
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Bitmap fftBitmap = new ImageBase64().getImage(data);
+                        if(fftBitmap == null){
+                            Toast.makeText(activity, context.getString(R.string.graph_error),
+                                    Toast.LENGTH_SHORT).show();
+                        }else{
+                            imgFFTGraph.setImageBitmap(Bitmap.createScaledBitmap(
+                                    fftBitmap,
+                                    fftBitmap.getWidth()*2,
+                                    fftBitmap.getHeight()*2, false));
+                        }
+                    }
+                });
+            }
+            @Override
+            public void onInfo(JSONObject clientInfo) { }
 
+            @Override
+            public void onArgs(JSONObject cliArgs) { }
+
+            @Override
+            public void onConsoleMsg(ConsoleMessage msg) { }
+
+            @Override
+            public void onData(String data) {
+                setGraphImage(data);
+            }
+        });
     }
 }
