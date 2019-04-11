@@ -84,7 +84,7 @@ public class ScannerPageFrag {
                     Toast.LENGTH_SHORT).show();
         }
     }
-    private void checkRange(){
+    private boolean checkRange(){
         minFreq = Integer.parseInt(edtxFreqMin.getText().toString());
         maxFreq = Integer.parseInt(edtxFreqMax.getText().toString());
         if(maxFreq > minFreq)
