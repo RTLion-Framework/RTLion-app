@@ -188,6 +188,7 @@ public class ScannerPageFrag {
             e.printStackTrace();
             Toast.makeText(activity, context.getString(R.string.settings_save_error),
                     Toast.LENGTH_SHORT).show();
+            enableViews(true);
         }
     }
     private void createGraph(){
@@ -205,6 +206,7 @@ public class ScannerPageFrag {
                                     fftBitmap,
                                     fftBitmap.getWidth()*2,
                                     fftBitmap.getHeight()*2, false));
+                            enableViews(true);
                         }
                     }
                 });
