@@ -109,11 +109,11 @@ public class ScannerPageFrag {
     private class btnStartScan_onClick implements Button.OnClickListener{
         @Override
         public void onClick(View v) {
-            if(!checkRange()){
+            if(checkRange()){
+
+            }else{
                 Toast.makeText(activity, context.getString(R.string.invalid_settings),
                         Toast.LENGTH_SHORT).show();
-            }else{
-
             }
         }
     }
