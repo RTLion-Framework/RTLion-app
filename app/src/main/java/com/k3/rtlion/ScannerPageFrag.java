@@ -24,7 +24,8 @@ public class ScannerPageFrag {
                 maxSens = 10,
                 sensStep = 1,
                 defaultSensivity = 2,
-                currentSensivity = 2;
+                currentSensivity = 2,
+                centerFreq;
 
     private TextView txvScannerWarning, txvScanSensivity;
     private LinearLayout llScanner;
@@ -74,7 +75,12 @@ public class ScannerPageFrag {
     }
     public void setCliArgs(JSONObject cliArgs){
         try {
-
+            if(cliArgs == null)
+                throw new JSONException(context.getString(R.string.invalid_args));
+            this.cliArgs = cliArgs;
+            centerFreq = Integer.valueOf(cliArgs.getString(cliArgs.names()
+                    .getString("freq")));
+            Toast.makeText(activity, String.valueOf(centerFreq), Toast.LENGTH_SHORT).show();
         }catch (JSONException e){
             e.printStackTrace();
             Toast.makeText(activity, context.getString(R.string.invalid_server_settings),
