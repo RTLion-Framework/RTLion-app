@@ -61,6 +61,7 @@ public class ScannerPageFrag {
         initSeekBar();
         txvScannerWarning.setVisibility(View.VISIBLE);
         llScanner.setVisibility(View.GONE);
+        btnStartScan.setOnClickListener(new btnStartScan_onClick());
     }
     public void removeConWarning(){
         txvScannerWarning.setVisibility(View.GONE);
@@ -68,17 +69,6 @@ public class ScannerPageFrag {
     }
     public void setHostAddr(String hostAddr){
         this.hostAddr = hostAddr;
-    }
-    private class sbScanSensivity_onChange implements SeekBar.OnSeekBarChangeListener{
-        @Override
-        public void onStartTrackingTouch(SeekBar seekBar) { }
-        @Override
-        public void onStopTrackingTouch(SeekBar seekBar) { }
-        @Override
-        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-            currentSensivity = minSens + (progress * sensStep);
-            txvScanSensivity.setText(String.valueOf(currentSensivity));
-        }
     }
     public void setCliArgs(JSONObject cliArgs){
         try {
@@ -92,6 +82,23 @@ public class ScannerPageFrag {
             e.printStackTrace();
             Toast.makeText(activity, context.getString(R.string.invalid_server_settings),
                     Toast.LENGTH_SHORT).show();
+        }
+    }
+    private class sbScanSensivity_onChange implements SeekBar.OnSeekBarChangeListener{
+        @Override
+        public void onStartTrackingTouch(SeekBar seekBar) { }
+        @Override
+        public void onStopTrackingTouch(SeekBar seekBar) { }
+        @Override
+        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            currentSensivity = minSens + (progress * sensStep);
+            txvScanSensivity.setText(String.valueOf(currentSensivity));
+        }
+    }
+    private class btnStartScan_onClick implements Button.OnClickListener{
+        @Override
+        public void onClick(View v) {
+
         }
     }
 }
