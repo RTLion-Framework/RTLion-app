@@ -202,12 +202,13 @@ public class ScannerPageFrag {
                         if(fftBitmap == null){
                             Toast.makeText(activity, context.getString(R.string.graph_error),
                                     Toast.LENGTH_SHORT).show();
+                            enableViews(true);
                         }else{
                             imgFreqScan.setImageBitmap(Bitmap.createScaledBitmap(
                                     fftBitmap,
                                     fftBitmap.getWidth()*2,
                                     fftBitmap.getHeight()*2, false));
-                            enableViews(true);
+
                         }
                     }
                 });
