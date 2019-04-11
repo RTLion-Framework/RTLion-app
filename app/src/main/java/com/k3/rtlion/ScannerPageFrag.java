@@ -129,7 +129,7 @@ public class ScannerPageFrag {
                             activity.runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-
+                                    createGraph();
                                 }
                             });
                         }
@@ -152,5 +152,8 @@ public class ScannerPageFrag {
                     Toast.LENGTH_SHORT).show();
             enableViews(true);
         }
+    }
+    private void createGraph(){
+
     }
 }
