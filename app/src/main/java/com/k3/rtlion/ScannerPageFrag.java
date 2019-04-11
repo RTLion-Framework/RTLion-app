@@ -14,6 +14,8 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.chrisbanes.photoview.PhotoView;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -37,6 +39,7 @@ public class ScannerPageFrag {
     private SeekBar sbScanSensivity;
     private EditText edtxFreqMin, edtxFreqMax;
     private Button btnStartScan;
+    private PhotoView imgFreqScan;
 
     public ScannerPageFrag(Activity activity, ViewGroup viewGroup, JSInterface jsInterface){
         this.activity = activity;
@@ -53,6 +56,7 @@ public class ScannerPageFrag {
         edtxFreqMin = viewGroup.findViewById(R.id.edtxFreqMin);
         edtxFreqMax = viewGroup.findViewById(R.id.edtxFreqMax);
         btnStartScan = viewGroup.findViewById(R.id.btnStartScan);
+        imgFreqScan = viewGroup.findViewById(R.id.imgFreqScan);
     }
     private void initSeekBar(){
         sbScanSensivity.setOnSeekBarChangeListener(new sbScanSensivity_onChange());
