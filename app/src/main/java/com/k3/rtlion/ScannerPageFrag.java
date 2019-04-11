@@ -170,7 +170,7 @@ public class ScannerPageFrag {
                             Toast.makeText(activity, context.getString(R.string.graph_error),
                                     Toast.LENGTH_SHORT).show();
                         }else{
-                            imgFFTGraph.setImageBitmap(Bitmap.createScaledBitmap(
+                            imgFreqScan.setImageBitmap(Bitmap.createScaledBitmap(
                                     fftBitmap,
                                     fftBitmap.getWidth()*2,
                                     fftBitmap.getHeight()*2, false));
