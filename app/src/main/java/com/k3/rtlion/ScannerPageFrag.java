@@ -146,6 +146,8 @@ public class ScannerPageFrag {
         @Override
         public void onClick(View v) {
             if(checkRange()){
+                enableViews(false);
+                btnStartScan.setText(context.getString(R.string.graph_wait));
                 setDevFrequency(minFreq);
             }else{
                 Toast.makeText(activity, context.getString(R.string.invalid_settings),
