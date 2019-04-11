@@ -22,6 +22,7 @@ public class SettingsPageFrag {
     private ViewGroup viewGroup;
     private JSInterface jsInterface;
     private GraphPageFrag graphPageFrag;
+    private ScannerPageFrag scannerPageFrag;
     private String hostAddr, updatedSettings;
     private JSONObject cliArgs;
 
@@ -63,6 +64,9 @@ public class SettingsPageFrag {
     }
     public void setGraphPageFrag(GraphPageFrag graphPageFrag){
         this.graphPageFrag = graphPageFrag;
+    }
+    public void setScannerPageFrag(ScannerPageFrag scannerPageFrag){
+        this.scannerPageFrag = scannerPageFrag;
     }
     private void getArgsFromServer(){
         jsInterface.getServerArgs(hostAddr, new JSInterface.JSOutputInterface() {
