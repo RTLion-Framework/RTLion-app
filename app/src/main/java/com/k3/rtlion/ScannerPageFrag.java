@@ -34,7 +34,7 @@ public class ScannerPageFrag {
                 sensStep = 1,
                 defaultSensivity = 2,
                 currentSensivity = 2,
-                centerFreq, minFreq, maxFreq
+                centerFreq, minFreq, maxFreq,
                 stepSize;
 
     private TextView txvScannerWarning, txvScanSensivity;
@@ -147,6 +147,7 @@ public class ScannerPageFrag {
         @Override
         public void onClick(View v) {
             if(checkRange()){
+                stepSize = 2 * Math.pow(10, Integer.parseInt(Math.log10(maxFreq-minFreq)-1));
                 enableViews(false);
                 btnStartScan.setText(context.getString(R.string.graph_wait));
                 btnStartScan.setEnabled(false);
