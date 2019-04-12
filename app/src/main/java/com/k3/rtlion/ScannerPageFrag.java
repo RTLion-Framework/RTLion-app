@@ -12,6 +12,7 @@ import android.webkit.ConsoleMessage;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -39,7 +40,8 @@ public class ScannerPageFrag {
                 stepSize;
     private boolean viewsHidden = false;
 
-    private TextView txvScannerWarning, txvScanSensivity, txvScanSensivityLabel;
+    private TextView txvScannerWarning, txvScanSensivity,
+            txvScanSensivityLabel, txvFreqRange;
     private LinearLayout llScanner;
     private RelativeLayout rlScanSensivity;
     private SeekBar sbScanSensivity;
@@ -47,6 +49,7 @@ public class ScannerPageFrag {
     private EditText edtxFreqMin, edtxFreqMax;
     private Button btnStartScan;
     private PhotoView imgFreqScan;
+    private ListView lstScanResults;
 
     public ScannerPageFrag(Activity activity, ViewGroup viewGroup, JSInterface jsInterface){
         this.activity = activity;
@@ -68,6 +71,8 @@ public class ScannerPageFrag {
         edtxFreqMax = viewGroup.findViewById(R.id.edtxFreqMax);
         btnStartScan = viewGroup.findViewById(R.id.btnStartScan);
         imgFreqScan = viewGroup.findViewById(R.id.imgFreqScan);
+        txvFreqRange = viewGroup.findViewById(R.id.txvFreqRange);
+        lstScanResults = viewGroup.findViewById(R.id.lstScanResults);
     }
     private void initSeekBar(){
         sbScanSensivity.setOnSeekBarChangeListener(new sbScanSensivity_onChange());
