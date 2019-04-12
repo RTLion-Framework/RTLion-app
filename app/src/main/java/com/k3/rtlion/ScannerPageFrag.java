@@ -38,7 +38,7 @@ public class ScannerPageFrag {
                 stepSize;
     private boolean viewsHidden = false;
 
-    private TextView txvScannerWarning, txvScanSensivity;
+    private TextView txvScannerWarning, txvScanSensivity, txvScanSensivityLabel;
     private LinearLayout llScanner;
     private RelativeLayout rlScanSensivity;
     private SeekBar sbScanSensivity;
@@ -60,6 +60,7 @@ public class ScannerPageFrag {
         rlScanSensivity = viewGroup.findViewById(R.id.rlScanSensivity);
         sbScanSensivity = viewGroup.findViewById(R.id.sbScanSensivity);
         txvScanSensivity = viewGroup.findViewById(R.id.txvScanSensivity);
+        txvScanSensivityLabel = viewGroup.findViewById(R.id.txvScanSensivityLabel);
         tilFreqMin = viewGroup.findViewById(R.id.tilFreqMin);
         tilFreqMax = viewGroup.findViewById(R.id.tilFreqMax);
         edtxFreqMin = viewGroup.findViewById(R.id.edtxFreqMin);
