@@ -29,7 +29,7 @@ public class JSInterface {
         ServerInfo("fetchServerInfo", "getClientInfo"),
         CliArgs("fetchCliArgs", "getCliArgs"),
         SetArgs("updateServerArgs", "setCliArgs"),
-        GraphFFT("getGraphFromServer", "getGraph");
+        GraphFFT("getGraphFromServer", "getGraph"),
         Scanner("getScanDataFromServer", "getScannedValues");
         private String serverCmd, clientCmd;
         JSCommands(String serverCmd, String clientCmd) {
@@ -127,7 +127,7 @@ public class JSInterface {
     }
     public void getScannedValues(String url, JSOutputInterface jsOutputInterface){
         this.jsOutputInterface = jsOutputInterface;
-        webView.loadUrl(url + "#" + JSCommands.GraphFFT.name());
+        webView.loadUrl(url + "#" + JSCommands.Scanner.name());
         graphEventCommand = "javascript:"+globalSocketName+".on('fft_data', function(msg) {"
                 + jsInterfaceName + ".onServerGraph(msg.data);});";
         globalParams = null;
