@@ -212,7 +212,11 @@ public class ScannerPageFrag {
                                     fftBitmap,
                                     fftBitmap.getWidth()*2,
                                     fftBitmap.getHeight()*2, false));
-
+                            if(centerFreq < maxFreq){
+                                setDevFrequency(centerFreq + stepSize);
+                            }else{
+                                //
+                            }
                         }
                     }
                 });
