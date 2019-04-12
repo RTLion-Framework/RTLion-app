@@ -215,6 +215,10 @@ public class ScannerPageFrag {
                                     fftBitmap,
                                     fftBitmap.getWidth()*2,
                                     fftBitmap.getHeight()*2, false));
+                            if(!viewsHidden) {
+                                hideViews(true);
+                                btnStartScan.setEnabled(true);
+                            }
                             if(centerFreq < maxFreq){
                                 setDevFrequency(centerFreq + stepSize);
                             }else{
