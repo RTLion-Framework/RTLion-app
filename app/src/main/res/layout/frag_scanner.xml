@@ -118,6 +118,26 @@
                         android:layout_marginTop="4dp" />
                 </RelativeLayout>
 
+                <TextView
+                    android:id="@+id/txvFreqRange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/colorGray1"
+                    android:fontFamily="monospace"
+                    android:visibility="gone"/>
+
+                <ListView
+                    android:id="@+id/lstScanResults"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:visibility="gone"/>
+
                 <RelativeLayout
                     android:id="@+id/rlStartScan"
                     android:layout_width="match_parent"
