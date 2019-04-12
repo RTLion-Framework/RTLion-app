@@ -36,6 +36,7 @@ public class ScannerPageFrag {
                 currentSensivity = 2,
                 centerFreq, minFreq, maxFreq,
                 stepSize;
+    private boolean viewsHidden = false;
 
     private TextView txvScannerWarning, txvScanSensivity;
     private LinearLayout llScanner;
@@ -129,6 +130,7 @@ public class ScannerPageFrag {
             tilFreqMax.setVisibility(View.GONE);
             rlScanSensivity.setVisibility(View.GONE);
             btnStartScan.setText(context.getString(R.string.stop_graph));
+            viewsHidden = true;
         }else{
             edtxFreqMin.setVisibility(View.VISIBLE);
             edtxFreqMax.setVisibility(View.VISIBLE);
@@ -136,6 +138,7 @@ public class ScannerPageFrag {
             tilFreqMax.setVisibility(View.VISIBLE);
             rlScanSensivity.setVisibility(View.VISIBLE);
             btnStartScan.setText(context.getString(R.string.start_scan));
+            viewsHidden = false;
         }
     }
     private void enableViews(boolean state) {
