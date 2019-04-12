@@ -152,15 +152,19 @@ public class ScannerPageFrag {
     private class btnStartScan_onClick implements Button.OnClickListener{
         @Override
         public void onClick(View v) {
-            if(checkRange()){
-                stepSize = 2 * (int) Math.pow(10, (int) Math.log10(maxFreq-minFreq) - 1);
-                enableViews(false);
-                btnStartScan.setText(context.getString(R.string.graph_wait));
-                btnStartScan.setEnabled(false);
-                setDevFrequency(minFreq);
+            if (viewsHidden) {
+                centerFreq = maxFreq;
             }else{
-                Toast.makeText(activity, context.getString(R.string.invalid_settings),
-                        Toast.LENGTH_SHORT).show();
+                if (checkRange()) {
+                    stepSize = 2 * (int) Math.pow(10, (int) Math.log10(maxFreq - minFreq) - 1);
+                    enableViews(false);
+                    btnStartScan.setText(context.getString(R.string.graph_wait));
+                    btnStartScan.setEnabled(false);
+                    setDevFrequency(minFreq);
+                } else {
+                    Toast.makeText(activity, context.getString(R.string.invalid_settings),
+                            Toast.LENGTH_SHORT).show();
+                }
             }
         }
     }

@@ -159,7 +159,7 @@ public class GraphPageFrag {
                 numRead = 0;
                 contRead = false;
                 freqChanged = false;
-            }else {
+            }else{
                 contRead = true;
                 enableViews(false);
                 if (checkFreq()) {
