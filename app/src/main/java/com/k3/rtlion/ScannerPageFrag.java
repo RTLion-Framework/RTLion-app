@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Handler;
 import android.support.design.widget.TextInputLayout;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.ConsoleMessage;
@@ -247,6 +248,7 @@ public class ScannerPageFrag {
 
             @Override
             public void onData(String data) {
+                Log.d("data>", data);
                 //setGraphImage(data);
             }
         });

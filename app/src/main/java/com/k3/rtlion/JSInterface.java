@@ -64,7 +64,8 @@ public class JSInterface {
             String jsCommand = createJSCommand(JSCommands.valueOf(url.split("#")[1]).ordinal(),
                     globalParams);
             webView.loadUrl(jsCommand);
-            if(url.split("#")[1].equals(JSCommands.GraphFFT.name()) && !graphEventSet) {
+            if((url.split("#")[1].equals(JSCommands.GraphFFT.name()) ||
+                    url.split("#")[1].equals(JSCommands.Scanner.name())) && !graphEventSet) {
                 webView.loadUrl(graphEventCommand);
                 graphEventSet = true;
             }
