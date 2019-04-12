@@ -201,7 +201,7 @@ public class ScannerPageFrag {
                 activity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Bitmap fftBitmap = new ImageBase64().getImage(data)
+                        Bitmap fftBitmap = new ImageBase64().getImage(data);
                         if(fftBitmap == null){
                             Toast.makeText(activity, context.getString(R.string.graph_error),
                                     Toast.LENGTH_SHORT).show();
