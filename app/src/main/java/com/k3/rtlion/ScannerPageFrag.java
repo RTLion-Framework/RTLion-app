@@ -212,7 +212,7 @@ public class ScannerPageFrag {
                 activity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Bitmap fftBitmap = new ImageBase64().getImage(data);
+                        Bitmap fftBitmap = new ImageBase64().getImage(data.split("[|]")[0]);
                         if(fftBitmap == null){
                             Toast.makeText(activity, context.getString(R.string.graph_error),
                                     Toast.LENGTH_SHORT).show();
@@ -248,8 +248,7 @@ public class ScannerPageFrag {
 
             @Override
             public void onData(String data) {
-                Log.d("data>", data);
-                //setGraphImage(data);
+                setGraphImage(data);
             }
         });
     }
