@@ -203,6 +203,7 @@ public class ScannerPageFrag {
                             Toast.makeText(activity, context.getString(R.string.graph_error),
                                     Toast.LENGTH_SHORT).show();
                             enableViews(true);
+                            hideViews(false);
                         }else{
                             imgFreqScan.setImageBitmap(Bitmap.createScaledBitmap(
                                     fftBitmap,
