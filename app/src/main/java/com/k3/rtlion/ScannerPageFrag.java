@@ -206,7 +206,7 @@ public class ScannerPageFrag {
         }
     }
     private void createGraph(){
-        jsInterface.getGraphFFT(hostAddr, new JSInterface.JSOutputInterface() {
+        jsInterface.getScannedValues(hostAddr, new JSInterface.JSOutputInterface() {
             private void setGraphImage(final String data){
                 activity.runOnUiThread(new Runnable() {
                     @Override
@@ -247,7 +247,7 @@ public class ScannerPageFrag {
 
             @Override
             public void onData(String data) {
-                setGraphImage(data);
+                //setGraphImage(data);
             }
         });
     }
