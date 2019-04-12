@@ -128,8 +128,8 @@ public class JSInterface {
     public void getScannedValues(String url, JSOutputInterface jsOutputInterface){
         this.jsOutputInterface = jsOutputInterface;
         webView.loadUrl(url + "#" + JSCommands.Scanner.name());
-        graphEventCommand = "javascript:"+globalSocketName+".on('fft_data', function(msg) {"
-                + jsInterfaceName + ".onServerGraph(msg.data);});";
+        graphEventCommand = "javascript:"+globalSocketName+".on('graph_data', function(data) {"
+                + jsInterfaceName + ".onServerGraph(data);});";
         globalParams = null;
     }
     @JavascriptInterface
