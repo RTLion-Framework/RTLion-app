@@ -142,6 +142,8 @@ public class ScannerPageFrag {
             tilFreqMax.setVisibility(View.GONE);
             rlScanSensivity.setVisibility(View.GONE);
             txvScanSensivityLabel.setVisibility(View.GONE);
+            txvFreqRange.setVisibility(View.VISIBLE);
+            lstScanResults.setVisibility(View.VISIBLE);
             btnStartScan.setText(context.getString(R.string.stop_graph));
             viewsHidden = true;
         }else{
