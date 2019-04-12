@@ -94,8 +94,13 @@ public class ScannerPageFrag {
                 throw new JSONException(context.getString(R.string.invalid_args));
             this.cliArgs = cliArgs;
             centerFreq = Integer.valueOf(cliArgs.getString("freq"));
-            edtxFreqMin.setText(String.valueOf(centerFreq - (centerFreq/5)));
-            edtxFreqMax.setText(String.valueOf(centerFreq + (centerFreq/5)));
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    edtxFreqMin.setText(String.valueOf(centerFreq - (centerFreq/5)));
+                    edtxFreqMax.setText(String.valueOf(centerFreq + (centerFreq/5)));
+                }
+            });
         }catch (JSONException e){
             e.printStackTrace();
             Toast.makeText(activity, context.getString(R.string.invalid_server_settings),
