@@ -130,6 +130,7 @@ public class ScannerPageFrag {
             tilFreqMin.setVisibility(View.GONE);
             tilFreqMax.setVisibility(View.GONE);
             rlScanSensivity.setVisibility(View.GONE);
+            txvScanSensivityLabel.setVisibility(View.GONE);
             btnStartScan.setText(context.getString(R.string.stop_graph));
             viewsHidden = true;
         }else{
@@ -138,6 +139,7 @@ public class ScannerPageFrag {
             tilFreqMin.setVisibility(View.VISIBLE);
             tilFreqMax.setVisibility(View.VISIBLE);
             rlScanSensivity.setVisibility(View.VISIBLE);
+            txvScanSensivityLabel.setVisibility(View.VISIBLE);
             btnStartScan.setText(context.getString(R.string.start_scan));
             viewsHidden = false;
         }
