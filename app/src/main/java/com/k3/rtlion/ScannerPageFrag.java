@@ -34,7 +34,8 @@ public class ScannerPageFrag {
                 sensStep = 1,
                 defaultSensivity = 2,
                 currentSensivity = 2,
-                centerFreq, minFreq, maxFreq;
+                centerFreq, minFreq, maxFreq
+                stepSize;
 
     private TextView txvScannerWarning, txvScanSensivity;
     private LinearLayout llScanner;
