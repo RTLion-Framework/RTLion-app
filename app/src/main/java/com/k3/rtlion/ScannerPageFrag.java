@@ -205,8 +205,8 @@ public class ScannerPageFrag {
                         if(fftBitmap == null){
                             Toast.makeText(activity, context.getString(R.string.graph_error),
                                     Toast.LENGTH_SHORT).show();
-                            enableViews(true);
                             hideViews(false);
+                            enableViews(true);
                         }else{
                             imgFreqScan.setImageBitmap(Bitmap.createScaledBitmap(
                                     fftBitmap,
@@ -215,7 +215,8 @@ public class ScannerPageFrag {
                             if(centerFreq < maxFreq){
                                 setDevFrequency(centerFreq + stepSize);
                             }else{
-                                //
+                                hideViews(false);
+                                enableViews(true);
                             }
                         }
                     }
