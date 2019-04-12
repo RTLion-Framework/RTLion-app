@@ -216,12 +216,12 @@ public class GraphPageFrag {
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
             if(fromUser && viewsHidden) {
-                numRead = 0;
-                contRead = false;
-                freqChanged = true;
                 centerFreq = minFreq + (progress * (int) stepSize);
                 txvFreqVal.setText(String.valueOf(centerFreq));
                 edtxFreq.setText(String.valueOf(centerFreq));
+                numRead = 0;
+                contRead = false;
+                freqChanged = true;
             }
         }
     }
