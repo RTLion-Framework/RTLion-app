@@ -258,11 +258,11 @@ public class ScannerPageFrag {
             }
             private void onDataReceived(String[] freqs, String[] dbs){
                 for(String freq:freqs){
-                    double freqVal = Double.parseDouble(freq);
+                    String freqVal = String.format("%.1f", Double.parseDouble(freq));
                     Toast.makeText(activity, String.valueOf(freqVal), Toast.LENGTH_SHORT).show();
                 }
                 for(String db:dbs){
-                    double dbVal = Double.parseDouble(db);
+                    String dbVal = String.format("%.2f", Double.parseDouble(db));
                     Toast.makeText(activity, String.valueOf(dbVal), Toast.LENGTH_SHORT).show();
                 }
             }
