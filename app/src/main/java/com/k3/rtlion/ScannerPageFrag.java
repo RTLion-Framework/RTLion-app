@@ -39,7 +39,7 @@ public class ScannerPageFrag {
                 centerFreq, minFreq, maxFreq,
                 stepSize;
     private boolean viewsHidden = false;
-    private ArrayList<Double> freqRes, dbRes;
+    private ArrayList<String> freqRes, dbRes;
 
     private TextView txvScannerWarning, txvScanSensivity,
             txvScanSensivityLabel, txvFreqRange;
