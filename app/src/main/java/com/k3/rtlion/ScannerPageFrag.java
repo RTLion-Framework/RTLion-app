@@ -235,13 +235,14 @@ public class ScannerPageFrag {
                 activity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Bitmap fftBitmap = new ImageBase64().getImage(data.split("[|]")[0]);
-                        if(fftBitmap == null){
+                        if(data != null && data.split("[|]").length == 3
+                                && !data.split("[|]")[0].isEmpty()){
                             Toast.makeText(activity, context.getString(R.string.graph_error),
                                     Toast.LENGTH_SHORT).show();
                             hideViews(false);
                             enableViews(true);
                         }else{
+                            Bitmap fftBitmap = new ImageBase64().getImage(data.split("[|]")[0]);
                             imgFreqScan.setImageBitmap(Bitmap.createScaledBitmap(
                                     fftBitmap,
                                     fftBitmap.getWidth()*2,
