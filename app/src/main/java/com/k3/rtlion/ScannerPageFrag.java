@@ -172,6 +172,8 @@ public class ScannerPageFrag {
                 centerFreq = maxFreq;
             }else{
                 if (checkRange()) {
+                    freqRes.clear();
+                    dbRes.clear();
                     stepSize = 2 * (int) Math.pow(10, (int) Math.log10(maxFreq - minFreq) - 1);
                     enableViews(false);
                     btnStartScan.setText(context.getString(R.string.graph_wait));
