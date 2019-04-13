@@ -262,7 +262,7 @@ public class ScannerPageFrag {
                     }
                 });
             }
-            private void onDataReceived(String[] freqs, String[] dbs){
+            private void onDataReceived(final String[] freqs, final String[] dbs){
                 activity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
