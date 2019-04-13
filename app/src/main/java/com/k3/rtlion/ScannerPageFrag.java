@@ -191,6 +191,8 @@ public class ScannerPageFrag {
                     lstScanResults.setAdapter(arrayAdapterRes);
                     stepSize = 2 * (int) Math.pow(10, (int) Math.log10(maxFreq - minFreq) - 1);
                     enableViews(false);
+                    txvFreqRange.setText(String.valueOf(minFreq) + "-" +
+                            String.valueOf(maxFreq));
                     btnStartScan.setText(context.getString(R.string.graph_wait));
                     btnStartScan.setEnabled(false);
                     setDevFrequency(minFreq);
@@ -220,16 +222,13 @@ public class ScannerPageFrag {
                         }
 
                         @Override
-                        public void onArgs(JSONObject cliArgs) {
-                        }
+                        public void onArgs(JSONObject cliArgs) { }
 
                         @Override
-                        public void onConsoleMsg(ConsoleMessage msg) {
-                        }
+                        public void onConsoleMsg(ConsoleMessage msg) { }
 
                         @Override
-                        public void onData(String data) {
-                        }
+                        public void onData(String data) { }
                     });
         } catch (JSONException e) {
             e.printStackTrace();
