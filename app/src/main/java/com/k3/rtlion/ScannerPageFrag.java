@@ -86,6 +86,8 @@ public class ScannerPageFrag {
         txvScannerWarning.setVisibility(View.VISIBLE);
         llScanner.setVisibility(View.GONE);
         btnStartScan.setOnClickListener(new btnStartScan_onClick());
+        freqRes = new ArrayList<>();
+        dbRes = new ArrayList<>();
     }
     public void removeConWarning(){
         txvScannerWarning.setVisibility(View.GONE);
