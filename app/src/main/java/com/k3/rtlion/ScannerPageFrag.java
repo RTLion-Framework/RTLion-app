@@ -21,6 +21,8 @@ import com.github.chrisbanes.photoview.PhotoView;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 public class ScannerPageFrag {
 
     private Activity activity;
@@ -37,6 +39,7 @@ public class ScannerPageFrag {
                 centerFreq, minFreq, maxFreq,
                 stepSize;
     private boolean viewsHidden = false;
+    private ArrayList<Double> freqRes, dbRes;
 
     private TextView txvScannerWarning, txvScanSensivity,
             txvScanSensivityLabel, txvFreqRange;
