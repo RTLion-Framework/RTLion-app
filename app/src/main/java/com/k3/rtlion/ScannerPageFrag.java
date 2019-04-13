@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.support.design.widget.TextInputLayout;
+import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -194,6 +195,7 @@ public class ScannerPageFrag {
                             View view = super.getView(position, convertView, parent);
                             TextView txvItem = (TextView) view.findViewById(android.R.id.text1);
                             txvItem.setTypeface(Typeface.MONOSPACE, Typeface.BOLD);
+                            txvItem.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
                             return view;
                         }
                     };
