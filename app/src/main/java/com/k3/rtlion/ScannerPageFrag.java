@@ -7,6 +7,7 @@ import android.support.design.widget.TextInputLayout;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.ConsoleMessage;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -40,6 +41,7 @@ public class ScannerPageFrag {
                 stepSize;
     private boolean viewsHidden = false;
     private ArrayList<String> freqRes, dbRes;
+    private ArrayAdapter<String> arrayAdapterRes;
 
     private TextView txvScannerWarning, txvScanSensivity,
             txvScanSensivityLabel, txvFreqRange;
@@ -262,6 +264,7 @@ public class ScannerPageFrag {
                     String freqVal = String.format("%.1f", Double.parseDouble(freq));
                     if(!freqRes.contains(freqVal)){
                         freqRes.add(freqVal);
+
                     }
                 }
                 for(String db:dbs){
