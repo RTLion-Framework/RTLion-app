@@ -174,6 +174,7 @@ public class ScannerPageFrag {
                 if (checkRange()) {
                     freqRes.clear();
                     dbRes.clear();
+                    lstScanResults.setAdapter(null);
                     stepSize = 2 * (int) Math.pow(10, (int) Math.log10(maxFreq - minFreq) - 1);
                     enableViews(false);
                     btnStartScan.setText(context.getString(R.string.graph_wait));
@@ -259,11 +260,15 @@ public class ScannerPageFrag {
             private void onDataReceived(String[] freqs, String[] dbs){
                 for(String freq:freqs){
                     String freqVal = String.format("%.1f", Double.parseDouble(freq));
-                    Toast.makeText(activity, String.valueOf(freqVal), Toast.LENGTH_SHORT).show();
+                    if(!freqRes.contains(freqVal)){
+                        freqRes.add(freqVal);
+                    }
                 }
                 for(String db:dbs){
                     String dbVal = String.format("%.2f", Double.parseDouble(db));
-                    Toast.makeText(activity, String.valueOf(dbVal), Toast.LENGTH_SHORT).show();
+                    if(!dbRes.contains(dbVal)){
+                        dbRes.add(dbVal);
+                    }
                 }
             }
             @Override
