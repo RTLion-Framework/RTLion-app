@@ -3,6 +3,7 @@ package com.k3.rtlion;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Typeface;
 import android.support.design.widget.TextInputLayout;
 import android.view.MotionEvent;
 import android.view.View;
@@ -187,7 +188,15 @@ public class ScannerPageFrag {
                     dbRes.clear();
                     arrayAdapterRes = new ArrayAdapter<String>(activity,
                             android.R.layout.simple_list_item_1,
-                            freqRes);
+                            freqRes){
+                        @Override
+                        public View getView(int position, View convertView, ViewGroup parent) {
+                            View view = super.getView(position, convertView, parent);
+                            TextView txvItem = (TextView) view.findViewById(android.R.id.text1);
+                            txvItem.setTypeface(Typeface.MONOSPACE, Typeface.BOLD);
+                            return view;
+                        }
+                    };
                     lstScanResults.setAdapter(arrayAdapterRes);
                     stepSize = 2 * (int) Math.pow(10, (int) Math.log10(maxFreq - minFreq) - 1);
                     enableViews(false);
