@@ -176,7 +176,10 @@ public class ScannerPageFrag {
                 if (checkRange()) {
                     freqRes.clear();
                     dbRes.clear();
-                    lstScanResults.setAdapter(null);
+                    arrayAdapterRes = new ArrayAdapter<String>(activity,
+                            android.R.layout.simple_list_item_1,
+                            freqRes);
+                    lstScanResults.setAdapter(freqRes);
                     stepSize = 2 * (int) Math.pow(10, (int) Math.log10(maxFreq - minFreq) - 1);
                     enableViews(false);
                     btnStartScan.setText(context.getString(R.string.graph_wait));
