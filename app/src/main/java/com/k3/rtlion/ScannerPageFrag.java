@@ -263,19 +263,24 @@ public class ScannerPageFrag {
                 });
             }
             private void onDataReceived(String[] freqs, String[] dbs){
-                for(String freq:freqs){
-                    String freqVal = String.format("%.1f", Double.parseDouble(freq));
-                    if(!freqRes.contains(freqVal)){
-                        freqRes.add(freqVal);
-
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        for(String freq:freqs){
+                            String freqVal = String.format("%.1f", Double.parseDouble(freq));
+                            if(!freqRes.contains(freqVal)){
+                                freqRes.add(freqVal);
+                            }
+                        }
+                        for(String db:dbs){
+                            String dbVal = String.format("%.2f", Double.parseDouble(db));
+                            if(!dbRes.contains(dbVal)){
+                                dbRes.add(dbVal);
+                            }
+                        }
+                        arrayAdapterRes.notifyDataSetChanged();
                     }
-                }
-                for(String db:dbs){
-                    String dbVal = String.format("%.2f", Double.parseDouble(db));
-                    if(!dbRes.contains(dbVal)){
-                        dbRes.add(dbVal);
-                    }
-                }
+                });
             }
             @Override
             public void onInfo(JSONObject clientInfo) { }
