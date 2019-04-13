@@ -3,9 +3,7 @@ package com.k3.rtlion;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.os.Handler;
 import android.support.design.widget.TextInputLayout;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.ConsoleMessage;
@@ -194,7 +192,7 @@ public class ScannerPageFrag {
                             activity.runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    createGraph();
+                                    scanFrequencyRange();
                                 }
                             });
                         }
@@ -218,7 +216,7 @@ public class ScannerPageFrag {
             enableViews(true);
         }
     }
-    private void createGraph(){
+    private void scanFrequencyRange(){
         jsInterface.getScannedValues(hostAddr, new JSInterface.JSOutputInterface() {
             private void setGraphImage(final String data){
                 activity.runOnUiThread(new Runnable() {
