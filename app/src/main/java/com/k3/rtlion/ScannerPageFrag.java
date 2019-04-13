@@ -256,7 +256,7 @@ public class ScannerPageFrag {
                     }
                 });
             }
-            private void onDataReceived(String[] freq, String[] db){
+            private void onDataReceived(String[] freqs, String[] dbs){
 
             }
             @Override
