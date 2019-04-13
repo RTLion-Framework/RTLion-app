@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.support.design.widget.TextInputLayout;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.ConsoleMessage;
@@ -88,6 +89,7 @@ public class ScannerPageFrag {
         txvScannerWarning.setVisibility(View.VISIBLE);
         llScanner.setVisibility(View.GONE);
         btnStartScan.setOnClickListener(new btnStartScan_onClick());
+        lstScanResults.setOnTouchListener(new lstScanResults_onTouch());
         freqRes = new ArrayList<>();
         dbRes = new ArrayList<>();
     }
@@ -127,6 +129,13 @@ public class ScannerPageFrag {
             return false;
         }
         return false;
+    }
+    private class lstScanResults_onTouch implements ListView.OnTouchListener{
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
+            v.getParent().requestDisallowInterceptTouchEvent(true);
+            return false;
+        }
     }
     private class sbScanSensivity_onChange implements SeekBar.OnSeekBarChangeListener{
         @Override
