@@ -195,7 +195,7 @@ public class ScannerPageFrag {
                             View view = super.getView(position, convertView, parent);
                             TextView txvItem = (TextView) view.findViewById(android.R.id.text1);
                             txvItem.setTypeface(Typeface.MONOSPACE, Typeface.BOLD);
-                            txvItem.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
+                            txvItem.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13);
                             return view;
                         }
                     };
