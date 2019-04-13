@@ -23,7 +23,8 @@ public class JSInterface {
     private JSONObject clientInfo, cliArgs;
     private String graphEventCommand,
             globalSocketName = "socket";
-    private Boolean graphEventSet = false;
+    private Boolean graphEventSet = false,
+            scanEventSet = false;
 
     public enum JSCommands {
         ServerInfo("fetchServerInfo", "getClientInfo"),
@@ -64,10 +65,12 @@ public class JSInterface {
             String jsCommand = createJSCommand(JSCommands.valueOf(url.split("#")[1]).ordinal(),
                     globalParams);
             webView.loadUrl(jsCommand);
-            if((url.split("#")[1].equals(JSCommands.GraphFFT.name()) ||
-                    url.split("#")[1].equals(JSCommands.Scanner.name())) && !graphEventSet) {
+            if((url.split("#")[1].equals(JSCommands.GraphFFT.name()) && !graphEventSet) {
                 webView.loadUrl(graphEventCommand);
                 graphEventSet = true;
+            }else if((url.split("#")[1].equals(JSCommands.Scanner.name()) && !scanEventSet) {
+                webView.loadUrl(graphEventCommand);
+                scanEventSet = true;
             }
         }
     }
