@@ -245,6 +245,8 @@ public class ScannerPageFrag {
                                 btnStartScan.setEnabled(true);
                             }
                             if(centerFreq < maxFreq){
+                                onDataReceived(data.split("[|]")[1].trim().split(" "),
+                                        data.split("[|]")[2].trim().split(" "));
                                 setDevFrequency(centerFreq + stepSize);
                             }else{
                                 hideViews(false);
@@ -253,6 +255,9 @@ public class ScannerPageFrag {
                         }
                     }
                 });
+            }
+            private void onDataReceived(String[] freq, String[] db){
+
             }
             @Override
             public void onInfo(JSONObject clientInfo) { }
