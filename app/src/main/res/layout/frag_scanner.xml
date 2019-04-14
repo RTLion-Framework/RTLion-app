@@ -137,6 +137,8 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="5dp"
+                    android:transcriptMode="alwaysScroll"
+                    android:stackFromBottom="true"
                     android:visibility="gone"/>
 
                 <RelativeLayout
