@@ -177,7 +177,10 @@ public class ScannerPageFrag {
         btnStartScan.setEnabled(true);
     }
     private void calculateThreshold(){
-
+        int dbSum = 0;
+        for(int i = 0; i < dbRes.size(); i++){
+            dbSum += Integer.valueOf(dbRes.get(i));
+        }
     }
     private class btnStartScan_onClick implements Button.OnClickListener{
         @Override
