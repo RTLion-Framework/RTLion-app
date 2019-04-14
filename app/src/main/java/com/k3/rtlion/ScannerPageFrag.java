@@ -177,16 +177,22 @@ public class ScannerPageFrag {
         btnStartScan.setEnabled(true);
     }
     private void calculateThreshold(){
-        int dbSum = 0;
-        for(int i = 0; i < dbRes.size(); i++){
-            dbSum += Integer.valueOf(dbRes.get(i));
+        try {
+            if(dbRes.size() == 0)
+                throw new Exception();
+            int dbSum = 0;
+            for (int i = 0; i < dbRes.size(); i++) {
+                dbSum += Integer.valueOf(dbRes.get(i));
+            }
+            int dbAvg = dbSum / dbRes.size();
+            for (int i = 0; i < freqRes.size(); i++) {
+                if (Math.abs(dbRes.get(i)) <= Math.abs(dbAvg / 2))
+                    freqRes.remove(freqRes.get(i));
+            }
+            arrayAdapterRes.notifyDataSetChanged();
+        }catch (Exception e){
+            e.printStackTrace();
         }
-        int dbAvg = dbSum/dbRes.size();
-        for (int i = 0; i < freqRes.size(); i++){
-            if(Math.abs(dbRes.get(i)) <= Math.abs(dbAvg/2))
-                freqRes.remove(freqRes.get(i));
-        }
-        arrayAdapterRes.notifyDataSetChanged();
     }
     private class btnStartScan_onClick implements Button.OnClickListener{
         @Override
