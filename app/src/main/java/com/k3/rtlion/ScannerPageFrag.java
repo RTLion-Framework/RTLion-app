@@ -45,6 +45,7 @@ public class ScannerPageFrag {
     private boolean viewsHidden = false;
     private ArrayList<String> freqRes, dbRes;
     private ArrayAdapter<String> arrayAdapterRes;
+    private Bitmap fftBitmap;
 
     private TextView txvScannerWarning, txvScanSensivity,
             txvScanSensivityLabel, txvFreqRange;
@@ -258,7 +259,7 @@ public class ScannerPageFrag {
                             if (data.split("[|]").length != 3 && data.split("[|]")[0].isEmpty()) {
                                 throw new Exception(context.getString(R.string.graph_error));
                             } else {
-                                Bitmap fftBitmap = new ImageBase64().getImage(data.split("[|]")[0]);
+                                fftBitmap = new ImageBase64().getImage(data.split("[|]")[0]);
                                 if(fftBitmap == null)
                                     throw new Exception(context.getString(R.string.graph_error));
                                 imgFreqScan.setImageBitmap(Bitmap.createScaledBitmap(
