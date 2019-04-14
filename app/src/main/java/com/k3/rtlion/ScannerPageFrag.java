@@ -181,6 +181,7 @@ public class ScannerPageFrag {
         for(int i = 0; i < dbRes.size(); i++){
             dbSum += Integer.valueOf(dbRes.get(i));
         }
+        int dbAvg = dbSum/dbRes.size();
     }
     private class btnStartScan_onClick implements Button.OnClickListener{
         @Override
