@@ -179,7 +179,7 @@ public class ScannerPageFrag {
     private void calculateThreshold(){
         try {
             if(dbRes.size() == 0)
-                throw new Exception();
+                throw new Exception(context.getString(R.string.invalid_dbvals));
             int dbSum = 0;
             for (int i = 0; i < dbRes.size(); i++) {
                 dbSum += Integer.valueOf(dbRes.get(i));

@@ -50,4 +50,5 @@
     <string name="freq_max">Max. Frequency</string>
     <string name="start_scan">Start Scan</string>
     <string name="sensivity">Sensivity</string>
+    <string name="invalid_dbvals">Invalid dB values.</string>
 </resources>
