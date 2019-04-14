@@ -34,6 +34,7 @@ public class GraphPageFrag {
     private boolean viewsHidden = false,
             contRead = true,
             freqChanged = false;
+    private Bitmap fftBitmap;
 
     private TextView txvGraphWarning, txvFreqVal;
     private LinearLayout llGraph;
@@ -308,7 +309,7 @@ public class GraphPageFrag {
                     }
                     @Override
                     public void run() {
-                        Bitmap fftBitmap = new ImageBase64().getImage(data);
+                        fftBitmap = new ImageBase64().getImage(data);
                         if(fftBitmap == null){
                             Toast.makeText(activity, context.getString(R.string.graph_error),
                                     Toast.LENGTH_SHORT).show();
