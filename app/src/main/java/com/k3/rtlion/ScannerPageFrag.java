@@ -250,7 +250,8 @@ public class ScannerPageFrag {
         }
     }
     private void scanFrequencyRange(){
-        jsInterface.getScannedValues(hostAddr, new JSInterface.JSOutputInterface() {
+        jsInterface.getScannedValues(hostAddr, String.valueOf(currentSensivity),
+                new JSInterface.JSOutputInterface() {
             private void setGraphImage(final String data){
                 activity.runOnUiThread(new Runnable() {
                     @Override
