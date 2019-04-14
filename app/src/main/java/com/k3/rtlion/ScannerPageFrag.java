@@ -168,12 +168,16 @@ public class ScannerPageFrag {
             tilFreqMax.setVisibility(View.VISIBLE);
             btnStartScan.setText(context.getString(R.string.start_scan));
             viewsHidden = false;
+            calculateThreshold();
         }
     }
     private void enableViews(boolean state) {
         edtxFreqMin.setEnabled(state);
         edtxFreqMax.setEnabled(state);
         btnStartScan.setEnabled(true);
+    }
+    private void calculateThreshold(){
+
     }
     private class btnStartScan_onClick implements Button.OnClickListener{
         @Override
@@ -273,7 +277,8 @@ public class ScannerPageFrag {
                                             data.split("[|]")[2].trim().split(" "));
                                     setDevFrequency(centerFreq + stepSize);
                                 } else {
-                                    hideViews(false);
+
+                                    (false);
                                     enableViews(true);
                                 }
                             }
