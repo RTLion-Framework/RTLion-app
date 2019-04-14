@@ -184,7 +184,7 @@ public class ScannerPageFrag {
         int dbAvg = dbSum/dbRes.size();
         for (int i = 0; i < freqRes.size(); i++){
             if(Math.abs(dbRes.get(i)) <= Math.abs(dbAvg/2))
-                freqRes.remove(freqRes.get(i))
+                freqRes.remove(freqRes.get(i));
         }
         arrayAdapterRes.notifyDataSetChanged();
     }
@@ -287,7 +287,7 @@ public class ScannerPageFrag {
                                     setDevFrequency(centerFreq + stepSize);
                                 } else {
 
-                                    (false);
+                                    hideViews(false);
                                     enableViews(true);
                                 }
                             }
