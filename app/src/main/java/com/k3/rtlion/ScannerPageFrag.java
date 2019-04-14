@@ -182,6 +182,11 @@ public class ScannerPageFrag {
             dbSum += Integer.valueOf(dbRes.get(i));
         }
         int dbAvg = dbSum/dbRes.size();
+        for (int i = 0; i < freqRes.size(); i++){
+            if(Math.abs(dbRes.get(i)) < Math.abs(dbAvg/2))
+                freqRes.remove(freqRes.get(i))
+        }
+        arrayAdapterRes.notifyDataSetChanged();
     }
     private class btnStartScan_onClick implements Button.OnClickListener{
         @Override
