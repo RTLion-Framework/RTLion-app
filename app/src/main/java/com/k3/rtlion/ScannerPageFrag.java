@@ -157,8 +157,6 @@ public class ScannerPageFrag {
             edtxFreqMax.setVisibility(View.GONE);
             tilFreqMin.setVisibility(View.GONE);
             tilFreqMax.setVisibility(View.GONE);
-            rlScanSensivity.setVisibility(View.GONE);
-            txvScanSensivityLabel.setVisibility(View.GONE);
             txvFreqRange.setVisibility(View.VISIBLE);
             lstScanResults.setVisibility(View.VISIBLE);
             btnStartScan.setText(context.getString(R.string.stop_graph));
@@ -168,8 +166,6 @@ public class ScannerPageFrag {
             edtxFreqMax.setVisibility(View.VISIBLE);
             tilFreqMin.setVisibility(View.VISIBLE);
             tilFreqMax.setVisibility(View.VISIBLE);
-            rlScanSensivity.setVisibility(View.VISIBLE);
-            txvScanSensivityLabel.setVisibility(View.VISIBLE);
             btnStartScan.setText(context.getString(R.string.start_scan));
             viewsHidden = false;
         }
