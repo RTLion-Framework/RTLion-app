@@ -129,12 +129,12 @@ public class JSInterface {
                 + jsInterfaceName + ".onServerGraph(msg.data);});";
         globalParams = null;
     }
-    public void getScannedValues(String url, JSOutputInterface jsOutputInterface){
+    public void getScannedValues(String url, String params, JSOutputInterface jsOutputInterface){
         this.jsOutputInterface = jsOutputInterface;
         webView.loadUrl(url + "#" + JSCommands.Scanner.name());
         graphEventCommand = "javascript:"+globalSocketName+".on('graph_data', function(data) {"
                 + jsInterfaceName + ".onServerGraph(data);});";
-        globalParams = null;
+        globalParams = new Object[]{params};
     }
     @JavascriptInterface
     public void fetchServerInfo(String info){
