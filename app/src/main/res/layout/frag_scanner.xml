@@ -139,6 +139,7 @@
                     android:layout_marginEnd="5dp"
                     android:transcriptMode="alwaysScroll"
                     android:stackFromBottom="true"
+                    android:background="@color/colorWhite2"
                     android:visibility="gone"/>
 
                 <RelativeLayout
