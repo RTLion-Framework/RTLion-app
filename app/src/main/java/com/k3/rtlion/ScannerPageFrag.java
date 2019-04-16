@@ -172,8 +172,12 @@ public class ScannerPageFrag {
                                         Toast.LENGTH_SHORT).show();
                                 break;
                             case 1:
-                                showGraph = true;
-                                centerFreq = maxFreq;
+                                if(viewsHidden) {
+                                    showGraph = true;
+                                    centerFreq = maxFreq;
+                                }else{
+                                    showSelectedFreqGraph();
+                                }
                                 break;
                         }
                     }catch (Exception e){
@@ -220,6 +224,10 @@ public class ScannerPageFrag {
         edtxFreqMin.setEnabled(state);
         edtxFreqMax.setEnabled(state);
         btnStartScan.setEnabled(true);
+    }
+    private void showSelectedFreqGraph(){
+        ((XViewPager)uiObjects[0]).setCurrentItem(2);
+        ((GraphPageFrag)uiObjects[3]).showGraph(selectedFrequency);
     }
     private void calculateThreshold(){
         try {
@@ -343,9 +351,8 @@ public class ScannerPageFrag {
                                     hideViews(false);
                                     enableViews(true);
                                     if(showGraph){
+                                        showSelectedFreqGraph();
                                         showGraph = false;
-                                        ((XViewPager)uiObjects[0]).setCurrentItem(2);
-                                        ((GraphPageFrag)uiObjects[3]).showGraph(selectedFrequency);
                                     }
                                 }
                             }
