@@ -241,7 +241,7 @@ public class ScannerPageFrag {
         public void onClick(View v) {
             if (viewsHidden) {
                 centerFreq = maxFreq;
-            }else{
+            }else if(!((GraphPageFrag)uiObjects[3]).viewsHidden){
                 if (checkRange()) {
                     freqRes.clear();
                     dbRes.clear();
@@ -270,6 +270,9 @@ public class ScannerPageFrag {
                     Toast.makeText(activity, context.getString(R.string.invalid_settings),
                             Toast.LENGTH_SHORT).show();
                 }
+            }else{
+                Toast.makeText(activity, context.getString(R.string.framework_busy),
+                        Toast.LENGTH_SHORT).show();
             }
         }
     }
