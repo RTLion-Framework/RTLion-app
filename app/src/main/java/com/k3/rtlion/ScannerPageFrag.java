@@ -150,7 +150,7 @@ public class ScannerPageFrag {
     private class lstScanResults_onItemClick implements ListView.OnItemClickListener{
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            String[] dialogOptions = new String[]{"Copy", "Show Graph"};
+            String[] dialogOptions = context.getResources().getStringArray(R.array.freq_options);
             final int frequency = (int) (Double.parseDouble(freqRes.get(position)) *
                     Math.pow(10, 6));
             AlertDialog.Builder builder = new AlertDialog.Builder(activity,
@@ -167,7 +167,8 @@ public class ScannerPageFrag {
                                 ClipData clipData = ClipData.newPlainText(context.
                                         getString(R.string.app_name), String.valueOf(frequency));
                                 clipboard.setPrimaryClip(clipData);
-                                Toast.makeText(activity, "Copied to clipboard.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(activity, context.getString(R.string.clipboard_copy),
+                                        Toast.LENGTH_SHORT).show();
                                 break;
                             case 1:
                                 break;

@@ -51,4 +51,9 @@
     <string name="start_scan">Start Scan</string>
     <string name="sensivity">Sensivity</string>
     <string name="invalid_dbvals">Invalid dB values.</string>
+    <string name="clipboard_copy">Copied to clipboard.</string>
+    <string-array name="freq_options">
+        <item>Copy</item>
+        <item>Show Graph</item>
+    </string-array>
 </resources>
