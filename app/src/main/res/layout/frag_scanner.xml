@@ -137,7 +137,8 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="5dp"
-                    android:background="@color/colorWhite2">
+                    android:background="@color/colorWhite2"
+                    android:visibility="gone">
                     <ListView
                         android:id="@+id/lstScanResults"
                         android:layout_width="match_parent"
@@ -146,8 +147,7 @@
                         android:transcriptMode="alwaysScroll"
                         android:stackFromBottom="true"
                         android:fadeScrollbars="false"
-                        android:background="@color/colorWhite"
-                        android:visibility="gone" />
+                        android:background="@color/colorWhite" />
                 </LinearLayout>
 
 
