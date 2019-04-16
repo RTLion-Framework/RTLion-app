@@ -167,6 +167,7 @@ public class ScannerPageFrag {
                                 ClipData clipData = ClipData.newPlainText(context.
                                         getString(R.string.app_name), String.valueOf(frequency));
                                 clipboard.setPrimaryClip(clipData);
+                                Toast.makeText(activity, "Copied to clipboard.", Toast.LENGTH_SHORT).show();
                                 break;
                             case 1:
                                 break;
