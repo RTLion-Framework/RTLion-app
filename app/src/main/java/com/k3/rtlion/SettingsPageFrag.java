@@ -135,6 +135,9 @@ public class SettingsPageFrag {
         @Override
         public void onClick(View v) {
             try {
+                if(!((GraphPageFrag)uiObjects[3]).viewsHidden ||
+                        !((ScannerPageFrag)uiObjects[4]).viewsHidden)
+                    throw new JSONException(context.getString(R.string.framework_busy));
                 if (cliArgs == null)
                     throw new JSONException(context.getString(R.string.invalid_settings));
                 cliArgs.put("dev", edtxDevIndex.getText().toString());
