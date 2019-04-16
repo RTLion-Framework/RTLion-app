@@ -158,6 +158,7 @@ public class GraphPageFrag {
         edtxNumRead.setEnabled(state);
         edtxInterval.setEnabled(state);
         btnFFTGraph.setEnabled(true);
+        txvGraphPerc.setText("");
     }
     private class btnFFTGraph_onClick implements Button.OnClickListener{
         @Override
@@ -302,7 +303,7 @@ public class GraphPageFrag {
                             }
                             numRead -= 1;
                             if(numRead > 0)
-                                btnFFTGraph.setText(context.getString(R.string.stop_graph) +
+                                txvGraphPerc.setText(context.getString(R.string.stop_graph) +
                                         " (%" + String.valueOf(100 - ((numRead * 100) / maxRead))
                                         + ")");
                             if(numRead != 0 && contRead){
