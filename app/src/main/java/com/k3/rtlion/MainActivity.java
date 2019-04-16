@@ -25,6 +25,7 @@ public class MainActivity extends Activity {
             hostAddrPassed = 0,
             offScreenLimit = 5;
     private JSInterface jsInterface;
+    private Object[] uiObjects;
 
     private ImageView imgRtlionSmall;
     private TextView txvRtlionFramework, txvPageNum, txvPrevPage, txvNextPage;
@@ -96,18 +97,15 @@ public class MainActivity extends Activity {
         }else if (mainPageFrag != null &&
                 mainPageFrag.getConnectionStatus() &&
                 hostAddrPassed == 0){
-
-            Object[] uiObjects = new Object[]{
+            uiObjects = new Object[]{
                     vpPages,
                     mainPageFrag,
                     settingsPageFrag,
                     graphPageFrag,
                     scannerPageFrag};
-
             graphPageFrag.setUIObjects(uiObjects);
             scannerPageFrag.setUIObjects(uiObjects);
             settingsPageFrag.setUIObjects(uiObjects);
-
             hostAddrPassed = 1;
         }
     }
