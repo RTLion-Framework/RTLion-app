@@ -105,9 +105,9 @@ public class ScannerPageFrag {
         dbRes = new ArrayList<>();
     }
     public void setUIObjects(Object[] uiObjects){
-        this.uiObjects = uiObjects;
         txvScannerWarning.setVisibility(View.GONE);
         llScanner.setVisibility(View.VISIBLE);
+        this.uiObjects = uiObjects;
         this.hostAddr = ((MainPageFrag) uiObjects[1]).getHostAddr();
     }
     public void setCliArgs(JSONObject cliArgs){
