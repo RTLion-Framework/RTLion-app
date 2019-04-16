@@ -94,6 +94,7 @@ public class ScannerPageFrag {
         llScanner.setVisibility(View.GONE);
         btnStartScan.setOnClickListener(new btnStartScan_onClick());
         lstScanResults.setOnTouchListener(new lstScanResults_onTouch());
+        lstScanResults.setOnItemClickListener(new lstScanResults_onItemClick());
         freqRes = new ArrayList<>();
         dbRes = new ArrayList<>();
     }
@@ -140,6 +141,9 @@ public class ScannerPageFrag {
             v.getParent().requestDisallowInterceptTouchEvent(true);
             return false;
         }
+    }
+    private class lstScanResults_onItemClick implements ListView.OnItemClickListener{
+
     }
     private class sbScanSensivity_onChange implements SeekBar.OnSeekBarChangeListener{
         @Override
