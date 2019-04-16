@@ -49,7 +49,7 @@ public class ScannerPageFrag {
 
     private TextView txvScannerWarning, txvScanSensivity,
             txvScanSensivityLabel, txvFreqRange;
-    private LinearLayout llScanner;
+    private LinearLayout llScanner, llScanResults;
     private RelativeLayout rlScanSensivity;
     private SeekBar sbScanSensivity;
     private TextInputLayout tilFreqMin, tilFreqMax;
@@ -68,6 +68,7 @@ public class ScannerPageFrag {
     private void initViews(){
         txvScannerWarning = viewGroup.findViewById(R.id.txvScannerWarning);
         llScanner = viewGroup.findViewById(R.id.llScanner);
+        llScanResults = viewGroup.findViewById(R.id.llScanResults);
         rlScanSensivity = viewGroup.findViewById(R.id.rlScanSensivity);
         sbScanSensivity = viewGroup.findViewById(R.id.sbScanSensivity);
         txvScanSensivity = viewGroup.findViewById(R.id.txvScanSensivity);
