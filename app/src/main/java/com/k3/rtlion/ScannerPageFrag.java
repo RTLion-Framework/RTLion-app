@@ -47,7 +47,7 @@ public class ScannerPageFrag {
                 currentSensivity = 2,
                 centerFreq, minFreq, maxFreq,
                 stepSize;
-    private boolean viewsHidden = false;
+    public boolean viewsHidden = false;
     private ArrayList<String> freqRes, dbRes;
     private ArrayAdapter<String> arrayAdapterRes;
     private Bitmap fftBitmap;

@@ -31,8 +31,8 @@ public class GraphPageFrag {
     private int centerFreq, numRead, readInterval, minFreq, maxFreq;
     private double freqShift = 20*(Math.pow(10, 6)),
             stepSize = Math.pow(10, 6)/5;
-    private boolean viewsHidden = false,
-            contRead = true,
+    public boolean viewsHidden = false;
+    private boolean contRead = true,
             freqChanged = false;
     private Bitmap fftBitmap;
     private Object[] uiObjects;
