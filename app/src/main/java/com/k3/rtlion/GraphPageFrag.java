@@ -171,6 +171,8 @@ public class GraphPageFrag {
                     try {
                         if (cliArgs == null)
                             throw new JSONException(context.getString(R.string.invalid_settings));
+                        numRead = Integer.valueOf(edtxNumRead.getText().toString());
+                        readInterval = Integer.valueOf(edtxInterval.getText().toString());
                         cliArgs.put("freq", edtxFreq.getText().toString());
                         cliArgs.put("n", edtxNumRead.getText().toString());
                         cliArgs.put("i", edtxInterval.getText().toString());
