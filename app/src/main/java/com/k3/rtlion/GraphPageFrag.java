@@ -124,9 +124,14 @@ public class GraphPageFrag {
                     Toast.LENGTH_SHORT).show();
         }
     }
-    public void showGraph(int frequency){
-        edtxFreq.setText(String.valueOf(frequency));
-        btnFFTGraph.performClick();
+    public void showGraph(final int frequency){
+        activity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                edtxFreq.setText(String.valueOf(frequency));
+                btnFFTGraph.performClick();
+            }
+        });
     }
     private void hideViews(boolean state){
         if (state){
