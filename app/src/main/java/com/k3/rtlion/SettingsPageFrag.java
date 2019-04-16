@@ -135,8 +135,8 @@ public class SettingsPageFrag {
         @Override
         public void onClick(View v) {
             try {
-                if(!((GraphPageFrag)uiObjects[3]).viewsHidden ||
-                        !((ScannerPageFrag)uiObjects[4]).viewsHidden){
+                if(((GraphPageFrag)uiObjects[3]).viewsHidden ||
+                        ((ScannerPageFrag)uiObjects[4]).viewsHidden){
                     Toast.makeText(activity, context.getString(R.string.framework_busy),
                             Toast.LENGTH_SHORT).show();
                     throw new JSONException(context.getString(R.string.framework_busy));
