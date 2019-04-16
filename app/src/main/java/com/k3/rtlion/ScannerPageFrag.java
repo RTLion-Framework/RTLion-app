@@ -2,6 +2,8 @@ package com.k3.rtlion;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
@@ -149,13 +151,28 @@ public class ScannerPageFrag {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             String[] dialogOptions = new String[]{"Copy", "Show Graph"};
+            final int frequency = Integer.valueOf(freqRes.get(position)) * (int) Math.pow(10, 6);
             AlertDialog.Builder builder = new AlertDialog.Builder(activity,
                     android.R.style.Theme_DeviceDefault_Light_Dialog);
             builder.setTitle(freqRes.get(position) + " MHz");
             builder.setItems(dialogOptions, new DialogInterface.OnClickListener() {
                 @Override
-                public void onClick(DialogInterface dialog, int which) {
-
+                public void onClick(DialogInterface dialog, int option) {
+                    try {
+                        switch (option) {
+                            case 0:
+                                ClipboardManager clipboard = (ClipboardManager) context.
+                                        getSystemService(Context.CLIPBOARD_SERVICE);
+                                ClipData clipData = ClipData.newPlainText(context.
+                                        getString(R.string.app_name), String.valueOf(frequency));
+                                clipboard.setPrimaryClip(clipData);
+                                break;
+                            case 1:
+                                break;
+                        }
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
                 }
             });
             AlertDialog alertDialog = builder.create();
