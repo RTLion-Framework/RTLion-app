@@ -46,7 +46,7 @@ public class ScannerPageFrag {
                 defaultSensivity = 2,
                 currentSensivity = 2,
                 centerFreq, minFreq, maxFreq,
-                stepSize;
+                stepSize, selectedFrequency;
     public boolean viewsHidden = false;
     private boolean showGraph = false;
     private ArrayList<String> freqRes, dbRes;
@@ -152,8 +152,7 @@ public class ScannerPageFrag {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             String[] dialogOptions = context.getResources().getStringArray(R.array.freq_options);
-            final int frequency = (int) (Double.parseDouble(freqRes.get(position)) *
-                    Math.pow(10, 6));
+            selectedFrequency = (int) (Double.parseDouble(freqRes.get(position)) * Math.pow(10, 6));
             AlertDialog.Builder builder = new AlertDialog.Builder(activity,
                     android.R.style.Theme_DeviceDefault_Light_Dialog);
             builder.setTitle(freqRes.get(position) + " MHz");
@@ -166,7 +165,8 @@ public class ScannerPageFrag {
                                 ClipboardManager clipboard = (ClipboardManager) context.
                                         getSystemService(Context.CLIPBOARD_SERVICE);
                                 ClipData clipData = ClipData.newPlainText(context.
-                                        getString(R.string.app_name), String.valueOf(frequency));
+                                        getString(R.string.app_name),
+                                        String.valueOf(selectedFrequency));
                                 clipboard.setPrimaryClip(clipData);
                                 Toast.makeText(activity, context.getString(R.string.clipboard_copy),
                                         Toast.LENGTH_SHORT).show();
@@ -344,6 +344,7 @@ public class ScannerPageFrag {
                                     enableViews(true);
                                     if(showGraph){
                                         showGraph = false;
+                                        ((GraphPageFrag)uiObjects[3]).showGraph(selectedFrequency);
                                     }
                                 }
                             }
