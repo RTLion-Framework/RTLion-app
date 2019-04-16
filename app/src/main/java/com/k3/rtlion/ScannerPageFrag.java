@@ -1,7 +1,9 @@
 package com.k3.rtlion;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.support.design.widget.TextInputLayout;
@@ -10,6 +12,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.ConsoleMessage;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -143,7 +146,21 @@ public class ScannerPageFrag {
         }
     }
     private class lstScanResults_onItemClick implements ListView.OnItemClickListener{
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            String[] dialogOptions = new String[]{"Copy", "Show Graph"};
+            AlertDialog.Builder builder = new AlertDialog.Builder(context,
+                    android.R.style.Theme_DeviceDefault_Dialog);
+            builder.setTitle("Frequency");
+            builder.setItems(dialogOptions, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
 
+                }
+            });
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
+        }
     }
     private class sbScanSensivity_onChange implements SeekBar.OnSeekBarChangeListener{
         @Override
