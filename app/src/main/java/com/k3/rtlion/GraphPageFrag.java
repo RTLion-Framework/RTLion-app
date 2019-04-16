@@ -75,9 +75,9 @@ public class GraphPageFrag {
         sbCenterFreq.setOnSeekBarChangeListener(new sbCenterFreq_onChange());
     }
     public void setUIObjects(Object[] uiObjects){
-        this.uiObjects = uiObjects;
         txvGraphWarning.setVisibility(View.GONE);
         llGraph.setVisibility(View.VISIBLE);
+        this.uiObjects = uiObjects;
         this.hostAddr = ((MainPageFrag) uiObjects[1]).getHostAddr();
     }
     public void setGraphParams(JSONObject cliArgs){
