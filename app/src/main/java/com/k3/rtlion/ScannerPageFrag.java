@@ -51,6 +51,7 @@ public class ScannerPageFrag {
     private ArrayList<String> freqRes, dbRes;
     private ArrayAdapter<String> arrayAdapterRes;
     private Bitmap fftBitmap;
+    private Object[] uiObjects;
 
     private TextView txvScannerWarning, txvScanSensivity,
             txvScanSensivityLabel, txvFreqRange;
@@ -103,12 +104,11 @@ public class ScannerPageFrag {
         freqRes = new ArrayList<>();
         dbRes = new ArrayList<>();
     }
-    public void removeConWarning(){
+    public void setUIObjects(Object[] uiObjects){
+        this.uiObjects = uiObjects;
         txvScannerWarning.setVisibility(View.GONE);
         llScanner.setVisibility(View.VISIBLE);
-    }
-    public void setHostAddr(String hostAddr){
-        this.hostAddr = hostAddr;
+        this.hostAddr = ((MainPageFrag) uiObjects[1]).getHostAddr();
     }
     public void setCliArgs(JSONObject cliArgs){
         try {
