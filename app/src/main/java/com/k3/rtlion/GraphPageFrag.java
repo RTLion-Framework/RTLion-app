@@ -28,7 +28,8 @@ public class GraphPageFrag {
     private JSInterface jsInterface;
     private String hostAddr;
     private JSONObject cliArgs;
-    private int centerFreq, numRead, readInterval, minFreq, maxFreq;
+    private int centerFreq, numRead, maxRead, readInterval,
+            minFreq, maxFreq;
     private double freqShift = 20*(Math.pow(10, 6)),
             stepSize = Math.pow(10, 6)/5;
     public boolean viewsHidden = false;
