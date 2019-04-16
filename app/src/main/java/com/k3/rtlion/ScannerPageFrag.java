@@ -48,6 +48,7 @@ public class ScannerPageFrag {
                 centerFreq, minFreq, maxFreq,
                 stepSize;
     public boolean viewsHidden = false;
+    private boolean showGraph = false;
     private ArrayList<String> freqRes, dbRes;
     private ArrayAdapter<String> arrayAdapterRes;
     private Bitmap fftBitmap;
@@ -171,6 +172,8 @@ public class ScannerPageFrag {
                                         Toast.LENGTH_SHORT).show();
                                 break;
                             case 1:
+                                showGraph = true;
+                                centerFreq = maxFreq;
                                 break;
                         }
                     }catch (Exception e){
@@ -337,9 +340,11 @@ public class ScannerPageFrag {
                                             data.split("[|]")[2].trim().split(" "));
                                     setDevFrequency(centerFreq + stepSize);
                                 } else {
-
                                     hideViews(false);
                                     enableViews(true);
+                                    if(showGraph){
+                                        showGraph = false;
+                                    }
                                 }
                             }
                         }catch (Exception e){
