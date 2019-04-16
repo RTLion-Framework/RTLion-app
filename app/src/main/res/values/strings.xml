@@ -56,4 +56,5 @@
         <item>Copy</item>
         <item>Show Graph</item>
     </string-array>
+    <string name="framework_busy">RTLion Framework is busy.</string>
 </resources>

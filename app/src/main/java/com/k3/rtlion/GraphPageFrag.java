@@ -207,7 +207,8 @@ public class GraphPageFrag {
                     enableViews(true);
                 }
             }else{
-                Toast.makeText(activity, "RTLion Framework is busy.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity, context.getString(R.string.framework_busy),
+                        Toast.LENGTH_SHORT).show();
             }
         }
     }
