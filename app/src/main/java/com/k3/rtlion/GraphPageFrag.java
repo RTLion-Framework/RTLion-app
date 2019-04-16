@@ -33,8 +33,7 @@ public class GraphPageFrag {
             stepSize = Math.pow(10, 6)/5;
     public boolean viewsHidden = false;
     private boolean contRead = true,
-            freqChanged = false,
-            checkServerSettings = false;
+            freqChanged = false;
     private Bitmap fftBitmap;
     private Object[] uiObjects;
 
@@ -126,7 +125,6 @@ public class GraphPageFrag {
         }
     }
     public void showGraph(int frequency){
-        checkServerSettings = true;
         edtxFreq.setText(String.valueOf(frequency));
         btnFFTGraph.performClick();
     }
