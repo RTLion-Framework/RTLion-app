@@ -300,6 +300,10 @@ public class GraphPageFrag {
                                 sbCenterFreq.setEnabled(true);
                             }
                             numRead -= 1;
+                            if(numRead > 0)
+                                btnFFTGraph.setText(context.getString(R.string.stop_graph) +
+                                        " (%" + String.valueOf(100 - ((numRead * 100) / maxRead))
+                                        + ")");
                             if(numRead != 0 && contRead){
                                 readWithInterval();
                             }else{
