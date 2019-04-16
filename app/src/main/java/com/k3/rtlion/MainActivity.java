@@ -96,14 +96,25 @@ public class MainActivity extends Activity {
         }else if (mainPageFrag != null &&
                 mainPageFrag.getConnectionStatus() &&
                 hostAddrPassed == 0){
+
+            Object[] uiElements = new Object[]{
+                    vpPages,
+                    mainPageFrag,
+                    settingsPageFrag,
+                    graphPageFrag,
+                    scannerPageFrag};
+
             graphPageFrag.removeConWarning();
             graphPageFrag.setHostAddr(mainPageFrag.getHostAddr());
+
             scannerPageFrag.removeConWarning();
             scannerPageFrag.setHostAddr(mainPageFrag.getHostAddr());
+
             settingsPageFrag.removeConWarning();
             settingsPageFrag.setGraphPageFrag(graphPageFrag);
             settingsPageFrag.setScannerPageFrag(scannerPageFrag);
             settingsPageFrag.setHostAddr(mainPageFrag.getHostAddr());
+
             hostAddrPassed = 1;
         }
     }
