@@ -71,7 +71,6 @@ public class GraphPageFrag {
         initViews();
         txvGraphWarning.setVisibility(View.VISIBLE);
         llGraph.setVisibility(View.GONE);
-        tilFreq.setHintAnimationEnabled(false);
         btnFFTGraph.setOnClickListener(new btnFFTGraph_onClick());
         sbCenterFreq.setOnSeekBarChangeListener(new sbCenterFreq_onChange());
     }
