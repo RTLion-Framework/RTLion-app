@@ -130,18 +130,23 @@
                     android:gravity="center"
                     android:visibility="gone"/>
 
-                <ListView
-                    android:id="@+id/lstScanResults"
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="200dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginStart="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:transcriptMode="alwaysScroll"
-                    android:stackFromBottom="true"
-                    android:fadeScrollbars="false"
-                    android:background="@color/colorWhite"
-                    android:visibility="gone"/>
+                    android:layout_marginEnd="5dp">
+                    <ListView
+                        android:id="@+id/lstScanResults"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:transcriptMode="alwaysScroll"
+                        android:stackFromBottom="true"
+                        android:fadeScrollbars="false"
+                        android:background="@color/colorWhite"
+                        android:visibility="visible"/>
+                </LinearLayout>
+
 
                 <RelativeLayout
                     android:id="@+id/rlStartScan"
