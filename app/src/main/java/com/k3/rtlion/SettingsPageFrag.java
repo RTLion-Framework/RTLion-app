@@ -25,6 +25,7 @@ public class SettingsPageFrag {
     private ScannerPageFrag scannerPageFrag;
     private String hostAddr, updatedSettings;
     private JSONObject cliArgs;
+    private Object[] uiObjects;
 
     private TextView txvSettingsWarning, txvSettingsInfo;
     private LinearLayout llSettings;
