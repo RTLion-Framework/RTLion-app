@@ -303,9 +303,8 @@ public class GraphPageFrag {
                             }
                             numRead -= 1;
                             if(numRead > 0)
-                                txvGraphPerc.setText(context.getString(R.string.stop_graph) +
-                                        " (%" + String.valueOf(100 - ((numRead * 100) / maxRead))
-                                        + ")");
+                                txvGraphPerc.setText("[%" + String.valueOf(100 -
+                                        ((numRead * 100) / maxRead)) + "]");
                             if(numRead != 0 && contRead){
                                 readWithInterval();
                             }else{
