@@ -344,6 +344,7 @@ public class ScannerPageFrag {
                                     enableViews(true);
                                     if(showGraph){
                                         showGraph = false;
+                                        ((XViewPager)uiObjects[0]).setCurrentItem(2);
                                         ((GraphPageFrag)uiObjects[3]).showGraph(selectedFrequency);
                                     }
                                 }
