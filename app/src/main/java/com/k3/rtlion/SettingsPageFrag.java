@@ -55,17 +55,13 @@ public class SettingsPageFrag {
         btnSaveSettings.setOnClickListener(new btnSaveSettings_onClick());
     }
     public void setUIObjects(Object[] uiObjects){
-        this.uiObjects = uiObjects;
         txvSettingsWarning.setVisibility(View.GONE);
         llSettings.setVisibility(View.VISIBLE);
+        this.uiObjects = uiObjects;
+        this.graphPageFrag = ((GraphPageFrag) uiObjects[3]);
+        this.scannerPageFrag = ((ScannerPageFrag) uiObjects[4]);;
         this.hostAddr = ((MainPageFrag) uiObjects[1]).getHostAddr();
         getArgsFromServer();
-    }
-    public void setGraphPageFrag(GraphPageFrag graphPageFrag){
-        this.graphPageFrag = graphPageFrag;
-    }
-    public void setScannerPageFrag(ScannerPageFrag scannerPageFrag){
-        this.scannerPageFrag = scannerPageFrag;
     }
     private void getArgsFromServer(){
         jsInterface.getServerArgs(hostAddr, new JSInterface.JSOutputInterface() {

@@ -106,11 +106,7 @@ public class MainActivity extends Activity {
 
             graphPageFrag.setUIObjects(uiObjects);
             scannerPageFrag.setUIObjects(uiObjects);
-
-            settingsPageFrag.removeConWarning();
-            settingsPageFrag.setGraphPageFrag(graphPageFrag);
-            settingsPageFrag.setScannerPageFrag(scannerPageFrag);
-            settingsPageFrag.setHostAddr(mainPageFrag.getHostAddr());
+            settingsPageFrag.setUIObjects(uiObjects);
 
             hostAddrPassed = 1;
         }
