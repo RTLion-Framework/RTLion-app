@@ -104,8 +104,7 @@ public class MainActivity extends Activity {
                     graphPageFrag,
                     scannerPageFrag};
 
-            graphPageFrag.removeConWarning();
-            graphPageFrag.setHostAddr(mainPageFrag.getHostAddr());
+            graphPageFrag.setUIObjects(uiObjects);
 
             scannerPageFrag.removeConWarning();
             scannerPageFrag.setHostAddr(mainPageFrag.getHostAddr());
