@@ -160,7 +160,7 @@ public class GraphPageFrag {
                 numRead = 0;
                 contRead = false;
                 freqChanged = false;
-            }else{
+            }else if(!((ScannerPageFrag)uiObjects[4]).viewsHidden){
                 contRead = true;
                 enableViews(false);
                 if (checkFreq()) {
@@ -206,6 +206,8 @@ public class GraphPageFrag {
                     edtxFreq.setText("");
                     enableViews(true);
                 }
+            }else{
+                Toast.makeText(activity, "RTLion Framework is busy.", Toast.LENGTH_SHORT).show();
             }
         }
     }
