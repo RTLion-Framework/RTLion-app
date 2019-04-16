@@ -260,49 +260,6 @@ public class GraphPageFrag {
             btnFFTGraph.setEnabled(false);
             sbCenterFreq.setEnabled(false);
         }
-        jsInterface.getServerArgs(hostAddr, new JSInterface.JSOutputInterface() {
-            @Override
-            public void onArgs(JSONObject cliArgs) {
-                try {
-                    if(cliArgs == null)
-                        throw new JSONException(context.getString(R.string.invalid_args));
-                    if(!checkServerSettings) {
-                        GraphPageFrag.this.setGraphParams(cliArgs);
-                        if (cliArgs.getString("freq").equals(String.valueOf(centerFreq))) {
-                            prepareGraph();
-                        } else {
-                            activity.runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    edtx_setText(edtxFreq, "");
-                                    enableViews(true);
-                                    Toast.makeText(activity, context.getString(R.string.save_error),
-                                            Toast.LENGTH_SHORT).show();
-                                }
-                            });
-                        }
-                    }else{
-                        prepareGraph();
-                        checkServerSettings = false;
-                    }
-                }catch (JSONException e){
-                    e.printStackTrace();
-                    Toast.makeText(activity, context.getString(R.string.invalid_server_settings),
-                            Toast.LENGTH_SHORT).show();
-                    enableViews(true);
-                }
-            }
-            @Override
-            public void onInfo(JSONObject clientInfo) { }
-
-            @Override
-            public void onConsoleMsg(ConsoleMessage msg) { }
-
-            @Override
-            public void onData(String data) { }
-        });
-    }
-    private void prepareGraph(){
         activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
