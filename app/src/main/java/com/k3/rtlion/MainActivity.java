@@ -97,7 +97,7 @@ public class MainActivity extends Activity {
                 mainPageFrag.getConnectionStatus() &&
                 hostAddrPassed == 0){
 
-            Object[] uiElements = new Object[]{
+            Object[] uiObjects = new Object[]{
                     vpPages,
                     mainPageFrag,
                     settingsPageFrag,

@@ -35,6 +35,7 @@ public class GraphPageFrag {
             contRead = true,
             freqChanged = false;
     private Bitmap fftBitmap;
+    private Object[] uiObjects;
 
     private TextView txvGraphWarning, txvFreqVal;
     private LinearLayout llGraph;
@@ -73,12 +74,11 @@ public class GraphPageFrag {
         btnFFTGraph.setOnClickListener(new btnFFTGraph_onClick());
         sbCenterFreq.setOnSeekBarChangeListener(new sbCenterFreq_onChange());
     }
-    public void removeConWarning(){
+    public void setUIObjects(Object[] uiObjects){
+        this.uiObjects = uiObjects;
         txvGraphWarning.setVisibility(View.GONE);
         llGraph.setVisibility(View.VISIBLE);
-    }
-    public void setHostAddr(String hostAddr){
-        this.hostAddr = hostAddr;
+        this.hostAddr = ((MainPageFrag) uiObjects[1]).getHostAddr();
     }
     public void setGraphParams(JSONObject cliArgs){
         try {
