@@ -124,6 +124,10 @@ public class GraphPageFrag {
                     Toast.LENGTH_SHORT).show();
         }
     }
+    public void showGraph(int frequency){
+        edtxFreq.setText(String.valueOf(frequency));
+        btnFFTGraph.performClick();
+    }
     private void hideViews(boolean state){
         if (state){
             edtxFreq.setVisibility(View.GONE);
