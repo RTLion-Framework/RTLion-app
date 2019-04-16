@@ -54,12 +54,11 @@ public class SettingsPageFrag {
         btnSaveSettings.setEnabled(false);
         btnSaveSettings.setOnClickListener(new btnSaveSettings_onClick());
     }
-    public void removeConWarning(){
+    public void setUIObjects(Object[] uiObjects){
+        this.uiObjects = uiObjects;
         txvSettingsWarning.setVisibility(View.GONE);
         llSettings.setVisibility(View.VISIBLE);
-    }
-    public void setHostAddr(String hostAddr){
-        this.hostAddr = hostAddr;
+        this.hostAddr = ((MainPageFrag) uiObjects[1]).getHostAddr();
         getArgsFromServer();
     }
     public void setGraphPageFrag(GraphPageFrag graphPageFrag){
