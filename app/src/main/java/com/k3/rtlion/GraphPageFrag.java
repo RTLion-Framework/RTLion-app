@@ -173,6 +173,7 @@ public class GraphPageFrag {
                         if (cliArgs == null)
                             throw new JSONException(context.getString(R.string.invalid_settings));
                         numRead = Integer.valueOf(edtxNumRead.getText().toString());
+                        maxRead = numRead;
                         readInterval = Integer.valueOf(edtxInterval.getText().toString());
                         cliArgs.put("freq", edtxFreq.getText().toString());
                         cliArgs.put("n", edtxNumRead.getText().toString());
