@@ -38,7 +38,7 @@ public class GraphPageFrag {
     private Bitmap fftBitmap;
     private Object[] uiObjects;
 
-    private TextView txvGraphWarning, txvFreqVal;
+    private TextView txvGraphWarning, txvFreqVal, txvGraphPerc;
     private LinearLayout llGraph;
     private RelativeLayout rlFreqChange;
     private ImageView imgFFTGraph;
@@ -67,6 +67,7 @@ public class GraphPageFrag {
         sbCenterFreq = viewGroup.findViewById(R.id.sbCenterFreq);
         rlFreqChange = viewGroup.findViewById(R.id.rlFreqChange);
         txvFreqVal = viewGroup.findViewById(R.id.txvFreqVal);
+        txvGraphPerc = viewGroup.findViewById(R.id.txvGraphPerc);
     }
     public void initialize(){
         initViews();
