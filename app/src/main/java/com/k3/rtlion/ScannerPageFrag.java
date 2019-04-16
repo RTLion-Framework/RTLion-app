@@ -151,7 +151,7 @@ public class ScannerPageFrag {
             String[] dialogOptions = new String[]{"Copy", "Show Graph"};
             AlertDialog.Builder builder = new AlertDialog.Builder(context,
                     android.R.style.Theme_DeviceDefault_Dialog);
-            builder.setTitle(freqRes.get(position));
+            builder.setTitle(freqRes.get(position) + " MHz");
             builder.setItems(dialogOptions, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
