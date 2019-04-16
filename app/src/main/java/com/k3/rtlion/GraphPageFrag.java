@@ -33,7 +33,8 @@ public class GraphPageFrag {
             stepSize = Math.pow(10, 6)/5;
     public boolean viewsHidden = false;
     private boolean contRead = true,
-            freqChanged = false;
+            freqChanged = false,
+            checkServerSettings = false;
     private Bitmap fftBitmap;
     private Object[] uiObjects;
 
@@ -125,6 +126,7 @@ public class GraphPageFrag {
         }
     }
     public void showGraph(int frequency){
+        checkServerSettings = true;
         edtxFreq.setText(String.valueOf(frequency));
         btnFFTGraph.performClick();
     }
@@ -264,26 +266,24 @@ public class GraphPageFrag {
                 try {
                     if(cliArgs == null)
                         throw new JSONException(context.getString(R.string.invalid_args));
-                    GraphPageFrag.this.setGraphParams(cliArgs);
-                    if(cliArgs.getString("freq").equals(String.valueOf(centerFreq))){
-                        activity.runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                if(!freqChanged) {
-                                    maxFreq = centerFreq + (int) freqShift;
-                                    minFreq = centerFreq - (int) freqShift;
-                                    txvFreqVal.setText(String.valueOf(centerFreq));
-                                    sbCenterFreq.setMax((maxFreq - minFreq) / (int) stepSize);
-                                    sbCenterFreq.setProgress(sbCenterFreq.getMax() / 2);
+                    if(!checkServerSettings) {
+                        GraphPageFrag.this.setGraphParams(cliArgs);
+                        if (cliArgs.getString("freq").equals(String.valueOf(centerFreq))) {
+                            prepareGraph();
+                        } else {
+                            activity.runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    edtx_setText(edtxFreq, "");
+                                    enableViews(true);
+                                    Toast.makeText(activity, context.getString(R.string.save_error),
+                                            Toast.LENGTH_SHORT).show();
                                 }
-                                createGraph();
-                            }
-                        });
+                            });
+                        }
                     }else{
-                        edtx_setText(edtxFreq, "");
-                        enableViews(true);
-                        Toast.makeText(activity, context.getString(R.string.save_error),
-                                Toast.LENGTH_SHORT).show();
+                        prepareGraph();
+                        checkServerSettings = false;
                     }
                 }catch (JSONException e){
                     e.printStackTrace();
@@ -300,6 +300,21 @@ public class GraphPageFrag {
 
             @Override
             public void onData(String data) { }
+        });
+    }
+    private void prepareGraph(){
+        activity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if (!freqChanged) {
+                    maxFreq = centerFreq + (int) freqShift;
+                    minFreq = centerFreq - (int) freqShift;
+                    txvFreqVal.setText(String.valueOf(centerFreq));
+                    sbCenterFreq.setMax((maxFreq - minFreq) / (int) stepSize);
+                    sbCenterFreq.setProgress(sbCenterFreq.getMax() / 2);
+                }
+                createGraph();
+            }
         });
     }
     private void createGraph(){
