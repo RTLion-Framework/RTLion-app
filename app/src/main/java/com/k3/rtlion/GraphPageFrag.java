@@ -180,12 +180,7 @@ public class GraphPageFrag {
                                 new JSInterface.JSOutputInterface() {
                             @Override
                             public void onInfo(JSONObject clientInfo) {
-                                activity.runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        checkGraphSettings();
-                                    }
-                                });
+                                configureGraphSettings();
                             }
 
                             @Override
@@ -254,16 +249,14 @@ public class GraphPageFrag {
             }
         });
     }
-    private void checkGraphSettings(){
-        if(!freqChanged) {
-            btnFFTGraph.setText(context.getString(R.string.graph_wait));
-            btnFFTGraph.setEnabled(false);
-            sbCenterFreq.setEnabled(false);
-        }
+    private void configureGraphSettings(){
         activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 if (!freqChanged) {
+                    btnFFTGraph.setText(context.getString(R.string.graph_wait));
+                    btnFFTGraph.setEnabled(false);
+                    sbCenterFreq.setEnabled(false);
                     maxFreq = centerFreq + (int) freqShift;
                     minFreq = centerFreq - (int) freqShift;
                     txvFreqVal.setText(String.valueOf(centerFreq));
