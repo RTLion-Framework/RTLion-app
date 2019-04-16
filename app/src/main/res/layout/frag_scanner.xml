@@ -131,20 +131,23 @@
                     android:visibility="gone"/>
 
                 <LinearLayout
+                    android:id="@id/llScanResults"
                     android:layout_width="wrap_content"
                     android:layout_height="200dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginStart="5dp"
-                    android:layout_marginEnd="5dp">
+                    android:layout_marginEnd="5dp"
+                    android:background="@color/colorWhite2">
                     <ListView
                         android:id="@+id/lstScanResults"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_margin="3dp"
                         android:transcriptMode="alwaysScroll"
                         android:stackFromBottom="true"
                         android:fadeScrollbars="false"
                         android:background="@color/colorWhite"
-                        android:visibility="visible"/>
+                        android:visibility="visible" />
                 </LinearLayout>
 
 
