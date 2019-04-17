@@ -3,6 +3,7 @@ package com.k3.rtlion;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.ConsoleMessage;
@@ -29,6 +30,7 @@ public class SettingsPageFrag {
 
     private TextView txvSettingsWarning, txvSettingsInfo;
     private LinearLayout llSettings;
+    private SwipeRefreshLayout swpSettings;
     private EditText edtxDevIndex, edtxSampRate, edtxDevGain;
     private Button btnSaveSettings;
 
@@ -43,6 +45,7 @@ public class SettingsPageFrag {
         txvSettingsWarning = viewGroup.findViewById(R.id.txvSettingsWarning);
         txvSettingsInfo = viewGroup.findViewById(R.id.txvSettingsInfo);
         llSettings = viewGroup.findViewById(R.id.llSettings);
+        swpSettings = viewGroup.findViewById(R.id.swpSettings);
         edtxDevIndex = viewGroup.findViewById(R.id.edtxDevIndex);
         edtxSampRate = viewGroup.findViewById(R.id.edtxSampRate);
         edtxDevGain = viewGroup.findViewById(R.id.edtxDevGain);
