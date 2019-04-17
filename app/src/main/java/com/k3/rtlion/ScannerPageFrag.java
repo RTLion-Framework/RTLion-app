@@ -348,7 +348,7 @@ public class ScannerPageFrag {
                                     btnStartScan.setEnabled(true);
                                 }
                                 numRead++;
-                                txvScanPerc.setText("[%" + String.valueOf(100 -
+                                txvScanPerc.setText("[%" + String.valueOf(
                                         ((numRead * 100) / maxRead)) + "]");
                                 if (centerFreq < maxFreq) {
                                     onDataReceived(data.split("[|]")[1].trim().split(" "),
