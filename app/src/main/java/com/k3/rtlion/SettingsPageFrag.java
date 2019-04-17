@@ -25,10 +25,10 @@ public class SettingsPageFrag {
     private GraphPageFrag graphPageFrag;
     private ScannerPageFrag scannerPageFrag;
     private String hostAddr;
-    public String updatedSettings;
     private static int refreshDuration = 800;
     private JSONObject cliArgs;
     private Object[] uiObjects;
+    public String updatedSettings;
 
     private TextView txvSettingsWarning, txvSettingsInfo;
     private LinearLayout llSettings;
@@ -186,6 +186,7 @@ public class SettingsPageFrag {
             new Handler().postDelayed(new Runnable() {
                 @Override public void run() {
                     swpSettings.setRefreshing(false);
+                    updatedSettings = null;
                     getArgsFromServer();
                 }
             }, refreshDuration );
