@@ -25,6 +25,7 @@ public class SettingsPageFrag {
     private GraphPageFrag graphPageFrag;
     private ScannerPageFrag scannerPageFrag;
     private String hostAddr, updatedSettings;
+    private static int refreshDuration = 1000;
     private JSONObject cliArgs;
     private Object[] uiObjects;
 
@@ -181,7 +182,12 @@ public class SettingsPageFrag {
     private class swpSettings_onRefresh implements SwipeRefreshLayout.OnRefreshListener{
         @Override
         public void onRefresh() {
+            new Handler().postDelayed(new Runnable() {
+                @Override public void run() {
+                    swpSettings.setRefreshing(false);
 
+                }
+            }, refreshDuration );
         }
     }
 }
