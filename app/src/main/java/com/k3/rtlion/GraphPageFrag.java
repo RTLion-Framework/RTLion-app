@@ -273,6 +273,12 @@ public class GraphPageFrag {
     }
     private void createGraph(){
         jsInterface.getGraphFFT(hostAddr, new JSInterface.JSOutputInterface() {
+            private void changeProgress(){
+                numRead -= 1;
+                if(numRead > 0)
+                    txvGraphPerc.setText("[%" + String.valueOf(100 -
+                            ((numRead * 100) / maxRead)) + "]");
+            }
             private void setGraphImage(final String data){
                 activity.runOnUiThread(new Runnable() {
                     private void readWithInterval(){
@@ -301,10 +307,7 @@ public class GraphPageFrag {
                                 btnFFTGraph.setEnabled(true);
                                 sbCenterFreq.setEnabled(true);
                             }
-                            numRead -= 1;
-                            if(numRead > 0)
-                                txvGraphPerc.setText("[%" + String.valueOf(100 -
-                                        ((numRead * 100) / maxRead)) + "]");
+                            changeProgress();
                             if(numRead != 0 && contRead){
                                 readWithInterval();
                             }else{
