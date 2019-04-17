@@ -55,7 +55,7 @@ public class ScannerPageFrag {
     private Object[] uiObjects;
 
     private TextView txvScannerWarning, txvScanSensivity,
-            txvScanSensivityLabel, txvFreqRange;
+            txvScanSensivityLabel, txvFreqRange, txvScanPerc;
     private LinearLayout llScanner, llScanResults;
     private RelativeLayout rlScanSensivity;
     private SeekBar sbScanSensivity;
@@ -79,6 +79,7 @@ public class ScannerPageFrag {
         sbScanSensivity = viewGroup.findViewById(R.id.sbScanSensivity);
         txvScanSensivity = viewGroup.findViewById(R.id.txvScanSensivity);
         txvScanSensivityLabel = viewGroup.findViewById(R.id.txvScanSensivityLabel);
+        txvScanPerc = viewGroup.findViewById(R.id.txvScanPerc);
         tilFreqMin = viewGroup.findViewById(R.id.tilFreqMin);
         tilFreqMax = viewGroup.findViewById(R.id.tilFreqMax);
         edtxFreqMin = viewGroup.findViewById(R.id.edtxFreqMin);
