@@ -273,7 +273,7 @@ public class ScannerPageFrag {
                     };
                     lstScanResults.setAdapter(arrayAdapterRes);
                     stepSize = 2 * (int) Math.pow(10, (int) Math.log10(maxFreq - minFreq) - 1);
-                    maxRead = (maxFreq - minFreq) / stepSize;
+                    maxRead = ((maxFreq - minFreq) / stepSize) - 1;
                     enableViews(false);
                     txvFreqRange.setText(String.valueOf(minFreq) + "-" +
                             String.valueOf(maxFreq));
@@ -346,12 +346,12 @@ public class ScannerPageFrag {
                                     hideViews(true);
                                     btnStartScan.setEnabled(true);
                                 }
-                                numRead++;
                                 if(numRead < maxRead)
                                     txvScanPerc.setText("[%" + String.valueOf(
                                             ((numRead * 100) / maxRead)) + "]");
                                 else
                                     txvScanPerc.setText("[%100]");
+                                numRead++;
                                 if (centerFreq < maxFreq) {
                                     onDataReceived(data.split("[|]")[1].trim().split(" "),
                                             data.split("[|]")[2].trim().split(" "));
