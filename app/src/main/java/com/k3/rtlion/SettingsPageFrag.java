@@ -25,7 +25,7 @@ public class SettingsPageFrag {
     private GraphPageFrag graphPageFrag;
     private ScannerPageFrag scannerPageFrag;
     private String hostAddr, updatedSettings;
-    private static int refreshDuration = 1000;
+    private static int refreshDuration = 800;
     private JSONObject cliArgs;
     private Object[] uiObjects;
 
