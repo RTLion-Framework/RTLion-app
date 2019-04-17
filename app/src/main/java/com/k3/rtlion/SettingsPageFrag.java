@@ -185,7 +185,7 @@ public class SettingsPageFrag {
             new Handler().postDelayed(new Runnable() {
                 @Override public void run() {
                     swpSettings.setRefreshing(false);
-
+                    getArgsFromServer();
                 }
             }, refreshDuration );
         }
