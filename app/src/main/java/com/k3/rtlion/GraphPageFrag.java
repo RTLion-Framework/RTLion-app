@@ -31,6 +31,7 @@ public class GraphPageFrag {
     private JSONObject cliArgs;
     private int centerFreq, numRead, maxRead, readInterval,
             minFreq, maxFreq;
+    private static int refreshDuration = 800;
     private double freqShift = 20*(Math.pow(10, 6)),
             stepSize = Math.pow(10, 6)/5;
     public boolean viewsHidden = false;
@@ -78,6 +79,7 @@ public class GraphPageFrag {
         llGraph.setVisibility(View.GONE);
         btnFFTGraph.setOnClickListener(new btnFFTGraph_onClick());
         sbCenterFreq.setOnSeekBarChangeListener(new sbCenterFreq_onChange());
+        swpGraph.setOnRefreshListener(new swpGraph_onRefresh());
     }
     public void setUIObjects(Object[] uiObjects){
         txvGraphWarning.setVisibility(View.GONE);
@@ -235,6 +237,18 @@ public class GraphPageFrag {
                 contRead = false;
                 freqChanged = true;
             }
+        }
+    }
+    private class swpGraph_onRefresh implements SwipeRefreshLayout.OnRefreshListener{
+        @Override
+        public void onRefresh() {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    swpGraph.setRefreshing(false);
+
+                }
+            }, refreshDuration);
         }
     }
     private boolean checkFreq(){
