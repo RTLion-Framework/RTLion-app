@@ -246,8 +246,13 @@ public class GraphPageFrag {
                 @Override
                 public void run() {
                     swpGraph.setRefreshing(false);
-                    ((SettingsPageFrag)uiObjects[2]).updatedSettings = null;
-                    ((SettingsPageFrag)uiObjects[2]).getArgsFromServer();
+                    if(!viewsHidden && !((ScannerPageFrag)uiObjects[4]).viewsHidden) {
+                        ((SettingsPageFrag) uiObjects[2]).updatedSettings = null;
+                        ((SettingsPageFrag) uiObjects[2]).getArgsFromServer();
+                    }else{
+                        Toast.makeText(activity, context.getString(R.string.framework_busy),
+                                Toast.LENGTH_SHORT).show();
+                    }
                 }
             }, refreshDuration);
         }
