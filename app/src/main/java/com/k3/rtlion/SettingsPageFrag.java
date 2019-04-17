@@ -57,6 +57,7 @@ public class SettingsPageFrag {
         llSettings.setVisibility(View.GONE);
         btnSaveSettings.setEnabled(false);
         btnSaveSettings.setOnClickListener(new btnSaveSettings_onClick());
+        swpSettings.setOnRefreshListener(new swpSettings_onRefresh());
     }
     public void setUIObjects(Object[] uiObjects){
         txvSettingsWarning.setVisibility(View.GONE);
@@ -175,6 +176,12 @@ public class SettingsPageFrag {
                 Toast.makeText(activity, context.getString(R.string.settings_save_error),
                         Toast.LENGTH_SHORT).show();
             }
+        }
+    }
+    private class swpSettings_onRefresh implements SwipeRefreshLayout.OnRefreshListener{
+        @Override
+        public void onRefresh() {
+
         }
     }
 }
