@@ -71,71 +71,81 @@ public class SettingsPageFrag {
         getArgsFromServer();
     }
     public void getArgsFromServer(){
-        jsInterface.getServerArgs(hostAddr, new JSInterface.JSOutputInterface() {
-            private void edtx_setText(final EditText editText, final String text){
-                activity.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        editText.setText(text);
-                    }
-                });
-            }
-            private void enable_btnSaveSettings(){
-                activity.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        btnSaveSettings.setEnabled(true);
-                    }
-                });
-            }
-
-            @Override
-            public void onArgs(JSONObject cliArgs) {
-                try {
-                    if(cliArgs == null)
-                        throw new JSONException(context.getString(R.string.invalid_args));
-                    if (updatedSettings != null)
-                        if(updatedSettings.equals(cliArgs.toString()))
-                            Toast.makeText(activity, context.getString(R.string.settings_updated),
-                                    Toast.LENGTH_SHORT).show();
-                    SettingsPageFrag.this.cliArgs = cliArgs;
-                    for (int i = 0; i < cliArgs.length(); i++) {
-                        switch (cliArgs.names().getString(i)){
-                            case "dev":
-                                edtx_setText(edtxDevIndex, cliArgs.getString(
-                                        cliArgs.names().getString(i)));
-                                break;
-                            case "samprate":
-                                edtx_setText(edtxSampRate, cliArgs.getString(
-                                        cliArgs.names().getString(i)));
-                                break;
-                            case "gain":
-                                edtx_setText(edtxDevGain, cliArgs.getString(
-                                        cliArgs.names().getString(i)));
-                                break;
-                            default:
-                                break;
+        if(((GraphPageFrag)uiObjects[3]).viewsHidden ||
+                ((ScannerPageFrag)uiObjects[4]).viewsHidden){
+            Toast.makeText(activity, context.getString(R.string.framework_busy),
+                    Toast.LENGTH_SHORT).show();
+        }else {
+            jsInterface.getServerArgs(hostAddr, new JSInterface.JSOutputInterface() {
+                private void edtx_setText(final EditText editText, final String text) {
+                    activity.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            editText.setText(text);
                         }
-                    }
-                    graphPageFrag.setGraphParams(cliArgs);
-                    scannerPageFrag.setCliArgs(cliArgs);
-                    enable_btnSaveSettings();
-                }catch (JSONException e){
-                    e.printStackTrace();
-                    Toast.makeText(activity, context.getString(R.string.invalid_server_settings),
-                            Toast.LENGTH_SHORT).show();
+                    });
                 }
-            }
 
-            @Override
-            public void onInfo(JSONObject clientInfo) { }
+                private void enable_btnSaveSettings() {
+                    activity.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            btnSaveSettings.setEnabled(true);
+                        }
+                    });
+                }
 
-            @Override
-            public void onConsoleMsg(ConsoleMessage msg) { }
+                @Override
+                public void onArgs(JSONObject cliArgs) {
+                    try {
+                        if (cliArgs == null)
+                            throw new JSONException(context.getString(R.string.invalid_args));
+                        if (updatedSettings != null)
+                            if (updatedSettings.equals(cliArgs.toString()))
+                                Toast.makeText(activity, context.getString(R.string.settings_updated),
+                                        Toast.LENGTH_SHORT).show();
+                        SettingsPageFrag.this.cliArgs = cliArgs;
+                        for (int i = 0; i < cliArgs.length(); i++) {
+                            switch (cliArgs.names().getString(i)) {
+                                case "dev":
+                                    edtx_setText(edtxDevIndex, cliArgs.getString(
+                                            cliArgs.names().getString(i)));
+                                    break;
+                                case "samprate":
+                                    edtx_setText(edtxSampRate, cliArgs.getString(
+                                            cliArgs.names().getString(i)));
+                                    break;
+                                case "gain":
+                                    edtx_setText(edtxDevGain, cliArgs.getString(
+                                            cliArgs.names().getString(i)));
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                        graphPageFrag.setGraphParams(cliArgs);
+                        scannerPageFrag.setCliArgs(cliArgs);
+                        enable_btnSaveSettings();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        Toast.makeText(activity, context.getString(R.string.invalid_server_settings),
+                                Toast.LENGTH_SHORT).show();
+                    }
+                }
 
-            @Override
-            public void onData(String data) { }
-        });
+                @Override
+                public void onInfo(JSONObject clientInfo) {
+                }
+
+                @Override
+                public void onConsoleMsg(ConsoleMessage msg) {
+                }
+
+                @Override
+                public void onData(String data) {
+                }
+            });
+        }
     }
     private class btnSaveSettings_onClick implements Button.OnClickListener{
         @Override
@@ -186,14 +196,8 @@ public class SettingsPageFrag {
             new Handler().postDelayed(new Runnable() {
                 @Override public void run() {
                     swpSettings.setRefreshing(false);
-                    if(!((GraphPageFrag)uiObjects[3]).viewsHidden &&
-                            !((ScannerPageFrag)uiObjects[4]).viewsHidden) {
-                        updatedSettings = null;
-                        getArgsFromServer();
-                    }else{
-                        Toast.makeText(activity, context.getString(R.string.framework_busy),
-                                Toast.LENGTH_SHORT).show();
-                    }
+                    updatedSettings = null;
+                    getArgsFromServer();
                 }
             }, refreshDuration );
         }
