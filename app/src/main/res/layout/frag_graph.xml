@@ -1,160 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<android.support.v4.widget.SwipeRefreshLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swpGraph"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:scrollbars="none" >
-    <LinearLayout
+    android:layout_height="match_parent">
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <RelativeLayout
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none" >
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/txvGraphWarning"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="@string/connection_warning"
-                android:textStyle="bold"
-                android:visibility="gone"/>
-
-            <LinearLayout
-                android:id="@+id/llGraph"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="match_parent">
 
-                <com.github.chrisbanes.photoview.PhotoView
-                    android:id="@+id/imgFFTGraph"
+                <TextView
+                    android:id="@+id/txvGraphWarning"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/connection_warning"
+                    android:textStyle="bold"
+                    android:visibility="gone"/>
+
+                <LinearLayout
+                    android:id="@+id/llGraph"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingStart="5dp"
-                    android:paddingEnd="5dp"
-                    android:paddingTop="3dp"
-                    android:layout_marginTop="3dp"
-                    android:layout_marginBottom="3dp"
-                    android:scaleType="centerInside" />
+                    android:orientation="vertical">
 
-                <RelativeLayout
-                    android:id="@+id/rlFreqChange"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone">
-                    <SeekBar
-                        android:id="@+id/sbCenterFreq"
+                    <com.github.chrisbanes.photoview.PhotoView
+                        android:id="@+id/imgFFTGraph"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="5dp"
+                        android:paddingEnd="5dp"
+                        android:paddingTop="3dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:scaleType="centerInside" />
+
+                    <RelativeLayout
+                        android:id="@+id/rlFreqChange"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone">
+                        <SeekBar
+                            android:id="@+id/sbCenterFreq"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_toStartOf="@+id/txvFreqVal"
+                            android:progressTint="@android:color/transparent"
+                            android:theme="@style/RangeSeekBar" />
+                        <TextView
+                            android:id="@+id/txvFreqVal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="4dp" />
+                    </RelativeLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilFreq"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginTop="5dp"
+                        android:theme="@style/TLabel">
+                        <EditText
+                            android:id="@+id/edtxFreq"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/center_freq"
+                            android:singleLine="true"
+                            android:backgroundTint="@color/colorAccent"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:fontFamily="monospace"
+                            android:textStyle="bold"
+                            android:textSize="15sp"
+                            android:paddingStart="5dp"
+                            android:inputType="number"/>
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilNumRead"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginTop="5dp"
+                        android:theme="@style/TLabel">
+                        <EditText
+                            android:id="@+id/edtxNumRead"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/num_read"
+                            android:singleLine="true"
+                            android:backgroundTint="@color/colorAccent"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:fontFamily="monospace"
+                            android:textStyle="bold"
+                            android:textSize="15sp"
+                            android:paddingStart="5dp"
+                            android:inputType="number"/>
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilInterval"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginTop="5dp"
+                        android:theme="@style/TLabel">
+                        <EditText
+                            android:id="@+id/edtxInterval"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/interval"
+                            android:singleLine="true"
+                            android:backgroundTint="@color/colorAccent"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:fontFamily="monospace"
+                            android:textStyle="bold"
+                            android:textSize="15sp"
+                            android:paddingStart="5dp"
+                            android:inputType="number"/>
+                    </android.support.design.widget.TextInputLayout>
+                    <RelativeLayout
+                        android:id="@+id/rlFFTGraph"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="5dp"
-                        android:layout_marginStart="5dp"
-                        android:layout_toStartOf="@+id/txvFreqVal"
-                        android:progressTint="@android:color/transparent"
-                        android:theme="@style/RangeSeekBar" />
-                    <TextView
-                        android:id="@+id/txvFreqVal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginEnd="20dp"
-                        android:layout_marginTop="4dp" />
-                </RelativeLayout>
+                        android:layout_marginTop="5dp">
+                        <Button
+                            android:id="@+id/btnFFTGraph"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:text="@string/create_graph"
+                            android:theme="@style/FlatButton"/>
+                        <TextView
+                            android:id="@+id/txvGraphPerc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorGray1"
+                            android:fontFamily="monospace"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginTop="14dp"
+                            android:layout_marginStart="15dp"
+                            android:visibility="visible"/>
+                    </RelativeLayout>
 
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/tilFreq"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginTop="5dp"
-                    android:theme="@style/TLabel">
-                    <EditText
-                        android:id="@+id/edtxFreq"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/center_freq"
-                        android:singleLine="true"
-                        android:backgroundTint="@color/colorAccent"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:fontFamily="monospace"
-                        android:textStyle="bold"
-                        android:textSize="15sp"
-                        android:paddingStart="5dp"
-                        android:inputType="number"/>
-                </android.support.design.widget.TextInputLayout>
-
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/tilNumRead"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginTop="5dp"
-                    android:theme="@style/TLabel">
-                    <EditText
-                        android:id="@+id/edtxNumRead"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/num_read"
-                        android:singleLine="true"
-                        android:backgroundTint="@color/colorAccent"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:fontFamily="monospace"
-                        android:textStyle="bold"
-                        android:textSize="15sp"
-                        android:paddingStart="5dp"
-                        android:inputType="number"/>
-                </android.support.design.widget.TextInputLayout>
-
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/tilInterval"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginTop="5dp"
-                    android:theme="@style/TLabel">
-                    <EditText
-                        android:id="@+id/edtxInterval"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/interval"
-                        android:singleLine="true"
-                        android:backgroundTint="@color/colorAccent"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:fontFamily="monospace"
-                        android:textStyle="bold"
-                        android:textSize="15sp"
-                        android:paddingStart="5dp"
-                        android:inputType="number"/>
-                </android.support.design.widget.TextInputLayout>
-                <RelativeLayout
-                    android:id="@+id/rlFFTGraph"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginTop="5dp">
-                    <Button
-                        android:id="@+id/btnFFTGraph"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:text="@string/create_graph"
-                        android:theme="@style/FlatButton"/>
-                    <TextView
-                        android:id="@+id/txvGraphPerc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorGray1"
-                        android:fontFamily="monospace"
-                        android:layout_alignParentStart="true"
-                        android:layout_marginTop="14dp"
-                        android:layout_marginStart="15dp"
-                        android:visibility="visible"/>
-                </RelativeLayout>
-
-            </LinearLayout>
-        </RelativeLayout>
-    </LinearLayout>
-</ScrollView>
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</android.support.v4.widget.SwipeRefreshLayout>
