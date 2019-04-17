@@ -246,6 +246,7 @@ public class GraphPageFrag {
                 @Override
                 public void run() {
                     swpGraph.setRefreshing(false);
+                    ((SettingsPageFrag)uiObjects[2]).updatedSettings = null;
                     ((SettingsPageFrag)uiObjects[2]).getArgsFromServer();
                 }
             }, refreshDuration);
