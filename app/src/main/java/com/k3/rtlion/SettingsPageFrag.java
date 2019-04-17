@@ -186,8 +186,14 @@ public class SettingsPageFrag {
             new Handler().postDelayed(new Runnable() {
                 @Override public void run() {
                     swpSettings.setRefreshing(false);
-                    updatedSettings = null;
-                    getArgsFromServer();
+                    if(!((GraphPageFrag)uiObjects[3]).viewsHidden &&
+                            !((ScannerPageFrag)uiObjects[4]).viewsHidden) {
+                        updatedSettings = null;
+                        getArgsFromServer();
+                    }else{
+                        Toast.makeText(activity, context.getString(R.string.framework_busy),
+                                Toast.LENGTH_SHORT).show();
+                    }
                 }
             }, refreshDuration );
         }
