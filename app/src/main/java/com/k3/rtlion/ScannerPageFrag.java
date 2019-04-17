@@ -224,6 +224,7 @@ public class ScannerPageFrag {
         edtxFreqMin.setEnabled(state);
         edtxFreqMax.setEnabled(state);
         btnStartScan.setEnabled(true);
+        txvScanPerc.setText("");
     }
     private void showSelectedFreqGraph(){
         ((XViewPager)uiObjects[0]).setCurrentItem(2);
