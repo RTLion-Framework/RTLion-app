@@ -106,6 +106,7 @@ public class ScannerPageFrag {
         btnStartScan.setOnClickListener(new btnStartScan_onClick());
         lstScanResults.setOnTouchListener(new lstScanResults_onTouch());
         lstScanResults.setOnItemClickListener(new lstScanResults_onItemClick());
+        swpScanner.setOnRefreshListener(new swpScanner_onRefresh());
         freqRes = new ArrayList<>();
         dbRes = new ArrayList<>();
     }
@@ -202,6 +203,12 @@ public class ScannerPageFrag {
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
             currentSensivity = minSens + (progress * sensStep);
             txvScanSensivity.setText(String.valueOf(currentSensivity));
+        }
+    }
+    private class swpScanner_onRefresh implements SwipeRefreshLayout.OnRefreshListener{
+        @Override
+        public void onRefresh() {
+
         }
     }
     private void hideViews(boolean state){
