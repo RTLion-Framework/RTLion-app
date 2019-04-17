@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Handler;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.ConsoleMessage;
@@ -41,6 +42,7 @@ public class GraphPageFrag {
     private TextView txvGraphWarning, txvFreqVal, txvGraphPerc;
     private LinearLayout llGraph;
     private RelativeLayout rlFreqChange;
+    private SwipeRefreshLayout swpGraph;
     private ImageView imgFFTGraph;
     private Button btnFFTGraph;
     private EditText edtxFreq, edtxNumRead, edtxInterval;
@@ -56,6 +58,7 @@ public class GraphPageFrag {
     private void initViews(){
         txvGraphWarning = viewGroup.findViewById(R.id.txvGraphWarning);
         llGraph = viewGroup.findViewById(R.id.llGraph);
+        swpGraph = viewGroup.findViewById(R.id.swpGraph);
         imgFFTGraph = viewGroup.findViewById(R.id.imgFFTGraph);
         btnFFTGraph = viewGroup.findViewById(R.id.btnFFTGraph);
         edtxFreq = viewGroup.findViewById(R.id.edtxFreq);
