@@ -273,7 +273,7 @@ public class ScannerPageFrag {
                     };
                     lstScanResults.setAdapter(arrayAdapterRes);
                     stepSize = 2 * (int) Math.pow(10, (int) Math.log10(maxFreq - minFreq) - 1);
-                    maxRead = 2 * (int) Math.log10(maxFreq - minFreq) - 1;
+                    maxRead = (maxFreq - minFreq) / stepSize;
                     enableViews(false);
                     txvFreqRange.setText(String.valueOf(minFreq) + "-" +
                             String.valueOf(maxFreq));
