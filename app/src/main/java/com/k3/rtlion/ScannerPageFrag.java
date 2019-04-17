@@ -327,6 +327,14 @@ public class ScannerPageFrag {
     private void scanFrequencyRange(){
         jsInterface.getScannedValues(hostAddr, String.valueOf(currentSensivity),
                 new JSInterface.JSOutputInterface() {
+            private void changeProgress(){
+                numRead++;
+                if(numRead < maxRead)
+                    txvScanPerc.setText("[%" + String.valueOf(
+                            ((numRead * 100) / maxRead)) + "]");
+                else
+                    txvScanPerc.setText("[%100]");
+            }
             private void setGraphImage(final String data){
                 activity.runOnUiThread(new Runnable() {
                     @Override
@@ -346,12 +354,7 @@ public class ScannerPageFrag {
                                     hideViews(true);
                                     btnStartScan.setEnabled(true);
                                 }
-                                numRead++;
-                                if(numRead < maxRead)
-                                    txvScanPerc.setText("[%" + String.valueOf(
-                                            ((numRead * 100) / maxRead)) + "]");
-                                else
-                                    txvScanPerc.setText("[%100]");
+                                changeProgress();
                                 if (centerFreq < maxFreq) {
                                     onDataReceived(data.split("[|]")[1].trim().split(" "),
                                             data.split("[|]")[2].trim().split(" "));
