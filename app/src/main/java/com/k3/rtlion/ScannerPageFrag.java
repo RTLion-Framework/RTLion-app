@@ -277,7 +277,6 @@ public class ScannerPageFrag {
                     enableViews(false);
                     txvFreqRange.setText(String.valueOf(minFreq) + "-" +
                             String.valueOf(maxFreq));
-                    txvFreqRange.setText("");
                     btnStartScan.setText(context.getString(R.string.graph_wait));
                     btnStartScan.setEnabled(false);
                     setDevFrequency(minFreq);
