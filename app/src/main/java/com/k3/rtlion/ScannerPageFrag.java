@@ -46,7 +46,8 @@ public class ScannerPageFrag {
                 defaultSensivity = 2,
                 currentSensivity = 2,
                 centerFreq, minFreq, maxFreq,
-                stepSize, selectedFrequency;
+                stepSize, selectedFrequency,
+                numRead, maxRead;
     public boolean viewsHidden = false;
     private boolean showGraph = false;
     private ArrayList<String> freqRes, dbRes;
@@ -255,6 +256,7 @@ public class ScannerPageFrag {
                 centerFreq = maxFreq;
             }else if(!((GraphPageFrag)uiObjects[3]).viewsHidden){
                 if (checkRange()) {
+                    numRead = 0;
                     freqRes.clear();
                     dbRes.clear();
                     arrayAdapterRes = new ArrayAdapter<String>(activity,
