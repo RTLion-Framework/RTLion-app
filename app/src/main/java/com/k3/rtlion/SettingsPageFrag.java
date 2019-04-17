@@ -69,7 +69,7 @@ public class SettingsPageFrag {
         this.hostAddr = ((MainPageFrag) uiObjects[1]).getHostAddr();
         getArgsFromServer();
     }
-    private void getArgsFromServer(){
+    public void getArgsFromServer(){
         jsInterface.getServerArgs(hostAddr, new JSInterface.JSOutputInterface() {
             private void edtx_setText(final EditText editText, final String text){
                 activity.runOnUiThread(new Runnable() {
