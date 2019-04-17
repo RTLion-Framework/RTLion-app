@@ -214,6 +214,8 @@ public class ScannerPageFrag {
                 @Override
                 public void run() {
                     swpScanner.setRefreshing(false);
+                    ((SettingsPageFrag)uiObjects[2]).updatedSettings = null;
+                    ((SettingsPageFrag)uiObjects[2]).getArgsFromServer();
                 }
             }, refreshDuration);
         }
