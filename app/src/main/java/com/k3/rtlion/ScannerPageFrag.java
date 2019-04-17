@@ -71,7 +71,6 @@ public class ScannerPageFrag {
         this.viewGroup = viewGroup;
         this.jsInterface = jsInterface;
     }
-
     private void initViews(){
         txvScannerWarning = viewGroup.findViewById(R.id.txvScannerWarning);
         llScanner = viewGroup.findViewById(R.id.llScanner);

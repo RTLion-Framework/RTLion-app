@@ -165,6 +165,16 @@
                         android:layout_alignParentEnd="true"
                         android:text="@string/start_scan"
                         android:theme="@style/FlatButton"/>
+                    <TextView
+                        android:id="@+id/txvScanPerc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorGray1"
+                        android:fontFamily="monospace"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginTop="14dp"
+                        android:layout_marginStart="15dp"
+                        android:visibility="visible"/>
                 </RelativeLayout>
             </LinearLayout>
         </RelativeLayout>
