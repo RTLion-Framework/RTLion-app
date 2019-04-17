@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
@@ -58,6 +59,7 @@ public class ScannerPageFrag {
     private TextView txvScannerWarning, txvScanSensivity,
             txvScanSensivityLabel, txvFreqRange, txvScanPerc;
     private LinearLayout llScanner, llScanResults;
+    private SwipeRefreshLayout swpScanner;
     private RelativeLayout rlScanSensivity;
     private SeekBar sbScanSensivity;
     private TextInputLayout tilFreqMin, tilFreqMax;
@@ -77,6 +79,7 @@ public class ScannerPageFrag {
         llScanner = viewGroup.findViewById(R.id.llScanner);
         llScanResults = viewGroup.findViewById(R.id.llScanResults);
         rlScanSensivity = viewGroup.findViewById(R.id.rlScanSensivity);
+        swpScanner = viewGroup.findViewById(R.id.swpScanner);
         sbScanSensivity = viewGroup.findViewById(R.id.sbScanSensivity);
         txvScanSensivity = viewGroup.findViewById(R.id.txvScanSensivity);
         txvScanSensivityLabel = viewGroup.findViewById(R.id.txvScanSensivityLabel);
