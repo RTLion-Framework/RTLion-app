@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
+import android.os.Handler;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.TypedValue;
@@ -49,6 +50,7 @@ public class ScannerPageFrag {
                 centerFreq, minFreq, maxFreq,
                 stepSize, selectedFrequency,
                 numRead, maxRead;
+    private static int refreshDuration = 800;
     public boolean viewsHidden = false;
     private boolean showGraph = false;
     private ArrayList<String> freqRes, dbRes;
@@ -208,7 +210,12 @@ public class ScannerPageFrag {
     private class swpScanner_onRefresh implements SwipeRefreshLayout.OnRefreshListener{
         @Override
         public void onRefresh() {
-
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    swpScanner.setRefreshing(false);
+                }
+            }, refreshDuration);
         }
     }
     private void hideViews(boolean state){
