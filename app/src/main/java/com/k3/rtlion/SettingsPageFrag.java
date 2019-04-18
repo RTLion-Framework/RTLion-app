@@ -30,7 +30,7 @@ public class SettingsPageFrag {
     private Object[] uiObjects;
     public String updatedSettings;
 
-    private TextView txvSettingsWarning, txvSettingsInfo;
+    private TextView txvSettingsWarning;
     private LinearLayout llSettings;
     private SwipeRefreshLayout swpSettings;
     private EditText edtxDevIndex, edtxSampRate, edtxDevGain;
@@ -45,7 +45,6 @@ public class SettingsPageFrag {
 
     private void initViews(){
         txvSettingsWarning = viewGroup.findViewById(R.id.txvSettingsWarning);
-        txvSettingsInfo = viewGroup.findViewById(R.id.txvSettingsInfo);
         llSettings = viewGroup.findViewById(R.id.llSettings);
         swpSettings = viewGroup.findViewById(R.id.swpSettings);
         edtxDevIndex = viewGroup.findViewById(R.id.edtxDevIndex);
