@@ -54,6 +54,8 @@ public class JSInterface {
     public void initialize(WebView webView){
         this.webView = webView;
         webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setDomStorageEnabled(true);
+        webView.getSettings().setLoadWithOverviewMode(true);
         jsInterfaceName = this.getClass().getSimpleName();
         webView.addJavascriptInterface(this, jsInterfaceName);
         webView.setWebViewClient(new webView_client());
