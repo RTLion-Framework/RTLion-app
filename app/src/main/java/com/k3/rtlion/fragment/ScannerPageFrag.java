@@ -73,6 +73,7 @@ public class ScannerPageFrag {
     private Button btnStartScan;
     private PhotoView imgFreqScan;
     private ListView lstScanResults;
+    private View viewResSeparate;
 
     public ScannerPageFrag(Activity activity, ViewGroup viewGroup, JSInterface jsInterface){
         this.activity = activity;
@@ -98,6 +99,7 @@ public class ScannerPageFrag {
         imgFreqScan = viewGroup.findViewById(R.id.imgFreqScan);
         txvFreqRange = viewGroup.findViewById(R.id.txvFreqRange);
         lstScanResults = viewGroup.findViewById(R.id.lstScanResults);
+        viewResSeparate = viewGroup.findViewById(R.id.viewResSeparate);
     }
     private void initSeekBar(){
         sbScanSensivity.setOnSeekBarChangeListener(new sbScanSensivity_onChange());
@@ -236,6 +238,7 @@ public class ScannerPageFrag {
             tilFreqMax.setVisibility(View.GONE);
             txvFreqRange.setVisibility(View.VISIBLE);
             llScanResults.setVisibility(View.VISIBLE);
+            viewResSeparate.setVisibility(View.VISIBLE);
             btnStartScan.setText(context.getString(R.string.stop_graph));
             viewsHidden = true;
         }else{

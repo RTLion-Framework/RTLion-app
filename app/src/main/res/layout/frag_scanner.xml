@@ -123,13 +123,15 @@
                     </RelativeLayout>
 
                     <View
+                        android:id="@+id/viewResSeparate"
                         android:layout_width="match_parent"
                         android:layout_height="2dp"
                         android:background="@color/colorWhite2"
                         android:layout_marginStart="4dp"
                         android:layout_marginEnd="4dp"
                         android:layout_marginTop="3dp"
-                        android:layout_marginBottom="3dp"/>
+                        android:layout_marginBottom="3dp"
+                        android:visibility="gone"/>
 
                     <TextView
                         android:id="@+id/txvFreqRange"
