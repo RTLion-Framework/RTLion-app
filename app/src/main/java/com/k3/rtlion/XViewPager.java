@@ -6,6 +6,8 @@ import android.view.MotionEvent;
 
 public class XViewPager extends android.support.v4.view.ViewPager {
 
+    private boolean allowSwipe = true;
+
     public XViewPager(Context context) {
         super(context);
     }
@@ -14,10 +16,15 @@ public class XViewPager extends android.support.v4.view.ViewPager {
         super(context, attrs);
     }
 
+    public void allowSwiping(boolean allow){
+        this.allowSwipe = allow;
+    }
+
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
         try {
-            return super.onTouchEvent(ev);
+            if(allowSwipe)
+                return super.onTouchEvent(ev);
         } catch (IllegalArgumentException ex) {
             ex.printStackTrace();
         }
@@ -27,7 +34,8 @@ public class XViewPager extends android.support.v4.view.ViewPager {
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         try {
-            return super.onInterceptTouchEvent(ev);
+            if(allowSwipe)
+                return super.onInterceptTouchEvent(ev);
         } catch (IllegalArgumentException ex) {
             ex.printStackTrace();
         }
