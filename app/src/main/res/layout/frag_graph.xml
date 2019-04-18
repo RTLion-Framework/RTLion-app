@@ -30,7 +30,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-
                     <com.github.chrisbanes.photoview.PhotoView
                         android:id="@+id/imgFFTGraph"
                         android:layout_width="match_parent"
@@ -41,7 +40,6 @@
                         android:layout_marginTop="3dp"
                         android:layout_marginBottom="3dp"
                         android:scaleType="centerInside" />
-
                     <RelativeLayout
                         android:id="@+id/rlFreqChange"
                         android:layout_width="match_parent"
@@ -133,6 +131,7 @@
                             android:paddingStart="5dp"
                             android:inputType="number"/>
                     </android.support.design.widget.TextInputLayout>
+
                     <RelativeLayout
                         android:id="@+id/rlFFTGraph"
                         android:layout_width="match_parent"
@@ -157,7 +156,6 @@
                             android:layout_marginStart="15dp"
                             android:visibility="visible"/>
                     </RelativeLayout>
-
                 </LinearLayout>
             </RelativeLayout>
         </LinearLayout>
