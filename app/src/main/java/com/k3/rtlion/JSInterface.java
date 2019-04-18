@@ -73,7 +73,8 @@ public class JSInterface {
                         try {
                             Thread.sleep(conTimeout);
                             if(jsOutputInterface != null)
-                                jsOutputInterface.onConsoleMsg(consoleMessage);
+                                jsOutputInterface.onConsoleMsg(context.
+                                        getString(R.string.server_unreachable));
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
