@@ -114,7 +114,7 @@ public class MainPageFrag {
             if (!hostAddr.isEmpty() && hostAddr.contains(":") && hostAddr.contains("http")) {
                 portNum = Integer.parseInt(hostAddr.split(":")[hostAddr.split(":").length-1]);
                 serverHost = hostAddr.replace(":"+String.valueOf(portNum), "");
-                if (serverHost.length() > 4 && portNum > 0)
+                if (serverHost.length() > 12 && portNum > 0)
                     validAddr = true;
             }
         }catch (Exception e){
