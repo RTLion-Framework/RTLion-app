@@ -7,7 +7,6 @@
     android:background="@color/colorWhite"
     android:descendantFocusability="beforeDescendants"
     android:focusableInTouchMode="true">
-
     <TextView
         android:id="@+id/txvServerStatus"
         android:layout_width="match_parent"
@@ -53,7 +52,6 @@
         android:layout_marginTop="8dp"
         android:text="@string/try_connect"
         android:theme="@style/FlatButton"/>
-
     <TextView
         android:id="@+id/txvServerInfo"
         android:layout_width="match_parent"
@@ -66,5 +64,4 @@
         android:textStyle="bold"
         android:fontFamily="monospace"
         android:scrollbars = "vertical"/>
-
 </RelativeLayout>
