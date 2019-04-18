@@ -18,14 +18,6 @@
     <string name="invalid_host">Invalid host or port.</string>
     <string name="server_unreachable">Could not reach RTLion server.</string>
     <string name="connection_warning">You must connect to RTLion server first.</string>
-    <string-array name="info_names">
-        <item>Browser Fingerprint</item>
-        <item>Browser</item>
-        <item>OS</item>
-        <item>Screen</item>
-        <item>Timezone</item>
-        <item>Language</item>
-    </string-array>
     <string name="swipe_text">&lt; Swipe to see RTLion features. &gt;</string>
     <string name="dev_index">Device Index</string>
     <string name="samp_rate">Sample Rate</string>
@@ -52,9 +44,17 @@
     <string name="sensivity">Sensivity</string>
     <string name="invalid_dbvals">Invalid dB values.</string>
     <string name="clipboard_copy">Copied to clipboard.</string>
+    <string name="framework_busy">RTLion Framework is busy.</string>
+    <string-array name="info_names">
+        <item>Browser Fingerprint</item>
+        <item>Browser</item>
+        <item>OS</item>
+        <item>Screen</item>
+        <item>Timezone</item>
+        <item>Language</item>
+    </string-array>
     <string-array name="freq_options">
         <item>Copy</item>
         <item>Show Graph</item>
     </string-array>
-    <string name="framework_busy">RTLion Framework is busy.</string>
 </resources>
