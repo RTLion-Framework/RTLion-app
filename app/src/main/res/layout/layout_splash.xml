@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite">
-
     <ImageView
         android:id="@+id/imgRtlionLogo"
         android:layout_width="wrap_content"
@@ -17,14 +16,12 @@
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/viewCenter"
         android:layout_marginBottom="1dp"/>
-
     <View
         android:id="@+id/viewCenter"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:visibility="invisible"
         android:layout_centerInParent="true"/>
-
     <RelativeLayout
         android:id="@+id/rlProjectDesc"
         android:layout_width="match_parent"
@@ -40,7 +37,6 @@
             android:textStyle="bold"
             android:gravity="center"
             android:layout_centerHorizontal="true"/>
-
         <View
             android:layout_width="wrap_content"
             android:layout_height="2dp"
@@ -49,7 +45,6 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="5dp"
             android:layout_toStartOf="@+id/txvRtlionDesc"/>
-
         <View
             android:layout_width="wrap_content"
             android:layout_height="2dp"
@@ -58,7 +53,6 @@
             android:layout_marginStart="5dp"
             android:layout_marginEnd="10dp"
             android:layout_toEndOf="@+id/txvRtlionDesc"/>
-
     </RelativeLayout>
 
     <TextView
@@ -73,7 +67,6 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="4dp"
         android:layout_marginBottom="2dp"/>
-
     <TextView
         android:id="@+id/txvLoading"
         android:layout_width="wrap_content"
@@ -85,5 +78,4 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="2dp"/>
-    
 </RelativeLayout>
