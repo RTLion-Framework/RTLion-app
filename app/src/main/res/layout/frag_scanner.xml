@@ -132,7 +132,7 @@
                         android:textColor="@color/colorGray1"
                         android:fontFamily="monospace"
                         android:gravity="start"
-                        android:text="900000000-100000000"
+                        android:textSize="12sp"
                         android:visibility="gone"/>
 
                     <LinearLayout
