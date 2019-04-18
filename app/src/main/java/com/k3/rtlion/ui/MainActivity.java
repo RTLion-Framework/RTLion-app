@@ -1,4 +1,4 @@
-package com.k3.rtlion;
+package com.k3.rtlion.ui;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,6 +12,7 @@ import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.k3.rtlion.R;
 import com.k3.rtlion.fragment.GraphPageFrag;
 import com.k3.rtlion.fragment.MainPageFrag;
 import com.k3.rtlion.fragment.ScannerPageFrag;

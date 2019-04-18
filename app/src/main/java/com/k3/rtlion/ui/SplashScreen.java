@@ -1,4 +1,4 @@
-package com.k3.rtlion;
+package com.k3.rtlion.ui;
 
 
 import android.app.Activity;
@@ -14,6 +14,8 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.k3.rtlion.R;
 
 public class SplashScreen {
 

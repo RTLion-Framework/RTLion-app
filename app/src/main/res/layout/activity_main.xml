@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.k3.rtlion.MainActivity"
+    tools:context="com.k3.rtlion.ui.MainActivity"
     android:background="@color/colorWhite">
 
     <RelativeLayout
@@ -48,7 +48,7 @@
             android:layout_alignParentEnd="true"/>
     </RelativeLayout>
 
-    <com.k3.rtlion.XViewPager
+    <com.k3.rtlion.ui.XViewPager
         android:id="@+id/vpPages"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
