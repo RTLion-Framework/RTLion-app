@@ -1,4 +1,4 @@
-package com.k3.rtlion;
+package com.k3.rtlion.fragment;
 
 import android.app.Activity;
 import android.content.Context;
@@ -17,6 +17,10 @@ import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.k3.rtlion.ImageBase64;
+import com.k3.rtlion.JSInterface;
+import com.k3.rtlion.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;

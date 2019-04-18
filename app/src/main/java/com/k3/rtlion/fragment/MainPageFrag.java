@@ -1,4 +1,4 @@
-package com.k3.rtlion;
+package com.k3.rtlion.fragment;
 
 
 import android.app.Activity;
@@ -16,6 +16,10 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.k3.rtlion.HostDB;
+import com.k3.rtlion.JSInterface;
+import com.k3.rtlion.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;

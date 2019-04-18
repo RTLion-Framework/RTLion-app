@@ -12,6 +12,11 @@ import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.k3.rtlion.fragment.GraphPageFrag;
+import com.k3.rtlion.fragment.MainPageFrag;
+import com.k3.rtlion.fragment.ScannerPageFrag;
+import com.k3.rtlion.fragment.SettingsPageFrag;
+
 import java.util.ArrayList;
 
 public class MainActivity extends Activity {

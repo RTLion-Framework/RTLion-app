@@ -1,4 +1,4 @@
-package com.k3.rtlion;
+package com.k3.rtlion.fragment;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -28,6 +28,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.chrisbanes.photoview.PhotoView;
+import com.k3.rtlion.ImageBase64;
+import com.k3.rtlion.JSInterface;
+import com.k3.rtlion.R;
+import com.k3.rtlion.XViewPager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
