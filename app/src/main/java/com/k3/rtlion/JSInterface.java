@@ -65,7 +65,7 @@ public class JSInterface {
     }
     private class webView_client extends WebViewClient {
         @Override
-        public void onPageStarted(WebView view, String url, Bitmap favicon) {
+        public void onPageStarted(WebView view, final String url, Bitmap favicon) {
             if(url.split("#")[1].equals(JSCommands.ServerInfo.name())){
                 new Thread(new Runnable() {
                     @Override
@@ -73,8 +73,9 @@ public class JSInterface {
                         try {
                             Thread.sleep(conTimeout);
                             if(jsOutputInterface != null)
-                                jsOutputInterface.onConsoleMsg(context.
-                                        getString(R.string.server_unreachable));
+                                jsOutputInterface.onConsoleMsg(new ConsoleMessage(context.
+                                        getString(R.string.server_unreachable), "1", 1,
+                                        ConsoleMessage.MessageLevel.DEBUG));
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
