@@ -48,7 +48,7 @@
             android:layout_alignParentEnd="true"/>
     </RelativeLayout>
 
-    <com.k3.rtlion.ui.XViewPager
+    <com.k3.rtlion.view.XViewPager
         android:id="@+id/vpPages"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

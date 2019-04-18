@@ -31,7 +31,7 @@ import com.github.chrisbanes.photoview.PhotoView;
 import com.k3.rtlion.handler.ImageBase64;
 import com.k3.rtlion.handler.JSInterface;
 import com.k3.rtlion.R;
-import com.k3.rtlion.ui.XViewPager;
+import com.k3.rtlion.view.XViewPager;
 
 import org.json.JSONException;
 import org.json.JSONObject;

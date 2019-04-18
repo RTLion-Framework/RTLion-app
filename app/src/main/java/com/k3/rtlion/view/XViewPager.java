@@ -1,4 +1,4 @@
-package com.k3.rtlion.ui;
+package com.k3.rtlion.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
