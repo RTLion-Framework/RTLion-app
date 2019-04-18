@@ -2,6 +2,7 @@ package com.k3.rtlion;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.webkit.ConsoleMessage;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
@@ -19,6 +20,7 @@ public class JSInterface {
     private Context context;
     private WebView webView;
     private String jsInterfaceName;
+    private int conTimeout = 5000;
     private Object[] globalParams;
     private JSONObject clientInfo, cliArgs;
     private String graphEventCommand,
@@ -62,6 +64,23 @@ public class JSInterface {
         webView.setWebChromeClient(new webView_chromeClient());
     }
     private class webView_client extends WebViewClient {
+        @Override
+        public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            if(url.split("#")[1].equals(JSCommands.ServerInfo.name())){
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(conTimeout);
+                            if(jsOutputInterface != null)
+                                jsOutputInterface.onConsoleMsg(consoleMessage);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }).start();
+            }
+        }
         @Override
         public void onPageFinished(WebView view, String url) {
             String jsCommand = createJSCommand(JSCommands.valueOf(url.split("#")[1]).ordinal(),
