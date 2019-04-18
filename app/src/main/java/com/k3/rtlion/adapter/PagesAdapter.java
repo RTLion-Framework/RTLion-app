@@ -1,4 +1,4 @@
-package com.k3.rtlion.handler;
+package com.k3.rtlion.adapter;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
