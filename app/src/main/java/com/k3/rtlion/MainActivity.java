@@ -103,9 +103,9 @@ public class MainActivity extends Activity {
                     settingsPageFrag,
                     graphPageFrag,
                     scannerPageFrag};
+            settingsPageFrag.setUIObjects(uiObjects);
             graphPageFrag.setUIObjects(uiObjects);
             scannerPageFrag.setUIObjects(uiObjects);
-            settingsPageFrag.setUIObjects(uiObjects);
             hostAddrPassed = 1;
         }
     }
