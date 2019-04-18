@@ -1,10 +1,12 @@
-package com.k3.rtlion;
+package com.k3.rtlion.handler;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.k3.rtlion.R;
 
 import java.util.ArrayList;
 

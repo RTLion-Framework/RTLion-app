@@ -1,4 +1,4 @@
-package com.k3.rtlion;
+package com.k3.rtlion.handler;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,6 +10,8 @@ import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import com.k3.rtlion.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;

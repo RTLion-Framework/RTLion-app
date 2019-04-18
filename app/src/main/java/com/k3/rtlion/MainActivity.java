@@ -16,6 +16,8 @@ import com.k3.rtlion.fragment.GraphPageFrag;
 import com.k3.rtlion.fragment.MainPageFrag;
 import com.k3.rtlion.fragment.ScannerPageFrag;
 import com.k3.rtlion.fragment.SettingsPageFrag;
+import com.k3.rtlion.handler.JSInterface;
+import com.k3.rtlion.handler.PagesAdapter;
 
 import java.util.ArrayList;
 

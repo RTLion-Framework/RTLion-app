@@ -17,8 +17,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.k3.rtlion.HostDB;
-import com.k3.rtlion.JSInterface;
+import com.k3.rtlion.handler.HostDB;
+import com.k3.rtlion.handler.JSInterface;
 import com.k3.rtlion.R;
 
 import org.json.JSONException;

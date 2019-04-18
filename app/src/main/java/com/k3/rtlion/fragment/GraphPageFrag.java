@@ -18,8 +18,8 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.k3.rtlion.ImageBase64;
-import com.k3.rtlion.JSInterface;
+import com.k3.rtlion.handler.ImageBase64;
+import com.k3.rtlion.handler.JSInterface;
 import com.k3.rtlion.R;
 
 import org.json.JSONException;
