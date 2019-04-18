@@ -198,9 +198,13 @@ public class ScannerPageFrag {
     }
     private class sbScanSensivity_onChange implements SeekBar.OnSeekBarChangeListener{
         @Override
-        public void onStartTrackingTouch(SeekBar seekBar) { }
+        public void onStartTrackingTouch(SeekBar seekBar) {
+            ((XViewPager)uiObjects[0]).allowSwiping(false);
+        }
         @Override
-        public void onStopTrackingTouch(SeekBar seekBar) { }
+        public void onStopTrackingTouch(SeekBar seekBar) {
+            ((XViewPager)uiObjects[0]).allowSwiping(true);
+        }
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
             currentSensivity = minSens + (progress * sensStep);
