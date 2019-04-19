@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.TypedValue;
@@ -22,7 +23,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,7 +37,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
+@SuppressWarnings("FieldCanBeLocal")
 public class ScannerPageFrag {
 
     private Activity activity;
@@ -62,11 +64,9 @@ public class ScannerPageFrag {
     private Bitmap fftBitmap;
     private Object[] uiObjects;
 
-    private TextView txvScannerWarning, txvScanSensivity,
-            txvScanSensivityLabel, txvFreqRange, txvScanPerc;
+    private TextView txvScannerWarning, txvScanSensivity, txvFreqRange, txvScanPerc;
     private LinearLayout llScanner, llScanResults;
     private SwipeRefreshLayout swpScanner;
-    private RelativeLayout rlScanSensivity;
     private SeekBar sbScanSensivity;
     private TextInputLayout tilFreqMin, tilFreqMax;
     private EditText edtxFreqMin, edtxFreqMax;
@@ -85,11 +85,9 @@ public class ScannerPageFrag {
         txvScannerWarning = viewGroup.findViewById(R.id.txvScannerWarning);
         llScanner = viewGroup.findViewById(R.id.llScanner);
         llScanResults = viewGroup.findViewById(R.id.llScanResults);
-        rlScanSensivity = viewGroup.findViewById(R.id.rlScanSensivity);
         swpScanner = viewGroup.findViewById(R.id.swpScanner);
         sbScanSensivity = viewGroup.findViewById(R.id.sbScanSensivity);
         txvScanSensivity = viewGroup.findViewById(R.id.txvScanSensivity);
-        txvScanSensivityLabel = viewGroup.findViewById(R.id.txvScanSensivityLabel);
         txvScanPerc = viewGroup.findViewById(R.id.txvScanPerc);
         tilFreqMin = viewGroup.findViewById(R.id.tilFreqMin);
         tilFreqMax = viewGroup.findViewById(R.id.tilFreqMax);
@@ -158,9 +156,19 @@ public class ScannerPageFrag {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
             v.getParent().requestDisallowInterceptTouchEvent(true);
-            return false;
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    break;
+                case MotionEvent.ACTION_UP:
+                    v.performClick();
+                    break;
+                default:
+                    break;
+            }
+            return true;
         }
     }
+    @SuppressWarnings("ConstantConditions")
     private class lstScanResults_onItemClick implements ListView.OnItemClickListener{
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -293,9 +301,9 @@ public class ScannerPageFrag {
                             android.R.layout.simple_list_item_1,
                             freqRes){
                         @Override
-                        public View getView(int position, View convertView, ViewGroup parent) {
+                        public @NonNull View getView(int position, View convertView, @NonNull ViewGroup parent) {
                             View view = super.getView(position, convertView, parent);
-                            TextView txvItem = (TextView) view.findViewById(android.R.id.text1);
+                            TextView txvItem = view.findViewById(android.R.id.text1);
                             txvItem.setTypeface(Typeface.MONOSPACE, Typeface.BOLD);
                             txvItem.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13);
                             return view;
@@ -413,13 +421,15 @@ public class ScannerPageFrag {
                     @Override
                     public void run() {
                         for(String freq:freqs){
-                            String freqVal = String.format("%.1f", Double.parseDouble(freq));
+                            String freqVal = String.format(Locale.US,
+                                    "%.1f", Double.parseDouble(freq));
                             if(!freqRes.contains(freqVal)){
                                 freqRes.add(freqVal);
                             }
                         }
                         for(String db:dbs){
-                            String dbVal = String.format("%.2f", Double.parseDouble(db));
+                            String dbVal = String.format(Locale.US,
+                                    "%.2f", Double.parseDouble(db));
                             if(!dbRes.contains(dbVal)){
                                 dbRes.add(dbVal);
                             }
