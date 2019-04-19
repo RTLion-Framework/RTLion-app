@@ -3,6 +3,7 @@ package com.k3.rtlion.fragment;
 
 import android.app.Activity;
 import android.content.Context;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.text.method.ScrollingMovementMethod;
 import android.view.KeyEvent;
 import android.view.View;
@@ -39,6 +40,7 @@ public class MainPageFrag {
     public boolean connectionStatus = false;
 
     private RelativeLayout rlMainFrag;
+    private SwipeRefreshLayout swpMain;
     private TextView txvServerStatus, txvServerInfo;
     private EditText edtxHostAddr;
     private Button btnConnect;
@@ -52,6 +54,7 @@ public class MainPageFrag {
 
     private void initViews(){
         rlMainFrag = viewGroup.findViewById(R.id.rlMainFrag);
+        swpMain = viewGroup.findViewById(R.id.swpMain);
         txvServerStatus = viewGroup.findViewById(R.id.txvServerStatus);
         edtxHostAddr = viewGroup.findViewById(R.id.edtxHostAddr);
         btnConnect = viewGroup.findViewById(R.id.btnConnect);
