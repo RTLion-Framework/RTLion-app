@@ -285,30 +285,36 @@ public class ScannerPageFrag {
                 centerFreq = maxFreq;
             }else if(!((GraphPageFrag)uiObjects[3]).viewsHidden){
                 if (checkRange()) {
-                    numRead = 0;
-                    freqRes.clear();
-                    dbRes.clear();
-                    arrayAdapterRes = new ArrayAdapter<String>(activity,
-                            android.R.layout.simple_list_item_1,
-                            freqRes){
-                        @Override
-                        public @NonNull View getView(int position, View convertView, @NonNull ViewGroup parent) {
-                            View view = super.getView(position, convertView, parent);
-                            TextView txvItem = view.findViewById(android.R.id.text1);
-                            txvItem.setTypeface(Typeface.MONOSPACE, Typeface.BOLD);
-                            txvItem.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13);
-                            return view;
-                        }
-                    };
-                    lstScanResults.setAdapter(arrayAdapterRes);
-                    stepSize = 2 * (int) Math.pow(10, (int) Math.log10(maxFreq - minFreq) - 1);
-                    maxRead = ((maxFreq - minFreq) / stepSize);
-                    enableViews(false);
-                    txvFreqRange.setText(String.valueOf(minFreq) + "-" +
-                            String.valueOf(maxFreq));
-                    btnStartScan.setText(context.getString(R.string.graph_wait));
-                    btnStartScan.setEnabled(false);
-                    setDevFrequency(minFreq);
+                    try {
+                        numRead = 0;
+                        freqRes.clear();
+                        dbRes.clear();
+                        arrayAdapterRes = new ArrayAdapter<String>(activity,
+                                android.R.layout.simple_list_item_1,
+                                freqRes) {
+                            @Override
+                            public @NonNull
+                            View getView(int position, View convertView, @NonNull ViewGroup parent) {
+                                View view = super.getView(position, convertView, parent);
+                                TextView txvItem = view.findViewById(android.R.id.text1);
+                                txvItem.setTypeface(Typeface.MONOSPACE, Typeface.BOLD);
+                                txvItem.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13);
+                                return view;
+                            }
+                        };
+                        lstScanResults.setAdapter(arrayAdapterRes);
+                        stepSize = 2 * (int) Math.pow(10, (int) Math.log10(maxFreq - minFreq) - 1);
+                        maxRead = ((maxFreq - minFreq) / stepSize);
+                        enableViews(false);
+                        txvFreqRange.setText(String.valueOf(minFreq) + "-" +
+                                String.valueOf(maxFreq));
+                        btnStartScan.setText(context.getString(R.string.graph_wait));
+                        btnStartScan.setEnabled(false);
+                        setDevFrequency(minFreq);
+                    }catch (Exception e){
+                        Toast.makeText(activity, context.getString(R.string.invalid_settings),
+                                Toast.LENGTH_SHORT).show();
+                    }
                 } else {
                     Toast.makeText(activity, context.getString(R.string.invalid_settings),
                             Toast.LENGTH_SHORT).show();
