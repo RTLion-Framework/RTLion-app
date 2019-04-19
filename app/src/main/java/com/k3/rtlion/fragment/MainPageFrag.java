@@ -2,7 +2,10 @@ package com.k3.rtlion.fragment;
 
 
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.text.method.ScrollingMovementMethod;
@@ -21,6 +24,7 @@ import android.widget.Toast;
 import com.k3.rtlion.handler.HostDB;
 import com.k3.rtlion.handler.JSInterface;
 import com.k3.rtlion.R;
+import com.k3.rtlion.ui.MainActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -107,7 +111,19 @@ public class MainPageFrag {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-
+                    try {
+                        Intent mStartActivity = new Intent(context, MainActivity.class);
+                        int mPendingIntentId = 99;
+                        PendingIntent mPendingIntent = PendingIntent.getActivity(context,
+                                mPendingIntentId, mStartActivity, PendingIntent.FLAG_CANCEL_CURRENT);
+                        AlarmManager mgr = (AlarmManager) context.getSystemService(Context.
+                                ALARM_SERVICE);
+                        mgr.set(AlarmManager.RTC, System.currentTimeMillis() + 100,
+                                mPendingIntent);
+                        System.exit(0);
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
                 }
             }, refreshDuration);
         }
