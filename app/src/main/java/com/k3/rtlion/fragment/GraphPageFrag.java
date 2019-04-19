@@ -25,6 +25,7 @@ import com.k3.rtlion.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+@SuppressWarnings("FieldCanBeLocal")
 public class GraphPageFrag {
 
     private Activity activity;
