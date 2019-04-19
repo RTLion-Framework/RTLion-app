@@ -1,67 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<android.support.v4.widget.SwipeRefreshLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/rlMainFrag"
+    android:id="@+id/swpMain"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorWhite"
-    android:descendantFocusability="beforeDescendants"
-    android:focusableInTouchMode="true">
-    <TextView
-        android:id="@+id/txvServerStatus"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/rlMainFrag"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:text="@string/server_disconnected"
-        android:textColor="@color/colorGray1"
-        android:textStyle="bold" />
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/tilHostAddr"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txvServerStatus"
-        android:layout_marginTop="4dp"
-        android:layout_marginStart="4dp"
-        android:layout_toStartOf="@+id/btnConnect"
-        android:theme="@style/TLabel">
-        <EditText
-            android:id="@+id/edtxHostAddr"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true">
+        <TextView
+            android:id="@+id/txvServerStatus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/host_addr"
-            android:imeOptions="actionSend"
-            android:singleLine="true"
-            android:backgroundTint="@color/colorAccent"
-            android:textColor="@color/colorPrimaryDark"
-            android:fontFamily="monospace"
-            android:textStyle="bold"
-            android:textSize="15sp"
-            android:paddingStart="5dp"/>
-    </android.support.design.widget.TextInputLayout>
+            android:layout_marginTop="7dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:text="@string/server_disconnected"
+            android:textColor="@color/colorGray1"
+            android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/btnConnect"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/txvServerStatus"
-        android:layout_marginEnd="5dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/try_connect"
-        android:theme="@style/FlatButton"/>
-    <TextView
-        android:id="@+id/txvServerInfo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btnConnect"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:textColor="@color/colorPrimaryDark"
-        android:textStyle="bold"
-        android:fontFamily="monospace"
-        android:scrollbars = "vertical"/>
-</RelativeLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilHostAddr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txvServerStatus"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="4dp"
+            android:layout_toStartOf="@+id/btnConnect"
+            android:theme="@style/TLabel">
+            <EditText
+                android:id="@+id/edtxHostAddr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/host_addr"
+                android:imeOptions="actionSend"
+                android:singleLine="true"
+                android:backgroundTint="@color/colorAccent"
+                android:textColor="@color/colorPrimaryDark"
+                android:fontFamily="monospace"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:paddingStart="5dp"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnConnect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/txvServerStatus"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/try_connect"
+            android:theme="@style/FlatButton"/>
+        <TextView
+            android:id="@+id/txvServerInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnConnect"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            android:fontFamily="monospace"
+            android:scrollbars = "vertical"/>
+    </RelativeLayout>
+</android.support.v4.widget.SwipeRefreshLayout>
