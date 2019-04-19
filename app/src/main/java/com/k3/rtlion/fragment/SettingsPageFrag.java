@@ -126,9 +126,9 @@ public class SettingsPageFrag {
                                     break;
                             }
                         }
+                        enable_btnSaveSettings();
                         graphPageFrag.setGraphParams(cliArgs);
                         scannerPageFrag.setCliArgs(cliArgs);
-                        enable_btnSaveSettings();
                     } catch (JSONException e) {
                         e.printStackTrace();
                         Toast.makeText(activity, context.getString(R.string.invalid_server_settings),
