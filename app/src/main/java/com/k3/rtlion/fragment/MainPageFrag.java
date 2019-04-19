@@ -157,18 +157,14 @@ public class MainPageFrag {
                     try {
                         if(clientInfo.length() != 6)
                             throw new JSONException("Invalid client information.");
-                        StringBuilder clientInfos = new StringBuilder();
+                        String clientInfos = "";
                         for (int i = 0; i < clientInfo.length(); i++) {
-                            String info = infoNames[i] + ": " + clientInfo.getString(
-                                    clientInfo.names().getString(i));
-                            clientInfos.append(info);
-                            clientInfos.append("\n");
+                            clientInfos += infoNames[i] + ": " + clientInfo.getString(
+                                    clientInfo.names().getString(i)) + "\n\n";
                         }
-                        String bottomText = context.getString(R.string.swipe_text);
-                        clientInfos.append(bottomText);
-                        clientInfos.append("\n");
+                        clientInfos += context.getString(R.string.swipe_text)+ "\n\n";
                         setTxvServerStatus(context.getString(R.string.server_connected));
-                        setTxvServerInfo(clientInfos.toString());
+                        setTxvServerInfo(clientInfos);
                         hostDB.updateHostAddr(serverUrl);
                         connectionStatus = true;
                     }catch (JSONException e){
