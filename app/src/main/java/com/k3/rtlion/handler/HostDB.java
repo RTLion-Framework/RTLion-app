@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+@SuppressWarnings("FieldCanBeLocal")
 public class HostDB extends SQLiteOpenHelper {
     private static final String databaseName = "RTLion_db";
     public String tableName = "hosts_table", dataName = "hosts";
