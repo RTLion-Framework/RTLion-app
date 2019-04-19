@@ -28,7 +28,8 @@ public class JSInterface {
     private String graphEventCommand,
             globalSocketName = "socket";
     private Boolean graphEventSet = false,
-            scanEventSet = false;
+            scanEventSet = false,
+            infoRecv = false;
 
     public enum JSCommands {
         ServerInfo("fetchServerInfo", "getClientInfo"),
@@ -74,7 +75,7 @@ public class JSInterface {
                     public void run() {
                         try {
                             Thread.sleep(conTimeout);
-                            if(jsOutputInterface != null)
+                            if(jsOutputInterface != null && !infoRecv)
                                 jsOutputInterface.onConsoleMsg(new ConsoleMessage(context.
                                         getString(R.string.server_unreachable), "1", 1,
                                         ConsoleMessage.MessageLevel.DEBUG));
@@ -136,6 +137,7 @@ public class JSInterface {
         this.jsOutputInterface = jsOutputInterface;
         webView.loadUrl(url + "#" + JSCommands.ServerInfo.name());
         globalParams = null;
+        infoRecv = false;
     }
     public void getServerArgs(String url, JSOutputInterface jsOutputInterface){
         this.jsOutputInterface = jsOutputInterface;
@@ -163,6 +165,7 @@ public class JSInterface {
     }
     @JavascriptInterface
     public void fetchServerInfo(String info){
+        infoRecv = true;
         clientInfo = null;
         try {
             clientInfo = new JSONObject(info);
