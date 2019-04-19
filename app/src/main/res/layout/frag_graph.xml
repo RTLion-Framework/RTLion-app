@@ -11,7 +11,7 @@
         android:scrollbars="none" >
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -35,11 +35,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
+                        android:paddingEnd="8dp"
                         android:paddingTop="3dp"
-                        android:layout_marginTop="3dp"
-                        android:layout_marginBottom="3dp"
-                        android:scaleType="centerInside" />
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:scaleType="centerInside"
+                        android:adjustViewBounds="true"/>
+
                     <RelativeLayout
                         android:id="@+id/rlFreqChange"
                         android:layout_width="match_parent"
