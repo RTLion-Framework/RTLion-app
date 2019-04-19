@@ -23,6 +23,7 @@ import com.k3.rtlion.view.XViewPager;
 
 import java.util.ArrayList;
 
+@SuppressWarnings("FieldCanBeLocal")
 public class MainActivity extends Activity {
 
     private PagesAdapter pagesAdapter;
@@ -42,13 +43,13 @@ public class MainActivity extends Activity {
     private WebView wvBase;
 
     private void init(){
-        imgRtlionSmall = (ImageView) findViewById(R.id.imgRtlionSmall);
+        imgRtlionSmall = findViewById(R.id.imgRtlionSmall);
         imgRtlionSmall.setOnClickListener(new imgRtlionSmall_onClick());
-        txvPageNum = (TextView) findViewById(R.id.txvPageNum);
-        txvPrevPage = (TextView) findViewById(R.id.txvPrevPage);
-        txvNextPage = (TextView) findViewById(R.id.txvNextPage);
-        txvRtlionFramework = (TextView) findViewById(R.id.txvRtlionFramework);
-        wvBase = (WebView) findViewById(R.id.wvBase);
+        txvPageNum = findViewById(R.id.txvPageNum);
+        txvPrevPage = findViewById(R.id.txvPrevPage);
+        txvNextPage = findViewById(R.id.txvNextPage);
+        txvRtlionFramework = findViewById(R.id.txvRtlionFramework);
+        wvBase = findViewById(R.id.wvBase);
         jsInterface = new JSInterface(this);
         jsInterface.initialize(wvBase);
         txvRtlionFramework.setTypeface(new SplashScreen(this).getUbuntuMonoFont());
@@ -64,7 +65,7 @@ public class MainActivity extends Activity {
     }
     private void setupViewPager(){
         vpPages_onPageChange(0);
-        vpPages = (XViewPager) findViewById(R.id.vpPages);
+        vpPages = findViewById(R.id.vpPages);
         vpPages.setOffscreenPageLimit(offScreenLimit);
         pagesAdapter = new PagesAdapter(this, new PagesAdapter.IViewPager() {
             @Override
