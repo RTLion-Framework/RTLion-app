@@ -1,6 +1,7 @@
 package com.k3.rtlion.adapter;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,7 +43,7 @@ public class PagesAdapter extends PagerAdapter {
         }
     }
     @Override
-    public Object instantiateItem(ViewGroup collection, int position) {
+    public @NonNull Object instantiateItem(@NonNull ViewGroup collection, int position) {
         PagesEnum pagesEnum = PagesEnum.values()[position];
         LayoutInflater layoutInflater = LayoutInflater.from(context);
         ViewGroup layout = (ViewGroup) layoutInflater.
@@ -55,7 +56,7 @@ public class PagesAdapter extends PagerAdapter {
         return layout;
     }
     @Override
-    public void destroyItem(ViewGroup collection, int position, Object view) {
+    public void destroyItem(@NonNull ViewGroup collection, int position, @NonNull  Object view) {
         collection.removeView((View) view);
     }
     @Override
@@ -63,7 +64,7 @@ public class PagesAdapter extends PagerAdapter {
         return PagesEnum.values().length;
     }
     @Override
-    public boolean isViewFromObject(View view, Object object) {
+    public boolean isViewFromObject(@NonNull View view, @NonNull  Object object) {
         return view == object;
     }
     @Override
