@@ -19,6 +19,7 @@ import com.k3.rtlion.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+@SuppressWarnings("FieldCanBeLocal")
 public class SettingsPageFrag {
 
     private Activity activity;
@@ -68,7 +69,7 @@ public class SettingsPageFrag {
         llSettings.setVisibility(View.VISIBLE);
         this.uiObjects = uiObjects;
         this.graphPageFrag = ((GraphPageFrag) uiObjects[3]);
-        this.scannerPageFrag = ((ScannerPageFrag) uiObjects[4]);;
+        this.scannerPageFrag = ((ScannerPageFrag) uiObjects[4]);
         this.hostAddr = ((MainPageFrag) uiObjects[1]).getHostAddr();
         getArgsFromServer();
     }
