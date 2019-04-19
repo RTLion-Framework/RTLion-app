@@ -45,6 +45,7 @@
     <string name="invalid_dbvals">Invalid dB values.</string>
     <string name="clipboard_copy">Copied to clipboard.</string>
     <string name="framework_busy">RTLion Framework is busy.</string>
+    <string name="app_restart">Restarting Framework&#8230;</string>
     <string-array name="info_names">
         <item>Browser Fingerprint</item>
         <item>Browser</item>

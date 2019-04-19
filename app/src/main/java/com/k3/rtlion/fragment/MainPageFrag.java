@@ -108,6 +108,8 @@ public class MainPageFrag {
     private class swpMain_onRefresh implements SwipeRefreshLayout.OnRefreshListener{
         @Override
         public void onRefresh() {
+            Toast.makeText(activity, context.getString(R.string.app_restart),
+                    Toast.LENGTH_SHORT).show();
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
