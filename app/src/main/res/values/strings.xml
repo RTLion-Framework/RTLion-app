@@ -11,7 +11,7 @@
     <string name="next_page">&gt;</string>
     <string name="first_page">1</string>
     <string name="server_disconnected">[-] Status: Not connected.</string>
-    <string name="server_connecting">[~] Status: Connecting...</string>
+    <string name="server_connecting">[~] Status: Connecting&#8230;</string>
     <string name="server_connected">[#] Status: Connected.</string>
     <string name="host_addr">Host:Port</string>
     <string name="try_connect">Connect</string>
@@ -25,7 +25,7 @@
     <string name="save_settings">Save Settings</string>
     <string name="settings_info">General device settings listed.</string>
     <string name="invalid_server_settings">Invalid server settings detected.</string>
-    <string name="settings_save_error">Error occured while saving settings.</string>
+    <string name="settings_save_error">Error occurred while saving settings.</string>
     <string name="settings_updated">Device settings updated.</string>
     <string name="create_graph">Create FFT Graph</string>
     <string name="graph_error">Unable to get FFT graph data.</string>
@@ -37,7 +37,7 @@
     <string name="invalid_settings">Invalid settings detected.</string>
     <string name="save_error">Unable to save settings.</string>
     <string name="stop_graph">Stop</string>
-    <string name="graph_wait">Waiting...</string>
+    <string name="graph_wait">Waiting&#8230;</string>
     <string name="freq_min">Min. Frequency</string>
     <string name="freq_max">Max. Frequency</string>
     <string name="start_scan">Start Scan</string>
