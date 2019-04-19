@@ -47,22 +47,23 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:visibility="gone">
+                        <TextView
+                            android:id="@+id/txvFreqVal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginEnd="3dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginStart="10dp"
+                            android:text="90000000"/>
                         <SeekBar
                             android:id="@+id/sbCenterFreq"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="5dp"
-                            android:layout_marginStart="5dp"
-                            android:layout_toStartOf="@+id/txvFreqVal"
+                            android:layout_toEndOf="@+id/txvFreqVal"
                             android:progressTint="@android:color/transparent"
                             android:theme="@style/RangeSeekBar" />
-                        <TextView
-                            android:id="@+id/txvFreqVal"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginEnd="20dp"
-                            android:layout_marginTop="4dp" />
                     </RelativeLayout>
 
                     <android.support.design.widget.TextInputLayout
