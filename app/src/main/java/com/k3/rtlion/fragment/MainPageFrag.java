@@ -3,6 +3,7 @@ package com.k3.rtlion.fragment;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.text.method.ScrollingMovementMethod;
 import android.view.KeyEvent;
@@ -36,7 +37,7 @@ public class MainPageFrag {
             serverHost,
             appNamespace = "/app";
     private String[] infoNames;
-    private int portNum;
+    private int portNum, refreshDuration = 800;
     public boolean connectionStatus = false;
 
     private RelativeLayout rlMainFrag;
@@ -67,6 +68,7 @@ public class MainPageFrag {
         edtxHostAddr.setOnEditorActionListener(new edtxHostAddr_onEditorAction());
         btnConnect.setOnClickListener(new btnConnect_onClick());
         txvServerInfo.setMovementMethod(new ScrollingMovementMethod());
+        swpMain.setOnRefreshListener(new swpMain_onRefresh());
     }
     public boolean getConnectionStatus(){
         return connectionStatus;
@@ -97,6 +99,17 @@ public class MainPageFrag {
         @Override
         public void onClick(View v) {
             tryConnect();
+        }
+    }
+    private class swpMain_onRefresh implements SwipeRefreshLayout.OnRefreshListener{
+        @Override
+        public void onRefresh() {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+
+                }
+            }, refreshDuration);
         }
     }
     @SuppressWarnings("ConstantConditions")
