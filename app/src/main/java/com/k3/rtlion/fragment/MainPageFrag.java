@@ -160,11 +160,13 @@ public class MainPageFrag {
                         StringBuilder clientInfos = new StringBuilder();
                         for (int i = 0; i < clientInfo.length(); i++) {
                             String info = infoNames[i] + ": " + clientInfo.getString(
-                                    clientInfo.names().getString(i)) + "\n";
+                                    clientInfo.names().getString(i));
                             clientInfos.append(info);
+                            clientInfos.append("\n");
                         }
-                        String bottomText = context.getString(R.string.swipe_text)+ "\n";
+                        String bottomText = context.getString(R.string.swipe_text);
                         clientInfos.append(bottomText);
+                        clientInfos.append("\n");
                         setTxvServerStatus(context.getString(R.string.server_connected));
                         setTxvServerInfo(clientInfos.toString());
                         hostDB.updateHostAddr(serverUrl);
