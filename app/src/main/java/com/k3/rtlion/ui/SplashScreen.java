@@ -6,7 +6,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Handler;
-import android.view.LayoutInflater;
+import android.view.View;
 import android.view.Window;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -17,11 +17,11 @@ import android.widget.TextView;
 
 import com.k3.rtlion.R;
 
+@SuppressWarnings("FieldCanBeLocal")
 public class SplashScreen {
 
     private Activity activity;
     private Context context;
-    private LayoutInflater layoutInflater;
     private Dialog splashDialog;
     private Typeface tfUbuntuMono;
     private String ubuntuMonoFont = "fonts/UbuntuMono_R.ttf", loadingDots = "...";
@@ -32,11 +32,11 @@ public class SplashScreen {
     private TextView txvRtlionDesc, txvAuthor, txvLoading;
 
     private void initDialog(Dialog splashDialog){
-        imgRtlionLogo = (ImageView) splashDialog.findViewById(R.id.imgRtlionLogo);
-        rlProjectDesc = (RelativeLayout) splashDialog.findViewById(R.id.rlProjectDesc);
-        txvRtlionDesc = (TextView) splashDialog.findViewById(R.id.txvRtlionDesc);
-        txvAuthor = (TextView) splashDialog.findViewById(R.id.txvAuthor);
-        txvLoading = (TextView) splashDialog.findViewById(R.id.txvLoading);
+        imgRtlionLogo = splashDialog.findViewById(R.id.imgRtlionLogo);
+        rlProjectDesc = splashDialog.findViewById(R.id.rlProjectDesc);
+        txvRtlionDesc = splashDialog.findViewById(R.id.txvRtlionDesc);
+        txvAuthor = splashDialog.findViewById(R.id.txvAuthor);
+        txvLoading = splashDialog.findViewById(R.id.txvLoading);
         tfUbuntuMono = getUbuntuMonoFont();
         txvRtlionDesc.setTypeface(tfUbuntuMono);
         txvAuthor.setTypeface(tfUbuntuMono);
@@ -46,13 +46,12 @@ public class SplashScreen {
         this.activity = activity;
         this.context = activity.getApplicationContext();
     }
+    @SuppressWarnings("ConstantConditions")
     public void show(){
         try {
-            layoutInflater = (LayoutInflater) context.getSystemService(Context.
-                    LAYOUT_INFLATER_SERVICE);
             splashDialog = new Dialog(activity, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
             splashDialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-            splashDialog.setContentView(layoutInflater.inflate(R.layout.layout_splash, null));
+            splashDialog.setContentView(View.inflate(context, R.layout.layout_splash, null));
             splashDialog.setCancelable(false);
             initDialog(splashDialog);
             setAnimations();
