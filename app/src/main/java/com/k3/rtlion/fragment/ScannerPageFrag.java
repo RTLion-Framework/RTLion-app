@@ -156,16 +156,7 @@ public class ScannerPageFrag {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
             v.getParent().requestDisallowInterceptTouchEvent(true);
-            switch (event.getAction()) {
-                case MotionEvent.ACTION_DOWN:
-                    break;
-                case MotionEvent.ACTION_UP:
-                    v.performClick();
-                    break;
-                default:
-                    break;
-            }
-            return true;
+            return false;
         }
     }
     @SuppressWarnings("ConstantConditions")
