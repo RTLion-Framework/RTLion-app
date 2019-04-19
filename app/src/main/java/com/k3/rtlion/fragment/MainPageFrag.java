@@ -3,7 +3,6 @@ package com.k3.rtlion.fragment;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.design.widget.TextInputLayout;
 import android.text.method.ScrollingMovementMethod;
 import android.view.KeyEvent;
 import android.view.View;
@@ -41,7 +40,6 @@ public class MainPageFrag {
 
     private RelativeLayout rlMainFrag;
     private TextView txvServerStatus, txvServerInfo;
-    private TextInputLayout tilHostAddr;
     private EditText edtxHostAddr;
     private Button btnConnect;
 
@@ -53,12 +51,11 @@ public class MainPageFrag {
     }
 
     private void initViews(){
-        rlMainFrag = (RelativeLayout) viewGroup.findViewById(R.id.rlMainFrag);
-        txvServerStatus = (TextView) viewGroup.findViewById(R.id.txvServerStatus);
-        tilHostAddr = (TextInputLayout) viewGroup.findViewById(R.id.tilHostAddr);
-        edtxHostAddr = (EditText) viewGroup.findViewById(R.id.edtxHostAddr);
-        btnConnect = (Button) viewGroup.findViewById(R.id.btnConnect);
-        txvServerInfo = (TextView) viewGroup.findViewById(R.id.txvServerInfo);
+        rlMainFrag = viewGroup.findViewById(R.id.rlMainFrag);
+        txvServerStatus = viewGroup.findViewById(R.id.txvServerStatus);
+        edtxHostAddr = viewGroup.findViewById(R.id.edtxHostAddr);
+        btnConnect = viewGroup.findViewById(R.id.btnConnect);
+        txvServerInfo = viewGroup.findViewById(R.id.txvServerInfo);
     }
     public void initialize() {
         initViews();
@@ -99,17 +96,18 @@ public class MainPageFrag {
             tryConnect();
         }
     }
+    @SuppressWarnings("ConstantConditions")
     private void hideKeyboard(){
         try {
             InputMethodManager inputMethodManager = (InputMethodManager)
                     context.getSystemService(context.INPUT_METHOD_SERVICE);
             inputMethodManager.hideSoftInputFromWindow(rlMainFrag.getWindowToken(), 0);
-        }catch (Exception e){
+        }catch (NullPointerException e){
             e.printStackTrace();
         }
     }
     private Boolean checkHostAddr(String hostAddr){
-        Boolean validAddr = false;
+        boolean validAddr = false;
         try{
             if (!hostAddr.isEmpty() && hostAddr.contains(":") && hostAddr.contains("http")) {
                 portNum = Integer.parseInt(hostAddr.split(":")[hostAddr.split(":").length-1]);
@@ -159,14 +157,16 @@ public class MainPageFrag {
                     try {
                         if(clientInfo.length() != 6)
                             throw new JSONException("Invalid client information.");
-                        String clientInfos = "";
+                        StringBuilder clientInfos = new StringBuilder();
                         for (int i = 0; i < clientInfo.length(); i++) {
-                            clientInfos += infoNames[i] + ": " + clientInfo.getString(
-                                    clientInfo.names().getString(i)) + "\n\n";
+                            String info = infoNames[i] + ": " + clientInfo.getString(
+                                    clientInfo.names().getString(i)) + "\n";
+                            clientInfos.append(info);
                         }
-                        clientInfos += context.getString(R.string.swipe_text)+ "\n\n";
+                        String bottomText = context.getString(R.string.swipe_text)+ "\n";
+                        clientInfos.append(bottomText);
                         setTxvServerStatus(context.getString(R.string.server_connected));
-                        setTxvServerInfo(clientInfos);
+                        setTxvServerInfo(clientInfos.toString());
                         hostDB.updateHostAddr(serverUrl);
                         connectionStatus = true;
                     }catch (JSONException e){
