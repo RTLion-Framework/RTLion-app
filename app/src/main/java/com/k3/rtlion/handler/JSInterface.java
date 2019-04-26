@@ -22,7 +22,7 @@ public class JSInterface {
     private Context context;
     private WebView webView;
     private String jsInterfaceName;
-    private int conTimeout = 5000;
+    private int conTimeout = 9000;
     private Object[] globalParams;
     private JSONObject clientInfo, cliArgs;
     private String graphEventCommand,
