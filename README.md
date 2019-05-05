@@ -14,11 +14,15 @@
 
 ## Usage
 
-### RTLion Server
+### Starting RTLion Server
 
-Basically, execute the main file `RTLion.py` using `Python2.7`. (_Command line arguments are optional._)
+RTLion server must be running in order to use the mobile application due to the need of server connection. For more info about command line arguments and framework, see [RTLion Framework](https://github.com/KeyLo99/RTLion) repository.
 
 ![Starting RTLion Server](https://user-images.githubusercontent.com/24392180/57158647-9b7ed200-6dec-11e9-9466-7fb5a1690cd8.gif)
+
+### Connecting to the Server
+
+After installing the [latest release](https://github.com/KeyLo99/RTLion-app#releases) of the app, connection to the server can be made on the main menu using the host and port information.
 
 
 
