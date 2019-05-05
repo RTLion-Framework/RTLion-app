@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.k3.rtlion.handler.ImageBase64;
 import com.k3.rtlion.handler.JSInterface;
 import com.k3.rtlion.R;
+import com.k3.rtlion.view.XViewPager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -229,9 +230,13 @@ public class GraphPageFrag {
     }
     private class sbCenterFreq_onChange implements SeekBar.OnSeekBarChangeListener{
         @Override
-        public void onStartTrackingTouch(SeekBar seekBar) { }
+        public void onStartTrackingTouch(SeekBar seekBar) {
+            ((XViewPager)uiObjects[0]).allowSwiping(false);
+        }
         @Override
-        public void onStopTrackingTouch(SeekBar seekBar) { }
+        public void onStopTrackingTouch(SeekBar seekBar) {
+            ((XViewPager)uiObjects[0]).allowSwiping(true);
+        }
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
             if(fromUser && viewsHidden) {

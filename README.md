@@ -2,7 +2,7 @@
 
 # RTLion App <a href="https://github.com/RTLion-Framework/RTLion-app/releases"><img src="https://img.shields.io/github/release/RTLion-Framework/RTLion-app.svg"/></a>
 
-### Android application for RTLion Framework.
+### Android Application for RTLion Framework.
 
 <a href="https://github.com/RTLion-Framework/RTLion-app/issues"><img src="https://img.shields.io/github/issues/RTLion-Framework/RTLion-app.svg"/></a>
 <a href="https://github.com/RTLion-Framework/RTLion-app/pulls"><img src="https://img.shields.io/github/issues-pr/RTLion-Framework/RTLion-app.svg"/></a>
@@ -23,6 +23,32 @@ RTLion server must be running in order to use the mobile application due to the 
 ### Connecting to the Server
 
 After installing the [latest release](https://github.com/KeyLo99/RTLion-app#releases) of the app, connection to the server can be made on the main menu using the host and port information.
+
+### Updating Settings
+
+### Power Spectrum 
+
+### Frequency Scanner
+
+## IoT
+
+## TODO(s)
+
+## Releases
+
+## Contribution
+
+RTLion Project is open to contributions.[*](https://github.com/RTLion-Framework/RTLion/CONTRIBUTING.md)
+
+## License
+
+GNU General Public License v3. (see [gpl](https://www.gnu.org/licenses/gpl.txt))
+
+## Credit
+
+Copyright (C) 2019 by KeyLo99 
+https://www.github.com/KeyLo99
+
 
 
 
