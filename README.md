@@ -2,7 +2,7 @@
 
 # RTLion App <a href="https://github.com/RTLion-Framework/RTLion-app/releases"><img src="https://img.shields.io/github/release/RTLion-Framework/RTLion-app.svg"/></a>
 
-### Android Application for RTLion Framework.
+### Android Application of RTLion Framework.
 
 <a href="https://github.com/RTLion-Framework/RTLion-app/issues"><img src="https://img.shields.io/github/issues/RTLion-Framework/RTLion-app.svg"/></a>
 <a href="https://github.com/RTLion-Framework/RTLion-app/pulls"><img src="https://img.shields.io/github/issues-pr/RTLion-Framework/RTLion-app.svg"/></a>
@@ -26,23 +26,47 @@ After installing the [latest release](https://github.com/KeyLo99/RTLion-app#rele
 
 ![RTLion Main Menu](https://user-images.githubusercontent.com/24392180/57201478-15a48780-6fa2-11e9-9a72-c897a2bfd33e.gif)
 
+After the connection has been made, RTLion would show the client browser details which can be helpful as a verbose info.
+
 ### Updating Settings
+
+RTL-SDR device settings can be changed easily on the `Settings` page.
 
 ![RTLion Settings Page](https://user-images.githubusercontent.com/24392180/57200824-1553be80-6f99-11e9-905c-592a35ce33aa.gif)
 
+('1.4' is a supported gain value for my RTL-SDR device.) [RTL2832U, 820T2]
+
 ### Power Spectrum 
+
+As on the Web interface, `Power Spectrum (FFT Graph)` visualizer feature is provided on the `Graph` page. It's usable just by determining the `center frequency`, `read interval` and `read count` parameters.
 
 ![RTLion Graph Page](https://user-images.githubusercontent.com/24392180/57201005-7aa8af00-6f9b-11e9-99f5-48399cf0fd5a.gif)
 
+Also center frequency can be changed real time via the `SeekBar` view below the graph.
+
 ### Frequency Scanner
 
+Frequency scanner aims to find the peaks on a power spectrum for miscellaneous applications with using a sorting method. For using this feature on the mobile app, it's enough to set `frequency range` and `sensitivity` parameters. Afterall, RTLion would find the maximum power (dB) values on the graph and add them to the `ListView` which is located below the graph and can be real time tracked.
+
+Also it's possible to change `sensitivity` value while the scanning operation continues. 
+
 ![RTLion Scanner Page](https://user-images.githubusercontent.com/24392180/57201340-79c64c00-6fa0-11e9-9675-1897a4d2ed69.gif)
+
+RTLion provides a feature for showing the graph of scanned value. After the scan finished or during the scan, choosing a value from the `scanned values ListView` and selecting the `Show Graph` option will redirect you to the `graph page` and it shows you the spectrum as soon as the scan operation stops or the RTL-SDR device prepares.
 
 ![RTLion Show Graph Option](https://user-images.githubusercontent.com/24392180/57201318-10463d80-6fa0-11e9-9e19-9b1b18328b8d.gif)
 
 ## IoT
 
 ## TODO(s)
+
+_Considerable for future versions._
+* Improve the mobility for graph image sizes
+* Fix step size calculation for not wide frequency ranges
+* Fix server connection issues which caused by the WebView
+* Fix cache and hardware acceleration issues of the WebView
+* Show more server/client info on the main menu
+* Test other Android devices for the xml layouts 
 
 ## Releases
 
