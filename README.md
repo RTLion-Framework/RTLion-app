@@ -68,7 +68,9 @@ _Considerable for future versions._
 * Show more server/client info on the main menu
 * Test other Android devices for the xml layouts 
 
-## Releases
+## APK
+
+[Download APK](https://github.com/RTLion-Framework/RTLion-app/raw/master/app/dist/rtlion-app.apk)
 
 ## Contribution
 
