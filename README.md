@@ -72,7 +72,7 @@ _Considerable for future versions._
 
 ## Contribution
 
-RTLion Project is open to contributions.[*](https://github.com/RTLion-Framework/RTLion/CONTRIBUTING.md)
+RTLion Project is open to contributions.[*](https://github.com/RTLion-Framework/RTLion-app/CONTRIBUTING.md)
 
 ## License
 
