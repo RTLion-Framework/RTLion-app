@@ -24,11 +24,21 @@ RTLion server must be running in order to use the mobile application due to the 
 
 After installing the [latest release](https://github.com/KeyLo99/RTLion-app#releases) of the app, connection to the server can be made on the main menu using the host and port information.
 
+![RTLion Main Menu](https://user-images.githubusercontent.com/24392180/57201478-15a48780-6fa2-11e9-9a72-c897a2bfd33e.gif)
+
 ### Updating Settings
+
+![RTLion Settings Page](https://user-images.githubusercontent.com/24392180/57200824-1553be80-6f99-11e9-905c-592a35ce33aa.gif)
 
 ### Power Spectrum 
 
+![RTLion Graph Page](https://user-images.githubusercontent.com/24392180/57201005-7aa8af00-6f9b-11e9-99f5-48399cf0fd5a.gif)
+
 ### Frequency Scanner
+
+![RTLion Scanner Page](https://user-images.githubusercontent.com/24392180/57201340-79c64c00-6fa0-11e9-9675-1897a4d2ed69.gif)
+
+![RTLion Show Graph Option](https://user-images.githubusercontent.com/24392180/57201318-10463d80-6fa0-11e9-9e19-9b1b18328b8d.gif)
 
 ## IoT
 
