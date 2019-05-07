@@ -67,6 +67,7 @@ _Considerable for future versions._
 * Fix cache and hardware acceleration issues of the WebView
 * Show more server/client info on the main menu
 * Test other Android devices for the xml layouts 
+* Multiple language support
 
 ## APK
 
