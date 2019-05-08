@@ -18,7 +18,7 @@
 
 RTLion server must be running in order to use the mobile application due to the need of server connection. For more info about command line arguments and framework, see [RTLion Framework](https://github.com/KeyLo99/RTLion) repository.
 
-![Starting RTLion Server](https://user-images.githubusercontent.com/24392180/57158647-9b7ed200-6dec-11e9-9466-7fb5a1690cd8.gif)
+![Starting RTLion Server](https://user-images.githubusercontent.com/24392180/57334572-cd63a180-7128-11e9-8a9b-291b065d5f25.gif)
 
 ### Connecting to the Server
 
