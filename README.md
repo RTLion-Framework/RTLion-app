@@ -58,6 +58,16 @@ RTLion provides a feature for showing the graph of scanned value. After the scan
 
 ## IoT
 
+There is more information about the concept at the [RTLion Framework Repository](https://github.com/RTLion-Framework/RTLion#iot).
+
+### SSH 
+
+RTLion server can be started after establishing SSH connection to Raspberry Pi as shown below.
+
+![Starting RTLion Server on SSH](https://user-images.githubusercontent.com/24392180/57569099-c8d50c80-73f8-11e9-9a73-80fc2a5476c9.jpg)
+
+### Accessing the Server
+
 ## TODO(s)
 
 _Considerable for future versions._
