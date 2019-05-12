@@ -10,19 +10,19 @@
 <a href="https://github.com/RTLion-Framework/RTLion-app/network"><img src="https://img.shields.io/github/forks/RTLion-Framework/RTLion-app.svg"/></a>
 <a href="https://github.com/RTLion-Framework/RTLion-app/blob/master/LICENSE"><img src="https://img.shields.io/github/license/RTLion-Framework/RTLion-app.svg"/></a>
 
-[RTLion](https://github.com/KeyLo99/RTLion) is a framework for `RTL2832` based `DVB-T` receivers and it supports various features such as `spectral density visualizing` and `frequency scanning` remotely. As well as the Web interface, using RTLion features is possible via the mobile application. All framework features are currently available on the app.
+[RTLion](https://github.com/RTLion-Framework/RTLion) is a framework for `RTL2832` based `DVB-T` receivers and it supports various features such as `spectral density visualizing` and `frequency scanning` remotely. As well as the Web interface, using RTLion features is possible via the mobile application. All framework features are currently available on the app.
 
 ## Usage
 
 ### Starting RTLion Server
 
-RTLion server must be running in order to use the mobile application due to the need of server connection. For more info about command line arguments and framework, see [RTLion Framework](https://github.com/KeyLo99/RTLion) repository.
+RTLion server must be running in order to use the mobile application due to the need of server connection. For more info about command line arguments and framework, see [RTLion Framework](https://github.com/RTLion-Framework/RTLion) repository.
 
 ![Starting RTLion Server](https://user-images.githubusercontent.com/24392180/57334572-cd63a180-7128-11e9-8a9b-291b065d5f25.gif)
 
 ### Connecting to the Server
 
-After installing the [latest release](https://github.com/KeyLo99/RTLion-app#releases) of the app, connection to the server can be made on the main menu using the host and port information.
+After installing the [latest release](https://github.com/RTLion-Framework/RTLion-app#releases) of the app, connection to the server can be made on the main menu using the host and port information.
 
 ![RTLion Main Menu](https://user-images.githubusercontent.com/24392180/57201478-15a48780-6fa2-11e9-9a72-c897a2bfd33e.gif)
 
