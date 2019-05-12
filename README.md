@@ -58,7 +58,9 @@ RTLion provides a feature for showing the graph of scanned value. After the scan
 
 ## IoT
 
-There is more information about the concept at the [RTLion Framework Repository](https://github.com/RTLion-Framework/RTLion#iot).
+There is more information about the concept at the [RTLion Framework](https://github.com/RTLion-Framework/RTLion#iot) repository.
+
+![RTLion - IoT RTL-SDR](https://user-images.githubusercontent.com/24392180/57582244-a4456700-74c2-11e9-8735-7a97b8f89629.png)
 
 ### SSH 
 
@@ -67,6 +69,8 @@ RTLion server can be started after establishing SSH connection to Raspberry Pi a
 ![Starting RTLion Server on SSH](https://user-images.githubusercontent.com/24392180/57569099-c8d50c80-73f8-11e9-9a73-80fc2a5476c9.jpg)
 
 ### Accessing the Server
+
+After starting the RTLion server, RTL-SDR functions can be accessed via the Android application.
 
 ## TODO(s)
 
