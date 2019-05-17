@@ -51,8 +51,8 @@ public class ScannerPageFrag {
     private int minSens = 1,
                 maxSens = 10,
                 sensStep = 1,
-                defaultSensivity = 2,
-                currentSensivity = 2,
+                defaultSensitivity = 4,
+                currentSensitivity = 4,
                 centerFreq, minFreq, maxFreq,
                 stepSize, selectedFrequency,
                 numRead, maxRead;
@@ -64,10 +64,10 @@ public class ScannerPageFrag {
     private Bitmap fftBitmap;
     private Object[] uiObjects;
 
-    private TextView txvScannerWarning, txvScanSensivity, txvFreqRange, txvScanPerc;
+    private TextView txvScannerWarning, txvScanSensitivity, txvFreqRange, txvScanPerc;
     private LinearLayout llScanner, llScanResults;
     private SwipeRefreshLayout swpScanner;
-    private SeekBar sbScanSensivity;
+    private SeekBar sbScanSensitivity;
     private TextInputLayout tilFreqMin, tilFreqMax;
     private EditText edtxFreqMin, edtxFreqMax;
     private Button btnStartScan;
@@ -86,8 +86,8 @@ public class ScannerPageFrag {
         llScanner = viewGroup.findViewById(R.id.llScanner);
         llScanResults = viewGroup.findViewById(R.id.llScanResults);
         swpScanner = viewGroup.findViewById(R.id.swpScanner);
-        sbScanSensivity = viewGroup.findViewById(R.id.sbScanSensivity);
-        txvScanSensivity = viewGroup.findViewById(R.id.txvScanSensivity);
+        sbScanSensitivity = viewGroup.findViewById(R.id.sbScanSensitivity);
+        txvScanSensitivity = viewGroup.findViewById(R.id.txvScanSensitivity);
         txvScanPerc = viewGroup.findViewById(R.id.txvScanPerc);
         tilFreqMin = viewGroup.findViewById(R.id.tilFreqMin);
         tilFreqMax = viewGroup.findViewById(R.id.tilFreqMax);
@@ -100,9 +100,9 @@ public class ScannerPageFrag {
         viewResSeparate = viewGroup.findViewById(R.id.viewResSeparate);
     }
     private void initSeekBar(){
-        sbScanSensivity.setOnSeekBarChangeListener(new sbScanSensivity_onChange());
-        sbScanSensivity.setMax((maxSens - minSens) / sensStep);
-        sbScanSensivity.setProgress(defaultSensivity);
+        sbScanSensitivity.setOnSeekBarChangeListener(new sbScanSensitivity_onChange());
+        sbScanSensitivity.setMax((maxSens - minSens) / sensStep);
+        sbScanSensitivity.setProgress(defaultSensitivity);
     }
     public void initialize(){
         initViews();
@@ -201,7 +201,7 @@ public class ScannerPageFrag {
             alertDialog.show();
         }
     }
-    private class sbScanSensivity_onChange implements SeekBar.OnSeekBarChangeListener{
+    private class sbScanSensitivity_onChange implements SeekBar.OnSeekBarChangeListener{
         @Override
         public void onStartTrackingTouch(SeekBar seekBar) {
             ((XViewPager)uiObjects[0]).allowSwiping(false);
@@ -212,8 +212,8 @@ public class ScannerPageFrag {
         }
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-            currentSensivity = minSens + (progress * sensStep);
-            txvScanSensivity.setText(String.valueOf(currentSensivity));
+            currentSensitivity = minSens + (progress * sensStep);
+            txvScanSensitivity.setText(String.valueOf(currentSensitivity));
         }
     }
     private class swpScanner_onRefresh implements SwipeRefreshLayout.OnRefreshListener{
@@ -341,7 +341,7 @@ public class ScannerPageFrag {
         }
     }
     private void scanFrequencyRange(){
-        jsInterface.getScannedValues(hostAddr, String.valueOf(currentSensivity),
+        jsInterface.getScannedValues(hostAddr, String.valueOf(currentSensitivity),
                 new JSInterface.JSOutputInterface() {
             private void changeProgress(){
                 numRead++;
