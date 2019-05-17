@@ -42,7 +42,6 @@
     <string name="freq_max">Max. Frequency</string>
     <string name="start_scan">Start Scan</string>
     <string name="sensivity">Sensivity</string>
-    <string name="invalid_dbvals">Invalid dB values.</string>
     <string name="clipboard_copy">Copied to clipboard.</string>
     <string name="framework_busy">RTLion Framework is busy.</string>
     <string name="app_restart">Restarting Framework&#8230;</string>

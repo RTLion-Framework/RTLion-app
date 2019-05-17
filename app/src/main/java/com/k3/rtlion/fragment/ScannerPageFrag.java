@@ -247,7 +247,6 @@ public class ScannerPageFrag {
             tilFreqMax.setVisibility(View.VISIBLE);
             btnStartScan.setText(context.getString(R.string.start_scan));
             viewsHidden = false;
-            calculateThreshold();
         }
     }
     private void enableViews(boolean state) {
@@ -259,24 +258,6 @@ public class ScannerPageFrag {
     private void showSelectedFreqGraph(){
         ((XViewPager)uiObjects[0]).setCurrentItem(2);
         ((GraphPageFrag)uiObjects[3]).showGraph(selectedFrequency);
-    }
-    private void calculateThreshold(){
-        try {
-            if(dbRes.size() == 0)
-                throw new Exception(context.getString(R.string.invalid_dbvals));
-            int dbSum = 0;
-            for (int i = 0; i < dbRes.size(); i++) {
-                dbSum += (int) Double.parseDouble(dbRes.get(i));
-            }
-            int dbAvg = dbSum / dbRes.size();
-            for (int i = 0; i < freqRes.size(); i++) {
-                if (Math.abs((int) Double.parseDouble(dbRes.get(i))) <= Math.abs(dbAvg / 2))
-                    freqRes.remove(freqRes.get(i));
-            }
-            arrayAdapterRes.notifyDataSetChanged();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
     }
     private class btnStartScan_onClick implements Button.OnClickListener{
         @Override
