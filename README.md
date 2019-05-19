@@ -10,6 +10,10 @@
 <a href="https://github.com/RTLion-Framework/RTLion-app/network"><img src="https://img.shields.io/github/forks/RTLion-Framework/RTLion-app.svg"/></a>
 <a href="https://github.com/RTLion-Framework/RTLion-app/blob/master/LICENSE"><img src="https://img.shields.io/github/license/RTLion-Framework/RTLion-app.svg"/></a>
 
+[<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png"
+     alt="Get it on Google Play"
+     height="80">](https://play.google.com/store/apps/details?id=com.k3.rtlion)
+
 [RTLion](https://github.com/RTLion-Framework/RTLion) is a framework for `RTL2832` based `DVB-T` receivers and it supports various features such as `spectral density visualizing` and `frequency scanning` remotely. As well as the Web interface, using RTLion features is possible via the mobile application. All framework features are currently available on the app.
 
 ## Usage
